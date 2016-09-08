@@ -11,3 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+/.idea/*
+passenger.3000.pid.lock
+passenger.3000.pid
+.DS_Store
