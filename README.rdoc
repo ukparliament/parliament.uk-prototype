@@ -5,7 +5,8 @@ A couple of things to bear in mind:
 * check the gemfile for gems that might not be needed (e.g. sparql)
 * docker has been set up to work locally but check docker-compose, dockerfile and makefile
 and change "members-prototype" to the name of the new app
-
+* change the name of the app inside the json file in aws_ecs and also possibly change the
+host_port in there
 
 
 

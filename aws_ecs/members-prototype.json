@@ -1,0 +1,27 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "MembersPrototype",
+      "image": "ukpds/members-prototype",
+      "cpu": 10,
+      "memory": 512,
+      "essential": true,
+      "command": [],
+      "portMappings": [
+        {
+          "hostPort": 83,
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "MembersPrototype",
+          "awslogs-region": "eu-west-1"
+        }
+      }
+    }
+  ],
+  "family": "MembersPrototype"
+}
