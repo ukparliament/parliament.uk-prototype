@@ -26,3 +26,4 @@ end
 # Gems required for Docker containers
 gem 'passenger'
 gem 'therubyracer'
+gem 'web-console'
