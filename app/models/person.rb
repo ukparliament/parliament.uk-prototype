@@ -2,8 +2,8 @@ class Person
   attr_accessor :name, :id
 
   def initialize(attributes)
-    @id = attributes[:id]
-    @name = attributes[:name]
+    @id = attributes["id"]
+    @name = attributes["name"]
 
     # attributes.each do |k,v|
     #   instance_variable_set("@#{k}", v) unless v.nil?

@@ -15,3 +15,9 @@ PEOPLE_HASH = { people: [
       name: 'Member5'
     }
 ] }
+
+PERSON_ONE_HASH = { people: [
+    { id: '1',
+      name: 'Member1'
+    }
+] }
