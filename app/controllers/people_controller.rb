@@ -4,7 +4,7 @@ require 'json'
 class PeopleController < ApplicationController
 
   def index
-    endpoint_url = "#{MembersPrototype::Application.config.endpoint}.json"
+    endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people.json"
     response = Net::HTTP.get(URI(endpoint_url))
     data = JSON.parse(response)
     @people = data.map do |person_hash|
