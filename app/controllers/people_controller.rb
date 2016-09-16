@@ -8,7 +8,6 @@ class PeopleController < ApplicationController
     response = Net::HTTP.get(URI(endpoint_url))
     data = JSON.parse(response)
     @people = serialize_people(data)
-
   end
 
   def show
