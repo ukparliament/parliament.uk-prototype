@@ -13,6 +13,9 @@ class PeopleController < ApplicationController
 
   def show
     endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people/#{params[:id]}.json"
+    response = Net::HTTP.get(URI(endpoint_url))
+    data = JSON.parse(response)
+    @person = serialize_people(data)[0]
   end
 
   private
