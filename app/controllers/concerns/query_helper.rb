@@ -12,7 +12,15 @@ module QueryHelper
   def format(data)
     respond_to do |format|
       format.html
-      format.any(:xml, :json, :ttl) { render request.format.to_sym => data }
+      format.any(:xml, :json) { render request.format.to_sym => data }
+      format.ttl {
+        result = ""
+        data.each_statement do |statement|
+          result << RDF::NTriples::Writer.serialize(statement)
+        end
+
+        render :text => result
+      }
     end
   end
 

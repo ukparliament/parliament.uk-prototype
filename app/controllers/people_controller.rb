@@ -7,7 +7,7 @@ class PeopleController < ApplicationController
   def index
     endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people"
     data = get_data(endpoint_url)
-    @people = serialize_people(data)
+    @people = serialize_people(data) if(request.format.to_sym.to_s == 'html')
     format(data)
   end
 

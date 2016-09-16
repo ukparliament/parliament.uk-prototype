@@ -35,4 +35,7 @@ PEOPLE_STATEMENTS.each do |statement|
   PEOPLE_GRAPH << statement
 end
 
+PERSON_ONE_GRAPH = RDF::Graph.new
+PERSON_ONE_GRAPH << PEOPLE_STATEMENTS[0]
+
 PEOPLE_JSON_LD = "{\"@graph\":[{\"@id\":\"http://id.ukpds.org/member/1\",\"http://schema.org/name\":\"Member1\"},{\"@id\":\"http://id.ukpds.org/member/2\",\"http://schema.org/name\":\"Member2\"},{\"@id\":\"http://id.ukpds.org/member/3\",\"http://schema.org/name\":\"Member3\"},{\"@id\":\"http://id.ukpds.org/member/4\",\"http://schema.org/name\":\"Member4\"},{\"@id\":\"http://id.ukpds.org/member/5\",\"http://schema.org/name\":\"Member5\"}]}"
