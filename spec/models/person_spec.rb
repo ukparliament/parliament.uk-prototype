@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Person do
   describe 'attributes of a Person' do
-    let(:person) { Person.new({ id: '123', name: 'John Doe' }) }
+    let(:person) { Person.new({ "id" => '123', "name" => 'John Doe' }) }
 
     it 'has a name attribute' do
       expect(person.name).to eq 'John Doe'

@@ -10,7 +10,13 @@ feature 'index page' do
       visit people_path
     end
 
-    scenario 'should show list of all people' do
+    scenario 'should show a list of all people' do
+      expect(page).to have_content('People')
+      expect(page).to have_selector('li', count: 5)
+    end
+
+    scenario 'the first person in the list should have name Member1' do
+      expect(page).to have_link('Member1')
     end
   end
 end
