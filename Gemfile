@@ -23,6 +23,7 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'webmock'
 end
 
 # Gems required for Docker containers

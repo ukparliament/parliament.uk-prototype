@@ -6,7 +6,7 @@ feature 'index page' do
       visit root_path
     end
 
-    xscenario 'should show list of all people' do
+    scenario 'should show list of all people' do
     end
   end
 end
