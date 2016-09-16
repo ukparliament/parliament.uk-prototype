@@ -7,10 +7,12 @@ class PeopleController < ApplicationController
   def index
     endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people"
     data = get_data(endpoint_url)
-    format(endpoint_url)
+    format(data)
   end
 
   def show
-    endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people/#{params[:id]}.json"
+    endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people/#{params[:id]}"
+    data = get_data(endpoint_url)
+    format(data)
   end
 end
