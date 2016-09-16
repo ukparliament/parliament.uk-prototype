@@ -21,6 +21,7 @@ class PeopleController < ApplicationController
   private
 
   def serialize_people(data)
+    data = JSON.parse(data)
     data["people"].map do |person_data|
       hash_data = person_data
       Person.new(hash_data)
