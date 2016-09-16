@@ -3,15 +3,13 @@ module QueryHelper
 
   def get_data(uri)
     respond_to do |format|
-      request_uri = "#{endpoint}.#{format}"
+      request_uri = "#{uri}.#{format}"
     end
     Net::HTTP.get(URI(request_uri))
   end
 
-  def format(endpoint)
+  def format(data)
     respond_to do |format|
-      request_uri = "#{endpoint}.#{format}"
-      response = Net::HTTP.get(URI(request_uri))
       format.html
       format.any(:xml, :json, :ttl) { render request.format.to_sym => response }
     end

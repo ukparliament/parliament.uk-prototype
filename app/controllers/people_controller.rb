@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
   include QueryHelper
 
   def index
-    endpoint_url = "#{MembersPrototype::Application.config.endpoint}"
+    endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people"
     data = get_data(endpoint_url)
     format(data)
   end
