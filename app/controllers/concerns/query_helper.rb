@@ -11,7 +11,7 @@ module QueryHelper
   def format(data)
     respond_to do |format|
       format.html
-      format.any(:xml, :json, :ttl) { render request.format.to_sym => response }
+      format.any(:xml, :json, :ttl) { render request.format.to_sym => data }
     end
   end
 end
