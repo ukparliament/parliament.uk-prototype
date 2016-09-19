@@ -2,11 +2,24 @@ module QueryHelper
   require 'net/http'
 
   def get_data(uri)
-    request_uri = respond_to do |format|
-      format.html { "#{uri}.json"}
-      format.any(:xml, :json, :ttl) { "#{uri}.#{request.format.to_sym.to_s}" }
+    respond_to do |format|
+      format.html {
+        json_request_uri = "#{uri}.json"
+        ttl_request_uri = "#{uri}.ttl"
+        graph = query(ttl_request_uri)
+        json = query(json_request_uri)
+
+        { graph: graph, json: json }
+      }
+      format.any(:xml, :json, :ttl) {
+        request_uri = "#{uri}.#{request.format.to_sym.to_s}"
+        query(request_uri)
+      }
     end
-    Net::HTTP.get(URI(request_uri))
+  end
+
+  def query(uri)
+    Net::HTTP.get(URI(uri))
   end
 
   def format(data)
