@@ -4,6 +4,7 @@ describe PeopleController do
   let(:json) { JSON.parse(response.body) }
   let(:xml) { Nokogiri::XML(response.body) }
   let(:ttl) { RDF::NTriples::Reader.new(response.body) }
+  let (:html) { response.body }
 
   describe "GET index" do
 
@@ -19,7 +20,7 @@ describe PeopleController do
         expect(response.content_type).to eq 'application/json'
       end
 
-      it 'returns only one person in the graph' do
+      it 'returns only one person in the data' do
         expect(json['people'].length).to eq 5
       end
 
@@ -40,7 +41,7 @@ describe PeopleController do
         expect(response.content_type).to eq 'application/xml'
       end
 
-      it 'returns only one person in the graph' do
+      it 'returns only one person in the data' do
         expect(xml.xpath('//person').count).to eq 5
       end
 
@@ -59,7 +60,7 @@ describe PeopleController do
         expect(response.content_type).to eq 'text/turtle'
       end
 
-      it 'returns only one person in the graph' do
+      it 'returns only one person in the data' do
         expect(ttl.count).to eq 5
       end
 
@@ -87,7 +88,7 @@ describe PeopleController do
         expect(response.content_type).to eq 'application/json'
       end
 
-      it 'returns only one person in the graph' do
+      it 'returns only one person in the data' do
         expect(json['people'].length).to eq 1
       end
 
@@ -108,7 +109,7 @@ describe PeopleController do
         expect(response.content_type).to eq 'application/xml'
       end
 
-      it 'returns only one person in the graph' do
+      it 'returns only one person in the data' do
         expect(xml.xpath('//person').count).to eq 1
       end
 
@@ -127,7 +128,7 @@ describe PeopleController do
         expect(response.content_type).to eq 'text/turtle'
       end
 
-      it 'returns only one person in the graph' do
+      it 'returns only one person in the data' do
         expect(ttl.count).to eq 1
       end
 
@@ -137,6 +138,24 @@ describe PeopleController do
     end
 
     context 'when the requested format is HTML' do
+      render_views
+
+      before(:each) do
+        stub_request(:get, "http://members-query.ukpds.org/people/1.json").
+            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
+            to_return(:status => 200, :body => PERSON_ONE_HASH.to_json, :headers => {})
+
+        get 'show', id: '1', format: :html
+      end
+
+      it 'returns OK reponse with correct format' do
+        expect(response.status).to eq 200
+        expect(response.content_type).to eq 'text/html'
+      end
+
+      it 'returns the correct data for the person' do
+        expect(response.body).to match(/<h1>Member1<\/h1>/)
+      end
     end
   end
 end
