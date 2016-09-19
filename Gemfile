@@ -30,6 +30,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'webmock'
+  gem 'simplecov', require: false
 end
 
 # Gems required for Docker containers
