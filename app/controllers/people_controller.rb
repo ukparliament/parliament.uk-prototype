@@ -7,14 +7,22 @@ class PeopleController < ApplicationController
   def index
     endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people"
     data = get_data(endpoint_url)
-    @people = serialize_people(data) if(request.format.to_sym.to_s == 'html')
+    if request.format.to_sym.to_s == 'html'
+      @people = serialize_people(data[:json])
+      @json_ld = json_ld(data[:graph])
+    end
+
     format(data)
   end
 
   def show
     endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people/#{params[:id]}"
     data = get_data(endpoint_url)
-    @person = serialize_people(data)[0] if(request.format.to_sym.to_s == 'html')
+    if request.format.to_sym.to_s == 'html'
+      @person = serialize_people(data[:json])[0]
+      @json_ld = json_ld(data[:graph])
+    end
+
     format(data)
   end
 
