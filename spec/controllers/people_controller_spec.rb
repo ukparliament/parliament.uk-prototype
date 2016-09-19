@@ -75,9 +75,15 @@ describe PeopleController do
       render_views
 
       before(:each) do
-        stub_request(:get, "http://members-query.ukpds.org/people.json").
-            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
-            to_return(:status => 200, :body => PEOPLE_HASH.to_json, :headers => {})
+        # stub_request(:get, "http://members-query.ukpds.org/people.json").
+        #     with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
+        #     to_return(:status => 200, :body => PEOPLE_HASH.to_json, :headers => {})
+        #
+        # stub_request(:get, "http://members-query.ukpds.org/people.ttl").
+        #     with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
+        #     to_return(:status => 200, :body => "", :headers => {})
+
+        allow(controller).to receive(:get_data).and_return({ graph: PEOPLE_GRAPH, json: PEOPLE_HASH.to_json })
 
         get 'index', format: :html
       end
@@ -89,6 +95,10 @@ describe PeopleController do
 
       it 'returns the correct data for the first person' do
         expect(response.body).to match(/<a href="\/people\/1">Member1<\/a>/)
+      end
+
+      it 'returns the correct json_ld in the response body' do
+        expect(response.body).to match(/{"@id":"http:\/\/id.ukpds.org\/member\/1","http:\/\/schema.org\/name":"Member1"},{"@id":"http:\/\/id.ukpds.org\/member\/2","http:\/\/schema.org\/name":"Member2"},{"@id":"http:\/\/id.ukpds.org\/member\/3","http:\/\/schema.org\/name":"Member3"},{"@id":"http:\/\/id.ukpds.org\/member\/4","http:\/\/schema.org\/name":"Member4"},{"@id":"http:\/\/id.ukpds.org\/member\/5","http:\/\/schema.org\/name":"Member5"}/)
       end
     end
 
@@ -164,9 +174,15 @@ describe PeopleController do
       render_views
 
       before(:each) do
-        stub_request(:get, "http://members-query.ukpds.org/people/1.json").
-            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
-            to_return(:status => 200, :body => PERSON_ONE_HASH.to_json, :headers => {})
+        # stub_request(:get, "http://members-query.ukpds.org/people/1.json").
+        #     with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
+        #     to_return(:status => 200, :body => PERSON_ONE_HASH.to_json, :headers => {})
+        #
+        # stub_request(:get, "http://members-query.ukpds.org/people/1.ttl").
+        #     with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
+        #     to_return(:status => 200, :body => "", :headers => {})
+
+        allow(controller).to receive(:get_data).and_return({ graph: PERSON_ONE_GRAPH, json: PERSON_ONE_HASH.to_json })
 
         get 'show', id: '1', format: :html
       end
@@ -179,6 +195,10 @@ describe PeopleController do
       it 'returns the correct data for the person' do
         expect(response.body).to match(/<h1>Member1<\/h1>/)
         expect(response.body).not_to have_content('Member2')
+      end
+
+      it 'returns the correct json_ld in the response body' do
+        expect(response.body).to match(/{"@id":"http:\/\/id.ukpds.org\/member\/1","http:\/\/schema.org\/name":"Member1"}/)
       end
     end
   end
