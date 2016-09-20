@@ -2,14 +2,14 @@ require 'net/http'
 require 'json'
 
 class PeopleController < ApplicationController
-  include QueryHelper
 
   def index
     endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people"
     data = get_data(endpoint_url)
     if request.format.to_sym.to_s == 'html'
       @people = serialize_people(data[:json])
-      @json_ld = json_ld(data[:graph])
+      graph = create_graph(data[:graph])
+      @json_ld = json_ld(graph)
     end
 
     format(data)
@@ -20,7 +20,8 @@ class PeopleController < ApplicationController
     data = get_data(endpoint_url)
     if request.format.to_sym.to_s == 'html'
       @person = serialize_people(data[:json])[0]
-      @json_ld = json_ld(data[:graph])
+      graph = create_graph(data[:graph])
+      @json_ld = json_ld(graph)
     end
 
     format(data)
@@ -34,5 +35,13 @@ class PeopleController < ApplicationController
       hash_data = person_data
       Person.new(hash_data)
     end
+  end
+
+  def create_graph(ttl_data)
+    RDF::NTriples::Reader.new(ttl_data) do |reader|
+        reader.each_statement do |statement|
+          RDF::Graph.new << statement
+        end
+      end
   end
 end

@@ -9,8 +9,8 @@ describe PeopleController do
 
     context 'when the requested format is JSON' do
       before(:each) do
-        stub_request(:get, "http://members-query.ukpds.org/people.json").
-            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
+        stub_request(:get, "#{MembersPrototype::Application.config.endpoint}/people.json").
+            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{MembersPrototype::Application.config.endpoint_host}", 'User-Agent'=>'Ruby'}).
             to_return(:status => 200, :body => PEOPLE_HASH.to_json, :headers => {})
         get 'index',format: :json
       end
@@ -31,8 +31,8 @@ describe PeopleController do
 
     context 'when the requested format is XML' do
       before(:each) do
-        stub_request(:get, "http://members-query.ukpds.org/people.xml").
-            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
+        stub_request(:get, "#{MembersPrototype::Application.config.endpoint}/people.xml").
+            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{MembersPrototype::Application.config.endpoint_host}", 'User-Agent'=>'Ruby'}).
             to_return(:status => 200, :body => PEOPLE_HASH.to_xml, :headers => {})
         get 'index',format: :xml
       end
@@ -53,7 +53,7 @@ describe PeopleController do
 
     context 'when the requested format is TTL' do
       before(:each) do
-        allow(subject).to receive(:get_data).with('http://members-query.ukpds.org/people').and_return(PEOPLE_GRAPH)
+        allow(subject).to receive(:get_data).with("#{MembersPrototype::Application.config.endpoint}/people").and_return(PEOPLE_GRAPH)
         get 'index', format: :ttl
       end
 
@@ -108,8 +108,8 @@ describe PeopleController do
 
     context 'when the requested format is JSON' do
       before(:each) do
-        stub_request(:get, "http://members-query.ukpds.org/people/1.json").
-            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
+        stub_request(:get, "#{MembersPrototype::Application.config.endpoint}/people/1.json").
+            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{MembersPrototype::Application.config.endpoint_host}", 'User-Agent'=>'Ruby'}).
             to_return(:status => 200, :body => PERSON_ONE_HASH.to_json, :headers => {})
         get 'show', id: '1', format: :json
       end
@@ -130,8 +130,8 @@ describe PeopleController do
 
     context 'when the requested format is XML' do
       before(:each) do
-        stub_request(:get, "http://members-query.ukpds.org/people/1.xml").
-            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
+        stub_request(:get, "#{MembersPrototype::Application.config.endpoint}/people/1.xml").
+            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{MembersPrototype::Application.config.endpoint_host}", 'User-Agent'=>'Ruby'}).
             to_return(:status => 200, :body => PERSON_ONE_HASH.to_xml, :headers => {})
         get 'show', id: '1', format: :xml
       end
@@ -152,7 +152,7 @@ describe PeopleController do
 
     context 'when the requested format is TTL' do
       before(:each) do
-        allow(subject).to receive(:get_data).with('http://members-query.ukpds.org/people/1').and_return(PERSON_ONE_GRAPH)
+        allow(subject).to receive(:get_data).with("#{MembersPrototype::Application.config.endpoint}/people/1").and_return(PERSON_ONE_GRAPH)
         get 'show', id: '1', format: :ttl
       end
 
