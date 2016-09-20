@@ -83,7 +83,7 @@ describe PeopleController do
         #     with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
         #     to_return(:status => 200, :body => "", :headers => {})
 
-        allow(controller).to receive(:get_data).and_return({ graph: PEOPLE_GRAPH, json: PEOPLE_HASH.to_json })
+        allow(controller).to receive(:get_data).and_return({ graph: PEOPLE_TTL, json: PEOPLE_HASH.to_json })
 
         get 'index', format: :html
       end
@@ -182,7 +182,7 @@ describe PeopleController do
         #     with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'members-query.ukpds.org', 'User-Agent'=>'Ruby'}).
         #     to_return(:status => 200, :body => "", :headers => {})
 
-        allow(controller).to receive(:get_data).and_return({ graph: PERSON_ONE_GRAPH, json: PERSON_ONE_HASH.to_json })
+        allow(controller).to receive(:get_data).and_return({ graph: PERSON_ONE_TTL, json: PERSON_ONE_HASH.to_json })
 
         get 'show', id: '1', format: :html
       end

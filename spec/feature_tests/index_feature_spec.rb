@@ -13,7 +13,7 @@ feature 'index page' do
 
       # perhaps stub get_data here instead
 
-      allow_any_instance_of(PeopleController).to receive(:get_data).and_return({ graph: PEOPLE_GRAPH, json: PEOPLE_HASH.to_json })
+      allow_any_instance_of(PeopleController).to receive(:get_data).and_return({ graph: PEOPLE_TTL, json: PEOPLE_HASH.to_json })
 
       visit people_path
     end
