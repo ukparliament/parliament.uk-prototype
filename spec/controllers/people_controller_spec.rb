@@ -83,8 +83,6 @@ describe PeopleController do
             with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{MembersPrototype::Application.config.endpoint_host}", 'User-Agent'=>'Ruby'}).
             to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
 
-        allow(controller).to receive(:get_data).and_return({ graph: PEOPLE_TTL, json: PEOPLE_HASH.to_json })
-
         get 'index', format: :html
       end
 
