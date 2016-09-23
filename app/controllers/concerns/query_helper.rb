@@ -33,9 +33,6 @@ module QueryHelper
             result << RDF::NTriples::Writer.serialize(statement)
           end
         end
-        # data.each_statement do |statement|
-        #   result << RDF::NTriples::Writer.serialize(statement)
-        # end
 
         render :text => result
       }
