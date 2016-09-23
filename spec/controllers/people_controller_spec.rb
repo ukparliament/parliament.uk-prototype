@@ -53,7 +53,7 @@ describe PeopleController do
 
     context 'when the requested format is TTL' do
       before(:each) do
-        allow(subject).to receive(:get_data).with("#{MembersPrototype::Application.config.endpoint}/people").and_return(PEOPLE_GRAPH)
+        allow(subject).to receive(:get_data).with("#{MembersPrototype::Application.config.endpoint}/people").and_return(PEOPLE_TTL)
         get 'index', format: :ttl
       end
 
@@ -150,7 +150,7 @@ describe PeopleController do
 
     context 'when the requested format is TTL' do
       before(:each) do
-        allow(subject).to receive(:get_data).with("#{MembersPrototype::Application.config.endpoint}/people/1").and_return(PERSON_ONE_GRAPH)
+        allow(subject).to receive(:get_data).with("#{MembersPrototype::Application.config.endpoint}/people/1").and_return(PERSON_ONE_TTL)
         get 'show', id: '1', format: :ttl
       end
 
