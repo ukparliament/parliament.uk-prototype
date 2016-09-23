@@ -28,9 +28,14 @@ module QueryHelper
       format.any(:xml, :json) { render request.format.to_sym => data }
       format.ttl {
         result = ""
-        data.each_statement do |statement|
-          result << RDF::NTriples::Writer.serialize(statement)
+        RDF::Reader.for(:ntriples).new(data) do |reader|
+          reader.each_statement do |statement|
+            result << RDF::NTriples::Writer.serialize(statement)
+          end
         end
+        # data.each_statement do |statement|
+        #   result << RDF::NTriples::Writer.serialize(statement)
+        # end
 
         render :text => result
       }
