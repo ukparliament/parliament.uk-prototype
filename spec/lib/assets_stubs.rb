@@ -1,0 +1,1 @@
+LORD_CARD = '<div class=\"lord-card\" style=\"border: 2px solid red\">\n  <p>\n    <% if local_assigns.include?(:display_name) %>\n        <%= raw display_name %>\n    <% else %>\n        Lord/Baroness display_name\n    <% end %>\n  </p>\n</div>'
