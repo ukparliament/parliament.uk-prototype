@@ -28,15 +28,21 @@ require 'lib/assets_stubs'
 
 RSpec.configure do |config|
   config.before(:each) do
-    stub_request(:get, "https://ukpds-assets.herokuapp.com/components/layout").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukpds-assets.herokuapp.com', 'User-Agent'=>'Ruby'}).
+    stub_request(:get, "#{MembersPrototype::Application.config.assets_endpoint}/components/layout").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{MembersPrototype::Application.config.assets_endpoint_host}", 'User-Agent'=>'Ruby'}).
         to_return(:status => 200, :body => LAYOUT, :headers => {})
   end
 
   config.before(:each) do
-    stub_request(:get, "https://ukpds-assets.herokuapp.com/components/header").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukpds-assets.herokuapp.com', 'User-Agent'=>'Ruby'}).
+    stub_request(:get, "#{MembersPrototype::Application.config.assets_endpoint}/components/header").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{MembersPrototype::Application.config.assets_endpoint_host}", 'User-Agent'=>'Ruby'}).
         to_return(:status => 200, :body => HEADER, :headers => {})
+  end
+
+  config.before(:each) do
+    stub_request(:get, "#{MembersPrototype::Application.config.assets_endpoint}/components/lord_card").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{MembersPrototype::Application.config.assets_endpoint_host}", 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => LORD_CARD, :headers => {})
   end
 
   config.include FactoryGirl::Syntax::Methods
