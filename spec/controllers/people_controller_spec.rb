@@ -180,6 +180,10 @@ describe PeopleController do
             with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{MembersPrototype::Application.config.endpoint_host}", 'User-Agent'=>'Ruby'}).
             to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
 
+        stub_request(:get, "https://ukpds-assets.herokuapp.com/components/lord_card").
+            with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukpds-assets.herokuapp.com', 'User-Agent'=>'Ruby'}).
+            to_return(:status => 200, :body => LORD_CARD, :headers => {})
+
         get 'show', id: '1', format: :html
       end
 
@@ -189,7 +193,7 @@ describe PeopleController do
       end
 
       it 'returns the correct data for the person' do
-        expect(response.body).to match(/<h1>Member1<\/h1>/)
+        expect(response.body).to match(/<p>\\n    \\n        Member1\\n    \\n  <\/p>/)
         expect(response.body).not_to have_content('Member2')
       end
 

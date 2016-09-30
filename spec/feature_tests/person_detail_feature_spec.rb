@@ -11,6 +11,10 @@ feature 'show page' do
           with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{MembersPrototype::Application.config.endpoint_host}", 'User-Agent'=>'Ruby'}).
           to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
 
+      stub_request(:get, "https://ukpds-assets.herokuapp.com/components/lord_card").
+          with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukpds-assets.herokuapp.com', 'User-Agent'=>'Ruby'}).
+          to_return(:status => 200, :body => LORD_CARD, :headers => {})
+
       visit person_path('1')
     end
 

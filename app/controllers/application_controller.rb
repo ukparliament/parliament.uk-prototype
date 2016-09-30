@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_constants
 
   def set_constants
+    @layout = get_template("layout")
     @header = get_template("header")
-    p @header
   end
 end
