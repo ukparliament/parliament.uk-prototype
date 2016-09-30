@@ -189,7 +189,7 @@ describe PeopleController do
       end
 
       it 'returns the correct data for the person' do
-        expect(response.body).to match(/<h1>Member1<\/h1>/)
+        expect(response.body).to match(/<p>\\n    \\n        Member1\\n    \\n  <\/p>/)
         expect(response.body).not_to have_content('Member2')
       end
 
