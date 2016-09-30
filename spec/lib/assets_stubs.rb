@@ -13,5 +13,3 @@ HEADER = '<div class="sitewide-message">
 </header>'
 LAYOUT = '<link rel="stylesheet" href="https://dl.dropboxusercontent.com/s/qn1kh910969ym0x/application.css?dl=0" type="text/css">
 <script src="https://dl.dropbox.com/s/mqn1h16odjvzfxw/application.js?dl=0" type="application/javascript"></script>'
-
-TEMPLATE_STUBS = ["layout", "header", "lord_card"]
