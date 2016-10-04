@@ -11,8 +11,8 @@
   <script type="application/ld+json">
     <%= raw(@json_ld) %>
   </script>
-
+  <%= render inline: @header %>
   <%= yield %>
-
+  <%= render inline: @footer %>
 </body>
 </html>

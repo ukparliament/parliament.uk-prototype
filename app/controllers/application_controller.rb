@@ -14,5 +14,9 @@ class ApplicationController < ActionController::Base
   def set_constants
     @layout = get_template("layout")
     @header = get_template("header")
+    @footer = get_template("footer")
+  end
+
+  def index
   end
 end
