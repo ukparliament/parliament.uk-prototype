@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
     endpoint_url = "#{MembersPrototype::Application.config.endpoint}/people/#{params[:id]}"
     data = get_data(endpoint_url)
     if request.format.to_sym.to_s == 'html'
-      @_lord_card = get_template('lord_card')
+      @_card = get_template('member_card')
       @person = serialize_people(data[:json])[0]
       @json_ld = json_ld(data[:graph])
     end
