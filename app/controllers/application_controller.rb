@@ -15,4 +15,7 @@ class ApplicationController < ActionController::Base
     @layout = get_template("layout")
     @header = get_template("header")
   end
+
+  def index
+  end
 end
