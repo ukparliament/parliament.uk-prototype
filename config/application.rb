@@ -39,7 +39,5 @@ module MembersPrototype
     config.endpoint_host = ENDPOINT_HOST
     config.assets_endpoint = ASSETS_ENDPOINT
     config.assets_endpoint_host = ASSETS_ENDPOINT_HOST
-    config.gem 'json-ld'
-    $VERBOSE = nil
   end
 end
