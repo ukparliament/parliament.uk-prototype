@@ -14,9 +14,6 @@ require "sprockets/railtie"
 ENDPOINT = 'http://members-query.ukpds.org'
 ENDPOINT_HOST = 'members-query.ukpds.org'
 
-ASSETS_ENDPOINT = 'https://ukpds-assets.herokuapp.com'
-ASSETS_ENDPOINT_HOST = 'ukpds-assets.herokuapp.com'
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -37,9 +34,5 @@ module MembersPrototype
     # config.i18n.default_locale = :de
     config.endpoint = ENDPOINT
     config.endpoint_host = ENDPOINT_HOST
-    config.assets_endpoint = ASSETS_ENDPOINT
-    config.assets_endpoint_host = ASSETS_ENDPOINT_HOST
-    config.gem 'json-ld'
-    $VERBOSE = nil
   end
 end

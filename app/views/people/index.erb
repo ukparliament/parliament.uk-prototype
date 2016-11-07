@@ -1,13 +1,11 @@
-<div class="container">
-  <h1>People</h1>
+<h1>People</h1>
 
-  <ul>
-    <% @people.each do |person| %>
+<ul>
+  <% @people.each do |person| %>
       <li>
         <%= link_to person_path(person.id) do %>
-          <% person.name %>
+            <% person.name %>
         <% end %>
       </li>
-    <% end %>
-  </ul>
-</div>
+  <% end %>
+</ul>
