@@ -86,7 +86,11 @@ describe PeopleController do
       end
 
       it 'returns the correct json_ld in the response body' do
-        expect(response.body).to match(/{"@id":"http:\/\/id.ukpds.org\/1","http:\/\/id.ukpds.org\/schema\/dateOfBirth":{"@value":"1947-06-29","@type":"http:\/\/www.w3.org\/2001\/XMLSchema#date"},"http:\/\/id.ukpds.org\/schema\/forename":"Daenerys","http:\/\/id.ukpds.org\/schema\/middleName":"Khaleesi","http:\/\/id.ukpds.org\/schema\/surname":"Targaryen"},{"@id":"http:\/\/id.ukpds.org\/2","http:\/\/id.ukpds.org\/schema\/dateOfBirth":{"@value":"1954-01-12","@type":"http:\/\/www.w3.org\/2001\/XMLSchema#date"},"http:\/\/id.ukpds.org\/schema\/forename":"Arya","http:\/\/id.ukpds.org\/schema\/middleName":"The Blind Girl","http:\/\/id.ukpds.org\/schema\/surname":"Stark"}]/)
+        expect(response.body).to match(/"@id":"http:\/\/id.ukpds.org\/1"/)
+        expect(response.body).to match(/"http:\/\/id.ukpds.org\/schema\/dateOfBirth":{"@value":"1947-06-29","@type":"http:\/\/www.w3.org\/2001\/XMLSchema#date"}/)
+        expect(response.body).to match(/"http:\/\/id.ukpds.org\/schema\/forename":"Daenerys"/)
+        expect(response.body).to match(/"http:\/\/id.ukpds.org\/schema\/middleName":"Khaleesi"/)
+        expect(response.body).to match(/"http:\/\/id.ukpds.org\/schema\/surname":"Targaryen"/)
       end
     end
 
