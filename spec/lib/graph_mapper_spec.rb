@@ -21,6 +21,12 @@ describe GraphMapper do
     end
   end
 
+  describe '#statements_mapper_by_subject' do
+    it 'should return a hash with the mapped predicates and the respective objects from a graph' do
+      expect(extended_class.statements_mapper_by_subject(PEOPLE_GRAPH)).to eq PEOPLE_HASH
+    end
+  end
+
   describe '#get_object_and_predicate' do
     it 'should should return a hash with predicate and object, given an RDF statement' do
       expect(extended_class.get_object_and_predicate(PEOPLE_GRAPH.first)).to eq({ :forename => 'Daenerys' })
