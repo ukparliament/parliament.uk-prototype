@@ -4,7 +4,7 @@
   <% @people.each do |person| %>
       <li>
         <%= link_to person_path(person.id) do %>
-            <% person.name %>
+            <% person.forename %>
         <% end %>
       </li>
   <% end %>
