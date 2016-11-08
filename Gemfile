@@ -9,11 +9,11 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-gem 'rdf'
+gem 'rdf', '2.1.0'
 gem 'rdf-turtle'
 gem 'sparql'
-gem 'json-ld'
 gem 'activesupport'
+gem 'json-ld', '2.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -32,7 +32,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'webmock'
   gem 'simplecov', require: false
-  gem 'vcr'
 end
 
 # Gems required for Docker containers

@@ -61,8 +61,8 @@ describe PeopleController do
         expect(ttl.count).to eq 8
       end
 
-      xit 'returns the correct data for the first person' do
-        expect(ttl.first).to eq PEOPLE_STATEMENTS[0]
+      it 'returns the correct data for the first person' do
+        expect(ttl.first).to eq PEOPLE_GRAPH.first
       end
     end
 
@@ -82,9 +82,8 @@ describe PeopleController do
         expect(response.body).to match(/<a href="\/people\/1">Daenerys<\/a>/)
       end
 
-      xit 'returns the correct json_ld in the response body' do
-        # expect(response.body).to match(/{"@graph":[{"@id":"http://id.ukpds.org/1","http://id.ukpds.org/schema/dateOfBirth":{"@type":"http://www.w3.org/2001/XMLSchema#date","@value":"1947-06-29"},"http://id.ukpds.org/schema/forename":"Daenerys","http://id.ukpds.org/schema/middleName":"Khaleesi","http://id.ukpds.org/schema/surname":"Targaryen"},{"@id":"http://id.ukpds.org/2","http://id.ukpds.org/schema/dateOfBirth":{"@type":"http://www.w3.org/2001/XMLSchema#date","@value":"1954-01-12"},"http://id.ukpds.org/schema/forename":"Arya","http://id.ukpds.org/schema/middleName":"The Blind Girl","http://id.ukpds.org/schema/surname":"Stark"}]}/)
-        # expect(response.body).to match(/{"@id":"http:\/\/id.ukpds.org\/member\/1","http:\/\/schema.org\/name":"Member1"},{"@id":"http:\/\/id.ukpds.org\/member\/2","http:\/\/schema.org\/name":"Member2"},{"@id":"http:\/\/id.ukpds.org\/member\/3","http:\/\/schema.org\/name":"Member3"},{"@id":"http:\/\/id.ukpds.org\/member\/4","http:\/\/schema.org\/name":"Member4"},{"@id":"http:\/\/id.ukpds.org\/member\/5","http:\/\/schema.org\/name":"Member5"}/)
+      it 'returns the correct json_ld in the response body' do
+        expect(response.body).to match(/{"@id":"http:\/\/id.ukpds.org\/1","http:\/\/id.ukpds.org\/schema\/dateOfBirth":{"@value":"1947-06-29","@type":"http:\/\/www.w3.org\/2001\/XMLSchema#date"},"http:\/\/id.ukpds.org\/schema\/forename":"Daenerys","http:\/\/id.ukpds.org\/schema\/middleName":"Khaleesi","http:\/\/id.ukpds.org\/schema\/surname":"Targaryen"},{"@id":"http:\/\/id.ukpds.org\/2","http:\/\/id.ukpds.org\/schema\/dateOfBirth":{"@value":"1954-01-12","@type":"http:\/\/www.w3.org\/2001\/XMLSchema#date"},"http:\/\/id.ukpds.org\/schema\/forename":"Arya","http:\/\/id.ukpds.org\/schema\/middleName":"The Blind Girl","http:\/\/id.ukpds.org\/schema\/surname":"Stark"}]/)
       end
     end
 
