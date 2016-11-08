@@ -8,7 +8,6 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'factory_girl'
 require 'test_stubs/people_json_stub'
-require 'vcr'
 require 'graph_mapper'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -50,9 +49,12 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.before(:each) do
+    stub_request(:get, "#{API_ENDPOINT}/people.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
+  end
 end
 
-VCR.configure do |config|
-  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
-  config.hook_into :webmock
-end
+
+
