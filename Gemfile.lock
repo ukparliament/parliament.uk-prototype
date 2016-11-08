@@ -205,6 +205,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   byebug
   capybara
   factory_girl_rails

@@ -3,6 +3,9 @@ require 'graph_mapper'
 class Person
   extend GraphMapper
 
+
+  # attr_reader:
+
   def initialize(attributes)
     # @id = attributes["id"]
     # @forename = attributes["forename"]

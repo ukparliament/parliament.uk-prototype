@@ -12,6 +12,7 @@ gem 'turbolinks'
 gem 'rdf', '2.1.0'
 gem 'rdf-turtle'
 gem 'sparql'
+gem 'activesupport'
 gem 'json-ld', '2.1.0'
 
 group :development, :test do
