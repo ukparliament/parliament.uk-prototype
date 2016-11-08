@@ -20,4 +20,10 @@ describe GraphMapper do
       expect(extended_class.get_id(RDF::URI.new('http://id.ukpds.org/123'))).to eq '123'
     end
   end
+
+  describe '#get_object_and_predicate' do
+    it 'should should return a hash with predicate and object, given an RDF statement' do
+      expect(extended_class.get_object_and_predicate(PEOPLE_GRAPH.first)).to eq({ :forename => 'Daenerys' })
+    end
+  end
 end

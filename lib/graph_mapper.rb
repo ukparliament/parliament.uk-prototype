@@ -33,7 +33,7 @@ module GraphMapper
 
   def get_object_and_predicate(statement)
     predicate = to_underscore_case(get_id(statement.predicate))
-    {predicate.to_sym => statement.object.to_s}
+    { predicate.to_sym => statement.object.to_s }
   end
 
   def statements_mapper_by_subject(graph)
