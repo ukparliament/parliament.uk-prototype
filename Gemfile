@@ -31,6 +31,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'webmock'
   gem 'simplecov', require: false
+  gem 'vcr'
 end
 
 # Gems required for Docker containers
