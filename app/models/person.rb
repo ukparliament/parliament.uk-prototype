@@ -1,9 +1,7 @@
-require 'graph_serializer'
+require 'graph_mapper'
 
 class Person
-  extend GraphSerializer
-
-  attr_accessor :forename, :id
+  extend GraphMapper
 
   def initialize(attributes)
     # @id = attributes["id"]
@@ -14,6 +12,7 @@ class Person
 
     attributes.each do |k,v|
       instance_variable_set("@#{k}", v) unless v.nil?
+      self.class.send(:attr_reader, k)
     end
 
     # The above might be useful in the future when there are more attributes

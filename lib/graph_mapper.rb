@@ -1,7 +1,7 @@
 require 'vocabulary'
 require 'net/http'
 
-module GraphSerializer
+module GraphMapper
   include Vocabulary
 
   def get_graph_data(uri)
@@ -32,7 +32,7 @@ module GraphSerializer
   # end
 
   def get_object_and_predicate(statement)
-    predicate = get_id(statement.predicate)
+    predicate = to_underscore_case(get_id(statement.predicate))
     {predicate.to_sym => statement.object.to_s}
   end
 
@@ -44,6 +44,10 @@ module GraphSerializer
       end.reduce({}, :merge)
       attributes.merge({id: get_id(subject)})
     end
+  end
+
+  def to_underscore_case(string)
+    string.split('').map { |c| c == c.upcase ? '_' + c.downcase : c }.join('')
   end
 
   # def single_statement_mapper(graph, predicate, object)

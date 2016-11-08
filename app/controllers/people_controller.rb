@@ -1,9 +1,9 @@
 require 'net/http'
 require 'json'
-require 'graph_serializer'
+require 'graph_mapper'
 
 class PeopleController < ApplicationController
-  include GraphSerializer
+  include GraphMapper
 
   def index
     endpoint_url = "#{API_ENDPOINT}/people"
