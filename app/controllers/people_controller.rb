@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
   include GraphMapper
 
   def index
-    endpoint_url = "#{API_ENDPOINT}/people"
+    endpoint_url = "#{API_ENDPOINT}/people.ttl"
     result = get_graph_data(endpoint_url)
     @people = Person.all(result)
     if request.format.to_sym.to_s == 'html'
