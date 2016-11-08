@@ -13,6 +13,7 @@ gem 'rdf'
 gem 'rdf-turtle'
 gem 'sparql'
 gem 'json-ld'
+gem 'activesupport'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -21,8 +21,9 @@ describe PeopleController do
         expect(json.length).to eq 2
       end
 
-      it 'returns the correct id for the second person' do
+      it 'returns the correct id and forename for the second person' do
         expect(json[1]['id']).to eq '2'
+        expect(json[1]['forename']).to eq 'Arya'
       end
     end
 
@@ -36,12 +37,13 @@ describe PeopleController do
         expect(response.content_type).to eq 'application/xml'
       end
 
-      it 'returns 2 people in the data' do
-        expect(xml.xpath('//person').count).to eq 2
+      it 'returns 2 people objects in the data' do
+        expect(xml.xpath('//object').count).to eq 2
       end
 
-      xit 'returns the correct id for the person' do
-        expect(xml.xpath('//person')[1].children.children[0].content).to eq '2'
+      it 'returns the correct id and forename for the second person' do
+        expect(xml.xpath('//object')[1].children.children[4].content).to eq '2'
+        expect(xml.xpath('//object')[1].children.children[0].content).to eq 'Arya'
       end
     end
 
@@ -81,7 +83,7 @@ describe PeopleController do
       end
 
       xit 'returns the correct json_ld in the response body' do
-        expect(response.body).to match(/{"@graph":[{"@id":"http://id.ukpds.org/1","http://id.ukpds.org/schema/dateOfBirth":{"@type":"http://www.w3.org/2001/XMLSchema#date","@value":"1947-06-29"},"http://id.ukpds.org/schema/forename":"Daenerys","http://id.ukpds.org/schema/middleName":"Khaleesi","http://id.ukpds.org/schema/surname":"Targaryen"},{"@id":"http://id.ukpds.org/2","http://id.ukpds.org/schema/dateOfBirth":{"@type":"http://www.w3.org/2001/XMLSchema#date","@value":"1954-01-12"},"http://id.ukpds.org/schema/forename":"Arya","http://id.ukpds.org/schema/middleName":"The Blind Girl","http://id.ukpds.org/schema/surname":"Stark"}]}/)
+        # expect(response.body).to match(/{"@graph":[{"@id":"http://id.ukpds.org/1","http://id.ukpds.org/schema/dateOfBirth":{"@type":"http://www.w3.org/2001/XMLSchema#date","@value":"1947-06-29"},"http://id.ukpds.org/schema/forename":"Daenerys","http://id.ukpds.org/schema/middleName":"Khaleesi","http://id.ukpds.org/schema/surname":"Targaryen"},{"@id":"http://id.ukpds.org/2","http://id.ukpds.org/schema/dateOfBirth":{"@type":"http://www.w3.org/2001/XMLSchema#date","@value":"1954-01-12"},"http://id.ukpds.org/schema/forename":"Arya","http://id.ukpds.org/schema/middleName":"The Blind Girl","http://id.ukpds.org/schema/surname":"Stark"}]}/)
         # expect(response.body).to match(/{"@id":"http:\/\/id.ukpds.org\/member\/1","http:\/\/schema.org\/name":"Member1"},{"@id":"http:\/\/id.ukpds.org\/member\/2","http:\/\/schema.org\/name":"Member2"},{"@id":"http:\/\/id.ukpds.org\/member\/3","http:\/\/schema.org\/name":"Member3"},{"@id":"http:\/\/id.ukpds.org\/member\/4","http:\/\/schema.org\/name":"Member4"},{"@id":"http:\/\/id.ukpds.org\/member\/5","http:\/\/schema.org\/name":"Member5"}/)
       end
     end
