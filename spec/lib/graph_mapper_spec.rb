@@ -20,4 +20,10 @@ describe GraphMapper do
       expect(extended_class.get_id(RDF::URI.new('http://id.ukpds.org/123'))).to eq '123'
     end
   end
+
+  describe '#statements_mapper_by_subject' do
+    it 'should return a hash with the mapped predicates and the respective objects from a graph' do
+      expect(extended_class.statements_mapper_by_subject(PEOPLE_GRAPH)).to eq PEOPLE_HASH
+    end
+  end
 end
