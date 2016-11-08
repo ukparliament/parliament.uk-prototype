@@ -5,7 +5,7 @@ describe GraphMapper do
 
   describe '#create_graph_from_ttl' do
     it 'should create an RDF graph given ttl data in a string format' do
-      expect(extended_class.create_graph_from_ttl(PERSON_ONE_TTL).first).to eq PEOPLE_GRAPH.first
+      expect(extended_class.create_graph_from_ttl(PERSON_ONE_TTL).first).to eq PERSON_ONE_GRAPH.first
     end
   end
 
@@ -29,7 +29,7 @@ describe GraphMapper do
 
   describe '#get_object_and_predicate' do
     it 'should should return a hash with predicate and object, given an RDF statement' do
-      expect(extended_class.get_object_and_predicate(PEOPLE_GRAPH.first)).to eq({ :forename => 'Daenerys' })
+      expect(extended_class.get_object_and_predicate(PERSON_ONE_GRAPH.first)).to eq({ :forename => 'Daenerys' })
     end
   end
 end
