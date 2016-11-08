@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'json'
 
 describe PeopleController do
   let(:json) { JSON.parse(response.body) }
@@ -21,9 +22,10 @@ describe PeopleController do
         expect(json.length).to eq 2
       end
 
-      it 'returns the correct id and forename for the second person' do
-        expect(json[1]['id']).to eq '2'
-        expect(json[1]['forename']).to eq 'Arya'
+      it 'returns the correct forename and surname for the person whose id is 2' do
+        arya_hash = json.select{ |hash| hash['id'] == '2' }[0]
+        expect(arya_hash['forename']).to eq 'Arya'
+        expect(arya_hash['surname']).to eq 'Stark'
       end
     end
 
@@ -41,9 +43,10 @@ describe PeopleController do
         expect(xml.xpath('//object').count).to eq 2
       end
 
-      it 'returns the correct id and forename for the second person' do
-        expect(xml.xpath('//object')[1].children.children[4].content).to eq '2'
-        expect(xml.xpath('//object')[1].children.children[0].content).to eq 'Arya'
+      it 'returns the correct forename and surname for the person whose id is 2' do
+        arya_node = xml.xpath('//object').select { |o| o.children.children[4].content == '2' }.first
+        expect(arya_node.xpath('forename').children[0].content).to eq 'Arya'
+        expect(arya_node.xpath('surname').children[0].content).to eq 'Stark'
       end
     end
 
