@@ -23,7 +23,9 @@ describe GraphMapper do
 
   describe '#statements_mapper_by_subject' do
     it 'should return a hash with the mapped predicates and the respective objects from a graph' do
-      expect(extended_class.statements_mapper_by_subject(PEOPLE_GRAPH)).to eq PEOPLE_HASH
+      expect(extended_class.statements_mapper_by_subject(PEOPLE_GRAPH)).to include(PEOPLE_HASH[0])
+      expect(extended_class.statements_mapper_by_subject(PEOPLE_GRAPH)).to include(PEOPLE_HASH[1])
+
     end
   end
 
