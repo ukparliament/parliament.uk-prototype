@@ -1,3 +1,4 @@
+require 'grom'
 require 'net/http'
 
 module Grom
@@ -23,7 +24,7 @@ module Grom
     end
 
     def get_object_and_predicate(statement)
-      predicate = to_underscore_case(get_id(statement.predicate))
+      predicate = get_id(statement.predicate)
       { predicate.to_sym => statement.object.to_s }
     end
 

@@ -7,8 +7,8 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'factory_girl'
-require 'test_stubs/people_json_stub'
-require 'graph_mapper'
+Dir[Rails.root.join('lib/grom/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/test_stubs/*.rb')].each { |f| require f }
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

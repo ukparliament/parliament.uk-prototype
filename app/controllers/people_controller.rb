@@ -1,6 +1,5 @@
 require 'net/http'
 require 'json'
-require 'graph_mapper'
 
 class PeopleController < ApplicationController
   include Grom::GraphMapper

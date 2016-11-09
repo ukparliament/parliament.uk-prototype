@@ -1,3 +1,5 @@
+require 'grom'
+
 class ApplicationController < ActionController::Base
   include JSON_LD_Helper
   include FormatHelper
