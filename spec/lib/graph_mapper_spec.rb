@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe GraphMapper do
-  let(:extended_class) { Class.new { extend GraphMapper } }
+describe Grom::GraphMapper do
+  let(:extended_class) { Class.new { extend Grom::GraphMapper } }
 
   describe '#create_graph_from_ttl' do
     it 'should create an RDF graph given ttl data in a string format' do

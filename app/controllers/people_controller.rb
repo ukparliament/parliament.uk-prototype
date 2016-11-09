@@ -3,7 +3,7 @@ require 'json'
 require 'graph_mapper'
 
 class PeopleController < ApplicationController
-  include GraphMapper
+  include Grom::GraphMapper
 
   def index
     endpoint_url = "#{API_ENDPOINT}/people.ttl"

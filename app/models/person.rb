@@ -1,7 +1,7 @@
 require 'graph_mapper'
 
 class Person
-  extend GraphMapper
+  extend Grom::GraphMapper
 
 
   # attr_reader:
