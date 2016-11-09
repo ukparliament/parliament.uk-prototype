@@ -1,7 +1,4 @@
-require 'grom'
-
-class Person < Grom::Base
-  extend Grom::GraphMapper
+class Dummy < Grom::Base
   def self.property_translator
     {
         id: 'id',
