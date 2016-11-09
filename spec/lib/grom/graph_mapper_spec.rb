@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe GraphMapper do
-  let(:extended_class) { Class.new { extend GraphMapper } }
+describe Grom::GraphMapper do
+  let(:extended_class) { Class.new { extend Grom::GraphMapper } }
 
   describe '#create_graph_from_ttl' do
     it 'should create an RDF graph given ttl data in a string format' do
@@ -30,7 +30,7 @@ describe GraphMapper do
 
   describe '#get_object_and_predicate' do
     it 'should should return a hash with predicate and object, given an RDF statement' do
-      expect(extended_class.get_object_and_predicate(PERSON_ONE_GRAPH.first)).to eq({ :forename => 'Daenerys' })
+      expect(extended_class.get_object_and_predicate(ONE_STATEMENT_STUB)).to eq({ :forename => 'Daenerys' })
     end
   end
 end
