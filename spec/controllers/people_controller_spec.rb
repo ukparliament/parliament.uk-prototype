@@ -82,7 +82,7 @@ describe PeopleController do
       end
 
       it 'returns the correct data for the first person' do
-        expect(response.body).to match(/<a href="\/people\/1">Daenerys<\/a>/)
+        expect(response.body).to match(/<a href="\/people\/1">Daenerys Targaryen<\/a>/)
       end
 
       it 'returns the correct json_ld in the response body' do
