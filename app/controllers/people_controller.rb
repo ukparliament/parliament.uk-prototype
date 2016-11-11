@@ -1,8 +1,4 @@
-require 'net/http'
-require 'json'
-
 class PeopleController < ApplicationController
-  include Grom::GraphMapper
 
   def index
     endpoint_url = "#{API_ENDPOINT}/people.ttl"

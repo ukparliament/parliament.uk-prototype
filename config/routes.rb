@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/people/members/current', to: 'people#current_members'
 
   resources :people, only: [:index, :show]
+  resources :contact_points, only: [:index, :show]
 
   # Example resource route with options:
   #   resources :products do
