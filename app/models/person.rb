@@ -11,4 +11,10 @@ class Person < Grom::Base
         dateOfBirth: 'date_of_birth'
     }
   end
+
+  def display_name
+    display_name = ''
+    display_name += self.forename + ' ' if self.forename
+    display_name += self.surname if self.surname
+  end
 end

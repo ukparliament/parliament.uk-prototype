@@ -11,7 +11,7 @@ feature 'index page' do
       expect(page).to have_selector('li', count: 2)
     end
 
-    scenario 'the first person in the list should have name Member1' do
+    scenario 'the first person in the list should have name Daenerys' do
       expect(page).to have_link('Daenerys')
     end
   end

@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :person do
-    name 'John Doe'
+    forename 'Arya'
+    surname 'Stark'
     id '123'
   end
 end
