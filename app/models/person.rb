@@ -2,6 +2,7 @@ require 'grom'
 
 class Person < Grom::Base
   extend Grom::GraphMapper
+
   def self.property_translator
     {
         id: 'id',
@@ -16,5 +17,9 @@ class Person < Grom::Base
     display_name = ''
     display_name += self.forename + ' ' if self.forename
     display_name += self.surname if self.surname
+  end
+
+  def sittings
+    []
   end
 end

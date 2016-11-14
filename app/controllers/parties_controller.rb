@@ -13,7 +13,6 @@ class PartiesController < ApplicationController
     endpoint_url = "#{API_ENDPOINT}/parties/#{params[:id]}.ttl"
     result = get_graph_data(endpoint_url)
     @party = Party.find(result)
-    p @party.method(:members).parameters
     @json_ld = json_ld(result)
 
     format({ serialized_data: @party, graph_data: result })
