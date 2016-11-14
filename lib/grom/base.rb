@@ -20,5 +20,21 @@ module Grom
         self.new(data)
       end
     end
+
+    def self.has_many(*args)
+      args.each do |arg|
+        self.class_eval("def #{arg}(optional=nil); #{arg.to_s.chop.capitalize}.has_many_query(self, optional); end")
+      end
+    end
+
+    def self.has_many_query(associated_class, optional=nil)
+      id = associated_class.id
+      associated_class = associated_class.class.name.downcase.chop + 'ies'
+      this_class = self.name.downcase + 's'
+      endpoint_url = "#{API_ENDPOINT}/#{associated_class}/#{id}/#{this_class}"
+      endpoint_url = optional.nil? ? endpoint_url + '.ttl' : endpoint_url + "/#{optional}.ttl"
+      graph_data = get_graph_data(endpoint_url)
+      self.all(graph_data)
+    end
   end
 end
