@@ -56,15 +56,16 @@ module Grom
     def get_associated_graphs(graph, id)
       pattern = RDF::Query::Pattern.new(:subject, :predicate, RDF::URI.new("http://id.ukpds.org/#{id}"))
       graph.query(pattern).subjects.map do |subject|
+        type_pattern = RDF::Query::Pattern.new(subject, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), :object)
+        graph.delete(graph.query(pattern))
+        graph.delete(graph.query(type_pattern))
         new_pattern = RDF::Query::Pattern.new(subject, :predicate, :object)
-        graph.query(new_pattern).map do |statement|
-          RDF::Graph.new << statement
+        result = RDF::Graph.new
+        graph.query(new_pattern).each do |statement|
+          result << statement
         end
+        result
       end
-    end
-
-    def to_underscore_case(string)
-      string.split('').map { |c| c == c.upcase ? '_' + c.downcase : c }.join('')
     end
 
   end

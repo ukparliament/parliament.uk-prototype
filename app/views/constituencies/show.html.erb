@@ -1,3 +1,10 @@
 <%= @constituency.name %>
 
-<%= @constituency.members('sittings') %>
+<ul>
+  <% @constituency.members.each do |member| %>
+      <li><%= member.display_name %>
+      <% member.sittings.each do |sitting| %>
+          <%= sitting.start_date %>
+      <% end %>
+  <% end %></li>
+</ul>
