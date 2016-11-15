@@ -31,4 +31,5 @@ describe Grom::Base do
       expect(daenerys_dummy.date_of_birth).to eq '1947-06-29'
     end
   end
+
 end

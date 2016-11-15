@@ -3,6 +3,7 @@ require 'grom'
 module Grom
   class Base
     extend Grom::GraphMapper
+    extend Grom::Helpers
     extend ActiveSupport::Inflector
 
     def initialize(attributes)
@@ -34,12 +35,13 @@ module Grom
       self.class_eval("def #{arg}; #{arg.to_s.chop.capitalize}.has_many_through_query(self, #{word.to_s.chop.capitalize}.new({}).class.name); end")
     end
 
-    def self.has_many_query(associated_class, optional=nil)
-      id = associated_class.id
-      associated_class = associated_class.class.name.downcase.chop + 'ies'
-      this_class = self.name.downcase + 's'
-      endpoint_url = "#{API_ENDPOINT}/#{associated_class}/#{id}/#{this_class}"
-      endpoint_url = optional.nil? ? endpoint_url + '.ttl' : endpoint_url + "/#{optional}.ttl"
+    def self.has_many_query(owner_object, optional=nil)
+      endpoint_url = url_builder(owner_object, self.name, optional)
+      # id = associated_class.id
+      # associated_class = associated_class.class.name.downcase.chop + 'ies'
+      # this_class = self.name.downcase + 's'
+      # endpoint_url = "#{API_ENDPOINT}/#{associated_class}/#{id}/#{this_class}"
+      # endpoint_url = optional.nil? ? endpoint_url + '.ttl' : endpoint_url + "/#{optional}.ttl"
       graph_data = get_graph_data(endpoint_url)
       self.all(graph_data)
     end
