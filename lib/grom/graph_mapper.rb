@@ -39,7 +39,7 @@ module Grom
       end
     end
 
-    def split_subject(graph, class_one)
+    def split_by_subject(graph, class_one)
       pattern_one = RDF::Query::Pattern.new(:subject, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://id.ukpds.org/schema/#{class_one}"))
       graph_one = RDF::Graph.new
       graph.query(pattern_one).subjects.each do |subject|
@@ -50,10 +50,10 @@ module Grom
           graph_one << statement
         end
       end
-      { graph: graph, graph_one: graph_one }
+      { through_graph: graph, associated_class_graph: graph_one }
     end
 
-    def get_associated_graphs(graph, id)
+    def get_through_graphs(graph, id)
       pattern = RDF::Query::Pattern.new(:subject, :predicate, RDF::URI.new("http://id.ukpds.org/#{id}"))
       graph.query(pattern).subjects.map do |subject|
         type_pattern = RDF::Query::Pattern.new(subject, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), :object)
