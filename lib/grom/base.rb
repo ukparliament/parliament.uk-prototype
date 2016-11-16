@@ -26,7 +26,7 @@ module Grom
     end
 
     def self.has_many(association)
-      self.class_eval("def #{association}(optional=nil); #{singularize(association.to_s).capitalize}.has_many_query(self, optional); end")
+      self.class_eval("def #{association}(optional=nil); #{camelize(singularize(association.to_s).capitalize)}.has_many_query(self, optional); end")
     end
 
     def self.has_many_through(association, through_association)
