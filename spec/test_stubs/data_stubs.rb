@@ -53,3 +53,20 @@ PARTY_AND_PARTY_MEMBERSHIP_ONE_TTL = "<http://id.ukpds.org/23> <http://id.ukpds.
 
 CONTACT_POINT_TTL = "<http://id.ukpds/org/123> <http://id.ukpds.org/postalCode> \"SW1A 0AA\" .\n <http://id.ukpds/org/123> <http://id.ukpds.org/email> \"daenerys@khaleesi.com\" .\n <http://id.ukpds/org/123> <http://id.ukpds.org/streetAddress> \"House of Commons\" .\n <http://id.ukpds/org/123> <http://id.ukpds.org/addressLocality> \"London\" .\n <http://id.ukpds/org/123> <http://id.ukpds.org/telephone> \"020 7555 5555\" .\n"
 
+PARTY_MEMBERSHIP_TTL = "<http://id.ukpds.org/25> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/DummyPartyMembership> .\n <http://id.ukpds.org/25> <http://id.ukpds.org/schema/partyMembershipHasParty> <http://id.ukpds.org/23> .\n <http://id.ukpds.org/25> <http://id.ukpds.org/schema/partyMembershipEndDate> \"1954-01-12\"^^<http://www.w3.org/2001/XMLSchema#date> .\n <http://id.ukpds.org/25> <http://id.ukpds.org/schema/partyMembershipStartDate> \"1953-01-12\"^^<http://www.w3.org/2001/XMLSchema#date> .\n"
+
+PARTY_MEMBERSHIP_GRAPH = RDF::Graph.new
+RDF::NTriples::Reader.new(PARTY_MEMBERSHIP_TTL) do |reader|
+    reader.each_statement do |statement|
+        PARTY_MEMBERSHIP_GRAPH << statement
+    end
+end
+
+NO_TYPE_PARTY_MEMBERSHIP_TTL = "<http://id.ukpds.org/25> <http://id.ukpds.org/schema/partyMembershipEndDate> \"1954-01-12\"^^<http://www.w3.org/2001/XMLSchema#date> .\n <http://id.ukpds.org/25> <http://id.ukpds.org/schema/partyMembershipStartDate> \"1953-01-12\"^^<http://www.w3.org/2001/XMLSchema#date> .\n"
+
+NO_TYPE_PARTY_MEMBERSHIP_GRAPH = RDF::Graph.new
+RDF::NTriples::Reader.new(NO_TYPE_PARTY_MEMBERSHIP_TTL) do |reader|
+    reader.each_statement do |statement|
+        NO_TYPE_PARTY_MEMBERSHIP_GRAPH << statement
+    end
+end

@@ -27,4 +27,14 @@ describe Grom::GraphMapper do
       expect(extended_class.get_object_and_predicate(ONE_STATEMENT_STUB)).to eq({ :forename => 'Daenerys' })
     end
   end
+
+  describe '#get_through_graphs' do
+    it 'should return an array of graphs, given a graph and an id' do
+      result_arr = extended_class.get_through_graphs(PARTY_MEMBERSHIP_GRAPH, '23')
+      start_date_statement = RDF::Statement.new(RDF::URI.new('http://id.ukpds.org/25'), RDF::URI.new('http://id.ukpds.org/schema/partyMembershipStartDate'), RDF::Literal.new("1953-01-12", :datatype => RDF::XSD.date))
+      end_date_statement = RDF::Statement.new(RDF::URI.new('http://id.ukpds.org/25'), RDF::URI.new('http://id.ukpds.org/schema/partyMembershipEndDate'), RDF::Literal.new("1954-01-12", :datatype => RDF::XSD.date))
+      expect(result_arr[0].has_statement?(start_date_statement)).to be true
+      expect(result_arr[0].has_statement?(end_date_statement)).to be true
+    end
+  end
 end
