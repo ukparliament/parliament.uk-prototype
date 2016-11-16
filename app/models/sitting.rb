@@ -8,8 +8,8 @@ class Sitting < Grom::Base
   def self.property_translator
     {
         id: 'id',
-        startDate: 'start_date',
-        endDate: 'end_date'
+        sittingStartDate: 'start_date',
+        sittingEndDate: 'end_date'
     }
   end
 end

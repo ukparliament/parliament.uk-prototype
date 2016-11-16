@@ -3,12 +3,7 @@ require 'grom'
 class Person < Grom::Base
   extend Grom::GraphMapper
 
-  attr_accessor :sittings
-
-  def initialize(attributes)
-    super(attributes)
-    @sittings = []
-  end
+  has_many_through :constituencies, :sittings
 
   def self.property_translator
     {

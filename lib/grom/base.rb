@@ -26,12 +26,12 @@ module Grom
     end
 
     def self.has_many(association)
-      self.class_eval("def #{association}(optional=nil); #{association.to_s.chop.capitalize}.has_many_query(self, optional); end")
+      self.class_eval("def #{association}(optional=nil); #{singularize(association.to_s).capitalize}.has_many_query(self, optional); end")
     end
 
     def self.has_many_through(association, through_association)
       self.has_many(through_association)
-      self.class_eval("def #{association}; #{association.to_s.chop.capitalize}.has_many_through_query(self, #{through_association.to_s.chop.capitalize}.new({}).class.name); end")
+      self.class_eval("def #{association}; #{singularize(association.to_s).capitalize}.has_many_through_query(self, #{through_association.to_s.chop.capitalize}.new({}).class.name); end")
     end
 
     def self.has_many_query(owner_object, optional=nil)
@@ -46,10 +46,14 @@ module Grom
       separated_graphs = split_by_subject(graph_data, self.name)
       associated_objects_array = self.all(separated_graphs[:associated_class_graph])
       through_property_plural = pluralize(through_class.downcase)
+      self.class_eval("def #{through_property_plural}=(array); @#{through_property_plural} = array; end")
+      self.class_eval("def #{through_property_plural}; @#{through_property_plural}; end")
       associated_objects_array.each do |associated_object|
+        through_class_array = []
         get_through_graphs(separated_graphs[:through_graph], associated_object.id).map do |graph|
-          associated_object.send(through_property_plural.to_sym) << through_class.constantize.find(graph)
+          through_class_array << through_class.constantize.find(graph)
         end
+        associated_object.send((through_property_plural + '=').to_sym, through_class_array)
       end
     end
   end
