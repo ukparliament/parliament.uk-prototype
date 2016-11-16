@@ -18,4 +18,16 @@ describe Grom::Helpers do
     end
   end
 
+  describe '#create_class_name' do
+    it 'should camelize, capitalize and singularize any plural underscore properties' do
+      expect(extended_class.create_class_name('dummy_party_memberships')).to eq 'DummyPartyMembership'
+    end
+  end
+
+  describe '#create_property_name' do
+    it 'should underscore, downcase and pluralize any singular class name' do
+      expect(extended_class.create_property_name('DummyPerson')).to eq 'dummy_people'
+    end
+  end
+
 end
