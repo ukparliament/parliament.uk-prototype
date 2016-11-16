@@ -12,7 +12,7 @@ module Grom
     end
 
     def create_class_name(plural_name)
-      camelize(singularize(plural_name.to_s).capitalize)
+      ActiveSupport::Inflector.camelize(ActiveSupport::Inflector.singularize(plural_name.to_s).capitalize)
     end
 
     def create_property_name(class_name)
