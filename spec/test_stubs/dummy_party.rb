@@ -1,4 +1,4 @@
-class Dummy_Party < Grom::Base
+class DummyParty < Grom::Base
   def self.property_translator
     {
         id: 'id',
