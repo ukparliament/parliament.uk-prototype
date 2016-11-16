@@ -4,6 +4,7 @@ class Person < Grom::Base
   extend Grom::GraphMapper
 
   has_many_through :constituencies, :sittings
+  has_many :contact_points
 
   def self.property_translator
     {
