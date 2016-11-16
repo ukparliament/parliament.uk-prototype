@@ -2,6 +2,9 @@ require 'grom'
 
 class Person < Grom::Base
   extend Grom::GraphMapper
+
+  has_many_through :constituencies, :sittings
+
   def self.property_translator
     {
         id: 'id',

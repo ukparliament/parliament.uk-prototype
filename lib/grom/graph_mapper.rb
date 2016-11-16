@@ -39,8 +39,33 @@ module Grom
       end
     end
 
-    def to_underscore_case(string)
-      string.split('').map { |c| c == c.upcase ? '_' + c.downcase : c }.join('')
+    def split_by_subject(graph, class_one)
+      pattern_one = RDF::Query::Pattern.new(:subject, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://id.ukpds.org/schema/#{class_one}"))
+      graph_one = RDF::Graph.new
+      graph.query(pattern_one).subjects.each do |subject|
+        graph.delete(RDF::Statement.new(subject, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://id.ukpds.org/schema/#{class_one}")))
+      pattern = RDF::Query::Pattern.new(subject, :predicate, :object)
+        graph.query(pattern).each do |statement|
+          graph.delete(statement)
+          graph_one << statement
+        end
+      end
+      { through_graph: graph, associated_class_graph: graph_one }
+    end
+
+    def get_through_graphs(graph, id)
+      pattern = RDF::Query::Pattern.new(:subject, :predicate, RDF::URI.new("http://id.ukpds.org/#{id}"))
+      graph.query(pattern).subjects.map do |subject|
+        type_pattern = RDF::Query::Pattern.new(subject, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), :object)
+        graph.delete(graph.query(pattern))
+        graph.delete(graph.query(type_pattern))
+        new_pattern = RDF::Query::Pattern.new(subject, :predicate, :object)
+        result = RDF::Graph.new
+        graph.query(new_pattern).each do |statement|
+          result << statement
+        end
+        result
+      end
     end
 
   end

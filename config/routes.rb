@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :people, only: [:index, :show]
   resources :parties, only: [:index, :show]
   resources :contact_points, only: [:index, :show]
+  resources :constituencies, only: [:index, :show]
+
 
   # Example resource route with options:
   #   resources :products do

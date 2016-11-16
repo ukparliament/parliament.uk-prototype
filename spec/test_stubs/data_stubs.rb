@@ -40,3 +40,11 @@ RDF::NTriples::Reader.new(PERSON_ONE_TTL) do |reader|
 end
 
 ONE_STATEMENT_STUB = RDF::Statement.new(RDF::URI.new("http://id.ukpds.org/1"), RDF::URI.new("http://id.ukpds.org/schema/forename"), 'Daenerys')
+
+PARTY_ONE_TTL = "<http://id.ukpds.org/ff0e8e9f-6c5d-4fd4-928c-3252b49a2e65> <http://id.ukpds.org/schema/partyName> \"Liberal Democrat\" ."
+PARTY_ONE_GRAPH = RDF::Graph.new
+RDF::NTriples::Reader.new(PARTY_ONE_TTL) do |reader|
+    reader.each_statement do |statement|
+        PARTY_ONE_GRAPH << statement
+    end
+end
