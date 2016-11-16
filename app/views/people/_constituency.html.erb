@@ -1,0 +1,6 @@
+<li>
+  <%= constituency.name %>
+  <ul>
+    <%= render :partial => 'sittings/sitting', :collection => constituency.sittings %>
+  </ul>
+</li>

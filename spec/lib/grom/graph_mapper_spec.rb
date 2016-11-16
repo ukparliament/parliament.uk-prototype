@@ -9,12 +9,6 @@ describe Grom::GraphMapper do
     end
   end
 
-  describe '#to_underscore_case' do
-    it 'should transform dateOfBirth to date_of_birth' do
-      expect(extended_class.to_underscore_case('dateOfBirth')).to eq 'date_of_birth'
-    end
-  end
-
   describe '#get_id' do
     it 'should return the id given a uri' do
       expect(extended_class.get_id(RDF::URI.new('http://id.ukpds.org/123'))).to eq '123'

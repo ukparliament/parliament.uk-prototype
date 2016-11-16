@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'show page' do
+xfeature 'show page' do
   context 'when visiting a person detail page' do
     before(:each) do
       stub_request(:get, "http://ukparliament-graph-api.herokuapp.com/people/1").
