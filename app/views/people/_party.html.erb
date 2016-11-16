@@ -1,0 +1,6 @@
+<li>
+  <%= party.name %>
+  <ul>
+    <%= render :partial => 'party_memberships/party_membership', :collection => party.party_memberships %>
+  </ul>
+</li>
