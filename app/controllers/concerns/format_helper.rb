@@ -13,7 +13,7 @@ module FormatHelper
         data[:graph_data].each_statement do |statement|
           result << RDF::NTriples::Writer.serialize(statement)
         end
-        render :text => result
+        render :plain => result
       }
     end
   end
