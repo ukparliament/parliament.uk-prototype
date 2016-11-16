@@ -32,11 +32,11 @@ describe Grom::Base do
     end
   end
 
-  xdescribe '#has_many' do
+  describe '#has_many' do
     it 'should create a has_many association for a given class' do
         dummy_person = DummyPerson.find(PERSON_ONE_GRAPH)
-        expect(dummy_person).to respond_to(:parties)
-        expect(dummy_person.parties[0].name).to eq 'Liberal Democrat'
+        expect(dummy_person).to respond_to(:dummy_contact_points)
+        expect(dummy_person.dummy_contact_points[0].street_address).to eq 'House of Commons'
     end
   end
 
