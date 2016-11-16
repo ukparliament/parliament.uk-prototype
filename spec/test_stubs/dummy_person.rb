@@ -1,5 +1,5 @@
-class Dummy_Person < Grom::Base
-  has_many :parties
+class DummyPerson < Grom::Base
+  has_many_through :dummy_parties, :dummy_party_memberships
 
   def self.property_translator
     {

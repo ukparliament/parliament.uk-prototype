@@ -48,3 +48,5 @@ RDF::NTriples::Reader.new(PARTY_ONE_TTL) do |reader|
         PARTY_ONE_GRAPH << statement
     end
 end
+
+PARTY_AND_PARTY_MEMBERSHIP_ONE_TTL = "<http://id.ukpds.org/23> <http://id.ukpds.org/schema/partyName> \"Targaryens\" .\n <http://id.ukpds.org/23> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/DummyParty> .\n <http://id.ukpds.org/25> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/DummyPartyMembership> .\n <http://id.ukpds.org/25> <http://id.ukpds.org/schema/partyMembershipHasParty> <http://id.ukpds.org/23> .\n <http://id.ukpds.org/25> <http://id.ukpds.org/schema/partyMembershipEndDate> \"1954-01-12\"^^<http://www.w3.org/2001/XMLSchema#date> .\n <http://id.ukpds.org/25> <http://id.ukpds.org/schema/partyMembershipStartDate> \"1953-01-12\"^^<http://www.w3.org/2001/XMLSchema#date> .\n"
