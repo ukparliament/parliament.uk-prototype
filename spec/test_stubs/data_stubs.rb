@@ -48,3 +48,5 @@ RDF::NTriples::Reader.new(PARTY_ONE_TTL) do |reader|
         PARTY_ONE_GRAPH << statement
     end
 end
+
+CONTACT_POINT_TTL = "<http://id.ukpds/org/123> <http://id.ukpds.org/postalCode> \"SW1A 0AA\" .\n <http://id.ukpds/org/123> <http://id.ukpds.org/email> \"daenerys@khaleesi.com\" .\n <http://id.ukpds/org/123> <http://id.ukpds.org/streetAddress> \"House of Commons\" .\n <http://id.ukpds/org/123> <http://id.ukpds.org/addressLocality> \"London\" .\n <http://id.ukpds/org/123> <http://id.ukpds.org/telephone> \"020 7555 5555\" .\n"
