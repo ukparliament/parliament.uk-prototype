@@ -6,13 +6,13 @@ describe Grom::Helpers do
 
   describe '#url_builder' do
     it 'should return an endpoint when given a class and an associated class' do
-      dummy = Dummy_Person.find(PERSON_ONE_GRAPH)
+      dummy = DummyPerson.find(PERSON_ONE_GRAPH)
       url = extended_class.url_builder(dummy, "Party")
       expect(url).to eq "#{API_ENDPOINT}/dummy_people/1/parties.ttl"
     end
 
     it 'should return an endpoint when given a class, an associated class and an optional' do
-      dummy = Dummy_Person.find(PERSON_ONE_GRAPH)
+      dummy = DummyPerson.find(PERSON_ONE_GRAPH)
       url = extended_class.url_builder(dummy, "Party", "current")
       expect(url).to eq "#{API_ENDPOINT}/dummy_people/1/parties/current.ttl"
     end

@@ -5,7 +5,6 @@ module Grom
   module GraphMapper
 
     def get_graph_data(uri)
-
       ttl_data = Net::HTTP.get(URI(uri))
       create_graph_from_ttl(ttl_data)
     end
