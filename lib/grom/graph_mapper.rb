@@ -38,32 +38,28 @@ module Grom
       end
     end
 
-    def split_by_subject(graph, class_one)
-      pattern_one = RDF::Query::Pattern.new(:subject, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://id.ukpds.org/schema/#{class_one}"))
-      graph_one = RDF::Graph.new
-      graph.query(pattern_one).subjects.each do |subject|
-        graph.delete(RDF::Statement.new(subject, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://id.ukpds.org/schema/#{class_one}")))
-      pattern = RDF::Query::Pattern.new(subject, :predicate, :object)
-        graph.query(pattern).each do |statement|
-          graph.delete(statement)
-          graph_one << statement
+    def split_by_subject(graph, associated_class_name)
+      associated_class_type_pattern = RDF::Query::Pattern.new(:subject, RDF.type, RDF::URI.new("#{DATA_URI_PREFIX}/schema/#{associated_class_name}"))
+      associated_graph = RDF::Graph.new
+      graph.query(associated_class_type_pattern).subjects.map do |subject|
+        graph.delete(graph.query(associated_class_type_pattern))
+        subject_pattern = RDF::Query::Pattern.new(subject, :predicate, :object)
+        graph.query(subject_pattern).each do |statement|
+          associated_graph << statement
         end
+        graph.delete(graph.query(subject_pattern))
       end
-      { through_graph: graph, associated_class_graph: graph_one }
+      { through_graph: graph, associated_class_graph: associated_graph }
     end
 
     def get_through_graphs(graph, id)
-      pattern = RDF::Query::Pattern.new(:subject, :predicate, RDF::URI.new("http://id.ukpds.org/#{id}"))
-      graph.query(pattern).subjects.map do |subject|
-        type_pattern = RDF::Query::Pattern.new(subject, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), :object)
-        graph.delete(graph.query(pattern))
+      connection_pattern = RDF::Query::Pattern.new(:subject, :predicate, RDF::URI.new("#{DATA_URI_PREFIX}/#{id}"))
+      graph.query(connection_pattern).subjects.map do |subject|
+        type_pattern = RDF::Query::Pattern.new(subject, RDF.type, :object)
+        graph.delete(graph.query(connection_pattern))
         graph.delete(graph.query(type_pattern))
-        new_pattern = RDF::Query::Pattern.new(subject, :predicate, :object)
-        result = RDF::Graph.new
-        graph.query(new_pattern).each do |statement|
-          result << statement
-        end
-        result
+        subject_pattern = RDF::Query::Pattern.new(subject, :predicate, :object)
+        graph.query(subject_pattern)
       end
     end
 
