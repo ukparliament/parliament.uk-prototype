@@ -22,6 +22,7 @@ describe Grom::Base do
       expect(arya_dummy.middle_name).to eq 'The Blind Girl'
       expect(arya_dummy.date_of_birth).to eq '1954-01-12'
     end
+
     it 'should return an array of objects while setting the properties of the second object' do
       dummies = DummyPerson.all(PEOPLE_GRAPH)
       daenerys_dummy = dummies.select{ |o| o.id == '1' }.first
@@ -46,6 +47,15 @@ describe Grom::Base do
         expect(dummy_person.dummy_parties[0].name).to eq 'Targaryens'
         expect(dummy_person.dummy_parties[0].dummy_party_memberships[0].start_date).to eq '1953-01-12'
         expect(dummy_person.dummy_parties[0].dummy_party_memberships[0].end_date).to eq '1954-01-12'
+    end
+  end
+
+  describe '#through_getter_setter' do
+    it 'should create getter and setter methods for an object given an association' do
+      DummyPerson.through_getter_setter('cats')
+      dummy_person = DummyPerson.find(PERSON_ONE_GRAPH)
+      expect(dummy_person).to respond_to(:cats)
+      expect(dummy_person).to respond_to(:cats=)
     end
   end
 

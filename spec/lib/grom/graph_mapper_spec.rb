@@ -28,6 +28,17 @@ describe Grom::GraphMapper do
     end
   end
 
+
+  describe '#get_through_graphs' do
+    it 'should return an array of graphs, given a graph and an id' do
+      result_arr = extended_class.get_through_graphs(PARTY_MEMBERSHIP_GRAPH, '23')
+      start_date_statement = RDF::Statement.new(RDF::URI.new('http://id.ukpds.org/25'), RDF::URI.new('http://id.ukpds.org/schema/partyMembershipStartDate'), RDF::Literal.new("1953-01-12", :datatype => RDF::XSD.date))
+      end_date_statement = RDF::Statement.new(RDF::URI.new('http://id.ukpds.org/25'), RDF::URI.new('http://id.ukpds.org/schema/partyMembershipEndDate'), RDF::Literal.new("1954-01-12", :datatype => RDF::XSD.date))
+      expect(result_arr[0].has_statement?(start_date_statement)).to be true
+      expect(result_arr[0].has_statement?(end_date_statement)).to be true
+    end
+  end
+
   describe '#split_by_subject' do
     let(:result) { extended_class.split_by_subject(PARTY_AND_PARTY_MEMBERSHIP_ONE_GRAPH, 'DummyParty') }
     let(:type_pattern) { RDF::Query::Pattern.new(:subject, RDF.type, :object) }
@@ -55,6 +66,5 @@ describe Grom::GraphMapper do
       associated_class_pattern = RDF::Query::Pattern.new(:subject, RDF::URI.new("#{DATA_URI_PREFIX}/schema/partyMembershipHasParty"), :object)
       expect(result[:through_graph].query(associated_class_pattern).first.object.to_s).to eq "#{DATA_URI_PREFIX}/23"
     end
-
   end
 end
