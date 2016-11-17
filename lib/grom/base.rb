@@ -30,8 +30,9 @@ module Grom
     end
 
     def self.has_many_through(association, through_association)
-      self.has_many(through_association)
-      self.class_eval("def #{association}; #{create_class_name(association)}.has_many_through_query(self, #{create_class_name(through_association)}.new({}).class.name); end")
+      p ";;;#{through_association}"
+      self.has_many(through_association[:via])
+      self.class_eval("def #{association}; #{create_class_name(association)}.has_many_through_query(self, #{create_class_name(through_association[:via])}.new({}).class.name); end")
     end
 
     def self.has_many_query(owner_object, optional=nil)
