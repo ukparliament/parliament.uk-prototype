@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ukpds/grom
+  revision: 3aad87c42d48b5cfd1ed14738a09901e6c290c5e
+  specs:
+    grom (0.1.0)
+      rails (= 5.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,9 +63,6 @@ GEM
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    ebnf (1.0.1)
-      rdf (~> 2.0)
-      sxp (~> 1.0)
     erubis (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
@@ -92,7 +96,6 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.1)
     multi_json (1.12.1)
-    net-http-persistent (2.9.4)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -130,13 +133,6 @@ GEM
     rdf (2.1.0)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
-    rdf-aggregate-repo (2.0.0)
-      rdf (~> 2.0)
-    rdf-turtle (2.0.0)
-      ebnf (~> 1.0, >= 1.0.1)
-      rdf (~> 2.0)
-    rdf-xsd (2.0.0)
-      rdf (~> 2.0)
     ref (2.0.0)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
@@ -161,17 +157,6 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    sparql (2.0.0)
-      builder (~> 3.2)
-      ebnf (~> 1.0, >= 1.0.1)
-      rdf (~> 2.0)
-      rdf-aggregate-repo (~> 2.0)
-      rdf-xsd (~> 2.0)
-      sparql-client (~> 2.0)
-      sxp (~> 1.0)
-    sparql-client (2.1.0)
-      net-http-persistent (~> 2.9)
-      rdf (~> 2.0)
     spring (2.0.0)
       activesupport (>= 4.2)
     sprockets (3.7.0)
@@ -181,8 +166,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sxp (1.0.0)
-      rdf (~> 2.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -212,19 +195,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
   byebug
   capybara
   factory_girl_rails
+  grom!
   jquery-rails
   json-ld (= 2.1.0)
   passenger
   rails (= 5.0.0)
-  rdf (= 2.1.0)
-  rdf-turtle
   rspec-rails
   simplecov
-  sparql
   spring
   therubyracer
   turbolinks
