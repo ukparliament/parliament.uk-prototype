@@ -1,3 +1,3 @@
-API_ENDPOINT = 'http://ukparliament-graph-api.herokuapp.com'
-API_ENDPOINT_HOST = 'ukparliament-graph-api.herokuapp.com'
-DATA_URI_PREFIX = 'http://id.ukpds.org'
+API_ENDPOINT = ENV['API_ENDPOINT']
+API_ENDPOINT_HOST = ENV['API_ENDPOINT_HOST']
+DATA_URI_PREFIX = ENV['DATA_URI_PREFIX']

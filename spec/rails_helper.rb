@@ -7,7 +7,6 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'factory_girl'
-Dir[Rails.root.join('lib/grom/*.rb')].each { |f| require f }
 Dir[Rails.root.join('spec/test_stubs/*.rb')].each { |f| require f }
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -53,14 +52,6 @@ RSpec.configure do |config|
     stub_request(:get, "#{API_ENDPOINT}/people.ttl").
         with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
         to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
-
-    stub_request(:get, "#{API_ENDPOINT}/dummy_people/1/dummy_parties.ttl").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
-        to_return(:status => 200, :body => PARTY_AND_PARTY_MEMBERSHIP_ONE_TTL, :headers => {})
-
-    stub_request(:get, "#{API_ENDPOINT}/dummy_people/1/dummy_contact_points.ttl").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
-        to_return(:status => 200, :body => CONTACT_POINT_TTL, :headers => {})
 
   end
 end

@@ -1,9 +1,6 @@
-require 'grom'
-
 class Constituency < Grom::Base
-  extend Grom::GraphMapper
 
-  has_many_through :members, :sittings
+  has_many_through :members, via: :sittings
 
   def self.property_translator
     {

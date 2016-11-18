@@ -1,10 +1,7 @@
-require 'grom'
-
 class Person < Grom::Base
-  extend Grom::GraphMapper
 
-  has_many_through :constituencies, :sittings
-  has_many_through :parties, :party_memberships
+  has_many_through :constituencies, via: :sittings
+  has_many_through :parties, via: :party_memberships
   has_many :contact_points
 
   def self.property_translator
