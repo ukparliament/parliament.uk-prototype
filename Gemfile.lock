@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ukpds/grom
-  revision: 602f80e05beeb721d3e9f80fd8a3dfb81605f79c
+  revision: dbc5d63c072c515c4fcebf3fbee7cb2bfb911692
   specs:
     grom (0.1.0)
       rails (~> 5.0.0, >= 5.0.0.1)
@@ -83,7 +83,7 @@ GEM
     json-ld (2.1.0)
       multi_json (~> 1.11)
       rdf (~> 2.1)
-    libv8 (3.16.14.15)
+    libv8 (3.16.14.17)
     link_header (0.0.8)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)

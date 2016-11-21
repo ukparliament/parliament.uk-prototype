@@ -1,6 +1,7 @@
 class Constituency < Grom::Base
 
   has_many_through :members, via: :sittings
+  has_one :contact_point
 
   def self.property_translator
     {
@@ -9,7 +10,8 @@ class Constituency < Grom::Base
         constituencyStartDate: 'start_date',
         constituencyEndDate: 'end_date',
         constituencyLatitude: 'latitude',
-        constituencyLongitude: 'longitude'
+        constituencyLongitude: 'longitude',
+        constituencyExtent: 'polygon'
     }
   end
 end
