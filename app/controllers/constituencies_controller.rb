@@ -18,6 +18,14 @@ class ConstituenciesController < ApplicationController
     format({ serialized_data: @constituency, graph_data: result })
   end
 
+  def map
+    endpoint_url = "#{API_ENDPOINT}/constituencies/#{params[:id]}.ttl"
+    result = get_graph_data(endpoint_url)
+    @constituency = Constituency.find(result)
+
+    format({ serialized_data: @constituency, graph_data: result })
+  end
+
   # def members
   #   endpoint_url = "#{API_ENDPOINT}/people/members.ttl"
   #   member_graph = get_graph_data(endpoint_url)

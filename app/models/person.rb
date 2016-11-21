@@ -10,7 +10,8 @@ class Person < Grom::Base
         forename: 'forename',
         surname: 'surname',
         middleName: 'middle_name',
-        dateOfBirth: 'date_of_birth'
+        dateOfBirth: 'date_of_birth',
+        gender: 'gender'
     }
   end
 

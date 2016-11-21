@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   resources :people, only: [:index, :show]
   resources :parties, only: [:index, :show]
   resources :contact_points, only: [:index, :show]
-  resources :constituencies, only: [:index, :show]
+  resources :constituencies, only: [:index, :show] do
+    get '/map', to: 'constituencies#map'
+  end
 
 
   # Example resource route with options:
