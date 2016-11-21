@@ -1,0 +1,10 @@
+<li>
+  <%= link_to person_path(person.id) do %>
+      <% person.display_name %>
+  <% end %>
+</li>
+
+<ul>
+  <%= render :partial => 'party_memberships/party_membership', :collection => party.party_memberships %>
+</ul>
+

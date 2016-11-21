@@ -1,6 +1,6 @@
 class Party < Grom::Base
 
-  has_many :members
+  has_many_through :members, via: :party_memberships
 
   def self.property_translator
     {
