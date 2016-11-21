@@ -35,4 +35,13 @@ class PeopleController < ApplicationController
 
     format({ serialized_data: @people, graph_data: current_member_graph })
   end
+
+  def contact_points
+    endpoint_url = "#{API_ENDPOINT}/people/#{params[:person_id]}.ttl"
+    result = get_graph_data(endpoint_url)
+    person = Person.find(result)
+    @contact_points = person.contact_points
+
+    format({ serialized_data: @contact_points })
+  end
 end
