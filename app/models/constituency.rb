@@ -9,7 +9,8 @@ class Constituency < Grom::Base
         constituencyStartDate: 'start_date',
         constituencyEndDate: 'end_date',
         constituencyLatitude: 'latitude',
-        constituencyLongitude: 'longitude'
+        constituencyLongitude: 'longitude',
+        constituencyExtent: 'polygon'
     }
   end
 end
