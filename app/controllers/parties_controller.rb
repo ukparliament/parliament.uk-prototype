@@ -19,7 +19,7 @@ class PartiesController < ApplicationController
   end
 
   def members
-    endpoint_url = "#{API_ENDPOINT}/parties/#{params[:person_id]}/members.ttl"
+    endpoint_url = "#{API_ENDPOINT}/parties/#{params[:party_id]}.ttl"
     result = get_graph_data(endpoint_url)
     party = Party.find(result)
     @members = party.members
