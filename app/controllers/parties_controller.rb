@@ -18,12 +18,12 @@ class PartiesController < ApplicationController
     format({ serialized_data: @party, graph_data: result })
   end
 
-  # def members
-  #   endpoint_url = "#{API_ENDPOINT}/people/members.ttl"
-  #   member_graph = get_graph_data(endpoint_url)
-  #   @people = Person.all(member_graph)
-  #   @json_ld = json_ld(member_graph)
-  #
-  #   format({ serialized_data: @people, graph_data: member_graph })
-  # end
+  def members
+    endpoint_url = "#{API_ENDPOINT}/parties/#{params[:person_id]}/members.ttl"
+    result = get_graph_data(endpoint_url)
+    party = Party.find(result)
+    @members = party.members
+
+    format({ serialized_data: @members })
+  end
 end
