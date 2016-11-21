@@ -20,4 +20,5 @@ class Person < Grom::Base
     display_name += self.forename + ' ' if self.forename
     display_name += self.surname if self.surname
   end
+
 end
