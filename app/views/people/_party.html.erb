@@ -1,5 +1,7 @@
 <li>
-  <%= party.name %>
+  <%= link_to party_path(party.id) do %>
+      <%= party.name %>
+  <% end %>
   <ul>
     <%= render :partial => 'party_memberships/party_membership', :collection => party.party_memberships %>
   </ul>
