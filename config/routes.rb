@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :people, only: [:index, :show] do
     get '/contact_points', to: 'people#contact_points'
     get '/parties', to: 'people#parties'
+    get '/constituencies', to: 'people#constituencies'
   end
 
   resources :parties, only: [:index, :show] do

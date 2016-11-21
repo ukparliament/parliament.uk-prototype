@@ -1,7 +1,7 @@
 <h1><%= @person.display_name %></h1>
 
 <ul>
-  <%= render :partial => 'people/constituency', :collection => @person.constituencies %>
+  <%= render :partial => 'constituencies/constituency', :collection => @person.constituencies %>
 </ul>
 <ul>
   <%= render :partial => 'contact_points/contact_point', :collection => @person.contact_points %>
