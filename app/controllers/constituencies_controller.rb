@@ -27,21 +27,22 @@ class ConstituenciesController < ApplicationController
   end
 
   def members
-    endpoint_url = "#{API_ENDPOINT}/constituencies/#{params[:id]}.ttl"
+    endpoint_url = "#{API_ENDPOINT}/constituencies/#{params[:constituency_id]}.ttl"
     result = get_graph_data(endpoint_url)
-    @constituency = Constituency.find(result)
+    constituency = Constituency.find(result)
+    @members = constituency.members
 
-    format({ serialized_data: @constituency })
+    format({ serialized_data: @members })
   end
 
-  # def current_members
-  #   endpoint_url = "#{API_ENDPOINT}/constituencies/#{params[:id]}.ttl"
-  #   result = get_graph_data(endpoint_url)
-  #   constituency = Constituency.find(result)
-  #   @members = constituency.members
-  #
-  #   format({ serialized_data: @members })
-  # end
+  def current_members
+    endpoint_url = "#{API_ENDPOINT}/constituencies/#{params[:constituency_id]}.ttl"
+    result = get_graph_data(endpoint_url)
+    constituency = Constituency.find(result)
+    @members = constituency.members('current')
+
+    format({ serialized_data: @members })
+  end
 
   # def members
   #   endpoint_url = "#{API_ENDPOINT}/people/members.ttl"
