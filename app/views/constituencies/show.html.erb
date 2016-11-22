@@ -9,7 +9,7 @@
   <% end %></li>
 </ul>
 
-<%= @constituency.contact_point.street_address %>
-<%= @constituency.contact_point.address_locality %>
-<%= @constituency.contact_point.postal_code %>
-<%= @constituency.contact_point.telephone %>
+<%= @constituency.contact_point.street_address if defined? contact_point.street_address %>
+<%= @constituency.contact_point.address_locality if defined? contact_point.address_locality %>
+<%= @constituency.contact_point.postal_code if defined? contact_point.postal_code %>
+<%= @constituency.contact_point.telephone if defined? contact_point.telephone %>
