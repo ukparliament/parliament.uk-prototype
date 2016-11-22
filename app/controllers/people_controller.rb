@@ -1,21 +1,25 @@
 class PeopleController < ApplicationController
 
   def index
-    endpoint_url = "#{API_ENDPOINT}/people.ttl"
-    result = get_graph_data(endpoint_url)
-    @people = Person.all(result)
-    @json_ld = json_ld(result)
-
-    format({ serialized_data: @people, graph_data: result })
+    @people = Person.all
+    # @collective_graph = @people.extract_collective_graph
+    @collective_graph = RDF::Graph.new
+    @people.each do |person|
+      @collective_graph << person.graph
+      person.send(:remove_instance_variable, :@graph)
+    end
+    @json_ld = json_ld(@collective_graph)
+    format({ serialized_data: @people, graph_data: @collective_graph })
   end
 
   def show
-    endpoint_url = "#{API_ENDPOINT}/people/#{params[:id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    @person = Person.find(result)
-    @json_ld = json_ld(result)
+    @person = Person.find(params[:id])
+    # @graph = @person.extract_graph
+    @graph = @person.graph
+    @person.send(:remove_instance_variable, :@graph)
+    @json_ld = json_ld(@graph)
 
-    format({ serialized_data: @person, graph_data: result })
+    format({ serialized_data: @person, graph_data: @graph })
   end
 
   def members
