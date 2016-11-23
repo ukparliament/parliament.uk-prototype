@@ -2,51 +2,41 @@ class PeopleController < ApplicationController
 
   def index
     @people = Person.all
-    # @collective_graph = @people.extract_collective_graph
-    @collective_graph = RDF::Graph.new
-    @people.each do |person|
-      @collective_graph << person.graph
-      person.send(:remove_instance_variable, :@graph)
-    end
-    @json_ld = json_ld(@collective_graph)
-    format({ serialized_data: @people, graph_data: @collective_graph })
+    collective_graph = Person.extract_collective_graph(@people)
+    @json_ld = json_ld(collective_graph)
+    format({ serialized_data: @people, graph_data: collective_graph })
   end
 
   def show
     @person = Person.find(params[:id])
-    # @graph = @person.extract_graph
-    @graph = @person.graph
-    @person.send(:remove_instance_variable, :@graph)
-    @json_ld = json_ld(@graph)
+    graph = @person.extract_graph
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @person, graph_data: @graph })
+    format({ serialized_data: @person, graph_data: graph })
   end
 
   def members
-    endpoint_url = "#{API_ENDPOINT}/people/members.ttl"
-    member_graph = get_graph_data(endpoint_url)
-    @people = Person.all(member_graph)
-    @json_ld = json_ld(member_graph)
+    @people = Person.all('members')
+    collective_graph = Person.extract_collective_graph(@people)
+    @json_ld = json_ld(collective_graph)
 
-    format({ serialized_data: @people, graph_data: member_graph })
+    format({ serialized_data: @people, graph_data: collective_graph })
   end
 
   def current_members
-    endpoint_url = "#{API_ENDPOINT}/people/members/current.ttl"
-    current_member_graph = get_graph_data(endpoint_url)
-    @people = Person.all(current_member_graph)
-    @json_ld = json_ld(current_member_graph)
+    @people = Person.all('members', 'current')
+    collective_graph = Person.extract_collective_graph(@people)
+    @json_ld = json_ld(collective_graph)
 
-    format({ serialized_data: @people, graph_data: current_member_graph })
+    format({ serialized_data: @people, graph_data: collective_graph })
   end
 
   def contact_points
-    endpoint_url = "#{API_ENDPOINT}/people/#{params[:person_id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    person = Person.find(result)
+    person = Person.find(params[:person_id])
     @contact_points = person.contact_points
+    graph = ContactPoint.extract_collective_graph(@contact_points)
 
-    format({ serialized_data: @contact_points })
+    format({ serialized_data: @contact_points, graph_data: graph })
   end
 
   def parties
