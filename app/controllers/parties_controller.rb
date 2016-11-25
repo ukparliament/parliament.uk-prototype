@@ -2,23 +2,24 @@ class PartiesController < ApplicationController
 
   def index
     @parties = Party.all
-    # @json_ld = json_ld(result)
-
-    format({ serialized_data: @parties })
+    graph = collective_graph(@parties)
+    @json_ld = json_ld(graph)
+    format({ serialized_data: @parties, graph_data: graph })
   end
 
   def show
     @party = Party.find(params[:id])
-    # @json_ld = json_ld(@party.graph)
+    graph = @party.graph
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @party })
+    format({ serialized_data: @party, graph_data: graph })
   end
 
   def members
-    endpoint_url = "#{API_ENDPOINT}/parties/#{params[:party_id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    party = Party.find(result)
-    @members = party.members
+    @party = Party.find(params[:party_id])
+    @members = @party.members
+    # graph = collective_through_graph(@party, @members, :party_memberships)
+    # json_ld(graph)
 
     format({ serialized_data: @members })
   end

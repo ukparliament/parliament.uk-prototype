@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ukpds/grom
-  revision: 233581412cb51421f322855e89c97c022a10f184
+  revision: c769db04397c061a45be036025c2f843c8122037
   specs:
     grom (0.1.0)
       rails (~> 5.0.0, >= 5.0.0.1)
@@ -73,7 +73,7 @@ GEM
       activesupport (>= 4.1.0)
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
-    hashdiff (0.3.0)
+    hashdiff (0.3.1)
     i18n (0.7.0)
     jquery-rails (4.2.1)
       rails-dom-testing (>= 1, < 3)
