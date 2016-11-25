@@ -1,6 +1,5 @@
 GIT
   remote: https://github.com/ukpds/grom
-  revision: c769db04397c061a45be036025c2f843c8122037
   specs:
     grom (0.1.0)
       rails (~> 5.0.0, >= 5.0.0.1)

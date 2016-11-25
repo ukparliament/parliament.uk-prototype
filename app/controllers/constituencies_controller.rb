@@ -1,47 +1,43 @@
 class ConstituenciesController < ApplicationController
 
   def index
-    endpoint_url = "#{API_ENDPOINT}/constituencies.ttl"
-    result = get_graph_data(endpoint_url)
-    @constituencies = Constituency.all(result)
-    @json_ld = json_ld(result)
+    @constituencies = Constituency.all
+    graph = Constituency.collective_graph(@constituencies)
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @constituencies, graph_data: result })
+    format({ serialized_data: @constituencies})
   end
 
   def show
-    endpoint_url = "#{API_ENDPOINT}/constituencies/#{params[:id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    @constituency = Constituency.find(result)
-    @json_ld = json_ld(result)
+    @constituency = Constituency.find(params[:id])
+    graph = @constituency.graph
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @constituency, graph_data: result })
+    format({ serialized_data: @constituency.serialize_associated_objects(:members), graph_data: graph })
   end
 
   def map
-    endpoint_url = "#{API_ENDPOINT}/constituencies/#{params[:id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    @constituency = Constituency.find(result)
+    @constituency = Constituency.find(params[:constituency_id])
+    graph = @constituency.graph
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @constituency, graph_data: result })
+    format({ serialized_data: @constituency, graph_data: graph })
   end
 
   def members
-    endpoint_url = "#{API_ENDPOINT}/constituencies/#{params[:constituency_id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    constituency = Constituency.find(result)
-    @members = constituency.members
+    @constituency = Constituency.find(params[:constituency_id])
+    graph = collective_through_graph(@constituency, @constituency.members, :sittings)
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @members })
+    format({ serialized_data: @constituency.serialize_associated_objects(:members), graph_data: graph })
   end
 
   def current_members
-    endpoint_url = "#{API_ENDPOINT}/constituencies/#{params[:constituency_id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    constituency = Constituency.find(result)
-    @current_members = constituency.members('current')
+    @constituency = Constituency.find(params[:constituency_id])
+    graph = collective_through_graph(@constituency, @constituency.members('current'), :sittings)
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @current_members })
+    format({ serialized_data: @constituency.serialize_associated_objects({members: 'current'}), graph_data: graph })
   end
 
 end
