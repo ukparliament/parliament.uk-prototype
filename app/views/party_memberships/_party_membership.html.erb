@@ -1,5 +1,8 @@
 <li>
   <% unless party_membership.start_date.nil? %>
-      <%= party_membership.start_date %>
+      <%= party_membership.start_date %> -
+  <% end %>
+  <% if defined?(party_membership.end_date) %>
+      <%= party_membership.end_date %>
   <% end %>
 </li>

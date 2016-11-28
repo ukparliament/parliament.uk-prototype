@@ -1,65 +1,60 @@
 class PeopleController < ApplicationController
 
   def index
-    endpoint_url = "#{API_ENDPOINT}/people.ttl"
-    result = get_graph_data(endpoint_url)
-    @people = Person.all(result)
-    @json_ld = json_ld(result)
-
-    format({ serialized_data: @people, graph_data: result })
+    @people = Person.all
+    graph = collective_graph(@people)
+    @json_ld = json_ld(graph)
+    format({ serialized_data: @people, graph_data: graph })
   end
 
   def show
-    endpoint_url = "#{API_ENDPOINT}/people/#{params[:id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    @person = Person.find(result)
-    @json_ld = json_ld(result)
+    @person = Person.find(params[:id])
+    graph = @person.graph
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @person, graph_data: result })
+    format({ serialized_data: @person, graph_data: graph })
   end
 
   def members
-    endpoint_url = "#{API_ENDPOINT}/people/members.ttl"
-    member_graph = get_graph_data(endpoint_url)
-    @people = Person.all(member_graph)
-    @json_ld = json_ld(member_graph)
+    @people = Person.all('members')
+    graph = collective_graph(@people)
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @people, graph_data: member_graph })
+    format({ serialized_data: @people, graph_data: graph })
   end
 
   def current_members
-    endpoint_url = "#{API_ENDPOINT}/people/members/current.ttl"
-    current_member_graph = get_graph_data(endpoint_url)
-    @people = Person.all(current_member_graph)
-    @json_ld = json_ld(current_member_graph)
+    @people = Person.all('members', 'current')
+    graph = collective_graph(@people)
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @people, graph_data: current_member_graph })
+    format({ serialized_data: @people, graph_data: graph })
   end
 
   def contact_points
-    endpoint_url = "#{API_ENDPOINT}/people/#{params[:person_id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    person = Person.find(result)
-    @contact_points = person.contact_points
+    @person = Person.find(params[:person_id])
+    @contact_points = @person.contact_points
+    graph = collective_has_many_graph(@person, @contact_points)
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @contact_points })
+    format({ serialized_data: @person.serialize_associated_objects(:contact_points), graph_data: graph })
   end
 
   def parties
-    endpoint_url = "#{API_ENDPOINT}/people/#{params[:person_id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    person = Person.find(result)
-    @parties = person.parties
+    @person = Person.find(params[:person_id])
+    @parties = @person.parties
+    graph = collective_through_graph(@person, @parties, :party_memberships)
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @parties })
+    format({ serialized_data: @person.serialize_associated_objects(:parties), graph_data: graph })
   end
 
   def constituencies
-    endpoint_url = "#{API_ENDPOINT}/people/#{params[:person_id]}.ttl"
-    result = get_graph_data(endpoint_url)
-    person = Person.find(result)
-    @constituencies = person.constituencies
+    @person = Person.find(params[:person_id])
+    @constituencies = @person.constituencies
+    graph = collective_through_graph(@person, @constituencies, :sittings)
+    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @constituencies })
+    format({ serialized_data: @person.serialize_associated_objects(:constituencies), graph_data: graph })
   end
 end
