@@ -20,8 +20,11 @@ Rails.application.routes.draw do
   resources :people, only: [:index, :show] do
     get '/contact_points', to: 'people#contact_points'
     get '/parties', to: 'people#parties'
+    get '/parties/current', to: 'people#current_parties'
     get '/constituencies', to: 'people#constituencies'
   end
+
+  get 'parties/current', to: 'parties#current'
 
   resources :parties, only: [:index, :show] do
     get '/members', to: 'parties#members'
@@ -29,10 +32,13 @@ Rails.application.routes.draw do
   end
   resources :contact_points, only: [:index, :show]
 
+  get '/constituencies/current', to: 'constituencies#current'
+
   resources :constituencies, only: [:index, :show] do
     get '/map', to: 'constituencies#map'
     get '/members', to: 'constituencies#members'
     get '/members/current', to: 'constituencies#current_members'
+    get '/contact_point', to: 'constituencies#contact_point'
   end
 
 

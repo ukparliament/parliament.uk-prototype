@@ -1,12 +1,8 @@
 <%= @constituency.name %>
+<%= @constituency.start_date if defined? @constituency.start_date %> - <%= @constituency.end_date if defined? @constituency.end_date %>
 
 <ul>
-  <% @constituency.members.each do |member| %>
-      <li><%= member.display_name %>
-      <% member.sittings.each do |sitting| %>
-          <%= sitting.start_date %>
-      <% end %>
-  <% end %></li>
+  <%= render :partial => 'constituencies/person', collection: @members %>
 </ul>
 
 <%= @constituency.contact_point.street_address if defined? contact_point.street_address %>

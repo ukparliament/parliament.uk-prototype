@@ -1,9 +1,3 @@
 <ul>
-  <%= @constituencies.each do |constituency| %>
-      <li>
-        <%= link_to constituency_path(constituency.id) do %>
-            <% constituency.name %>
-        <% end %>
-      </li>
-  <% end %>
+  <%= render :partial => 'constituencies/constituency', :collection => @constituencies %>
 </ul>
