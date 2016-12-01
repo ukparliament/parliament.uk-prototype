@@ -2,17 +2,22 @@ class PartiesController < ApplicationController
 
   def index
     @parties = Party.all
-    graph = collective_graph(@parties)
-    @json_ld = json_ld(graph)
-    format({ serialized_data: @parties, graph_data: graph })
+    # graph = collective_graph(@parties)
+    # @json_ld = json_ld(graph)
+
+    format({ serialized_data: @parties })
+  end
+
+  def current
+
   end
 
   def show
     @party = Party.find(params[:id])
-    graph = @party.graph
-    @json_ld = json_ld(graph)
+    # graph = @party.graph
+    # @json_ld = json_ld(graph)
 
-    format({ serialized_data: @party, graph_data: graph })
+    format({ serialized_data: @party })
   end
 
   def members
