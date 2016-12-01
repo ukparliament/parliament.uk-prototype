@@ -1,9 +1,3 @@
-<%= @constituency.name %>
-
-<ul>
-  <%= render :partial => 'constituencies/person', collection: @constituency.members %>
-</ul>
-
 <%= @constituency.contact_point.street_address if defined? contact_point.street_address %>
 <%= @constituency.contact_point.address_locality if defined? contact_point.address_locality %>
 <%= @constituency.contact_point.postal_code if defined? contact_point.postal_code %>
