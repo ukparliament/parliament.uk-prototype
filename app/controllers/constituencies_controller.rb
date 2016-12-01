@@ -8,8 +8,9 @@ class ConstituenciesController < ApplicationController
 
   def show
     @constituency = Constituency.find(params[:id])
+    @members = @constituency.members
 
-    format({ serialized_data: @constituency.serialize_associated_objects(:members) })
+    format({ serialized_data: { :constituency => @constituency, :members => @members } } )
   end
 
   def current
@@ -26,20 +27,23 @@ class ConstituenciesController < ApplicationController
 
   def contact_point
     @constituency = Constituency.find(params[:constituency_id])
+    @contact_point = @constituency.contact_point
 
-    format({ serialized_data: @constituency.serialize_associated_objects(:contact_point)})
+    format({ serialized_data: { :constituency => @constituency, :contact_point => @contact_point } })
   end
 
   def members
     @constituency = Constituency.find(params[:constituency_id])
+    @members = @constituency.members
 
-    format({ serialized_data: @constituency.serialize_associated_objects(:members) })
+    format({ serialized_data: { :constituency => @constituency, :members => @members } })
   end
 
   def current_members
     @constituency = Constituency.find(params[:constituency_id])
+    @members = @constituency.members('current')
 
-    format({ serialized_data: @constituency.serialize_associated_objects({members: 'current'}) })
+    format({ serialized_data: { :constituency => @constituency, :members => @members } })
   end
 
 end
