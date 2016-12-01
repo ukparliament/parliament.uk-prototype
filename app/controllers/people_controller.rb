@@ -39,7 +39,10 @@ class PeopleController < ApplicationController
   end
 
   def current_parties
+    @person = Person.find(params[:person_id])
+    @parties = @person.parties('current')
 
+    format({ serialized_data: { person: @person, parties: @parties } })
   end
 
   def constituencies
