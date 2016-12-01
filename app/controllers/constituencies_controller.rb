@@ -2,42 +2,44 @@ class ConstituenciesController < ApplicationController
 
   def index
     @constituencies = Constituency.all
-    graph = Constituency.collective_graph(@constituencies)
-    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @constituencies})
+    format({ serialized_data: @constituencies })
   end
 
   def show
     @constituency = Constituency.find(params[:id])
-    graph = @constituency.graph
-    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @constituency.serialize_associated_objects(:members), graph_data: graph })
+    format({ serialized_data: @constituency.serialize_associated_objects(:members) })
+  end
+
+  def current
+    @constituencies = Constituency.all('current')
+
+    format({ serialized_data: @constituencies })
   end
 
   def map
     @constituency = Constituency.find(params[:constituency_id])
-    graph = @constituency.graph
-    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @constituency, graph_data: graph })
+    format({ serialized_data: @constituency })
+  end
+
+  def contact_point
+    @constituency = Constituency.find(params[:constituency_id])
+
+    format({ serialized_data: @constituency.serialize_associated_objects(:contact_point)})
   end
 
   def members
     @constituency = Constituency.find(params[:constituency_id])
-    graph = collective_through_graph(@constituency, @constituency.members, :sittings)
-    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @constituency.serialize_associated_objects(:members), graph_data: graph })
+    format({ serialized_data: @constituency.serialize_associated_objects(:members) })
   end
 
   def current_members
     @constituency = Constituency.find(params[:constituency_id])
-    graph = collective_through_graph(@constituency, @constituency.members('current'), :sittings)
-    @json_ld = json_ld(graph)
 
-    format({ serialized_data: @constituency.serialize_associated_objects({members: 'current'}), graph_data: graph })
+    format({ serialized_data: @constituency.serialize_associated_objects({members: 'current'}) })
   end
 
 end
