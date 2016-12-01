@@ -29,10 +29,13 @@ Rails.application.routes.draw do
   end
   resources :contact_points, only: [:index, :show]
 
+  get '/constituencies/current', to: 'constituencies#current'
+
   resources :constituencies, only: [:index, :show] do
     get '/map', to: 'constituencies#map'
     get '/members', to: 'constituencies#members'
     get '/members/current', to: 'constituencies#current_members'
+    get '/contact_point', to: 'constituencies#contact_point'
   end
 
 

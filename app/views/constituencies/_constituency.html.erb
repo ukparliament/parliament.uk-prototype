@@ -1,8 +1,5 @@
 <li>
   <%= link_to constituency_path(constituency.id) do %>
-      <%= constituency.name %>
+      <% constituency.name %>
   <% end %>
-  <ul>
-    <%= render :partial => 'sittings/sitting', :collection => constituency.sittings %>
-  </ul>
 </li>
