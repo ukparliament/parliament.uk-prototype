@@ -41,6 +41,14 @@ Rails.application.routes.draw do
     get '/contact_point', to: 'constituencies#contact_point'
   end
 
+  resources :houses, only: [:index, :show] do
+    get '/members', to: 'houses#members'
+    get '/members/current', to: 'houses#current_members'
+
+    get '/parties', to: 'houses#parties'
+    get '/parties/current', to: 'houses#current_parties'
+  end
+
 
   # Example resource route with options:
   #   resources :products do
