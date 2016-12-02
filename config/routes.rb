@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   resources :houses, only: [:index, :show] do
     get '/members', to: 'houses#members'
     get '/members/current', to: 'houses#current_members'
+
+    get '/parties', to: 'houses#parties'
+    get '/parties/current', to: 'houses#current_parties'
   end
 
 
