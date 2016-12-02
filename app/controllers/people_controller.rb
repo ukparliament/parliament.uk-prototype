@@ -2,6 +2,7 @@ class PeopleController < ApplicationController
 
   def index
     @people = Person.all
+    @people.sort! { |a,b| a.surname.downcase <=> b.surname.downcase }
 
     format({ serialized_data: @people })
   end

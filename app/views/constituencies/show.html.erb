@@ -1,9 +1,10 @@
 <%= @constituency.name %>
 <%= @constituency.start_date if defined? @constituency.start_date %> - <%= @constituency.end_date if defined? @constituency.end_date %>
 
-<ul>
-  <%= render :partial => 'constituencies/person', collection: @members %>
-</ul>
+<% @sittings.each do |sitting| %>
+    <%= sitting[:sittingStartDate] %> - <% if sitting[:sittingEndDate] %> <%= sitting[:sittingEndDate] %><% end %>
+    <%= @members.select { |m| m.id == sitting[:associated_object_id] }.first.display_name %>
+<% end %>
 
 <%= @constituency.contact_point.street_address if defined? contact_point.street_address %>
 <%= @constituency.contact_point.address_locality if defined? contact_point.address_locality %>

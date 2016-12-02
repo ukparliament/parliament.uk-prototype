@@ -10,6 +10,14 @@ class ConstituenciesController < ApplicationController
     @constituency = Constituency.find(params[:id])
     @members = @constituency.members
 
+    @sittings = []
+    @members.each do |m|
+      @sittings << m.sittings
+    end
+    @sittings.flatten!
+    @sittings.sort! { |a, b| b[:sittingStartDate] <=> a[:sittingStartDate] }
+    p @sittings
+
     format({ serialized_data: { :constituency => @constituency, :members => @members } } )
   end
 

@@ -2,6 +2,7 @@ class PartiesController < ApplicationController
 
   def index
     @parties = Party.all
+    @parties.sort! { |a,b| a.name.downcase <=> b.name.downcase }
 
     format({ serialized_data: @parties })
   end
@@ -21,6 +22,7 @@ class PartiesController < ApplicationController
   def members
     @party = Party.find(params[:party_id])
     @members = @party.members
+    @members.sort! { |a,b| a.surname.downcase <=> b.surname.downcase }
 
     format({ serialized_data: { party: @party, members: @members } })
   end
