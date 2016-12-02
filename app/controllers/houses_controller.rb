@@ -16,13 +16,27 @@ class HousesController < ApplicationController
     @house = House.find(params[:house_id])
     @members = @house.members
 
-    format({ serialized_data: { :house => @house, :members => @members }})
+    format({ serialized_data: { house: @house, members: @members }})
   end
 
   def current_members
     @house = House.find(params[:house_id])
     @members = @house.members('current')
 
-    format({ serialized_data: { :house => @house, :members => @members }})
+    format({ serialized_data: { house: @house, members: @members }})
+  end
+
+  def parties
+    @house = House.find(params[:house_id])
+    @parties = @house.parties
+
+    format({ serialized_data: { house: @house, parties: @parties } })
+  end
+
+  def current_parties
+    @house = House.find(params[:house_id])
+    @parties = @house.parties('current')
+
+    format({ serialized_data: { house: @house, parties: @parties } })
   end
 end
