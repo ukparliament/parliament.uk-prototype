@@ -1,7 +1,7 @@
 class HousesController < ApplicationController
 
   def index
-    @houses = House.all
+    @houses = order_list(House.all, :id)
 
     format({ serialized_data: @houses })
   end
@@ -14,28 +14,28 @@ class HousesController < ApplicationController
 
   def members
     @house = House.find(params[:house_id])
-    @members = @house.members
+    @members = order_list(@house.members, :surname, :forename)
 
     format({ serialized_data: { house: @house, members: @members }})
   end
 
   def current_members
     @house = House.find(params[:house_id])
-    @members = @house.members('current')
+    @members = order_list(@house.members('current'), :surname, :forename)
 
     format({ serialized_data: { house: @house, members: @members }})
   end
 
   def parties
     @house = House.find(params[:house_id])
-    @parties = @house.parties
+    @parties = order_list(@house.parties, :name)
 
     format({ serialized_data: { house: @house, parties: @parties } })
   end
 
   def current_parties
     @house = House.find(params[:house_id])
-    @parties = @house.parties('current')
+    @parties = order_list(@house.parties('current'), :name)
 
     format({ serialized_data: { house: @house, parties: @parties } })
   end
