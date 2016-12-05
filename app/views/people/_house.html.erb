@@ -1,0 +1,8 @@
+<li>
+  <%= link_to house_path(house.id) do %>
+      <%= house.id %>
+  <% end %>
+  <ul>
+    <%= render :partial => 'sittings/sitting', :collection => house.sittings %>
+  </ul>
+</li>
