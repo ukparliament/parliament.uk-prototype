@@ -1,8 +1,7 @@
 class PeopleController < ApplicationController
 
   def index
-    @people = Person.all
-    @people.sort! { |a,b| a.surname.downcase <=> b.surname.downcase }
+    @people = order_list(Person.all, :surname)
 
     format({ serialized_data: @people })
   end
@@ -14,13 +13,13 @@ class PeopleController < ApplicationController
   end
 
   def members
-    @people = Person.all('members')
+    @people = order_list(Person.all('members'), :surname, :forename)
 
     format({ serialized_data: @people })
   end
 
   def current_members
-    @people = Person.all('members', 'current')
+    @people = order_list(Person.all('members', 'current'), :surname, :forename)
 
     format({ serialized_data: @people })
   end
@@ -34,7 +33,7 @@ class PeopleController < ApplicationController
 
   def parties
     @person = Person.find(params[:person_id])
-    @parties = @person.parties
+    @parties = order_list(@person.parties, :name)
 
     format({ serialized_data: { person: @person, parties: @parties } })
   end
@@ -48,7 +47,7 @@ class PeopleController < ApplicationController
 
   def constituencies
     @person = Person.find(params[:person_id])
-    @constituencies = @person.constituencies
+    @constituencies = order_list(@person.constituencies, :name)
 
     format({ serialized_data: { person: @person, contact_points: @constituencies } })
   end

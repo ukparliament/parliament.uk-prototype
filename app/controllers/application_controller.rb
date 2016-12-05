@@ -3,7 +3,7 @@ require 'grom'
 class ApplicationController < ActionController::Base
   include JSON_LD_Helper
   include FormatHelper
-  include Grom::GraphMapper
+  # include Grom::GraphMapper
   include Grom::Helpers
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

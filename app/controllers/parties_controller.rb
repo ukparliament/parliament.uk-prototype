@@ -1,14 +1,13 @@
 class PartiesController < ApplicationController
 
   def index
-    @parties = Party.all
-    @parties.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+    @parties = order_list(Party.all, :name)
 
     format({ serialized_data: @parties })
   end
 
   def current
-    @parties = Party.all('current')
+    @parties = order_list(Party.all('current'), :name)
 
     format({ serialized_data: @parties })
   end
@@ -21,15 +20,14 @@ class PartiesController < ApplicationController
 
   def members
     @party = Party.find(params[:party_id])
-    @members = @party.members
-    @members.sort! { |a,b| a.surname.downcase <=> b.surname.downcase }
+    @members = order_list(@party.members, :surname, :forename)
 
     format({ serialized_data: { party: @party, members: @members } })
   end
 
   def current_members
     @party = Party.find(params[:party_id])
-    @members = @party.members('current')
+    @members = order_list(@party.members('current'), :surname, :forename)
 
     format({ serialized_data: { party: @party, members: @members } })
   end

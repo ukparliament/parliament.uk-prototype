@@ -1,1 +1,8 @@
-<%= render :partial => 'constituencies/person', collection: @members %>
+<ul>
+  <% @sittings.each do |sitting| %>
+      <li>
+        <%= sitting[:sittingStartDate] %> - <% if sitting[:sittingEndDate] %> <%= sitting[:sittingEndDate] %><% end %>
+        <%= @members.select { |m| m.id == sitting[:associated_object_id] }.first.display_name %>
+      </li>
+  <% end %>
+</ul>

@@ -1,7 +1,7 @@
 class ConstituenciesController < ApplicationController
 
   def index
-    @constituencies = Constituency.all
+    @constituencies = order_list(Constituency.all, :name)
 
     format({ serialized_data: @constituencies })
   end
@@ -9,20 +9,13 @@ class ConstituenciesController < ApplicationController
   def show
     @constituency = Constituency.find(params[:id])
     @members = @constituency.members
-
-    @sittings = []
-    @members.each do |m|
-      @sittings << m.sittings
-    end
-    @sittings.flatten!
-    @sittings.sort! { |a, b| b[:sittingStartDate] <=> a[:sittingStartDate] }
-    p @sittings
+    @sittings = order_list_by_through(@members, :sittings, :sittingStartDate)
 
     format({ serialized_data: { :constituency => @constituency, :members => @members } } )
   end
 
   def current
-    @constituencies = Constituency.all('current')
+    @constituencies = order_list(Constituency.all('current'), :name)
 
     format({ serialized_data: @constituencies })
   end
@@ -43,6 +36,7 @@ class ConstituenciesController < ApplicationController
   def members
     @constituency = Constituency.find(params[:constituency_id])
     @members = @constituency.members
+    @sittings = order_list_by_through(@members, :sittings, :sittingStartDate)
 
     format({ serialized_data: { :constituency => @constituency, :members => @members } })
   end
