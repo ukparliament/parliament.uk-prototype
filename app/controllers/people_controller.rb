@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
 
   def index
-    @people = order_list(Person.all, :surname)
+    @people = order_list(Person.all, :surname, :forename)
 
     format({ serialized_data: @people })
   end

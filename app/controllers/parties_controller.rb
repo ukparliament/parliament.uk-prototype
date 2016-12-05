@@ -34,7 +34,7 @@ class PartiesController < ApplicationController
 
   def letters
     letter = params[:letter]
-    @parties = Party.all(letter)
+    @parties = order_list(Party.all(letter), :partyName)
 
     format({ serialized_data: @parties })
 
