@@ -25,11 +25,13 @@ Rails.application.routes.draw do
   end
 
   get 'parties/current', to: 'parties#current'
+  match 'parties/:letter', to: 'parties#letters', letter: /[a-z]/, via: [:get]
 
   resources :parties, only: [:index, :show] do
     get '/members', to: 'parties#members'
     get '/members/current', to: 'parties#current_members'
   end
+
   resources :contact_points, only: [:index, :show]
 
   get '/constituencies/current', to: 'constituencies#current'

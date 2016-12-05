@@ -31,4 +31,13 @@ class PartiesController < ApplicationController
 
     format({ serialized_data: { party: @party, members: @members } })
   end
+
+  def letters
+    letter = params[:letter]
+    @parties = Party.all(letter)
+
+    format({ serialized_data: @parties })
+
+    render "index"
+  end
 end
