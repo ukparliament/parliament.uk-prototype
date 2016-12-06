@@ -48,4 +48,22 @@ class ConstituenciesController < ApplicationController
     format({ serialized_data: { :constituency => @constituency, :members => @members } })
   end
 
+  def letters
+    letter = params[:letter]
+    @constituencies = order_list(Constituency.all(letter), :name)
+
+    format({ serialized_data: @constituencies })
+
+    render "index"
+  end
+
+  def current_letters
+    letter = params[:letter]
+    @constituencies = order_list(Constituency.all('current', letter), :name)
+
+    format({ serialized_data: @constituencies })
+
+    render "index"
+  end
+
 end
