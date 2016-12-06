@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
 
   def index
-    @people = order_list(Person.all, :surname)
+    @people = order_list(Person.all, :surname, :forename)
 
     format({ serialized_data: @people })
   end
@@ -50,5 +50,32 @@ class PeopleController < ApplicationController
     @constituencies = order_list(@person.constituencies, :name)
 
     format({ serialized_data: { person: @person, contact_points: @constituencies } })
+  end
+
+  def letters
+    letter = params[:letter]
+    @people = order_list(Person.all(letter), :surname, :forename)
+
+    format({ serialized_data: @people })
+
+    render "index"
+  end
+
+  def members_letters
+    letter = params[:letter]
+    @people = order_list(Person.all('members', letter), :surname, :forename)
+
+    format({ serialized_data: @people })
+
+    render "members"
+  end
+
+  def current_members_letters
+    letter = params[:letter]
+    @people = order_list(Person.all('members', 'current', letter), :surname, :forename)
+
+    format({ serialized_data: @people })
+
+    render "members"
   end
 end

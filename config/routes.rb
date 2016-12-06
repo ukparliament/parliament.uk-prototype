@@ -16,6 +16,16 @@ Rails.application.routes.draw do
 
   get '/people/members', to: 'people#members'
   get '/people/members/current', to: 'people#current_members'
+  match '/people/a-z/:letter', to: 'people#letters', letter: /[a-z]/, via: [:get]
+  match '/people/members/a-z/:letter', to: 'people#members_letters', letter: /[a-z]/, via: [:get]
+  match '/people/members/current/a-z/:letter', to: 'people#current_members_letters', letter: /[a-z]/, via: [:get]
+
+  get '/parties/current', to: 'parties#current'
+  match '/parties/a-z/:letter', to: 'parties#letters', letter: /[a-z]/, via: [:get]
+
+  get '/constituencies/current', to: 'constituencies#current'
+  match '/constituencies/a-z/:letter', to: 'constituencies#letters', letter: /[a-z]/, via: [:get]
+  match '/constituencies/current/a-z/:letter', to: 'constituencies#current_letters', letter: /[a-z]/, via: [:get]
 
   resources :people, only: [:index, :show] do
     get '/contact_points', to: 'people#contact_points'
@@ -24,15 +34,14 @@ Rails.application.routes.draw do
     get '/constituencies', to: 'people#constituencies'
   end
 
-  get 'parties/current', to: 'parties#current'
-
   resources :parties, only: [:index, :show] do
     get '/members', to: 'parties#members'
     get '/members/current', to: 'parties#current_members'
+    match '/members/a-z/:letter', to: 'parties#members_letters', letter: /[a-z]/, via: [:get]
+    match '/members/current/a-z/:letter', to: 'parties#current_members_letters', letter: /[a-z]/, via: [:get]
   end
-  resources :contact_points, only: [:index, :show]
 
-  get '/constituencies/current', to: 'constituencies#current'
+  resources :contact_points, only: [:index, :show]
 
   resources :constituencies, only: [:index, :show] do
     get '/map', to: 'constituencies#map'
@@ -44,9 +53,10 @@ Rails.application.routes.draw do
   resources :houses, only: [:index, :show] do
     get '/members', to: 'houses#members'
     get '/members/current', to: 'houses#current_members'
-
     get '/parties', to: 'houses#parties'
     get '/parties/current', to: 'houses#current_parties'
+    match '/members/a-z/:letter', to: 'houses#members_letters', letter: /[a-z]/, via: [:get]
+    match '/members/current/a-z/:letter', to: 'houses#current_members_letters', letter: /[a-z]/, via: [:get]
   end
 
 
