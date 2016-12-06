@@ -1,10 +1,9 @@
 h1 
   => @person.display_name
-ul
-  => render :partial => 'people/house', :collection => @person.houses
-ul 
-  => render :partial => 'constituencies/constituency', :collection => @person.constituencies
+
 ul 
   => render :partial => 'contact_points/contact_point', :collection => @person.contact_points
 ul 
   => render :partial => 'people/party', :collection => @person.parties
+ul
+  => render :partial => 'people/sitting', :collection => @person.sittings
