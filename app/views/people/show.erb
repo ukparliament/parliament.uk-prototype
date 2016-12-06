@@ -1,13 +1,10 @@
 <h1><%= @person.display_name %></h1>
 <ul>
-  <%= render :partial => 'people/house', :collection => @person.houses %>
-</ul>
-<ul>
-  <%= render :partial => 'constituencies/constituency', :collection => @person.constituencies %>
-</ul>
-<ul>
   <%= render :partial => 'contact_points/contact_point', :collection => @person.contact_points %>
 </ul>
 <ul>
   <%= render :partial => 'people/party', :collection => @person.parties %>
+</ul>
+<ul>
+  <%= render :partial => 'people/sitting', :collection => @person.sittings %>
 </ul>
