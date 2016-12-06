@@ -51,4 +51,31 @@ class PeopleController < ApplicationController
 
     format({ serialized_data: { person: @person, contact_points: @constituencies } })
   end
+
+  def letters
+    letter = params[:letter]
+    @people = order_list(Person.all(letter), :surname, :forename)
+
+    format({ serialized_data: @people })
+
+    render "index"
+  end
+
+  def members_letters
+    letter = params[:letter]
+    @people = order_list(Person.all('members', letter), :surname, :forename)
+
+    format({ serialized_data: @people })
+
+    render "members"
+  end
+
+  def current_members_letters
+    letter = params[:letter]
+    @people = order_list(Person.all('members', 'current', letter), :surname, :forename)
+
+    format({ serialized_data: @people })
+
+    render "members"
+  end
 end

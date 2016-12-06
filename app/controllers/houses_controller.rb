@@ -24,6 +24,8 @@ class HousesController < ApplicationController
     @members = order_list(@house.members('current'), :surname, :forename)
 
     format({ serialized_data: { house: @house, members: @members }})
+
+    render "members"
   end
 
   def parties
@@ -38,5 +40,25 @@ class HousesController < ApplicationController
     @parties = order_list(@house.parties('current'), :name)
 
     format({ serialized_data: { house: @house, parties: @parties } })
+  end
+
+  def members_letters
+    letter = params[:letter]
+    @house = House.find(params[:house_id])
+    @members = order_list(@house.members(letter), :surname, :forename)
+
+    format({ serialized_data: { house: @house, members: @members } })
+
+    render "members"
+  end
+
+  def current_members_letters
+    letter = params[:letter]
+    @house = House.find(params[:house_id])
+    @members = order_list(@house.members('current', letter), :surname, :forename)
+
+    format({ serialized_data: { house: @house, members: @members } })
+
+    render "members"
   end
 end
