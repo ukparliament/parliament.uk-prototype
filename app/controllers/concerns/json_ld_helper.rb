@@ -1,4 +1,5 @@
 module JSON_LD_Helper
+
   def json_ld(graph)
     json_ld = nil
     JSON::LD::API::fromRDF(graph) do |expanded|
@@ -6,4 +7,5 @@ module JSON_LD_Helper
     end
     json_ld.to_json
   end
+
 end

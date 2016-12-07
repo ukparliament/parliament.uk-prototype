@@ -2,6 +2,8 @@ class Person < Grom::Base
 
   has_many_through :constituencies, via: :sittings
   has_many_through :parties, via: :party_memberships
+  has_many_through :houses, via: :sittings
+  has_many :sittings
   has_many :contact_points
 
   def self.property_translator
