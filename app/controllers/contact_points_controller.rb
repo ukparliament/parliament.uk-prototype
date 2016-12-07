@@ -7,7 +7,7 @@ class ContactPointsController < ApplicationController
   end
 
   def show
-    @contact_point = ContactPoint.find(params[:id])
+    @contact_point = ContactPoint.find(params[:id]) or not_found
 
     format({ serialized_data: @contact_point })
   end

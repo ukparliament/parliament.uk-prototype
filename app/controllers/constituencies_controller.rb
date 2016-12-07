@@ -7,7 +7,7 @@ class ConstituenciesController < ApplicationController
   end
 
   def show
-    @constituency = Constituency.find(params[:id])
+    @constituency = Constituency.find(params[:id]) or not_found
     @members = @constituency.members
     @sittings = order_list_by_through(@members, :sittings, :sittingStartDate)
 
@@ -21,20 +21,20 @@ class ConstituenciesController < ApplicationController
   end
 
   def map
-    @constituency = Constituency.find(params[:constituency_id])
+    @constituency = Constituency.find(params[:constituency_id]) or not_found
 
     format({ serialized_data: @constituency })
   end
 
   def contact_point
-    @constituency = Constituency.find(params[:constituency_id])
+    @constituency = Constituency.find(params[:constituency_id]) or not_found
     @contact_point = @constituency.contact_point
 
     format({ serialized_data: { :constituency => @constituency, :contact_point => @contact_point } })
   end
 
   def members
-    @constituency = Constituency.find(params[:constituency_id])
+    @constituency = Constituency.find(params[:constituency_id]) or not_found
     @members = @constituency.members
     @sittings = order_list_by_through(@members, :sittings, :sittingStartDate)
 
@@ -42,7 +42,7 @@ class ConstituenciesController < ApplicationController
   end
 
   def current_members
-    @constituency = Constituency.find(params[:constituency_id])
+    @constituency = Constituency.find(params[:constituency_id]) or not_found
     @members = @constituency.members('current')
 
     format({ serialized_data: { :constituency => @constituency, :members => @members } })
