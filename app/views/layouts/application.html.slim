@@ -2,10 +2,18 @@ doctype html
 html lang="en"
   head
     title MembersPrototype
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    link rel="stylesheet" href="/_css/application.css"
     = csrf_meta_tags
-  body
-    script[type="application/ld+json"]
-      = raw(@json_ld)
-    = yield
+  body.no-js
+
+    = content_for?(:body_header) ? yield(:body_header) : render('layouts/pugin/modules/header')
+
+    .c-fg
+
+      script[type="application/ld+json"]
+        = raw(@json_ld)
+      = yield
+
+      = content_for?(:body_footer) ? yield(:body_footer) : render('layouts/pugin/modules/footer')
+
+    script src="/_js/application.js"
