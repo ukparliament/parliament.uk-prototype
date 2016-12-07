@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
 
   def index
   end
+
+  def a_to_z
+    @root_path = request.path
+  end
 end
