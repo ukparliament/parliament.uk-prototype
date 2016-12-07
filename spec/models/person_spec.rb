@@ -7,4 +7,10 @@ describe Person do
       expect(person.display_name).to eq 'Arya Stark'
     end
   end
+
+  describe 'associations' do
+    it 'should respond to sittings' do
+
+    end
+  end
 end
