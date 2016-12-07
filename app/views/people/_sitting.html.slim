@@ -1,12 +1,11 @@
 li
-  p
-    => link_to house_path(sitting.house.id) do
-      => sitting.house.id
-    |  -
-    => link_to constituency_path(sitting.constituency.id) do
-      => sitting.constituency.name
-  p
-    => sitting.start_date
-    |  -
-    => sitting.end_date
-
+  = @constituencies.select { |c| c.id == sitting[:associated_object_id] }.first.name
+  - sitting_house = @houses.first.sittings.select { |s| s[:id] == sitting[:id]}.first
+  div
+    => link_to house_path(sitting_house[:associated_object_id]) do
+      =>  sitting_house[:associated_object_id]
+  div
+  => sitting[:sittingStartDate]
+  |  -
+  - if sitting[:sittingEndDate]
+    => sitting[:sittingEndDate]
