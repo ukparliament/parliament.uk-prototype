@@ -7,7 +7,7 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.find(params[:id])
+    @person = Person.find(params[:id]) or not_found
 
     format({ serialized_data: @person })
   end
@@ -25,28 +25,28 @@ class PeopleController < ApplicationController
   end
 
   def contact_points
-    @person = Person.find(params[:person_id])
+    @person = Person.find(params[:person_id]) or not_found
     @contact_points = @person.contact_points
 
     format({ serialized_data: { person: @person, contact_points: @contact_points } })
   end
 
   def parties
-    @person = Person.find(params[:person_id])
+    @person = Person.find(params[:person_id]) or not_found
     @parties = order_list(@person.parties, :name)
 
     format({ serialized_data: { person: @person, parties: @parties } })
   end
 
   def current_parties
-    @person = Person.find(params[:person_id])
+    @person = Person.find(params[:person_id]) or not_found
     @parties = @person.parties('current')
 
     format({ serialized_data: { person: @person, parties: @parties } })
   end
 
   def constituencies
-    @person = Person.find(params[:person_id])
+    @person = Person.find(params[:person_id]) or not_found
     @constituencies = order_list(@person.constituencies, :name)
 
     format({ serialized_data: { person: @person, contact_points: @constituencies } })
