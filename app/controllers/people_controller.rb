@@ -9,7 +9,10 @@ class PeopleController < ApplicationController
   def show
     @person = Person.find(params[:id])
 
-    format({ serialized_data: @person })
+    @constituencies = @person.constituencies
+    @sittings = order_list_by_through(@constituencies, :sittings, :sittingStartDate)
+    @houses =  @person.houses
+    format({ serialized_data: { :person => @person, :constituencies => @constituencies }})
   end
 
   def members

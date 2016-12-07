@@ -1,9 +1,21 @@
 h1 
   => @person.display_name
 
-ul 
-  => render :partial => 'contact_points/contact_point', :collection => @person.contact_points
-ul 
-  => render :partial => 'people/party', :collection => @person.parties
 ul
+  => render :partial => 'contact_points/contact_point', :collection => @person.contact_points
+ul
+  => render :partial => 'people/party', :collection => @person.parties
+/ul
   => render :partial => 'people/sitting', :collection => @person.sittings
+ul
+  - @sittings.each do |sitting|
+    li
+      = @constituencies.select { |c| c.id == sitting[:associated_object_id] }.first.name
+      - sitting_house = @houses.first.sittings.select { |s| s[:id] == sitting[:id]}.first
+      => link_to house_path(sitting_house[:associated_object_id]) do
+        => sitting_house[:associated_object_id]
+      div
+      => sitting[:sittingStartDate]
+      |  -
+      - if sitting[:sittingEndDate]
+        => sitting[:sittingEndDate]
