@@ -13,10 +13,10 @@ module VCardHelper
           if defined?(contact_point.street_address)
             adr.street = contact_point.street_address
           end
-          if defined?(contact_point.address_locality)
+          if defined?(contact_point.address_locality) && !contact_point.address_locality.nil?
             adr.locality = contact_point.address_locality
           end
-          if defined?(contact_point.postal_code)
+          if defined?(contact_point.postal_code) && !contact_point.postal_code.nil?
             adr.postalcode = contact_point.postal_code
           end
         end
