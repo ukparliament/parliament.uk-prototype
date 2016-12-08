@@ -9,6 +9,7 @@ gem 'turbolinks'
 
 gem 'grom', git: "https://github.com/ukpds/grom"
 gem 'json-ld', '2.1.0'
+gem 'vcard'
 gem 'pugin', path: './pugin'
 
 group :development, :test do

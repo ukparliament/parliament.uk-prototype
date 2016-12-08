@@ -8,7 +8,7 @@ class ContactPointsController < ApplicationController
 
   def show
     @contact_point = ContactPoint.find(params[:id]) or not_found
-
-    format({ serialized_data: @contact_point })
+    vcard = create_vcard(@contact_point)
+    send_data vcard.to_s, filename: "contact.vcf", disposition: 'attachment', data: { turbolink: false }
   end
 end

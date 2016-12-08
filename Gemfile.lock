@@ -195,6 +195,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    vcard (0.2.15)
     web-console (3.4.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -228,6 +229,7 @@ DEPENDENCIES
   spring
   therubyracer
   turbolinks
+  vcard
   web-console
   webmock
 
