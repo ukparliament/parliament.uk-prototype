@@ -1,0 +1,19 @@
+=> PUGIN.get_component('modules/card', { name: defined?(@person.display_name) ? @person.display_name : "N/a", \
+                                         info_title: "Constituency:", \
+                                         info_description: defined?(@person.constituencies.first.name) ? @person.constituencies.first.name : "N/a", \
+                                         info_url: defined?(@person.constituencies.first.id) ? "/constituencies/" + @person.constituencies.first.id : "N/a", \
+                                         img_src: "http://wraggelabs.com/static/images/default_avatar-2.gif" \
+                                       })
+
+=> PUGIN.get_component('modules/panel', { title: "Party", \
+                                          description: defined?(@person.parties.first.name) ? @person.parties.first.name : "N/a", \
+                                          url: defined?(@person.parties.first.id) ? "/parties/" +  @person.parties.first.id : "N/a" \
+                                        })
+
+=> PUGIN.get_component('modules/contact', { address: [title: "Parliamentary Address",  \
+                                                      email: defined?(@person.contact_points.first.email) ? @person.contact_points.first.email : "N/a", \
+                                                      phone: defined?(@person.contact_points.first.telephone) ? @person.contact_points.first.telephone : "N/a", \
+                                                      address: defined?(@person.contact_points.first.full_address) ? @person.contact_points.first.full_address : "N/a", \
+                                                      #website: @person.contact_points.first.website \
+                                                     ] \
+                                          })

@@ -224,7 +224,6 @@ DEPENDENCIES
   rails (= 5.0.0.1)
   rspec-rails
   simplecov
-  slim-rails
   spring
   therubyracer
   turbolinks
