@@ -32,27 +32,27 @@ describe Person do
   end
 
   describe 'properties' do
-      it 'should have a forename' do
+      it 'can have a forename' do
         expect(person.forename).to eq 'Arya'
       end
 
-      it 'should have a surname' do
+      it 'can have a surname' do
         expect(person.surname).to eq 'Stark'
       end
 
-      it 'should have a forename' do
+      it 'can have a forename' do
         expect(person.id).to eq '123'
       end
 
-      it 'should have a forename' do
+      it 'can have a forename' do
         expect(person.gender).to eq 'female'
       end
 
-      it 'should have a date of birth' do
+      it 'can have a date of birth' do
         expect(person.date_of_birth).to eq '1982-09-01'
       end
 
-      it 'should have a graph' do
+      it 'can have a graph' do
         expect(person).to respond_to(:graph)
       end
   end
