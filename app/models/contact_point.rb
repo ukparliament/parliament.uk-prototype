@@ -7,7 +7,8 @@ class ContactPoint < Grom::Base
         faxNumber: 'fax_number',
         streetAddress: 'street_address',
         addressLocality: 'address_locality',
-        postalCode: 'postal_code'
+        postalCode: 'postal_code',
+        owner: 'owner_name'
     }
   end
 

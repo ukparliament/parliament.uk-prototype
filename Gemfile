@@ -13,6 +13,7 @@ gem 'turbolinks'
 
 gem 'grom', git: "https://github.com/ukpds/grom"
 gem 'json-ld', '2.1.0'
+gem 'vcard'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
