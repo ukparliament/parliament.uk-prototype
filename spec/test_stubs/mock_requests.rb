@@ -80,5 +80,36 @@ RSpec.configure do |config|
         with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
         to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
 
+    stub_request(:get, "#{API_ENDPOINT}/houses.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => HOUSES_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => HOUSE_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members/current.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/parties.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => TWO_PARTIES_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/parties/current.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => TWO_PARTIES_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members/t.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members/current/t.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
   end
 end
