@@ -27,7 +27,7 @@ RSpec.describe PeopleController do
     end
   end
 
-  xdescribe "GET show" do
+  describe "GET show" do
     before(:each) do
       get :show, params: { id: '1' }
     end
@@ -36,8 +36,24 @@ RSpec.describe PeopleController do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @peron' do
+    it 'assigns @person and @constituencies' do
       expect(assigns(:person)).to be_a(Person)
+
+      assigns(:sittings).each do |sitting|
+        expect(sitting).to be_a(Hash)
+      end
+
+      assigns(:constituencies).each do |constituency|
+        expect(constituency).to be_a(Constituency)
+      end
+
+      assigns(:houses).each do |house|
+        expect(house).to be_a(House)
+      end
+
+      assigns(:sittings).each do |sitting|
+        expect(sitting).to be_a(Hash)
+      end
     end
 
     it 'renders the show template' do
@@ -239,6 +255,33 @@ RSpec.describe PeopleController do
 
     it 'renders the members template' do
       expect(response).to render_template('members')
+    end
+  end
+
+  describe "GET constituencies" do
+    before(:each) do
+      get :constituencies, params: { person_id: '1' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @person and @constituencies' do
+      expect(assigns(:person)).to be_a(Person)
+
+      assigns(:constituencies).each do |constituency|
+        expect(constituency).to be_a(Constituency)
+      end
+    end
+
+    it 'assigns @parties in alphabetical order' do
+      expect(assigns(:constituencies)[0].name).to eq("Bethnal Green")
+      expect(assigns(:constituencies)[1].name).to eq("Westminster")
+    end
+
+    it 'renders the parties template' do
+      expect(response).to render_template('constituencies')
     end
   end
 end
