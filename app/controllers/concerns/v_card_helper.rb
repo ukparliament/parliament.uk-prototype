@@ -8,9 +8,11 @@ module VCardHelper
           name.given = ''
         end
       end
-      if defined?(contact_point.street_address) && !contact_point.street_address.nil?
+      if (defined?(contact_point.street_address) && !contact_point.street_address.nil?) ||
+          (defined?(contact_point.address_locality) && !contact_point.address_locality.nil?) ||
+          (defined?(contact_point.postal_code) && !contact_point.postal_code.nil?)
         maker.add_addr do |adr|
-          if defined?(contact_point.street_address)
+          if defined?(contact_point.street_address) && !contact_point.street_address.nil?
             adr.street = contact_point.street_address
           end
           if defined?(contact_point.address_locality) && !contact_point.address_locality.nil?
