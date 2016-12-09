@@ -1,9 +1,0 @@
-h1 
-  => @person.display_name
-
-ul
-  => render :partial => 'contact_points/contact_point', :collection => @person.contact_points
-ul
-  => render :partial => 'people/party', :collection => @person.parties
-ul
-  => render :partial => 'people/sitting', :collection => @sittings

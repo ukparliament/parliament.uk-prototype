@@ -6,7 +6,7 @@ html lang="en"
     = csrf_meta_tags
   body.no-js
 
-    = content_for?(:body_header) ? yield(:body_header) : render('layouts/pugin/modules/header')
+    = PUGIN.get_component('modules/header')
 
     .c-fg
 
@@ -14,6 +14,6 @@ html lang="en"
         = raw(@json_ld)
       = yield
 
-      = content_for?(:body_footer) ? yield(:body_footer) : render('layouts/pugin/modules/footer')
+      = PUGIN.get_component('modules/footer')
 
     script src="/_js/application.js"
