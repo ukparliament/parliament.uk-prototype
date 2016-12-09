@@ -73,11 +73,35 @@ RSpec.configure do |config|
         to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/parties/81/members/t.ttl").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
         to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/parties/81/members/current/t.ttl").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/constituencies/1.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => CONSTITUENCY_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/constituencies.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => CONSTITUENCIES_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/constituencies/1/members.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/constituencies/current.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => CONSTITUENCIES_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/constituencies/1/contact_point.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => CONTACT_POINT_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/constituencies/1/members/current.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
         to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
 
   end
