@@ -162,4 +162,52 @@ RSpec.describe ConstituenciesController do
       expect(response).to render_template('current_members')
     end
   end
+
+  describe "GET letters" do
+    before(:each) do
+      get :letters, params: { letter: 'w' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @constituencies' do
+      assigns(:constituencies).each do |con|
+        expect(con).to be_a(Constituency)
+      end
+    end
+
+    it 'assigns @constituencies in alphabetical order' do
+      expect(assigns(:constituencies)[0].name).to eq("Westminster")
+    end
+
+    it 'renders the index template' do
+      expect(response).to render_template('index')
+    end
+  end
+
+  describe "GET current_letters" do
+    before(:each) do
+      get :current_letters, params: { letter: 'w' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @constituencies' do
+      assigns(:constituencies).each do |con|
+        expect(con).to be_a(Constituency)
+      end
+    end
+
+    it 'assigns @constituencies in alphabetical order' do
+      expect(assigns(:constituencies)[0].name).to eq("Westminster")
+    end
+
+    it 'renders the index template' do
+      expect(response).to render_template('index')
+    end
+  end
 end

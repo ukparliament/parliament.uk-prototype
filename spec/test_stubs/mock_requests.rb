@@ -104,5 +104,13 @@ RSpec.configure do |config|
         with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>"#{API_ENDPOINT_HOST}", 'User-Agent'=>'Ruby'}).
         to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
 
+    stub_request(:get, "http://ukparliament-graph-api.herokuapp.com/constituencies/w.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => CONSTITUENCY_TTL, :headers => {})
+
+    stub_request(:get, "http://ukparliament-graph-api.herokuapp.com/constituencies/current/w.ttl").
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-graph-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+        to_return(:status => 200, :body => CONSTITUENCY_TTL, :headers => {})
+
   end
 end
