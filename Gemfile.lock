@@ -233,7 +233,6 @@ DEPENDENCIES
   rspec-rails
   shoulda-matchers
   simplecov
-  slim-rails
   spring
   therubyracer
   turbolinks
