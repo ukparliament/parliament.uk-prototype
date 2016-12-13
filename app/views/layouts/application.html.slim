@@ -3,14 +3,14 @@ html lang="en"
   head
     title MembersPrototype
     link rel="stylesheet" href="/_css/application.css"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     = csrf_meta_tags
   body.no-js
 
     = PUGIN.get_component('modules/header')
-
     .c-fg
 
-      script[type="application/ld+json"]
+      /script[type="application/ld+json"]
         = raw(@json_ld)
       = yield
 
