@@ -11,9 +11,5 @@ describe Party do
     it 'can have an name' do
       expect(party.name).to eq 'Targaryens'
     end
-
-    it 'can have a graph' do
-      expect(party).to respond_to(:graph)
-    end
   end
 end

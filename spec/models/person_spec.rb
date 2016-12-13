@@ -51,9 +51,5 @@ describe Person do
       it 'can have a date of birth' do
         expect(person.date_of_birth).to eq '1982-09-01'
       end
-
-      it 'can have a graph' do
-        expect(person).to respond_to(:graph)
-      end
   end
 end

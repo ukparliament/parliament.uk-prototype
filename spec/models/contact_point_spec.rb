@@ -37,9 +37,5 @@ describe ContactPoint do
     it 'can have a postal code' do
       expect(contact_point.postal_code).to eq 'SW1A 3BB'
     end
-
-    it 'can have a graph' do
-      expect(contact_point).to respond_to(:graph)
-    end
   end
 end
