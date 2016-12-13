@@ -43,9 +43,5 @@ describe Constituency do
     it 'can have an ONS code' do
       expect(constituency.ons_code).to eq 'E14000878'
     end
-
-    it 'can have a graph' do
-      expect(constituency).to respond_to(:graph)
-    end
   end
 end

@@ -29,9 +29,5 @@ describe Sitting do
     it 'can have an end date' do
       expect(sitting.end_date).to eq '2001-01-02'
     end
-
-    it 'can have a graph' do
-      expect(sitting).to respond_to(:graph)
-    end
   end
 end
