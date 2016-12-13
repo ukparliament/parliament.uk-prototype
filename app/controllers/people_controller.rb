@@ -10,6 +10,8 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id]) or not_found
 
     @constituencies = @person.constituencies
+    @parties = @person.parties
+    @contact_points = @person.contact_points
     @sittings = order_list_by_through(@constituencies, :sittings, :sittingStartDate)
     @houses =  @person.houses
     format({ serialized_data: @person })
