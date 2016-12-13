@@ -1,11 +1,11 @@
 GIT
   remote: https://github.com/ukpds/grom
-  revision: 454e715f252ba8e5d4f6fafe89132606de7cc1d8
+  revision: 35f2e51eb430ae52f87a2ca55548e47a7d1731a4
   specs:
     grom (0.1.0)
       activesupport
       rails (~> 5.0.0, >= 5.0.0.1)
-      rdf-trig
+      rdf-turtle
 
 PATH
   remote: ./pugin
@@ -150,10 +150,6 @@ GEM
     rdf (2.1.1)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
-    rdf-trig (2.0.0)
-      ebnf (~> 1.0, >= 1.0.1)
-      rdf (~> 2.0)
-      rdf-turtle (~> 2.0)
     rdf-turtle (2.0.0)
       ebnf (~> 1.0, >= 1.0.1)
       rdf (~> 2.0)
