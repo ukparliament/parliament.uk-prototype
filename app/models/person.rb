@@ -9,6 +9,7 @@ class Person < Grom::Base
   def self.property_translator
     {
         id: 'id',
+        type: 'type',
         forename: 'forename',
         surname: 'surname',
         middleName: 'middle_name',

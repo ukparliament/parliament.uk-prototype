@@ -4,7 +4,8 @@ class House < Grom::Base
 
   def self.property_translator
     {
-        id: 'id'
+        id: 'id',
+        type: 'type'
     }
   end
 end

@@ -6,7 +6,7 @@ gem 'rails', '5.0.0.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-gem 'grom', git: "https://github.com/ukpds/grom"
+gem 'grom', git: "https://github.com/ukpds/grom", branch: "members-with-properties"
 gem 'json-ld', '2.1.0'
 gem 'vcard'
 gem 'pugin', path: './pugin'

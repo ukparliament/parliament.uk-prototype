@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/ukpds/grom
-  revision: 35f2e51eb430ae52f87a2ca55548e47a7d1731a4
+  revision: 8bcb73e70c3dec1983ee5facf8bbd807a73be5a7
+  branch: members-with-properties
   specs:
     grom (0.1.0)
       activesupport
