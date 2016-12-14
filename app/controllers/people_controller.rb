@@ -2,6 +2,12 @@ class PeopleController < ApplicationController
 
   def index
     @people = order_list(Person.all, :surname, :forename)
+    last_names = []
+    @people.each do |person|
+      last_names.push(person.display_name)
+    end
+
+    p last_names.max_by(&:length)
 
     format({ serialized_data: @people })
   end
@@ -24,7 +30,7 @@ class PeopleController < ApplicationController
   end
 
   def current_members
-    @people = order_list(Person.all('members', 'current'), :surname, :forename)
+    @people = order_list(Person.all_with('members', 'current', ['party', 'house', 'constituency']), :surname, :forename)
 
     format({ serialized_data: @people })
   end
@@ -77,10 +83,10 @@ class PeopleController < ApplicationController
 
   def current_members_letters
     letter = params[:letter]
-    @people = order_list(Person.all('members', 'current', letter), :surname, :forename)
+    @people = order_list(Person.all_with('members', 'current', letter, ["constituency", "party", "house"]), :surname, :forename)
 
     format({ serialized_data: @people })
 
-    render "members"
+    render "current_members"
   end
 end
