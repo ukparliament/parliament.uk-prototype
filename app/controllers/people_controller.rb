@@ -2,12 +2,6 @@ class PeopleController < ApplicationController
 
   def index
     @people = order_list(Person.all, :surname, :forename)
-    last_names = []
-    @people.each do |person|
-      last_names.push(person.display_name)
-    end
-
-    p last_names.max_by(&:length)
 
     format({ serialized_data: @people })
   end
