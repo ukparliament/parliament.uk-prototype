@@ -5,7 +5,8 @@ class Party < Grom::Base
   def self.property_translator
     {
         id: 'id',
-        partyName: 'name',
+        type: 'type',
+        partyName: 'name'
     }
   end
 end
