@@ -5,6 +5,6 @@
               alt: person.display_name \
            }], \
     details: [{ description: defined?(person.constituencies.first.id) ? link_to(person.constituencies.first.name, constituency_path(person.constituencies.first.id)) : "No Information"}, \
-             { description: defined?(person.houses.first.id) ? link_to(person.houses.first.id, houses_path(person.houses.first.id)) : "No Information"}, \
-             { description: defined?(person.parties.first.id) ? link_to(person.parties.first.name, houses_path(person.parties.first.id)) : "No Information"}] \
+             { description: defined?(person.houses.first.id) ? link_to(person.houses.first.id, house_path(person.houses.first.id)) : "No Information"}, \
+             { description: defined?(person.parties.first.id) ? link_to(person.parties.first.name, party_path(person.parties.first.id)) : "No Information"}] \
    })
