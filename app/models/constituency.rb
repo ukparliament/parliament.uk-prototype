@@ -6,6 +6,7 @@ class Constituency < Grom::Base
   def self.property_translator
     {
         id: 'id',
+        type: 'type',
         constituencyName: 'name',
         constituencyStartDate: 'start_date',
         constituencyEndDate: 'end_date',
