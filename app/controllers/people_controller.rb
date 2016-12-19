@@ -57,6 +57,13 @@ class PeopleController < ApplicationController
     format({ serialized_data: { person: @person, contact_points: @constituencies } })
   end
 
+  def current_constituency
+    @person = Person.find(params[:person_id]) or not_found
+    @constituency = @person.constituencies('current').first
+
+    format({ serialized_data: { person: @person, contact_points: @constituency } })
+  end
+
   def letters
     letter = params[:letter]
     @people = order_list(Person.all(letter), :surname, :forename)
