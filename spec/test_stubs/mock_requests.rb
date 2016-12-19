@@ -181,5 +181,17 @@ RSpec.configure do |config|
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
       to_return(:status => 200, :body => CONSTITUENCY_TTL, :headers => {})
 
+    stub_request(:get, "#{API_ENDPOINT}/people/members/current/a.ttl").
+      with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
+      to_return(:status => 200, :body => PERSON_PARTY_HOUSE_CONSTITUENCY_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/people/1/constituencies/current.ttl").
+      with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
+      to_return(:status => 200, :body => CONSTITUENCY_TTL, :headers => {})
+
+    stub_request(:get, "#{API_ENDPOINT}/people/1/houses/current.ttl").
+      with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>'ukparliament-dev-api.herokuapp.com', 'User-Agent'=>'Ruby'}).
+      to_return(:status => 200, :body => HOUSE_TTL, :headers => {})
+
   end
 end
