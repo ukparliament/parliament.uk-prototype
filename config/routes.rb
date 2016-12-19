@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     get '/parties', to: 'people#parties'
     get '/parties/current', to: 'people#current_parties'
     get '/constituencies', to: 'people#constituencies'
+    get '/constituencies/current', to: 'people#current_constituency'
   end
 
   resources :parties, only: [:index, :show] do
