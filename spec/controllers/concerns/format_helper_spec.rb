@@ -27,6 +27,28 @@ RSpec.describe FormatHelper, :type => :request  do
       end
     end
 
+    context 'when the requested format is JSON for an object containing nested resources' do
+      before(:each) do
+        get '/people/members/current/a-z/a.json'
+      end
+
+      it 'returns OK response with correct format' do
+        expect(response.status).to eq 200
+        expect(response.content_type).to eq 'application/json'
+      end
+
+      it 'returns the correct forename and surname, as well as information about house, party and constituency' do
+        json_hash = json.first
+        expect(json_hash['forename']).to eq 'Arya'
+        expect(json_hash['surname']).to eq 'Stark'
+        expect(json_hash['house']['id']).to eq 'HouseOne'
+        expect(json_hash['party']['id']).to eq '3'
+        expect(json_hash['party']['name']).to eq 'PartyOne'
+        expect(json_hash['constituency']['id']).to eq '2'
+        expect(json_hash['constituency']['name']).to eq 'ConstituencyOne'
+      end
+    end
+
     context 'when the requested format is XML' do
       before(:each) do
         get '/people.xml'
