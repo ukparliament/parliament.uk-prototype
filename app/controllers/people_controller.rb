@@ -88,6 +88,5 @@ class PeopleController < ApplicationController
 
     format({ serialized_data: @people })
 
-    render "current_members"
   end
 end

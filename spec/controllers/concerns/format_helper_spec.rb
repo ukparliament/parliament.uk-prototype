@@ -78,7 +78,7 @@ RSpec.describe FormatHelper, :type => :request  do
       end
 
       it 'returns the correct data for the first person' do
-        expect(response.body).to match(/<a href="\/people\/1">Daenerys Targaryen <\/a>/)
+        expect(response.body).to match(/<a href="\/people\/1">Daenerys Targaryen<\/a>/)
       end
 
       xit 'returns the correct json_ld in the response body' do
