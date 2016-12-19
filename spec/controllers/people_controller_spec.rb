@@ -284,5 +284,25 @@ RSpec.describe PeopleController do
       expect(response).to render_template('constituencies')
     end
   end
+
+  describe "GET current_constituency" do
+    before(:each) do
+      get :current_constituency, params: { person_id: '1' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @person and @constituency' do
+      expect(assigns(:person)).to be_a(Person)
+
+      expect(assigns(:constituency)).to be_a(Constituency)
+    end
+
+    it 'renders the parties template' do
+      expect(response).to render_template('current_constituency')
+    end
+  end
 end
 
