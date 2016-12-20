@@ -183,7 +183,7 @@ RSpec.describe ConstituenciesController do
     end
 
     it 'renders the index template' do
-      expect(response).to render_template('index')
+      expect(response).to render_template('letters')
     end
   end
 
@@ -207,7 +207,7 @@ RSpec.describe ConstituenciesController do
     end
 
     it 'renders the index template' do
-      expect(response).to render_template('index')
+      expect(response).to render_template('current_letters')
     end
   end
 end

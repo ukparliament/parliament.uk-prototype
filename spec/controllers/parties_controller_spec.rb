@@ -144,7 +144,7 @@ RSpec.describe PartiesController do
     end
 
     it 'renders the index template' do
-      expect(response).to render_template('index')
+      expect(response).to render_template('letters')
     end
   end
 
@@ -170,11 +170,11 @@ RSpec.describe PartiesController do
     end
 
     it 'renders the members template' do
-      expect(response).to render_template('members')
+      expect(response).to render_template('members_letters')
     end
   end
 
-  describe "GET currentmembers_letters" do
+  describe "GET current_members_letters" do
     before(:each) do
       get :current_members_letters, params: { party_id: 81, letter: "t" }
     end
@@ -196,7 +196,7 @@ RSpec.describe PartiesController do
     end
 
     it 'renders the members template' do
-      expect(response).to render_template('members')
+      expect(response).to render_template('current_members_letters')
     end
   end
 end
