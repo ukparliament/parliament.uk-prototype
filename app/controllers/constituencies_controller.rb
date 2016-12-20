@@ -50,20 +50,18 @@ class ConstituenciesController < ApplicationController
 
   def letters
     letter = params[:letter]
+    @root_path = constituencies_a_z_path
     @constituencies = order_list(Constituency.all(letter), :name)
 
     format({ serialized_data: @constituencies })
-
-    render "index"
   end
 
   def current_letters
     letter = params[:letter]
+    @root_path = constituencies_current_a_z_path
     @constituencies = order_list(Constituency.all('current', letter), :name)
 
     format({ serialized_data: @constituencies })
-
-    render "index"
   end
 
 end

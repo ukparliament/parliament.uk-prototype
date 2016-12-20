@@ -36,30 +36,27 @@ class PartiesController < ApplicationController
 
   def letters
     letter = params[:letter]
+    @root_path = parties_a_z_path
     @parties = order_list(Party.all(letter), :name)
 
     format({ serialized_data: @parties })
-
-    render "index"
   end
 
   def members_letters
     letter = params[:letter]
+    @root_path = party_members_a_z_path
     @party = Party.find(params[:party_id])
     @members = order_list(@party.members(letter), :surname, :forename)
 
     format({ serialized_data: { party: @party, members: @members } })
-
-    render "members"
   end
 
   def current_members_letters
     letter = params[:letter]
+    @root_path = party_members_current_a_z_path
     @party = Party.find(params[:party_id])
     @members = order_list(@party.members('current', letter), :surname, :forename)
 
     format({ serialized_data: { party: @party, members: @members } })
-
-    render "members"
   end
 end

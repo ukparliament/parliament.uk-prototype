@@ -80,27 +80,25 @@ class PeopleController < ApplicationController
 
   def letters
     letter = params[:letter]
+    @root_path = people_a_z_path
     @people = order_list(Person.all(letter), :surname, :forename)
 
     format({ serialized_data: @people })
-
-    render "index"
   end
 
   def members_letters
     letter = params[:letter]
+    @root_path = people_members_a_z_path
     @people = order_list(Person.all('members', letter), :surname, :forename)
 
     format({ serialized_data: @people })
-
-    render "members"
   end
 
   def current_members_letters
     letter = params[:letter]
+    @root_path = people_members_current_a_z_path
     @people = order_list(Person.all_with('members', 'current', letter, ["constituency", "party", "house"]), :surname, :forename)
 
     format({ serialized_data: @people })
-
   end
 end

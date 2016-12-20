@@ -206,7 +206,7 @@ RSpec.describe PeopleController do
     end
 
     it 'renders the index template' do
-      expect(response).to render_template('index')
+      expect(response).to render_template('letters')
     end
   end
 
@@ -230,7 +230,7 @@ RSpec.describe PeopleController do
     end
 
     it 'renders the members template' do
-      expect(response).to render_template('members')
+      expect(response).to render_template('members_letters')
     end
   end
 
@@ -250,7 +250,7 @@ RSpec.describe PeopleController do
     end
 
     it 'assigns @people in alphabetical order' do
-      expect(assigns(:people)[0].forename).to eq("Daenerys")
+      expect(assigns(:people)[0].forename).to eq("Arya")
     end
 
     it 'renders the members template' do
