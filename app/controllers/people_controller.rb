@@ -14,6 +14,16 @@ class PeopleController < ApplicationController
     @contact_points = @person.contact_points
     @sittings = order_list_by_through(@constituencies, :sittings, :sittingStartDate)
     @houses =  @person.houses
+
+    @person_display_name = defined?(@person.display_name) ? @person.display_name : "No Information"
+    @house_link = defined?(@person.houses.first.id) ? view_context.link_to(@person.houses.first.id, houses_path(@person.houses.first.id)) : "No Information"
+    @party_link = defined?(@person.parties.first.id) ? view_context.link_to(@person.parties.first.name, houses_path(@person.parties.first.id)) : "No Information"
+    @constituency_link = defined?(@person.constituencies.first.id) ? view_context.link_to(@constituencies.first.name, constituency_path(@person.constituencies.first.id)) : "No Information"
+    @is_mp = defined?(@person.houses.first.id) ? true : false
+    @parliamentary_email = defined?(@person.contact_points.first.email) ? @person.contact_points.first.email : "No Information"
+    @parliamentary_phone = defined?(@person.contact_points.first.telephone) ? @person.contact_points.first.telephone : "No Information"
+    @parliamentary_address = defined?(@person.contact_points.first.full_address) ? @person.contact_points.first.full_address : "No Information"
+
     format({ serialized_data: @person })
   end
 
