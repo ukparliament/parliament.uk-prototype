@@ -7,7 +7,7 @@ RUN set -x \
         && groupadd -g 5000 $APP_USER \
         && adduser --disabled-password --uid 5000 --gid 5000 --gecos '' $APP_USER
 
-ENV RAILS_ROOT /opt/members-prototype
+ENV RAILS_ROOT /opt/membersprototype
 
 RUN mkdir -p $RAILS_ROOT
 

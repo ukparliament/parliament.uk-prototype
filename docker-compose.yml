@@ -19,4 +19,4 @@ services:
       - "3000"
     labels:
       - "traefik.backend=content-driven"
-      - "traefik.frontend.rule=Host:members-prototype.docker.localhost"
+      - "traefik.frontend.rule=Host:membersprototype.docker.localhost"
