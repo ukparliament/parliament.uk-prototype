@@ -54,3 +54,10 @@ deploy-ecs-ci:
 
 scale-ci:
 	export DOCKER_HOST=$(DOCKER_SWARM_URL) && export IMAGE_NAME=$(IMAGE):$(VERSION) && docker-compose -f docker-compose.ci.yml scale web=3
+
+setup:
+	@git submodule init
+	@git submodule update --remote
+	@bundle install
+	@npm i
+	@make install -C pugin
