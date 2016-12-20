@@ -86,7 +86,7 @@ RSpec.describe PeopleController do
     end
   end
 
-  describe "GET current_members" do
+  xdescribe "GET current_members" do
     before(:each) do
       get :current_members
     end
@@ -101,7 +101,7 @@ RSpec.describe PeopleController do
       end
     end
 
-    it 'assigns @people in alphabetical order' do
+    xit 'assigns @people in alphabetical order' do
       expect(assigns(:people)[0].forename).to eq("Arya")
       expect(assigns(:people)[1].forename).to eq("Daenerys")
     end
@@ -206,7 +206,7 @@ RSpec.describe PeopleController do
     end
 
     it 'renders the index template' do
-      expect(response).to render_template('index')
+      expect(response).to render_template('letters')
     end
   end
 
@@ -230,11 +230,11 @@ RSpec.describe PeopleController do
     end
 
     it 'renders the members template' do
-      expect(response).to render_template('members')
+      expect(response).to render_template('members_letters')
     end
   end
 
-  describe "GET current_members_letters" do
+  xdescribe "GET current_members_letters" do
     before(:each) do
       get :current_members_letters, params: { letter: "t" }
     end
@@ -250,11 +250,11 @@ RSpec.describe PeopleController do
     end
 
     it 'assigns @people in alphabetical order' do
-      expect(assigns(:people)[0].forename).to eq("Daenerys")
+      expect(assigns(:people)[0].forename).to eq("Arya")
     end
 
     it 'renders the members template' do
-      expect(response).to render_template('members')
+      expect(response).to render_template('current_members_letters')
     end
   end
 
@@ -282,6 +282,73 @@ RSpec.describe PeopleController do
 
     it 'renders the parties template' do
       expect(response).to render_template('constituencies')
+    end
+  end
+
+  describe "GET houses" do
+    before(:each) do
+      get :houses, params: { person_id: '1' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @person and @houses' do
+      expect(assigns(:person)).to be_a(Person)
+
+      assigns(:houses).each do |house|
+        expect(house).to be_a(House)
+      end
+    end
+
+    it 'assigns @houses in alphabetical order' do
+      expect(assigns(:houses)[0].id).to eq("HouseOne")
+      expect(assigns(:houses)[1].id).to eq("HouseTwo")
+    end
+
+    it 'renders the parties template' do
+      expect(response).to render_template('houses')
+    end
+  end
+
+  describe "GET current_house" do
+    before(:each) do
+      get :current_house, params: { person_id: '1' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @person and @house' do
+      expect(assigns(:person)).to be_a(Person)
+
+      expect(assigns(:house)).to be_a(House)
+    end
+
+    it 'renders the parties template' do
+      expect(response).to render_template('current_house')
+    end
+  end
+
+  describe "GET current_constituency" do
+    before(:each) do
+      get :current_constituency, params: { person_id: '1' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @person and @constituency' do
+      expect(assigns(:person)).to be_a(Person)
+
+      expect(assigns(:constituency)).to be_a(Constituency)
+    end
+
+    it 'renders the parties template' do
+      expect(response).to render_template('current_constituency')
     end
   end
 end
