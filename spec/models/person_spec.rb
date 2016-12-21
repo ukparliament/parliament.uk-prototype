@@ -1,11 +1,16 @@
 require 'rails_helper'
 
 describe Person do
-  let(:person) { Person.new({ forename: 'Arya', surname: 'Stark', graph: RDF::Graph.new, id: '123', gender: 'female', dateOfBirth: '1982-09-01' }) }
+  let(:person) { Person.new({ forename: 'Arya', surname: 'Stark', id: '123', gender: 'female', dateOfBirth: '1982-09-01' }) }
+  let(:partial_person) { Person.new({ surname: 'Stark', id: '124', gender: 'female', dateOfBirth: '1982-09-01' }) }
 
   describe '#display_name' do
     it 'given a forename and surname it will construct a display_name' do
       expect(person.display_name).to eq 'Arya Stark'
+    end
+
+    it 'given a surname it will construct a display_name' do
+      expect(partial_person.display_name).to eq 'Stark'
     end
   end
 

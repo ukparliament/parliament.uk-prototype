@@ -20,8 +20,8 @@ class Person < Grom::Base
 
   def display_name
     display_name = ''
-    display_name += self.forename + ' ' if self.forename
-    display_name += self.surname if self.surname
+    display_name += self.forename + ' ' unless self.forename.nil?
+    display_name += self.surname unless self.surname.nil?
   end
 
 end
