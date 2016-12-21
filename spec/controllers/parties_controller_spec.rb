@@ -120,7 +120,7 @@ RSpec.describe PartiesController do
     end
 
     it 'renders the members template' do
-      expect(response).to render_template('members')
+      expect(response).to render_template('current_members')
     end
   end
 
