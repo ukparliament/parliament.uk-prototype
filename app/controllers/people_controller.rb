@@ -43,9 +43,9 @@ class PeopleController < ApplicationController
     format({ serialized_data: { person: @person, parties: @parties } })
   end
 
-  def current_parties
+  def current_party
     @person = Person.find(params[:person_id]) or not_found
-    @parties = @person.parties('current')
+    @party = @person.parties('current').first
 
     format({ serialized_data: { person: @person, parties: @parties } })
   end

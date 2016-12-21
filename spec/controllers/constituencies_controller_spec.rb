@@ -141,25 +141,22 @@ RSpec.describe ConstituenciesController do
     end
   end
 
-  describe "GET current_members" do
+  describe "GET current_member" do
     before(:each) do
-      get :current_members, params: { constituency_id: '1' }
+      get :current_member, params: { constituency_id: '1' }
     end
 
     it 'should have a response with http status ok (200)' do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @constituency and @members' do
+    it 'assigns @constituency and @member' do
       expect(assigns(:constituency)).to be_a(Constituency)
-
-      assigns(:members).each do |member|
-        expect(member).to be_a(Member)
-      end
+      expect(assigns(:member)).to be_a(Member)
     end
 
-    it 'renders the current_members template' do
-      expect(response).to render_template('current_members')
+    it 'renders the current_member template' do
+      expect(response).to render_template('current_member')
     end
   end
 
