@@ -160,29 +160,22 @@ RSpec.describe PeopleController do
     end
   end
 
-  describe "GET current_parties" do
+  describe "GET current_party" do
     before(:each) do
-      get :current_parties, params: { person_id: '1' }
+      get :current_party, params: { person_id: '1' }
     end
 
     it 'should have a response with http status ok (200)' do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @person and @parties' do
+    it 'assigns @person and @party' do
       expect(assigns(:person)).to be_a(Person)
-
-      assigns(:parties).each do |party|
-        expect(party).to be_a(Party)
-      end
+      expect(assigns(:party)).to be_a(Party)
     end
 
-    it 'assigns @parties in alphabetical order' do
-      expect(assigns(:parties)[0].name).to eq("Starks")
-    end
-
-    it 'renders the current_parties template' do
-      expect(response).to render_template('current_parties')
+    it 'renders the current_party template' do
+      expect(response).to render_template('current_party')
     end
   end
 

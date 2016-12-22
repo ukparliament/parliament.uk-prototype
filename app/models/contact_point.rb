@@ -14,8 +14,8 @@ class ContactPoint < Grom::Base
 
   def full_address
     full_address = ''
-    full_address += self.street_address + ', ' if self.street_address
-    full_address += self.address_locality + ', ' if self.address_locality
-    full_address += self.postal_code if self.postal_code
+    full_address += self.street_address + ', ' unless self.street_address.nil?
+    full_address += self.address_locality + ', ' unless self.address_locality.nil?
+    full_address += self.postal_code unless self.postal_code.nil?
   end
 end

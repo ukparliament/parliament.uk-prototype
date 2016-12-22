@@ -41,9 +41,9 @@ class ConstituenciesController < ApplicationController
     format({ serialized_data: { :constituency => @constituency, :members => @members } })
   end
 
-  def current_members
+  def current_member
     @constituency = Constituency.find(params[:constituency_id]) or not_found
-    @members = @constituency.members('current')
+    @member = @constituency.members('current').first
 
     format({ serialized_data: { :constituency => @constituency, :members => @members } })
   end

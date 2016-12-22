@@ -7,19 +7,19 @@ RUN set -x \
         && groupadd -g 5000 $APP_USER \
         && adduser --disabled-password --uid 5000 --gid 5000 --gecos '' $APP_USER
 
-ENV RAILS_ROOT /opt/members-prototype
+ENV RAILS_ROOT /opt/membersprototype
 
 RUN mkdir -p $RAILS_ROOT
+
+# add project
+COPY . $RAILS_ROOT
+RUN chown -R $APP_USER:$APP_USER $RAILS_ROOT
 
 # cache the gems
 COPY Gemfile $RAILS_ROOT/Gemfile
 COPY Gemfile.lock $RAILS_ROOT/Gemfile.lock
 RUN cd $RAILS_ROOT && env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
   	&& chown -R $APP_USER:$APP_USER $GEM_HOME
-
-# add project
-COPY . $RAILS_ROOT
-RUN chown -R $APP_USER:$APP_USER $RAILS_ROOT
 
 USER $USER
 WORKDIR $RAILS_ROOT

@@ -30,8 +30,6 @@ class PartiesController < ApplicationController
     @members = order_list(@party.members('current'), :surname, :forename)
 
     format({ serialized_data: { party: @party, members: @members } })
-
-    render "members"
   end
 
   def letters
