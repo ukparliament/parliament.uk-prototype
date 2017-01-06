@@ -29,7 +29,6 @@ class PeopleController < ApplicationController
 
   def contact_points
     @person = Person.eager_find(params[:person_id]) or not_found
-    # @contact_points = @person.contact_points
 
     format({ serialized_data: @person })
   end
