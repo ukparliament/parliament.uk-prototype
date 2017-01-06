@@ -10,7 +10,7 @@ gem 'turbolinks'
 gem 'grom', git: "https://github.com/ukpds/grom", branch: "development"
 gem 'json-ld', '2.1.0'
 gem 'vcard'
-gem 'pugin', path: './pugin'
+gem 'pugin', git: './pugin'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,5 +1,6 @@
 class Person < Grom::Base
 
+  has_associations :constituencies, :sittings, :parties, :party_memberships, :houses, :contact_points
   # has_many_through :constituencies, via: :sittings
   # has_many_through :parties, via: :party_memberships
   # has_many_through :houses, via: :sittings
