@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ukpds/grom
-  revision: d9b1a615029b2635b64eec4da69c4c6ae60fe0f8
+  revision: 78bcf508f1ffa5856894891f2a32981bce6ec418
   branch: development
   specs:
     grom (0.1.1)
@@ -251,4 +251,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.13.6
+   1.13.7

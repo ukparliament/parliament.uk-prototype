@@ -1,4 +1,6 @@
 class Sitting < Grom::Base
+  has_associations :member
+
   has_one :person
   has_one :house
   has_one :constituency
