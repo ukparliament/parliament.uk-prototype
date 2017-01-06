@@ -1,6 +1,8 @@
 class Constituency < Grom::Base
 
-  has_many_through :members, via: :sittings
+  has_associations :members, :sittings, :contact_point
+
+  # has_many_through :members, via: :sittings
   has_one :contact_point
 
   def self.property_translator

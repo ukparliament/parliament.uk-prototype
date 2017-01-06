@@ -1,17 +1,18 @@
-h1 
+h1
   = @constituency.name
-=> @constituency.start_date if defined? @constituency.start_date 
-|  - 
+=> @constituency.start_date if defined? @constituency.start_date
+|  -
 => @constituency.end_date if defined? @constituency.end_date
 
-ul 
-  - @sittings.each do |sitting|
-    li 
-      => sitting[:sittingStartDate]
-      |  -
-      - if sitting[:sittingEndDate]
-	    => sitting[:sittingEndDate]
-	  => @members.select { |m| m.id == sitting[:associated_object_id] }.first.display_name
+- if defined? @sittings
+  ul
+    - @sittings.each do |sitting|
+      li
+        => sitting.start_date
+        |  -
+        - if sitting.end_date
+          => sitting.end_date
+        => sitting.member.display_name
 
 => @constituency.contact_point.street_address if defined? contact_point.street_address
 => @constituency.contact_point.address_locality if defined? contact_point.address_locality
