@@ -4,14 +4,15 @@ h1
 |  -
 => @constituency.end_date if defined? @constituency.end_date
 
-ul
-  - @sittings.each do |sitting|
-    li
-      => sitting.start_date
-      |  -
-      - if sitting.end_date
-	    => sitting.end_date
-	  => sitting.member.display_name
+- if defined? @sittings
+  ul
+    - @sittings.each do |sitting|
+      li
+        => sitting.start_date
+        |  -
+        - if sitting.end_date
+          => sitting.end_date
+        => sitting.member.display_name
 
 => @constituency.contact_point.street_address if defined? contact_point.street_address
 => @constituency.contact_point.address_locality if defined? contact_point.address_locality
