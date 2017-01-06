@@ -106,10 +106,6 @@ RSpec.describe PeopleController do
 
     it 'assigns @person and @contact_points' do
       expect(assigns(:person)).to be_a(Person)
-
-      assigns(:contact_points).each do |cp|
-        expect(cp).to be_a(ContactPoint)
-      end
     end
 
     it 'renders the contact_points template' do
