@@ -36,24 +36,8 @@ RSpec.describe PeopleController do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @person and @constituencies' do
+    it 'assigns @person' do
       expect(assigns(:person)).to be_a(Person)
-
-      assigns(:sittings).each do |sitting|
-        expect(sitting).to be_a(Hash)
-      end
-
-      assigns(:constituencies).each do |constituency|
-        expect(constituency).to be_a(Constituency)
-      end
-
-      assigns(:houses).each do |house|
-        expect(house).to be_a(House)
-      end
-
-      assigns(:sittings).each do |sitting|
-        expect(sitting).to be_a(Hash)
-      end
     end
 
     it 'renders the show template' do

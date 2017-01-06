@@ -1,9 +1,9 @@
 => PUGIN.get_component('modules/card', { \
-    title: @person_display_name, \
+    title: person_display_name(@person), \
     image: [{ src: "http://wraggelabs.com/static/images/default_avatar-2.gif", \
               alt: @person_display_name  \
            }], \
-    details: [{ title: "House: ", description: @house_link}, \
+    details: [{ title: "House: ", description: house_link(@person.sittings.first.house)}, \
               { title: "Party: ", description: @party_link}, \
               { title: "Constituency: ", description: @constituency_link}] \
    })

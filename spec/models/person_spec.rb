@@ -14,28 +14,6 @@ describe Person do
     end
   end
 
-  describe 'associations' do
-    it 'should respond to sittings' do
-      expect(person).to respond_to(:sittings)
-    end
-
-    it 'should respond to contact_points' do
-      expect(person).to respond_to(:contact_points)
-    end
-
-    it 'should respond to constituencies' do
-      expect(person).to respond_to(:constituencies)
-    end
-
-    it 'should respond to houses' do
-      expect(person).to respond_to(:houses)
-    end
-
-    it 'should respond to parties' do
-      expect(person).to respond_to(:parties)
-    end
-  end
-
   describe 'properties' do
       it 'can have a forename' do
         expect(person.forename).to eq 'Arya'

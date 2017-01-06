@@ -11,11 +11,12 @@ class PeopleController < ApplicationController
     @constituencies = @person.constituencies
     @parties = @person.parties
     @contact_points = @person.contact_points
-    @sittings = @person.sittings
-    @houses =  @person.houses
+    @sittings = order_list(@person.sittings, :start_date).reverse
+    @house = @sittings.first.house
+    # @houses =  @person.houses
 
-    @person_display_name = defined?(@person.display_name) ? @person.display_name : "No Information"
-    @house_link = defined?(@houses.first.id) ? view_context.link_to(@houses.first.id, houses_path(@houses.first.id)) : "No Information"
+    # @person_display_name = defined?(@person.display_name) ? @person.display_name : "No Information"
+    # @house_link = defined?(@houses.first.id) ? view_context.link_to(@houses.first.id, houses_path(@houses.first.id)) : "No Information"
     @party_link = defined?(@parties.first.id) ? view_context.link_to(@parties.first.name, houses_path(@parties.first.id)) : "No Information"
     @constituency_link = defined?(@constituencies.first.id) ? view_context.link_to(@constituencies.first.name, constituency_path(@constituencies.first.id)) : "No Information"
     @is_mp = defined?(@houses.first.id) ? true : false
