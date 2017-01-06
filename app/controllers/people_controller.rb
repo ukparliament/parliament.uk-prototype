@@ -8,21 +8,9 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.eager_find(params[:id]) or not_found
-    @constituencies = @person.constituencies
-    @parties = @person.parties
-    @contact_points = @person.contact_points
-    @sittings = order_list(@person.sittings, :start_date).reverse
-    @house = @sittings.first.house
-    # @houses =  @person.houses
 
-    # @person_display_name = defined?(@person.display_name) ? @person.display_name : "No Information"
-    # @house_link = defined?(@houses.first.id) ? view_context.link_to(@houses.first.id, houses_path(@houses.first.id)) : "No Information"
-    @party_link = defined?(@parties.first.id) ? view_context.link_to(@parties.first.name, houses_path(@parties.first.id)) : "No Information"
-    @constituency_link = defined?(@constituencies.first.id) ? view_context.link_to(@constituencies.first.name, constituency_path(@constituencies.first.id)) : "No Information"
-    @is_mp = defined?(@houses.first.id) ? true : false
-    @parliamentary_email = defined?(@contact_points.first.email) ? @contact_points.first.email : "No Information"
-    @parliamentary_phone = defined?(@contact_points.first.telephone) ? @contact_points.first.telephone : "No Information"
-    @parliamentary_address = defined?(@contact_points.first.full_address) ? @contact_points.first.full_address : "No Information"
+    @sittings = order_list(@person.sittings, :start_date).reverse
+    @party_memberships = order_list(@person.party_memberships, :start_date).reverse
 
     format({ serialized_data: @person })
   end

@@ -92,25 +92,6 @@ RSpec.describe FormatHelper, :type => :request  do
       end
     end
 
-    xcontext 'when the requested format is TTL' do
-      before(:each) do
-        get '/people.ttl'
-      end
-
-      it 'returns OK response with correct format' do
-        expect(response.status).to eq 200
-        expect(response.content_type).to eq 'text/turtle'
-      end
-
-      it 'returns 8 statements in the data' do
-        expect(ttl.count).to eq 8
-      end
-
-      it 'returns the correct data for the first person' do
-        expect(ttl.first).to eq PEOPLE_GRAPH.first
-      end
-    end
-
     context 'when the requested format is HTML' do
       before(:each) do
         get '/people'

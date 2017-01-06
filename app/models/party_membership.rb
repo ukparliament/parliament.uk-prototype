@@ -1,4 +1,6 @@
 class PartyMembership < Grom::Base
+  has_associations :party
+
   def self.property_translator
     {
         id: 'id',
