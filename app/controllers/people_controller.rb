@@ -9,20 +9,20 @@ class PeopleController < ApplicationController
   def show
     @person = Person.eager_find(params[:id]) or not_found
 
-    @sittings = order_list(@person.sittings, :start_date).reverse
+    @sittings = order_list(@person.sittings, :start_date).reverse unless @person.sittings.nil?
     @party_memberships = order_list(@person.party_memberships, :start_date).reverse
 
     format({ serialized_data: @person })
   end
 
   def members
-    @people = order_list(Person.all('members'), :surname, :forename)
+    @people = order_list(Person.eager_all('members'), :surname, :forename)
 
     format({ serialized_data: @people })
   end
 
   def current_members
-    @people = order_list(Person.all_with('members', 'current', ['party', 'house', 'constituency']), :surname, :forename)
+    @people = order_list(Person.eager_all('members', 'current'), :surname, :forename)
 
     format({ serialized_data: @people })
   end
@@ -95,7 +95,7 @@ class PeopleController < ApplicationController
   def current_members_letters
     letter = params[:letter]
     @root_path = people_members_current_a_z_path
-    @people = order_list(Person.all_with('members', 'current', letter, ["constituency", "party", "house"]), :surname, :forename)
+    @people = order_list(Person.eager_all('members', 'current', letter), :surname, :forename)
 
     format({ serialized_data: @people })
   end

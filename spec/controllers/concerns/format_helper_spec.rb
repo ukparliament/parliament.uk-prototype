@@ -27,7 +27,7 @@ RSpec.describe FormatHelper, :type => :request  do
       end
     end
 
-    xcontext 'when the requested format is JSON for an object containing nested resources' do
+    context 'when the requested format is JSON for an object containing nested resources' do
       before(:each) do
         get '/people/members/current/a-z/a.json'
       end
@@ -70,7 +70,7 @@ RSpec.describe FormatHelper, :type => :request  do
       end
     end
 
-    xcontext 'when the requested format is XML for an object containing nested resources' do
+    context 'when the requested format is XML for an object containing nested resources' do
       before(:each) do
         get '/people/members/current/a-z/a.xml'
       end
