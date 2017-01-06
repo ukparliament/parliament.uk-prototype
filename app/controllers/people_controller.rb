@@ -7,12 +7,11 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.find(params[:id]) or not_found
-
+    @person = Person.eager_find(params[:id]) or not_found
     @constituencies = @person.constituencies
     @parties = @person.parties
     @contact_points = @person.contact_points
-    @sittings = order_list_by_through(@constituencies, :sittings, :sittingStartDate)
+    @sittings = @person.sittings
     @houses =  @person.houses
     format({ serialized_data: @person })
   end
