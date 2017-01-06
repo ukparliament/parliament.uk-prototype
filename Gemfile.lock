@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/ukpds/grom
-  revision: adc8a248e6c6dbd7d4a2bf40104a3b9c080ba9ba
-  branch: eager-loading-find
+  revision: 78bcf508f1ffa5856894891f2a32981bce6ec418
+  branch: development
   specs:
     grom (0.1.1)
       activesupport

@@ -1,18 +1,18 @@
 => PUGIN.get_component('modules/card', { \
-    title: @person_display_name, \
+    title: person_display_name(@person), \
     image: [{ src: "http://wraggelabs.com/static/images/default_avatar-2.gif", \
-              alt: @person_display_name  \
+              alt: person_display_name(@person)  \
            }], \
-    details: [{ title: "House: ", description: @house_link}, \
-              { title: "Party: ", description: @party_link}, \
-              { title: "Constituency: ", description: @constituency_link}] \
+    details: [{ title: "House: ", description: house_link(@sittings)}, \
+              { title: "Party: ", description: party_link(@party_memberships)}, \
+              { title: "Constituency: ", description: constituency_link(@sittings)}] \
    })
 
-=> PUGIN.get_component('modules/contact', { is_mp: @is_mp, \
+=> PUGIN.get_component('modules/contact', { is_mp: is_mp?(@person), \
                                             address: [title: "Parliamentary Address",  \
-                                                      email: @parliamentary_email, \
-                                                      phone: @parliamentary_phone, \
-                                                      address: @parliamentary_address, \
+                                                      email: parliamentary_email(@person.contact_points), \
+                                                      phone: parliamentary_phone(@person.contact_points), \
+                                                      address: parliamentary_address(@person.contact_points), \
                                                      ] \
                                           })
 

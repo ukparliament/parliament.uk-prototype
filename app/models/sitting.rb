@@ -1,7 +1,8 @@
 class Sitting < Grom::Base
+  has_associations :house, :constituency
   has_one :person
-  has_one :house
-  has_one :constituency
+  # has_one :house
+  # has_one :constituency
 
   def self.property_translator
     {
