@@ -91,7 +91,7 @@ RSpec.configure do |config|
 
     stub_request(:get, "#{API_ENDPOINT}/constituencies/1.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => CONSTITUENCY_TTL, :headers => {})
+      to_return(:status => 200, :body => CONSTITUENCY_EAGER_FIND_TTL, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/people/1/constituencies.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).

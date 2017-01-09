@@ -33,16 +33,17 @@ class ConstituenciesController < ApplicationController
   end
 
   def members
-    @constituency = Constituency.find(params[:constituency_id]) or not_found
-    @members = @constituency.members
-    @sittings = order_list_by_through(@members, :sittings, :sittingStartDate)
+    @constituency = Constituency.eager_find(params[:constituency_id]) or not_found
+    @members = @constituency.members unless @constituency.members.nil?
+    @sittings = order_list(@constituency.sittings, :start_date).reverse unless @constituency.sittings.nil?
 
-    format({ serialized_data: { :constituency => @constituency, :members => @members } })
+    format({ serialized_data:  @constituency })
   end
 
   def current_member
-    @constituency = Constituency.find(params[:constituency_id]) or not_found
-    @member = @constituency.members('current').first
+    @constituency = Constituency.eager_find(params[:constituency_id]) or not_found
+    @sittings = order_list(@constituency.sittings, :start_date).reverse unless @constituency.sittings.nil?
+    @member = @sittings.first.member
 
     format({ serialized_data: { :constituency => @constituency, :members => @members } })
   end
