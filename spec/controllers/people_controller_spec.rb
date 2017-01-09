@@ -70,7 +70,7 @@ RSpec.describe PeopleController do
     end
   end
 
-  xdescribe "GET current_members" do
+  describe "GET current_members" do
     before(:each) do
       get :current_members
     end
@@ -85,7 +85,7 @@ RSpec.describe PeopleController do
       end
     end
 
-    xit 'assigns @people in alphabetical order' do
+    it 'assigns @people in alphabetical order' do
       expect(assigns(:people)[0].forename).to eq("Arya")
       expect(assigns(:people)[1].forename).to eq("Daenerys")
     end
@@ -149,9 +149,8 @@ RSpec.describe PeopleController do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @person and @party' do
+    it 'assigns @person' do
       expect(assigns(:person)).to be_a(Person)
-      expect(assigns(:party)).to be_a(Party)
     end
 
     it 'renders the current_party template' do

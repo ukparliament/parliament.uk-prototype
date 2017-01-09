@@ -34,15 +34,14 @@ class PeopleController < ApplicationController
   end
 
   def parties
-    @person = Person.find(params[:person_id]) or not_found
+    @person = Person.eager_find(params[:person_id]) or not_found
     @parties = order_list(@person.parties, :name)
 
-    format({ serialized_data: { person: @person, parties: @parties } })
+    format({ serialized_data: @person })
   end
 
   def current_party
-    @person = Person.find(params[:person_id]) or not_found
-    @party = @person.parties('current').first
+    @person = Person.eager_find(params[:person_id]) or not_found
 
     format({ serialized_data: { person: @person, parties: @parties } })
   end
