@@ -11,7 +11,7 @@ RSpec.configure do |config|
 
     stub_request(:get, "#{API_ENDPOINT}/people/members.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
+      to_return(:status => 200, :body => MEMBERS_TTL, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/people/members/current.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
