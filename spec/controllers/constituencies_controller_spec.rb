@@ -124,7 +124,7 @@ RSpec.describe ConstituenciesController do
       expect(assigns(:constituency)).to be_a(Constituency)
 
       assigns(:sittings).each do |sitting|
-        expect(sitting).to be_a(Hash)
+        expect(sitting).to be_a(Sitting)
       end
 
       assigns(:members).each do |member|
