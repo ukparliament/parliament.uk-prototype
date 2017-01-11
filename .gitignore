@@ -25,3 +25,6 @@ passenger.3000.pid
 config/environment_variables.yml
 
 /public/_*
+
+.env
+.env.sample.*
