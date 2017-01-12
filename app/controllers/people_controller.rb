@@ -28,52 +28,49 @@ class PeopleController < ApplicationController
   end
 
   def contact_points
-    @person = Person.eager_find(params[:person_id]) or not_found
-    # @contact_points = @person.contact_points
+    @person = Person.eager_find(params[:person_id], 'contact_points') or not_found
 
     format({ serialized_data: @person })
   end
 
   def parties
-    @person = Person.find(params[:person_id]) or not_found
+    @person = Person.eager_find(params[:person_id], 'parties') or not_found
     @parties = order_list(@person.parties, :name)
 
-    format({ serialized_data: { person: @person, parties: @parties } })
+    format({ serialized_data: @person })
   end
 
   def current_party
-    @person = Person.find(params[:person_id]) or not_found
-    @party = @person.parties('current').first
+    @person = Person.eager_find(params[:person_id] ,'parties', 'current') or not_found
 
-    format({ serialized_data: { person: @person, parties: @parties } })
+    format({ serialized_data: @person })
   end
 
   def constituencies
-    @person = Person.find(params[:person_id]) or not_found
+    @person = Person.eager_find(params[:person_id], 'constituencies') or not_found
     @constituencies = order_list(@person.constituencies, :name)
 
-    format({ serialized_data: { person: @person, constituencies: @constituencies } })
+    format({ serialized_data: @person })
   end
 
   def current_constituency
-    @person = Person.find(params[:person_id]) or not_found
-    @constituency = @person.constituencies('current').first
+    @person = Person.eager_find(params[:person_id], 'constituencies', 'current') or not_found
+    @constituency = @person.constituencies.first
 
-    format({ serialized_data: { person: @person, constituencies: @constituency } })
+    format({ serialized_data: @person })
   end
 
   def houses
-    @person = Person.find(params[:person_id]) or not_found
-    @houses = @person.houses
+    @person = Person.eager_find(params[:person_id], 'houses') or not_found
 
-    format({ serialized_data: { person: @person, houses: @houses }})
+    format({ serialized_data: @person })
   end
 
   def current_house
-    @person = Person.find(params[:person_id]) or not_found
-    @house = @person.houses('current').first
+    @person = Person.eager_find(params[:person_id], 'houses', 'current') or not_found
+    @house = @person.houses.first
 
-    format({ serialized_data: { person: @person, house: @house } })
+    format({ serialized_data: @person })
   end
 
   def letters
@@ -87,7 +84,7 @@ class PeopleController < ApplicationController
   def members_letters
     letter = params[:letter]
     @root_path = people_members_a_z_path
-    @people = order_list(Person.all('members', letter), :surname, :forename)
+    @people = order_list(Person.eager_all('members', letter), :surname, :forename)
 
     format({ serialized_data: @people })
   end

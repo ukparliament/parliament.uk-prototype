@@ -13,7 +13,7 @@ class PartiesController < ApplicationController
   end
 
   def show
-    @party = Party.find(params[:id]) or not_found
+    @party = Party.eager_find(params[:id]) or not_found
 
     format({ serialized_data: @party })
   end
