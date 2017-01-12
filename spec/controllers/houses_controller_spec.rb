@@ -171,7 +171,7 @@ RSpec.describe HousesController do
     end
 
     it 'assigns @members in alphabetical order' do
-      expect(assigns(:members)[0].forename).to eq("Daenerys")
+      expect(assigns(:members)[0].forename).to eq("Arya")
     end
 
     it 'renders the members template' do
@@ -197,7 +197,7 @@ RSpec.describe HousesController do
     end
 
     it 'assigns @members in alphabetical order' do
-      expect(assigns(:members)[0].forename).to eq("Daenerys")
+      expect(assigns(:members)[0].forename).to eq("Arya")
     end
 
     it 'renders the members template' do
