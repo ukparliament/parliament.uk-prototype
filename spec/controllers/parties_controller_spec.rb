@@ -89,7 +89,7 @@ RSpec.describe PartiesController do
 
     it 'assigns @members in alphabetical order' do
       expect(assigns(:members)[0].forename).to eq("Arya")
-      expect(assigns(:members)[1].forename).to eq("Daenerys")
+      expect(assigns(:members)[1].forename).to eq("Ned")
     end
 
     it 'renders the members template' do
@@ -116,7 +116,7 @@ RSpec.describe PartiesController do
 
     it 'assigns @members in alphabetical order' do
       expect(assigns(:members)[0].forename).to eq("Arya")
-      expect(assigns(:members)[1].forename).to eq("Daenerys")
+      expect(assigns(:members)[1].forename).to eq("Ned")
     end
 
     it 'renders the members template' do
@@ -166,7 +166,7 @@ RSpec.describe PartiesController do
     end
 
     it 'assigns @members in alphabetical order' do
-      expect(assigns(:members)[0].forename).to eq("Daenerys")
+      expect(assigns(:members)[0].forename).to eq("Arya")
     end
 
     it 'renders the members template' do
@@ -192,7 +192,7 @@ RSpec.describe PartiesController do
     end
 
     it 'assigns @members in alphabetical order' do
-      expect(assigns(:members)[0].forename).to eq("Daenerys")
+      expect(assigns(:members)[0].forename).to eq("Arya")
     end
 
     it 'renders the members template' do

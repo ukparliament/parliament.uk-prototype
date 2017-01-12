@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Sitting do
-  let(:sitting) { Sitting.new({ id: '123', sittingStartDate: '1998-01-02', sittingEndDate: '2001-01-02', graph: RDF::Graph.new }) }
+  let(:sitting) { Sitting.new({ id: '123', sittingStartDate: '1998-01-02', sittingEndDate: '2001-01-02' }) }
 
   describe 'properties' do
     it 'can have an id' do

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Party do
-  let(:party) { Party.new({ id: '123', partyName: 'Targaryens', graph: RDF::Graph.new }) }
+  let(:party) { Party.new({ id: '123', partyName: 'Targaryens' }) }
 
   describe 'properties' do
     it 'can have an id' do
