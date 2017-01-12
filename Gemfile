@@ -15,6 +15,13 @@ gem 'pugin', path: './pugin'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # In development and test environments, use the dotenv gem
+  gem 'dotenv-rails'
+
+  # Use foreman as a gem in dev and test to orchestrate both the app and api
+  gem 'foreman'
+  gem 'subcontractor', '0.8.0'
 end
 
 group :development do
