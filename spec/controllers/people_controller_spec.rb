@@ -199,7 +199,7 @@ RSpec.describe PeopleController do
     end
 
     it 'assigns @people in alphabetical order' do
-      expect(assigns(:people)[0].forename).to eq("Daenerys")
+      expect(assigns(:people)[0].forename).to eq("Arya")
     end
 
     it 'renders the members template' do
@@ -207,7 +207,7 @@ RSpec.describe PeopleController do
     end
   end
 
-  xdescribe "GET current_members_letters" do
+  describe "GET current_members_letters" do
     before(:each) do
       get :current_members_letters, params: { letter: "t" }
     end
@@ -248,7 +248,7 @@ RSpec.describe PeopleController do
       end
     end
 
-    it 'assigns @parties in alphabetical order' do
+    it 'assigns @constituencies in alphabetical order' do
       expect(assigns(:constituencies)[0].name).to eq("Bethnal Green")
       expect(assigns(:constituencies)[1].name).to eq("Westminster")
     end
@@ -267,17 +267,8 @@ RSpec.describe PeopleController do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @person and @houses' do
+    it 'assigns @person' do
       expect(assigns(:person)).to be_a(Person)
-
-      assigns(:houses).each do |house|
-        expect(house).to be_a(House)
-      end
-    end
-
-    it 'assigns @houses in alphabetical order' do
-      expect(assigns(:houses)[0].id).to eq("HouseOne")
-      expect(assigns(:houses)[1].id).to eq("HouseTwo")
     end
 
     it 'renders the parties template' do
