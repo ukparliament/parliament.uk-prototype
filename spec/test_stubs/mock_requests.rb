@@ -19,7 +19,7 @@ RSpec.configure do |config|
 
     stub_request(:get, "#{API_ENDPOINT}/people/t.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
+      to_return(:status => 200, :body => SIMPLE_PEOPLE_TTL, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/people/members/t.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
@@ -31,7 +31,7 @@ RSpec.configure do |config|
 
     stub_request(:get, "#{API_ENDPOINT}/people/1/contact_points.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => CONTACT_POINT_TTL, :headers => {})
+      to_return(:status => 200, :body => PERSON_CONTACT_POINT_TTL, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/contact_points/123.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
@@ -43,7 +43,7 @@ RSpec.configure do |config|
 
     stub_request(:get, "#{API_ENDPOINT}/people/1/parties.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => TWO_PARTIES_TTL, :headers => {})
+      to_return(:status => 200, :body => PERSON_PARTIES_TTL, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/parties.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).

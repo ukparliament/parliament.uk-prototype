@@ -28,13 +28,13 @@ class PeopleController < ApplicationController
   end
 
   def contact_points
-    @person = Person.eager_find(params[:person_id]) or not_found
+    @person = Person.eager_find(params[:person_id], 'contact_points') or not_found
 
     format({ serialized_data: @person })
   end
 
   def parties
-    @person = Person.eager_find(params[:person_id]) or not_found
+    @person = Person.eager_find(params[:person_id], 'parties') or not_found
     @parties = order_list(@person.parties, :name)
 
     format({ serialized_data: @person })

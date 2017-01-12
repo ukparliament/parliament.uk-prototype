@@ -174,7 +174,8 @@ RSpec.describe PeopleController do
     end
 
     it 'assigns @people in alphabetical order' do
-      expect(assigns(:people)[0].forename).to eq("Daenerys")
+      expect(assigns(:people)[0].forename).to eq("Arya")
+      expect(assigns(:people)[1].forename).to eq("Daenerys")
     end
 
     it 'renders the index template' do
