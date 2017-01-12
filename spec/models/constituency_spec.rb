@@ -8,8 +8,7 @@ describe Constituency do
                                           constituencyOnsCode: 'E14000878',
                                           constituencyLatitude: '52.617455924',
                                           constituencyLongitude: '-0.160666854394',
-                                          constituencyExtent: 'Polygon((0, 1, 3, 4))',
-                                          graph: RDF::Graph.new }) }
+                                          constituencyExtent: 'Polygon((0, 1, 3, 4))' }) }
 
   describe 'properties' do
     it 'can have an id' do

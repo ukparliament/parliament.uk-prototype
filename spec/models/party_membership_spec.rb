@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe PartyMembership do
-  let(:sitting) { PartyMembership.new({ id: '123', partyMembershipStartDate: '1998-01-02', partyMembershipEndDate: '2001-01-02', graph: RDF::Graph.new }) }
+  let(:sitting) { PartyMembership.new({ id: '123', partyMembershipStartDate: '1998-01-02', partyMembershipEndDate: '2001-01-02' }) }
 
   describe 'properties' do
     it 'can have an id' do

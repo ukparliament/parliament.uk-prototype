@@ -62,7 +62,7 @@ RSpec.describe PeopleController do
 
     it 'assigns @people in alphabetical order' do
       expect(assigns(:people)[0].forename).to eq("Arya")
-      expect(assigns(:people)[1].forename).to eq("Daenerys")
+      expect(assigns(:people)[1].forename).to eq("Ned")
     end
 
     it 'renders the members template' do
@@ -87,7 +87,7 @@ RSpec.describe PeopleController do
 
     it 'assigns @people in alphabetical order' do
       expect(assigns(:people)[0].forename).to eq("Arya")
-      expect(assigns(:people)[1].forename).to eq("Daenerys")
+      expect(assigns(:people)[1].forename).to eq("Ned")
     end
 
     it 'renders the current_members template' do
