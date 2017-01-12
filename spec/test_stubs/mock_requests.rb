@@ -73,7 +73,6 @@ RSpec.configure do |config|
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
       to_return(:status => 200, :body => PARTY_MEMBERS_DATA, :headers => {})
 
-
     stub_request(:get, "#{API_ENDPOINT}/parties/81/members/t.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
       to_return(:status => 200, :body => PARTY_MEMBERS_DATA, :headers => {})
@@ -112,55 +111,35 @@ RSpec.configure do |config|
 
     stub_request(:get, "#{API_ENDPOINT}/houses.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => HOUSES_TTL, :headers => {})
+      to_return(:status => 200, :body => HOUSES_DATA, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => HOUSE_TTL, :headers => {})
-
-    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members.ttl").
-      with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
+      to_return(:status => 200, :body => HOUSE_DATA, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members.ttl").
         with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-        to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
+        to_return(:status => 200, :body => HOUSE_MEMBERS_DATA, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members/current.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => PEOPLE_TTL, :headers => {})
-
-    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/parties.ttl").
-      with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => TWO_PARTIES_TTL, :headers => {})
+      to_return(:status => 200, :body => HOUSE_MEMBERS_DATA, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/parties.ttl").
         with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-        to_return(:status => 200, :body => TWO_PARTIES_TTL, :headers => {})
+        to_return(:status => 200, :body => HOUSE_PARTIES_DATA, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/parties/current.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => TWO_PARTIES_TTL, :headers => {})
-
-    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/parties/current.ttl").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-        to_return(:status => 200, :body => TWO_PARTIES_TTL, :headers => {})
+      to_return(:status => 200, :body => HOUSE_PARTIES_DATA, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members/t.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
-
-    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members/t.ttl").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-        to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
+      to_return(:status => 200, :body => HOUSE_MEMBERS_DATA, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members/current/t.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
-
-    stub_request(:get, "#{API_ENDPOINT}/houses/HouseOne/members/current/t.ttl").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-        to_return(:status => 200, :body => PERSON_ONE_TTL, :headers => {})
+      to_return(:status => 200, :body => HOUSE_MEMBERS_DATA, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/people/1/houses.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
@@ -176,7 +155,7 @@ RSpec.configure do |config|
 
     stub_request(:get, "#{API_ENDPOINT}/people/members/current/a.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => PERSON_PARTY_HOUSE_CONSTITUENCY_TTL, :headers => {})
+      to_return(:status => 200, :body => MEMBERS_DATA, :headers => {})
 
     stub_request(:get, "#{API_ENDPOINT}/people/1/constituencies/current.ttl").
       with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Host'=>API_ENDPOINT_HOST, 'User-Agent'=>'Ruby'}).
