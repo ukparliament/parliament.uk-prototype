@@ -18,7 +18,7 @@ RUN chown -R $APP_USER:$APP_USER $RAILS_ROOT
 # cache the gems
 COPY Gemfile $RAILS_ROOT/Gemfile
 COPY Gemfile.lock $RAILS_ROOT/Gemfile.lock
-RUN cd $RAILS_ROOT && env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
+RUN cd $RAILS_ROOT && gem install bundler && env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
   	&& chown -R $APP_USER:$APP_USER $GEM_HOME
 
 USER $USER
@@ -30,5 +30,7 @@ LABEL git-sha=$GIT_SHA \
 	      git-tag=$GIT_TAG
 
 # EXPOSE 3000
+
+RUN rails assets:precompile
 
 CMD ["passenger", "start"]
