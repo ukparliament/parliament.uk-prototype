@@ -1,6 +1,7 @@
 class ConstituenciesController < ApplicationController
 
   def index
+    @constituencies = Parliament::Request.new.constituencies.get
     # @constituencies = order_list(Constituency.all, :name)
     #
     # format({ serialized_data: @constituencies })

@@ -1,0 +1,6 @@
+%h1 Constituencies
+
+%ul
+  - @constituencies.each do |constituency|
+    %li
+      = link_to constituency.constituencyGroupName constituency_path(constituency.id)
