@@ -1,4 +1,5 @@
 require 'vcard/vcard'
+require 'parliament'
 
 class ApplicationController < ActionController::Base
   include JSON_LD_Helper

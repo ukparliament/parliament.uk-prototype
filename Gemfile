@@ -39,11 +39,11 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'factory_girl_rails'
   gem 'webmock'
   gem 'simplecov', require: false
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
+  gem 'vcr'
 end
 
 # Gems required for Docker containers
