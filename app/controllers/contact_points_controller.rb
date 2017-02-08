@@ -1,9 +1,8 @@
 class ContactPointsController < ApplicationController
 
   def index
-    # @contact_points = ContactPoint.all
-    #
-    # format({ serialized_data: @contact_points })
+    data = Parliament::Request.new.contact_points.get
+    @contact_points = data.filter('http://id.ukpds.org/schema/ContactPoint').first
   end
 
   def show
