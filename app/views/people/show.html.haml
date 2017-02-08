@@ -1,3 +1,37 @@
 %h1
-  = person.respond_to?(:personGivenName) ? person.personGivenName : ''
-  = person.respond_to?(:personFamilyName) ? person.personFamilyName : ''
+  = "#{@person.given_name} #{@person.other_name} #{@person.family_name}"
+
+%h4 Date of Birth
+%p= @person.date_of_birth
+
+%h4 Gender
+%p= @person.gender.name
+
+%h3 Parties
+%ul
+  - @person.party_memberships.each do |party_membership|
+    %li
+      = link_to(party_membership.party.name, party_path(party_membership.party.graph_id)) unless party_membership.party.nil?
+      = "#{party_membership.start_date} - #{party_membership.end_date}"
+
+%h3 Constituencies
+%ul
+  - @person.seat_incumbencies.each do |seat_incumbency|
+    %li
+      = link_to(seat_incumbency.house.name, house_path(seat_incumbency.house.graph_id)) unless seat_incumbency.house.nil?
+      = link_to(seat_incumbency.constituency.name, constituency_path(seat_incumbency.constituency.graph_id))
+      = "#{seat_incumbency.start_date} - #{seat_incumbency.end_date}"
+
+%h3 Contact Points
+%ul
+  - @person.contact_points.each do |contact_point|
+    %li
+      = "Email: #{contact_point.email}" if contact_point.respond_to?(:email)
+      = "Phone: #{contact_point.phoneNumber}" if contact_point.respond_to?(:phoneNumber)
+      - unless contact_point.postal_addresses.empty?
+        = "Address Line 1: #{contact_point.postal_addresses.first.addressLine1}"
+        = "Address Line 2: #{contact_point.postal_addresses.first.addressLine2}"
+        = "Address Line 3: #{contact_point.postal_addresses.first.addressLine3}"
+        = "Address Line 4: #{contact_point.postal_addresses.first.addressLine4}"
+        = "Address Line 5: #{contact_point.postal_addresses.first.addressLine5}"
+        = "Postcode: #{contact_point.postal_addresses.first.postCode}"
