@@ -5,12 +5,8 @@
 %ul
   - @contact_points.each do |contact_point|
     %li
-    = "Email: #{contact_point.email}"
-    = "Phone: #{contact_point.phoneNumber}"
-    - unless contact_point.postal_addresses.empty?
-      = "Address Line 1: #{contact_point.postal_addresses.first.addressLine1}" if contact_point.postal_addresses.first.respond_to?(:addressLine1)
-      = "Address Line 2: #{contact_point.postal_addresses.first.addressLine2}" if contact_point.postal_addresses.first.respond_to?(:addressLine2)
-      = "Address Line 3: #{contact_point.postal_addresses.first.addressLine3}" if contact_point.postal_addresses.first.respond_to?(:addressLine3)
-      = "Address Line 4: #{contact_point.postal_addresses.first.addressLine4}" if contact_point.postal_addresses.first.respond_to?(:addressLine4)
-      = "Address Line 5: #{contact_point.postal_addresses.first.addressLine5}" if contact_point.postal_addresses.first.respond_to?(:addressLine5)
-      = "Postcode: #{contact_point.postal_addresses.first.postCode}" if contact_point.postal_addresses.first.respond_to?(:postCode)
+      %p= "Email: #{contact_point.email}" if contact_point.respond_to?(:email)
+      %p= "Phone: #{contact_point.phoneNumber}" if contact_point.respond_to?(:phoneNumber)
+      %ul
+        - contact_point.postal_addresses.each do |postal_address|
+          %li #{postal_address.full_address}

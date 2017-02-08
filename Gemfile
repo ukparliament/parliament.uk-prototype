@@ -40,12 +40,12 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'capybara'
-  gem 'webmock'
-  gem 'simplecov', require: false
   gem 'rails-controller-testing'
+  gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+  gem 'webmock'
   gem 'vcr'
 end
 

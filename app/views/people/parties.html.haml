@@ -8,4 +8,4 @@
       %ol
         - party.party_memberships.each do |party_membership|
           %li
-            = "#{party_membership.start_date} - #{party_membership.end_date}"
+            %p #{party_membership.start_date} - #{party_membership.end_date}

@@ -55,3 +55,4 @@ AllCops:
     - 'vendor/**/*'
     - 'tmp/**/*'
     - 'spec/**/*'
+    - 'Gemfile'
