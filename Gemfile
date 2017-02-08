@@ -10,7 +10,7 @@ gem 'json-ld', '2.1.0'
 gem 'vcard'
 
 # Parliament Ruby is a wrapper for the internal Parliament data API
-gem 'parliament-ruby', git: 'https://github.com/katylouise/parliament-ruby', branch: 'katylouise/decorators'
+gem 'parliament-ruby', git: 'https://github.com/katylouise/parliament-ruby'
 
 # Pugin is the front-end component library used by Parliament
 gem 'pugin', git: 'https://github.com/ukparliament/pugin', branch: 'development'
@@ -28,6 +28,9 @@ group :development, :test do
   # Use foreman as a gem in dev and test to orchestrate both the app and api
   gem 'foreman'
   gem 'subcontractor', '0.8.0'
+
+  # Use Rubocop for static code quality analysis
+  gem 'rubocop'
 end
 
 group :development do

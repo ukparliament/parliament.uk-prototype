@@ -1,10 +1,9 @@
 GIT
   remote: https://github.com/katylouise/parliament-ruby
-  revision: a8260477a3464b9fdfd47357c65567ca05b01f45
-  branch: katylouise/decorators
+  revision: 0282e5ce09a063043491a9fa5ad7ecb7741f5f5a
   specs:
     parliament-ruby (0.1.1)
-      grom (~> 0.3.5)
+      grom (>= 0.2.0)
 
 GIT
   remote: https://github.com/ukparliament/pugin
@@ -58,6 +57,7 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
+    ast (2.3.0)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.12.0)
@@ -111,9 +111,12 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    parser (2.4.0.0)
+      ast (~> 2.2)
     passenger (5.1.2)
       rack
       rake (>= 0.8.1)
+    powerpack (0.1.1)
     public_suffix (2.0.5)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -145,6 +148,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    rainbow (2.2.1)
     rake (12.0.0)
     rdf (2.2.3)
       hamster (~> 3.0)
@@ -167,6 +171,13 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    rubocop (0.47.1)
+      parser (>= 2.3.3.1, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-progressbar (1.8.1)
     safe_yaml (1.0.4)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
@@ -196,6 +207,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unicode-display_width (1.1.3)
     vcard (0.2.15)
     vcr (3.0.3)
     web-console (3.4.0)
@@ -229,6 +241,7 @@ DEPENDENCIES
   rails (= 5.0.1)
   rails-controller-testing
   rspec-rails
+  rubocop
   shoulda-matchers
   simplecov
   spring
@@ -241,4 +254,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.14.3
+   1.13.6
