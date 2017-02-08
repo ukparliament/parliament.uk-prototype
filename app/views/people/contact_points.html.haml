@@ -9,4 +9,4 @@
       %p= "Phone: #{contact_point.phoneNumber}" if contact_point.respond_to?(:phoneNumber)
       %ul
         - contact_point.postal_addresses.each do |postal_address|
-          %li #{postal_address.full_address}
+          %li= postal_address.full_address
