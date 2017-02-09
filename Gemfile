@@ -28,6 +28,9 @@ group :development, :test do
   # Use foreman as a gem in dev and test to orchestrate both the app and api
   gem 'foreman'
   gem 'subcontractor', '0.8.0'
+
+  # Use Rubocop for static code quality analysis
+  gem 'rubocop'
 end
 
 group :development do

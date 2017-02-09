@@ -13,8 +13,8 @@ RSpec.describe PartiesController, vcr: true do
 
     it 'assigns @parties' do
       assigns(:parties).each do |party|
-       expect(party).to be_a(Grom::Node)
-       expect(party.type).to eq('http://id.ukpds.org/schema/Party')
+        expect(party).to be_a(Grom::Node)
+        expect(party.type).to eq('http://id.ukpds.org/schema/Party')
       end
     end
 
@@ -24,21 +24,21 @@ RSpec.describe PartiesController, vcr: true do
   end
 
   describe 'GET current' do
-     before(:each) do
-       get :current
-     end
+    before(:each) do
+      get :current
+    end
 
-     it 'should return a Parliament::Response object' do
-       expect(assigns(:parties)).to be_a(Parliament::Response)
-     end
+    it 'should return a Parliament::Response object' do
+      expect(assigns(:parties)).to be_a(Parliament::Response)
+    end
 
-     it 'should return the current number of parties' do
-       expect(assigns(:parties).size).to eq(13)
-     end
+    it 'should return the current number of parties' do
+      expect(assigns(:parties).size).to eq(13)
+    end
 
-     it 'renders the current template' do
-       expect(response).to render_template('current')
-     end
+    it 'renders the current template' do
+      expect(response).to render_template('current')
+    end
   end
 
   describe 'GET show' do
@@ -88,11 +88,11 @@ RSpec.describe PartiesController, vcr: true do
       end
 
       it 'should return an Array' do
-         expect(assigns(:people)).to be_an_instance_of(Array)
+        expect(assigns(:people)).to be_an_instance_of(Array)
       end
 
       it 'passes an invalid party id to the show page' do
-         expect { get :members, params: { party_id: 'FAKE-PARTY-ID' } }.to raise_error(ActionController::RoutingError, 'Not Found')
+        expect { get :members, params: { party_id: 'FAKE-PARTY-ID' } }.to raise_error(ActionController::RoutingError, 'Not Found')
       end
     end
   end
@@ -134,7 +134,7 @@ RSpec.describe PartiesController, vcr: true do
       end
 
       it 'passes an invalid letter to the letters page' do
-       expect { get :letters, params: { letter: '1' } }.to raise_error(ActionController::UrlGenerationError)
+        expect { get :letters, params: { letter: '1' } }.to raise_error(ActionController::UrlGenerationError)
       end
     end
   end
