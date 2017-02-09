@@ -2,4 +2,5 @@
 
 %h3= t('.title')
 %p= link_to(@house.name, house_path(@house.graph_id))
-%p #{@house.seat_incumbencies.first.start_date} - current
+%p
+  = "#{l(@house.seat_incumbencies.first.start_date, format: :default)} - " unless @house.seat_incumbencies.first.start_date.nil?

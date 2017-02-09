@@ -25,10 +25,13 @@ en:
   parties: 'Parties'
   constituencies: 'Constituencies'
   contact_points: 'Contact Points'
-  houses: 'Houses'
+  houses_title: 'Houses'
   email: 'Email'
   phone: 'Phone'
   address: 'Address'
+  time:
+    formats:
+      default: "%Y-%m-%d"
   people:
     index:
       title: 'People'

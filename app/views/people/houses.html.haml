@@ -1,6 +1,6 @@
 %h1= @person.full_name
 
-%h3= t('houses')
+%h3= t('houses_title')
 %ul
   - @houses.each do |house|
     %li
@@ -8,4 +8,5 @@
       %ol
         - house.seat_incumbencies.each do |seat_incumbency|
           %li
-            %p #{seat_incumbency.start_date} - #{seat_incumbency.end_date}
+            = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+            = " - #{l(seat_incumbency.end_date, format: :default)}" unless seat_incumbency.end_date.nil?

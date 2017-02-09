@@ -8,4 +8,6 @@
       %ol
         - constituency.seat_incumbencies.each do |seat_incumbency|
           %li
-            %p #{seat_incumbency.start_date} - #{seat_incumbency.end_date}
+            %p
+              = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+              = " - #{l(seat_incumbency.end_date, format: :default)}" unless seat_incumbency.end_date.nil?

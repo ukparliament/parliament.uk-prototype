@@ -2,4 +2,5 @@
 
 %h3= t('.title')
 %p= link_to(@constituency.name, party_path(@constituency.graph_id))
-%p #{@constituency.seat_incumbencies.first.start_date} - current
+%p
+  = "#{l(@constituency.seat_incumbencies.first.start_date, format: :default)} - " unless @constituency.seat_incumbencies.first.start_date.nil?
