@@ -1,5 +1,4 @@
 class PeopleController < ApplicationController
-
   def index
     @people = Parliament::Request.new.people.get
   end

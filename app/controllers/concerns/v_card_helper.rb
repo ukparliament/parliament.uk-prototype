@@ -12,9 +12,9 @@ module VCardHelper
             addr.street = address unless address == ''
           end
         end
-      maker.add_email(contact_point.email) unless contact_point.email == ''
-      maker.add_tel(contact_point.phone_number) unless contact_point.phone_number == ''
-      maker.add_tel(contact_point.fax_number) { |f| f.location = 'fax' } unless contact_point.fax_number == ''
+        maker.add_email(contact_point.email) unless contact_point.email == ''
+        maker.add_tel(contact_point.phone_number) unless contact_point.phone_number == ''
+        maker.add_tel(contact_point.fax_number) { |f| f.location = 'fax' } unless contact_point.fax_number == ''
       end
     end
   end

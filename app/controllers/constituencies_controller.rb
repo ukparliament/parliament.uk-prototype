@@ -1,5 +1,4 @@
 class ConstituenciesController < ApplicationController
-
   def index
     @constituencies = Parliament::Request.new.constituencies.get
   end
@@ -20,7 +19,7 @@ class ConstituenciesController < ApplicationController
     constituency_id = params[:constituency_id]
     data = Parliament::Request.new.constituencies(constituency_id).get
     @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first.first
-   end
+  end
 
   def contact_point
     constituency_id = params[:constituency_id]
@@ -57,5 +56,4 @@ class ConstituenciesController < ApplicationController
 
     render 'constituencies/index'
   end
-
 end
