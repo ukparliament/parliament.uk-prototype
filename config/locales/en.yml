@@ -20,4 +20,40 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  date_of_birth: 'Date Of Birth'
+  gender: 'Gender'
+  parties: 'Parties'
+  constituencies: 'Constituencies'
+  contact_points: 'Contact Points'
+  houses_title: 'Houses'
+  email: 'Email'
+  phone: 'Phone'
+  address: 'Address'
+  time:
+    formats:
+      default: "%Y-%m-%d"
+  people:
+    index:
+      title: 'People'
+    members:
+      title: 'Members'
+    current_members:
+      title: 'Current Members'
+    current_party:
+      title: 'Current Party'
+    current_constituency:
+      title: 'Current Constituency'
+    current_house:
+      title: 'Current House'
+  houses:
+    members:
+      title: 'Members'
+    current_members:
+      title: 'Current Members'
+    party_members:
+      title: 'Members'
+
+
+
+
+
