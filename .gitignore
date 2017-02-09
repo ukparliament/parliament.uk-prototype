@@ -26,3 +26,5 @@ config/environment_variables.yml
 
 .env
 .env.sample.*
+
+/spec/examples.txt
