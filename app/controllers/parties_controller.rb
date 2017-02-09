@@ -14,7 +14,8 @@ class PartiesController < ApplicationController
     rescue NoMethodError => e
       Rails.logger.error(e)
 
-      raise ActionController::RoutingError.new('Not Found')
+      raise ActionController::RoutingError, 'Not Found'
+
     end
     @party = data.first
   end
@@ -26,7 +27,8 @@ class PartiesController < ApplicationController
     rescue NoMethodError => e
       Rails.logger.error(e)
 
-      raise ActionController::RoutingError.new('Not Found')
+      raise ActionController::RoutingError, 'Not Found'
+
     end
     @people = data.filter('http://id.ukpds.org/schema/Person').first
   end
@@ -38,10 +40,9 @@ class PartiesController < ApplicationController
     rescue NoMethodError => e
       Rails.logger.error(e)
 
-      raise ActionController::RoutingError.new('Not Found')
+      raise ActionController::RoutingError, 'Not Found'
     end
     @people = data.filter('http://id.ukpds.org/schema/Person').first
-
   end
 
   def letters
@@ -51,7 +52,7 @@ class PartiesController < ApplicationController
     rescue NoMethodError => e
       Rails.logger.error(e)
 
-      raise ActionController::RoutingError.new('Not Found')
+      raise ActionController::RoutingError, 'Not Found'
     end
     @party = data.first
   end
@@ -65,7 +66,7 @@ class PartiesController < ApplicationController
     rescue NoMethodError => e
       Rails.logger.error(e)
 
-      raise ActionController::RoutingError.new('Not Found')
+      raise ActionController::RoutingError, 'Not Found'
     end
     @party = data_party.first
     @people = data_members.filter('http://id.ukpds.org/schema/Person').first
@@ -80,7 +81,7 @@ class PartiesController < ApplicationController
     rescue NoMethodError => e
       Rails.logger.error(e)
 
-      raise ActionController::RoutingError.new('Not Found')
+      raise ActionController::RoutingError, 'Not Found'
     end
     @party = data_party.first
     @people = data_current_members.filter('http://id.ukpds.org/schema/Person').first
