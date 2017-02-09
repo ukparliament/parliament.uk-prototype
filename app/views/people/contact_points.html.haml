@@ -5,8 +5,9 @@
 %ul
   - @contact_points.each do |contact_point|
     %li
-      %p= "#{t('email')}: #{contact_point.email}" if contact_point.respond_to?(:email)
-      %p= "#{t('phone')}: #{contact_point.phoneNumber}" if contact_point.respond_to?(:phoneNumber)
+      %p= "#{t('email')}: #{contact_point.email}"
+      %p= "#{t('phone')}: #{contact_point.phone_number}"
+      %p Addresses:
       %ul
         - contact_point.postal_addresses.each do |postal_address|
           %li= postal_address.full_address
