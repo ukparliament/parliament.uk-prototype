@@ -20,5 +20,3 @@ class ApplicationController < ActionController::Base
     @root_path = request.path
   end
 end
-
-
