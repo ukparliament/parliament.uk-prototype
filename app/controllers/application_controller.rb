@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   include FormatHelper
   include NotFoundHelper
   include VCardHelper
+
+  helper_method :extract_grom_node
+
+  def extract_grom_node(data)
+    data.filter('http://id.ukpds.org/schema/Party')[0][0]
+  end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -19,3 +26,6 @@ class ApplicationController < ActionController::Base
     @root_path = request.path
   end
 end
+
+
+

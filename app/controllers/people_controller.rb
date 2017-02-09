@@ -1,10 +1,12 @@
 class PeopleController < ApplicationController
 
   def index
+    binding.pry
     @people = Parliament::Request.new.people.get
   end
 
   def show
+
     person_id = params[:id]
     data = Parliament::Request.new.people(person_id).get
     @person = data.filter('http://id.ukpds.org/Person').first
