@@ -60,8 +60,8 @@ class PartiesController < ApplicationController
     letter = params[:letter]
     party_id = params[:party_id]
     begin
-     data_party = Parliament::Request.new.parties(party_id).get
-     data_members = Parliament::Request.new.parties(party_id).members(letter).get
+      data_party = Parliament::Request.new.parties(party_id).get
+      data_members = Parliament::Request.new.parties(party_id).members(letter).get
     rescue NoMethodError => e
       Rails.logger.error(e)
 
