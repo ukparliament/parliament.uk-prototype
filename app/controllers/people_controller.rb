@@ -1,7 +1,5 @@
 class PeopleController < ApplicationController
-
   def index
-    binding.pry
     @people = Parliament::Request.new.people.get
   end
 

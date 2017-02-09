@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   include FormatHelper
   include NotFoundHelper
   include VCardHelper
+  include Parliament
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -13,8 +14,7 @@ class ApplicationController < ActionController::Base
 
   layout 'pugin/layouts/pugin'
 
-  def index
-  end
+  def index() end
 
   def a_to_z
     @root_path = request.path
