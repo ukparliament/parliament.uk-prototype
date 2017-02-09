@@ -42,7 +42,7 @@ RSpec.describe ContactPointsController, vcr: true do
       before do
         expect(controller).to receive(:send_data).with(card, file_options) { controller.head :ok }
       end
-      
+
       it 'should download a vcard attachment' do
         get :show, params: { id: 'a11425ca-6a47-4170-80b9-d6e9f3800a52' }
       end
