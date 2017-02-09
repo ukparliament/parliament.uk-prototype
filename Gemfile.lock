@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ukparliament/parliament-ruby
-  revision: 57135e94ada3941d9a71f31fc029c47148d77ac1
+  revision: 1564afc2f78a047048e1e3b7c1ee52dff5761440
   branch: giusepped/decorators
   specs:
     parliament-ruby (0.2.0)

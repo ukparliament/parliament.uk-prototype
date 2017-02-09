@@ -6,8 +6,10 @@ class ContactPointsController < ApplicationController
   end
 
   def show
-    # @contact_point = ContactPoint.find(params[:id]) or not_found
-    # vcard = create_vcard(@contact_point)
-    # send_data vcard.to_s, filename: "contact.vcf", disposition: 'attachment', data: { turbolink: false }
+    data = Parliament::Request.new.contact_points(params[:id]).get
+    @contact_point = data.filter('http://id.ukpds.org/schema/ContactPoint').first.first
+    vcard = create_vcard(@contact_point)
+    name = @contact_point.person.empty? ? 'contact.vcf' : "#{@contact_point.person.first.given_name}.vcf"
+    send_data vcard.to_s, filename: name, disposition: 'attachment', data: { turbolink: false }
   end
 end
