@@ -1,0 +1,11 @@
+%h1 Contact points
+
+%ul
+  - @contact_points.each do |contact_point|
+    %li
+      %p= "Email: #{contact_point.email}" unless contact_point.email == ''
+      %p= "Phone: #{contact_point.phone_number}" unless contact_point.phone_number == ''
+      %p= "Fax: #{contact_point.fax_number}" unless contact_point.fax_number == ''
+      %p= "Address: #{contact_point.postal_addresses.first.full_address}" unless contact_point.postal_addresses.first.full_address == ''
+      %span= link_to 'download', contact_point_path(contact_point.graph_id), target: '_blank'
+

@@ -1,18 +1,16 @@
 class PeopleController < ApplicationController
-
   def index
-    # @people = order_list(Person.all, :surname, :forename)
-    #
-    # format({ serialized_data: @people })
+    @people = Parliament::Request.new.people.get
   end
 
   def show
-    # @person = Person.eager_find(params[:id]) or not_found
-    #
-    # @sittings = order_list(@person.sittings, :start_date).reverse unless @person.sittings.nil?
-    # @party_memberships = order_list(@person.party_memberships, :start_date).reverse
-    #
-    # format({ serialized_data: @person })
+    person_id = params[:id]
+    data = Parliament::Request.new.people(person_id).get
+    @person = data.filter('http://id.ukpds.org/Person').first
+    @parties = data.filter('http://id.ukpds.org/Party')
+    @constituencies = data.filter('http://id.ukpds.org/ConstituencyGroup')
+    @contact_points = data.filter('http://id.ukpds.org/ContactPoint')
+    @houses = data.filter('http://id.ukpds.org/House')
   end
 
   def members
