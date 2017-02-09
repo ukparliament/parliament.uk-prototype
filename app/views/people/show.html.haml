@@ -1,19 +1,19 @@
 %h1 #{@person.given_name} #{@person.other_name} #{@person.family_name}
 
-%h4 Date of Birth
+%h4= t('date_of_birth')
 %p= @person.date_of_birth
 
-%h4 Gender
+%h4= t('gender')
 %p= @person.gender.name unless @person.gender.nil?
 
-%h3 Parties
+%h3= t('parties')
 %ul
   - @person.party_memberships.each do |party_membership|
     %li
       %p= link_to(party_membership.party.name, party_path(party_membership.party.graph_id)) unless party_membership.party.nil?
       %p #{party_membership.start_date} - #{party_membership.end_date}
 
-%h3 Constituencies
+%h3= t('constituencies')
 %ul
   - @person.seat_incumbencies.each do |seat_incumbency|
     %li
@@ -21,12 +21,12 @@
       %p= link_to(seat_incumbency.constituency.name, constituency_path(seat_incumbency.constituency.graph_id))
       %p #{seat_incumbency.start_date} - #{seat_incumbency.end_date}
 
-%h3 Contact Points
+%h3= t('contact_points')
 %ul
   - @person.contact_points.each do |contact_point|
     %li
-      %p= "Email: #{contact_point.email}" if contact_point.respond_to?(:email)
-      %p= "Phone: #{contact_point.phoneNumber}" if contact_point.respond_to?(:phoneNumber)
+      %p= "#{t('email')}: #{contact_point.email}" if contact_point.respond_to?(:email)
+      %p= "#{t('phone')}: #{contact_point.phoneNumber}" if contact_point.respond_to?(:phoneNumber)
       %ul
         - contact_point.postal_addresses.each do |postal_address|
           %li= postal_address.full_address

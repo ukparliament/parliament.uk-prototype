@@ -59,7 +59,7 @@ RSpec.describe PeopleController, vcr: true do
     end
 
     it 'renders the members template' do
-      expect(response).to render_template('index')
+      expect(response).to render_template('members')
     end
   end
 

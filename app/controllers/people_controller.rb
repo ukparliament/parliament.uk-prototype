@@ -12,8 +12,6 @@ class PeopleController < ApplicationController
   def members
     data = Parliament::Request.new.people.members.get
     @people = data.filter('http://id.ukpds.org/schema/Person').first
-
-    render 'index'
   end
 
   def current_members
