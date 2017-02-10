@@ -14,8 +14,6 @@ class ApplicationController < ActionController::Base
 
   layout 'pugin/layouts/pugin'
 
-  def index() end
-
   def a_to_z
     @root_path = request.path
   end
