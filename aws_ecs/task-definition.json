@@ -1,15 +1,15 @@
 {
   "containerDefinitions": [
     {
-      "name": "membersprototype",
-      "image": "165162103257.dkr.ecr.eu-west-1.amazonaws.com/membersprototype",
+      "name": "parliamentukprototype",
+      "image": "165162103257.dkr.ecr.eu-west-1.amazonaws.com/parliamentukprototype",
       "cpu": 10,
       "memory": 512,
       "essential": true,
       "command": [],
       "portMappings": [
         {
-          "hostPort": 84,
+          "hostPort": 88,
           "containerPort": 3000,
           "protocol": "tcp"
         }
@@ -17,11 +17,11 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "membersprototype",
+          "awslogs-group": "parliamentukprototype",
           "awslogs-region": "eu-west-1"
         }
       }
     }
   ],
-  "family": "membersprototype"
+  "family": "parliamentukprototype"
 }
