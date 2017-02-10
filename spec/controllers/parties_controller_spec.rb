@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 RSpec.describe PartiesController, vcr: true do
   describe 'GET index' do

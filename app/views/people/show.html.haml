@@ -1,3 +1,46 @@
-%h1
-  = person.respond_to?(:personGivenName) ? person.personGivenName : ''
-  = person.respond_to?(:personFamilyName) ? person.personFamilyName : ''
+%h1 #{@person.given_name} #{@person.other_name} #{@person.family_name}
+
+%h4= t('date_of_birth')
+%p= @person.date_of_birth
+
+%h4= t('gender')
+%p= @person.gender.name unless @person.gender.nil?
+
+%h3= t('parties')
+%ul
+  - @person.party_memberships.each do |party_membership|
+    %li
+      %p= link_to(party_membership.party.name, party_path(party_membership.party.graph_id)) unless party_membership.party.nil?
+      %p
+        = "#{l(party_membership.start_date, format: :default)}" unless party_membership.start_date.nil?
+        = " - #{l(party_membership.end_date, format: :default)}" unless party_membership.end_date.nil?
+
+%h3= t('constituencies')
+%ul
+  - @person.seat_incumbencies.each do |seat_incumbency|
+    %li
+      %p= link_to(seat_incumbency.constituency.name, constituency_path(seat_incumbency.constituency.graph_id))
+      %p
+        = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+        = " - #{l(seat_incumbency.end_date, format: :default)}" unless seat_incumbency.end_date.nil?
+
+%h3= t('houses_title')
+%ul
+  - @person.seat_incumbencies.each do |seat_incumbency|
+    %li
+      %p= link_to(seat_incumbency.house.name, house_path(seat_incumbency.house.graph_id)) unless seat_incumbency.house.nil?
+      %p
+        = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+        = " - #{l(seat_incumbency.end_date, format: :default)}" unless seat_incumbency.end_date.nil?
+
+%h3= t('contact_points')
+%ul
+  - @person.contact_points.each do |contact_point|
+    %li
+      %p= "#{t('email')}: #{contact_point.email}"
+      %p= "#{t('phone')}: #{contact_point.phone_number}"
+      %p Addresses:
+      %ul
+        - contact_point.postal_addresses.each do |postal_address|
+          %li= postal_address.full_address
+

@@ -1,0 +1,12 @@
+%h1= @house.name
+%h3= @party.name
+%h4= t('.title')
+%ul.people-list
+  - @people.each do |person|
+    %li
+      = link_to(person.full_name, person_path(person.graph_id))
+      %ul
+        - person.party_memberships.each do |party_membership|
+          %li
+            = "#{l(party_membership.start_date, format: :default)}" unless party_membership.start_date.nil?
+            = " - #{l(party_membership.end_date, format: :default)}" unless party_membership.end_date.nil?
