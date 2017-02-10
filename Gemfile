@@ -43,6 +43,8 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'webmock'
+  gem 'pry'
+  gem 'pry-nav'
   gem 'simplecov', require: false
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
