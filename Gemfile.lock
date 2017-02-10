@@ -1,7 +1,6 @@
 GIT
-  remote: https://github.com/katylouise/parliament-ruby
-  revision: a22eb88c12dbb2aa6525547bcb94fde568b659d4
-  branch: katylouise/decorators
+  remote: https://github.com/ukparliament/parliament-ruby
+  revision: 46b320221464ac34a93d09c66b99caf29465af51
   specs:
     parliament-ruby (0.2.0)
       grom (~> 0.3.5)

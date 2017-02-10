@@ -6,7 +6,7 @@ class ConstituenciesController < ApplicationController
   def show
     constituency_id = params[:id]
     data = Parliament::Request.new.constituencies(constituency_id).get
-    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first.first
+    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
   end
 
   def current
@@ -18,19 +18,19 @@ class ConstituenciesController < ApplicationController
   def map
     constituency_id = params[:constituency_id]
     data = Parliament::Request.new.constituencies(constituency_id).get
-    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first.first
+    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
   end
 
   def contact_point
     constituency_id = params[:constituency_id]
     data = Parliament::Request.new.constituencies(constituency_id).contact_point.get
-    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first.first
+    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
   end
 
   def members
     constituency_id = params[:constituency_id]
     data = Parliament::Request.new.constituencies(constituency_id).members.get
-    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first.first
+    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
 
     render 'constituencies/show'
   end
@@ -38,7 +38,7 @@ class ConstituenciesController < ApplicationController
   def current_member
     constituency_id = params[:constituency_id]
     data = Parliament::Request.new.constituencies(constituency_id).members.current.get
-    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first.first
+    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
 
     render 'constituencies/show'
   end
