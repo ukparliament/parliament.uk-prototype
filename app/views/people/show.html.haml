@@ -1,7 +1,8 @@
 %h1 #{@person.given_name} #{@person.other_name} #{@person.family_name}
 
 %h4= t('date_of_birth')
-%p= "#{l(@person.date_of_birth, format: :default)}" unless @person.date_of_birth.nil?
+%p
+  ="#{l(@person.date_of_birth, format: :default)}" unless @person.date_of_birth.nil?
 
 %h4= t('gender')
 %p= @person.gender.name unless @person.gender.nil?
@@ -39,7 +40,7 @@
     %li
       %p= "#{t('email')}: #{contact_point.email}"
       %p= "#{t('phone')}: #{contact_point.phone_number}"
-      %p Addresses:
+      %p= "#{t('addresses')}:"
       %ul
         - contact_point.postal_addresses.each do |postal_address|
           %li= postal_address.full_address
