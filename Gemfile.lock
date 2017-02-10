@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/katylouise/parliament-ruby
-  revision: a22eb88c12dbb2aa6525547bcb94fde568b659d4
-  branch: katylouise/decorators
+  remote: https://github.com/ukparliament/parliament-ruby
+  revision: a3e9beba25b7ea8b6a60818c717a7e6863518260
+  branch: aebirim/refactored-filter-method-request-object
   specs:
     parliament-ruby (0.2.0)
       grom (~> 0.3.5)

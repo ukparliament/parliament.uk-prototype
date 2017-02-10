@@ -86,8 +86,8 @@ RSpec.describe PartiesController, vcr: true do
         end
       end
 
-      it 'should return an Array' do
-        expect(assigns(:people)).to be_an_instance_of(Array)
+      it 'should return a Parliament Response' do
+        expect(assigns(:people)).to be_a(Parliament::Response)
       end
 
       it 'passes an invalid party id to the show page' do
@@ -108,8 +108,8 @@ RSpec.describe PartiesController, vcr: true do
         end
       end
 
-      it 'should return an Array' do
-        expect(assigns(:people)).to be_an_instance_of(Array)
+      it 'should return a Parliament Response' do
+        expect(assigns(:people)).to be_a(Parliament::Response)
       end
 
       it 'passes an invalid party id to the show page' do

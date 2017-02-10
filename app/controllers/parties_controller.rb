@@ -30,7 +30,7 @@ class PartiesController < ApplicationController
       raise ActionController::RoutingError, 'Not Found'
 
     end
-    @people = data.filter('http://id.ukpds.org/schema/Person').first
+    @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def current_members
@@ -42,7 +42,7 @@ class PartiesController < ApplicationController
 
       raise ActionController::RoutingError, 'Not Found'
     end
-    @people = data.filter('http://id.ukpds.org/schema/Person').first
+    @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def letters
@@ -69,7 +69,7 @@ class PartiesController < ApplicationController
       raise ActionController::RoutingError, 'Not Found'
     end
     @party = data_party.first
-    @people = data_members.filter('http://id.ukpds.org/schema/Person').first
+    @people = data_members.filter('http://id.ukpds.org/schema/Person')
   end
 
   def current_members_letters
@@ -84,6 +84,6 @@ class PartiesController < ApplicationController
       raise ActionController::RoutingError, 'Not Found'
     end
     @party = data_party.first
-    @people = data_current_members.filter('http://id.ukpds.org/schema/Person').first
+    @people = data_current_members.filter('http://id.ukpds.org/schema/Person')
   end
 end
