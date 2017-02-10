@@ -1,5 +1,5 @@
 # Parliament.uk prototype
-Parliament.uk prototype is a [Rails 5][rails] application designed to be the beginnings of a new [parliament.uk][parliament] website and api.
+Parliament.uk prototype is a [Rails 5][rails] application designed to be the beginnings of a new [parliament.uk][parliament] website and api..
 
 [![License][shield-license]][info-license]
 

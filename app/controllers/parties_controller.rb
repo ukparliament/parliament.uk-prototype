@@ -1,59 +1,89 @@
 class PartiesController < ApplicationController
   def index
-    # @parties = order_list(Party.eager_all, :name)
-    #
-    # format({ serialized_data: @parties })
+    @parties = Parliament::Request.new.parties.get
   end
 
   def current
-    # @parties = order_list(Party.eager_all('current'), :name)
-    #
-    # format({ serialized_data: @parties })
+    @parties = Parliament::Request.new.parties.current.get
   end
 
   def show
-    # @party = Party.eager_find(params[:id]) or not_found
-    #
-    # format({ serialized_data: @party })
+    id = params[:id]
+    begin
+      data = Parliament::Request.new.parties(id).get
+    rescue NoMethodError => e
+      Rails.logger.error(e)
+
+      raise ActionController::RoutingError, 'Not Found'
+
+    end
+    @party = data.first
   end
 
   def members
-    # @party = Party.eager_find(params[:party_id], 'members') or not_found
-    # @members = order_list(@party.members, :surname, :forename)
-    #
-    # format({ serialized_data: @party })
+    party_id = params[:party_id]
+    begin
+      data = Parliament::Request.new.parties(party_id).members.get
+    rescue NoMethodError => e
+      Rails.logger.error(e)
+
+      raise ActionController::RoutingError, 'Not Found'
+
+    end
+    @people = data.filter('http://id.ukpds.org/schema/Person').first
   end
 
   def current_members
-    # @party = Party.eager_find(params[:party_id], 'members', 'current') or not_found
-    # @members = order_list(@party.members, :surname, :forename)
-    #
-    # format({ serialized_data: @party })
+    party_id = params[:party_id]
+    begin
+      data = Parliament::Request.new.parties(party_id).members.current.get
+    rescue NoMethodError => e
+      Rails.logger.error(e)
+
+      raise ActionController::RoutingError, 'Not Found'
+    end
+    @people = data.filter('http://id.ukpds.org/schema/Person').first
   end
 
   def letters
-    # letter = params[:letter]
-    # @root_path = parties_a_z_path
-    # @parties = order_list(Party.eager_all(letter), :name)
-    #
-    # format({ serialized_data: @parties })
+    letter = params[:letter]
+    begin
+      data = Parliament::Request.new.parties(letter).get
+    rescue NoMethodError => e
+      Rails.logger.error(e)
+
+      raise ActionController::RoutingError, 'Not Found'
+    end
+    @party = data.first
   end
 
   def members_letters
-    # letter = params[:letter]
-    # @root_path = party_members_a_z_path
-    # @party = Party.eager_find(params[:party_id], 'members', letter)
-    # @members = order_list(@party.members, :surname, :forename)
-    #
-    # format({ serialized_data: @party })
+    letter = params[:letter]
+    party_id = params[:party_id]
+    begin
+      data_party = Parliament::Request.new.parties(party_id).get
+      data_members = Parliament::Request.new.parties(party_id).members(letter).get
+    rescue NoMethodError => e
+      Rails.logger.error(e)
+
+      raise ActionController::RoutingError, 'Not Found'
+    end
+    @party = data_party.first
+    @people = data_members.filter('http://id.ukpds.org/schema/Person').first
   end
 
   def current_members_letters
-    # letter = params[:letter]
-    # @root_path = party_members_current_a_z_path
-    # @party = Party.eager_find(params[:party_id], 'members', 'current', letter)
-    # @members = order_list(@party.members, :surname, :forename)
-    #
-    # format({ serialized_data: @party })
+    letter = params[:letter]
+    party_id = params[:party_id]
+    begin
+      data_party = Parliament::Request.new.parties(party_id).get
+      data_current_members = Parliament::Request.new.parties(party_id).members.current(letter).get
+    rescue NoMethodError => e
+      Rails.logger.error(e)
+
+      raise ActionController::RoutingError, 'Not Found'
+    end
+    @party = data_party.first
+    @people = data_current_members.filter('http://id.ukpds.org/schema/Person').first
   end
 end

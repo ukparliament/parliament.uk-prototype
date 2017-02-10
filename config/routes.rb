@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   match '/constituencies/current/a-z/:letter', to: 'constituencies#current_letters', letter: /[A-Za-z]/, via: [:get], as: 'constituences_current_a_z_letter'
 
   resources :people, only: [:index, :show] do
-    get '/contact_points', to: 'people#contact_points'
+    get '/contact-points', to: 'people#contact_points'
     get '/parties', to: 'people#parties'
     get '/parties/current', to: 'people#current_party'
     get '/constituencies', to: 'people#constituencies'
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     get '/houses/current', to: 'people#current_house'
   end
 
-  resources :parties, only: [:index, :show] do
+  resources :parties, only: [:index, :show, :members] do
     get '/members', to: 'parties#members'
     get '/members/current', to: 'parties#current_members'
     get '/members/a-z', to: 'application#a_to_z', as: 'members_a_z'
@@ -52,7 +52,7 @@ Rails.application.routes.draw do
     match '/members/current/a-z/:letter', to: 'parties#current_members_letters', letter: /[A-Za-z]/, via: [:get], as: 'members_current_a_z_letter'
   end
 
-  resources :contact_points, only: [:index, :show]
+  resources :contact_points, only: [:index, :show], :path => '/contact-points'
 
   resources :constituencies, only: [:index, :show] do
     get '/map', to: 'constituencies#map'
