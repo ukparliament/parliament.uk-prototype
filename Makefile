@@ -1,5 +1,6 @@
 APP_NAME = parliamentukprototype
-IMAGE = 165162103257.dkr.ecr.eu-west-1.amazonaws.com/$(APP_NAME)
+AWS_ACCOUNT_ID?="unknown" # an env var set in GoCD GUI
+IMAGE = $(AWS_ACCOUNT_ID).dkr.ecr.eu-west-1.amazonaws.com/$(APP_NAME)
 
 # GO_PIPELINE_COUNTER is the pipeline number, passed from our build agent.
 GO_PIPELINE_COUNTER?="unknown"
@@ -8,7 +9,7 @@ GO_PIPELINE_COUNTER?="unknown"
 VERSION=0.2.$(GO_PIPELINE_COUNTER)
 
 # ECS-related
-ECS_CLUSTER = ci
+ECS_CLUSTER = ecs
 AWS_REGION = eu-west-1
 
 build :
