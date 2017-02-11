@@ -7,11 +7,11 @@ RUN set -x \
         && groupadd -g 5000 $APP_USER \
         && adduser --disabled-password --uid 5000 --gid 5000 --gecos '' $APP_USER
 
-ENV RAILS_ROOT /opt/membersprototype
+ENV RAILS_ROOT /opt/parliamentukprototype
 
 # application specific environment variables
-ENV API_ENDPOINT http://localhost:3030
-ENV API_ENDPOINT_HOST localhost:3030
+ENV API_ENDPOINT_HOST $API_ENDPOINT_HOST
+ENV API_ENDPOINT http://$API_ENDPOINT_HOST:3030
 ENV DATA_URI_PREFIX http://id.ukpds.org
 
 RUN mkdir -p $RAILS_ROOT
