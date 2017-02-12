@@ -1,6 +1,8 @@
 APP_NAME = parliamentukprototype
-AWS_ACCOUNT_ID?="unknown" # an env var set in GoCD GUI
-IMAGE = $(AWS_ACCOUNT_ID).dkr.ecr.eu-west-1.amazonaws.com/$(APP_NAME)
+
+# The value assigned here is for execution in local machines
+# When executed by GoCD it may inject another value from a GoCD environment variable
+AWS_ACCOUNT_ID=$(shell aws sts get-caller-identity --output text --query "Account" 2> /dev/null)
 
 # GO_PIPELINE_COUNTER is the pipeline number, passed from our build agent.
 GO_PIPELINE_COUNTER?="unknown"
@@ -11,17 +13,20 @@ VERSION=0.2.$(GO_PIPELINE_COUNTER)
 # ECS-related
 ECS_CLUSTER = ecs
 AWS_REGION = eu-west-1
+IMAGE = $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(APP_NAME)
 
-build :
+build:
 	docker build -t $(IMAGE):$(VERSION) -t $(IMAGE):latest .
 
+# Container port 3000 is specified in Dockerfile
+# Browse to http://localhost:80 to see the application
 run:
 	docker run -p 80:3000 $(IMAGE)
 
 dev:
 	docker run -p 80:3000 -v ${PWD}:/opt/$(APP_NAME) $(IMAGE)
 
-test : build
+test: build
 	docker run $(IMAGE) bundle exec rake
 
 push:
@@ -31,6 +36,7 @@ push:
 	docker rmi $(IMAGE):latest
 
 # http://serverfault.com/questions/682340/update-the-container-of-a-service-in-amazon-ecs?rq=1
-deploy-ci:
-	aws ecs register-task-definition --cli-input-json file://./aws_ecs/task-definition.json
-	aws ecs update-service --service $(APP_NAME) --cluster $(ECS_CLUSTER) --region $(AWS_REGION) --task-definition $(APP_NAME)
+deploy-ecs:
+# aws ecs register-task-definition --cli-input-json file://./aws_ecs/task-definition.json
+	./aws_ecs/register-task-definition.sh $(IMAGE) $(APP_NAME) $(AWS_REGION)
+	aws ecs update-service --service $(APP_NAME) --cluster $(ECS_CLUSTER) --region $(AWS_REGION) --task-definition task-$(APP_NAME)

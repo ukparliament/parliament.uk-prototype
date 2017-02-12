@@ -16,10 +16,6 @@ ENV DATA_URI_PREFIX http://id.ukpds.org
 
 RUN mkdir -p $RAILS_ROOT
 
-# add project
-COPY . $RAILS_ROOT
-RUN chown -R $APP_USER:$APP_USER $RAILS_ROOT
-
 # gems installation
 COPY Gemfile* $RAILS_ROOT/
 RUN cd $RAILS_ROOT \
@@ -27,6 +23,10 @@ RUN cd $RAILS_ROOT \
     && gem install bundler \
     && env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
     && chown -R $APP_USER:$APP_USER $GEM_HOME
+
+# add project
+COPY . $RAILS_ROOT
+RUN chown -R $APP_USER:$APP_USER $RAILS_ROOT
 
 USER $USER
 WORKDIR $RAILS_ROOT
