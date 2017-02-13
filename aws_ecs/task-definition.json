@@ -3,7 +3,7 @@
     {
       "name": "{{APP_NAME}}",
       "image": "{{IMAGE}}",
-      "cpu": 10,
+      "cpu": 20,
       "memory": 512,
       "essential": true,
       "command": [],
