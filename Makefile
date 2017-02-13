@@ -16,8 +16,9 @@ AWS_REGION = eu-west-1
 IMAGE = $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(APP_NAME)
 
 build:
-	docker build -t $(IMAGE):$(VERSION) -t $(IMAGE):latest .
-
+	docker build -t $(IMAGE):$(VERSION) -t $(IMAGE):latest \
+		--build-arg API_ENDPOINT_HOST=$(API_ENDPOINT_HOST) \
+		.
 # Container port 3000 is specified in Dockerfile
 # Browse to http://localhost:80 to see the application
 run:
