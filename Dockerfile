@@ -11,7 +11,7 @@ ENV RAILS_ROOT /opt/parliamentukprototype
 
 # application specific environment variables
 ENV API_ENDPOINT_HOST $API_ENDPOINT_HOST
-ENV API_ENDPOINT http://$API_ENDPOINT_HOST:3030
+ENV API_ENDPOINT http://$API_ENDPOINT_HOST
 ENV DATA_URI_PREFIX http://id.ukpds.org
 
 RUN mkdir -p $RAILS_ROOT
