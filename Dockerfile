@@ -1,4 +1,5 @@
 FROM ruby:2.3.1
+ARG API_ENDPOINT_HOST
 
 ENV APP_USER parliament
 
