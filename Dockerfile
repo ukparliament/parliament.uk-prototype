@@ -1,5 +1,5 @@
 FROM ruby:2.3.1
-ARG API_ENDPOINT_HOST
+ARG PARLIAMENT_BASE_URL
 
 ENV APP_USER parliament
 
@@ -11,8 +11,7 @@ RUN set -x \
 ENV RAILS_ROOT /opt/parliamentukprototype
 
 # application specific environment variables
-ENV API_ENDPOINT_HOST $API_ENDPOINT_HOST
-ENV API_ENDPOINT http://$API_ENDPOINT_HOST
+ENV PARLIAMENT_BASE_URL $PARLIAMENT_BASE_URL
 ENV DATA_URI_PREFIX http://id.ukpds.org
 
 RUN mkdir -p $RAILS_ROOT
