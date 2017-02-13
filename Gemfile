@@ -4,10 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.1'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '5.0.1'
 
 gem 'json-ld', '2.1.0'
-gem 'vcard'
+gem 'vcard', '0.2.15'
 
 # Parliament Ruby is a wrapper for the internal Parliament data API
 gem 'parliament-ruby', git: 'https://github.com/ukparliament/parliament-ruby'

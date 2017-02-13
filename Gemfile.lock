@@ -247,11 +247,11 @@ DEPENDENCIES
   spring
   subcontractor (= 0.8.0)
   therubyracer
-  turbolinks
-  vcard
+  turbolinks (= 5.0.1)
+  vcard (= 0.2.15)
   vcr
   web-console
   webmock
 
 BUNDLED WITH
-   1.13.6
+   1.14.3

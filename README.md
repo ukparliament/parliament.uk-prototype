@@ -1,5 +1,5 @@
 # Parliament.uk prototype
-Parliament.uk prototype is a [Rails 5][rails] application designed to be the beginnings of a new [parliament.uk][parliament] website and api..
+Parliament.uk prototype is a [Rails 5][rails] application designed to be the beginnings of a new [parliament.uk][parliament] website and api.
 
 [![License][shield-license]][info-license]
 
@@ -25,7 +25,7 @@ Parliament.uk prototype is a [Rails 5][rails] application designed to be the beg
 
 ## Requirements
 Parliament.uk prototype requires the following:
-* [Ruby 2.3.1][ruby]  
+* [Ruby][ruby] - for the exact version, [click here][ruby-version]. 
 * [Node][node]
 * [NPM][npm]
 
@@ -102,7 +102,8 @@ If you wish to submit a bug fix or feature, you can create a pull request and it
 [member-service-api]:      https://github.com/ukparliament/member-service-api
 [foreman]:                 https://github.com/ddollar/foreman
 [rspec]:                   http://rspec.info
-[parliament.uk-prototype]: https://github.com/ukparliament/members-prototype
+[parliament.uk-prototype]: https://github.com/ukparliament/parliament.uk-prototype
+[ruby-version]:            https://github.com/ukparliament/parliament.uk-prototype/blob/master/.ruby-version
 
 [info-license]:   http://www.parliament.uk/site-information/copyright/open-parliament-licence/
 [shield-license]: https://img.shields.io/badge/license-Open%20Parliament%20Licence-blue.svg
