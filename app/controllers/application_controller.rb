@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from Parliament::NoContentError do |error|
-    raise ActionController::RoutingError.new('No content')
+    raise ActionController::RoutingError.new(error.message)
   end
 end

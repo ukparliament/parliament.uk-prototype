@@ -57,20 +57,6 @@ RSpec.describe PartiesController, vcr: true do
       it 'assigns @party and checks that the partyName is contained within it' do
         expect(assigns(:party).partyName).to eq('Labour')
       end
-
-      after(:all) do
-        puts 'Test for valid id finished'
-      end
-    end
-
-    context 'for an invalid id' do
-      it 'passes an invalid id to the show page' do
-        expect { get :show, params: { id: 'FAKE-ID' } }.to raise_error(ActionController::RoutingError, 'Not Found')
-      end
-
-      after(:all) do
-        puts 'Test for invalid id finished'
-      end
     end
   end
 
@@ -88,10 +74,6 @@ RSpec.describe PartiesController, vcr: true do
 
       it 'should return a Parliament Response' do
         expect(assigns(:people)).to be_a(Parliament::Response)
-      end
-
-      it 'passes an invalid party id to the show page' do
-        expect { get :members, params: { party_id: 'FAKE-PARTY-ID' } }.to raise_error(ActionController::RoutingError, 'Not Found')
       end
     end
   end
@@ -111,10 +93,6 @@ RSpec.describe PartiesController, vcr: true do
       it 'should return a Parliament Response' do
         expect(assigns(:people)).to be_a(Parliament::Response)
       end
-
-      it 'passes an invalid party id to the show page' do
-        expect { get :current_members, params: { party_id: 'FAKE-PARTY-ID' } }.to raise_error(ActionController::RoutingError, 'Not Found')
-      end
     end
   end
 
@@ -130,10 +108,6 @@ RSpec.describe PartiesController, vcr: true do
 
       it 'assigns @party and checks that the correct partyname is returned' do
         expect(assigns(:party).partyName).to eq('Humanity')
-      end
-
-      it 'passes an invalid letter to the letters page' do
-        expect { get :letters, params: { letter: '1' } }.to raise_error(ActionController::UrlGenerationError)
       end
     end
   end
@@ -157,10 +131,6 @@ RSpec.describe PartiesController, vcr: true do
           expect(person.type).to eq('http://id.ukpds.org/schema/Person')
         end
       end
-
-      it 'passes an invalid letter and party id to the members_letters page' do
-        expect { get :members_letters, params: { party_id: 'FAKE-PARTY-ID', letter: '1' } }.to raise_error(ActionController::UrlGenerationError)
-      end
     end
   end
 
@@ -182,10 +152,6 @@ RSpec.describe PartiesController, vcr: true do
         assigns(:people).each do |person|
           expect(person.type).to eq('http://id.ukpds.org/schema/Person')
         end
-      end
-
-      it 'passes an invalid letter and party id to the members_letters page' do
-        expect { get :members_letters, params: { party_id: 'FAKE-PARTY-ID', letter: '1' } }.to raise_error(ActionController::UrlGenerationError)
       end
     end
   end

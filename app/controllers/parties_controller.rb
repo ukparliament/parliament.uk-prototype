@@ -9,65 +9,38 @@ class PartiesController < ApplicationController
 
   def show
     id = params[:id]
-    begin
-      data = Parliament::Request.new.parties(id).get
-    rescue NoMethodError => e
-      Rails.logger.error(e)
+    data = Parliament::Request.new.parties(id).get
 
-      raise ActionController::RoutingError, 'Not Found'
-
-    end
     @party = data.first
   end
 
   def members
     party_id = params[:party_id]
-    begin
-      data = Parliament::Request.new.parties(party_id).members.get
-    rescue NoMethodError => e
-      Rails.logger.error(e)
+    data = Parliament::Request.new.parties(party_id).members.get
 
-      raise ActionController::RoutingError, 'Not Found'
-
-    end
     @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def current_members
     party_id = params[:party_id]
-    begin
-      data = Parliament::Request.new.parties(party_id).members.current.get
-    rescue NoMethodError => e
-      Rails.logger.error(e)
+    data = Parliament::Request.new.parties(party_id).members.current.get
 
-      raise ActionController::RoutingError, 'Not Found'
-    end
     @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def letters
     letter = params[:letter]
-    begin
-      data = Parliament::Request.new.parties(letter).get
-    rescue NoMethodError => e
-      Rails.logger.error(e)
+    data = Parliament::Request.new.parties(letter).get
 
-      raise ActionController::RoutingError, 'Not Found'
-    end
     @party = data.first
   end
 
   def members_letters
     letter = params[:letter]
     party_id = params[:party_id]
-    begin
-      data_party = Parliament::Request.new.parties(party_id).get
-      data_members = Parliament::Request.new.parties(party_id).members(letter).get
-    rescue NoMethodError => e
-      Rails.logger.error(e)
+    data_party = Parliament::Request.new.parties(party_id).get
+    data_members = Parliament::Request.new.parties(party_id).members(letter).get
 
-      raise ActionController::RoutingError, 'Not Found'
-    end
     @party = data_party.first
     @people = data_members.filter('http://id.ukpds.org/schema/Person')
   end
@@ -75,14 +48,9 @@ class PartiesController < ApplicationController
   def current_members_letters
     letter = params[:letter]
     party_id = params[:party_id]
-    begin
-      data_party = Parliament::Request.new.parties(party_id).get
-      data_current_members = Parliament::Request.new.parties(party_id).members.current(letter).get
-    rescue NoMethodError => e
-      Rails.logger.error(e)
+    data_party = Parliament::Request.new.parties(party_id).get
+    data_current_members = Parliament::Request.new.parties(party_id).members.current(letter).get
 
-      raise ActionController::RoutingError, 'Not Found'
-    end
     @party = data_party.first
     @people = data_current_members.filter('http://id.ukpds.org/schema/Person')
   end
