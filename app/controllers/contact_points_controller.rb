@@ -5,7 +5,8 @@ class ContactPointsController < ApplicationController
   end
 
   def show
-    data = Parliament::Request.new.contact_points(params[:id]).get
+    contact_point_id = params[:id]
+    data = Parliament::Request.new.contact_points(contact_point_id).get
     @contact_point = data.filter('http://id.ukpds.org/schema/ContactPoint').first
     vcard = create_vcard(@contact_point)
     send_data vcard.to_s, filename: 'contact.vcf', disposition: 'attachment', data: { turbolink: false }
