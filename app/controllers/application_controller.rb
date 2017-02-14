@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
   def a_to_z
     @root_path = request.path
   end
+
+  rescue_from Parliament::NoContentError do |error|
+    raise ActionController::RoutingError.new('No content')
+  end
 end
