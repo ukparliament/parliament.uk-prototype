@@ -58,8 +58,8 @@ RSpec.describe ConstituenciesController, vcr: true do
       end
     end
 
-    it 'renders the index template' do
-      expect(response).to render_template('index')
+    it 'renders the current template' do
+      expect(response).to render_template('current')
     end
   end
 
@@ -115,8 +115,8 @@ RSpec.describe ConstituenciesController, vcr: true do
       expect(assigns(:constituency).type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
     end
 
-    it 'renders the show template' do
-      expect(response).to render_template('show')
+    it 'renders the members template' do
+      expect(response).to render_template('members')
     end
   end
 
@@ -134,8 +134,8 @@ RSpec.describe ConstituenciesController, vcr: true do
       expect(assigns(:constituency).type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
     end
 
-    it 'renders the show template' do
-      expect(response).to render_template('show')
+    it 'renders the current_member template' do
+      expect(response).to render_template('current_member')
     end
   end
 
@@ -155,8 +155,8 @@ RSpec.describe ConstituenciesController, vcr: true do
       end
     end
 
-    it 'renders the index template' do
-      expect(response).to render_template('index')
+    it 'renders the letters template' do
+      expect(response).to render_template('letters')
     end
   end
 
@@ -176,8 +176,8 @@ RSpec.describe ConstituenciesController, vcr: true do
       end
     end
 
-    it 'renders the index template' do
-      expect(response).to render_template('index')
+    it 'renders the current_letters template' do
+      expect(response).to render_template('current_letters')
     end
   end
 end
