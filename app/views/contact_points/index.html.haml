@@ -1,11 +1,11 @@
-%h1 Contact points
+%h1= t('contact_points')
 
 %ul
   - @contact_points.each do |contact_point|
     %li
-      %p= "Email: #{contact_point.email}" unless contact_point.email == ''
-      %p= "Phone: #{contact_point.phone_number}" unless contact_point.phone_number == ''
-      %p= "Fax: #{contact_point.fax_number}" unless contact_point.fax_number == ''
-      %p= "Address: #{contact_point.postal_addresses.first.full_address}" unless contact_point.postal_addresses.first.full_address == ''
-      %span= link_to 'download', contact_point_path(contact_point.graph_id), target: '_blank'
+      %p= "#{t('email')}: #{contact_point.email}" unless contact_point.email == ''
+      %p= "#{t('phone')}: #{contact_point.phone_number}" unless contact_point.phone_number == ''
+      %p= "#{t('fax')}: #{contact_point.fax_number}" unless contact_point.fax_number == ''
+      %p= "#{t('address')}: #{contact_point.postal_addresses.first.full_address}" unless contact_point.postal_addresses.first.full_address == ''
+      %span= link_to "#{t('download')}", contact_point_path(contact_point.graph_id), target: '_blank'
 

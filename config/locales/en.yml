@@ -28,7 +28,10 @@ en:
   houses_title: 'Houses'
   email: 'Email'
   phone: 'Phone'
+  fax: 'Fax'
+  address: 'Address'
   addresses: 'Addresses'
+  download: 'download'
   time:
     formats:
       default: "%Y-%m-%d"
