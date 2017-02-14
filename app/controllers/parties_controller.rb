@@ -29,7 +29,8 @@ class PartiesController < ApplicationController
   def letters
     letter = params[:letter]
     data = Parliament::Request.new.parties(letter).get
-    @party = data.first
+
+    @parties = data.filter('http://id.ukpds.org/schema/Party')
   end
 
   def members_letters
@@ -46,5 +47,16 @@ class PartiesController < ApplicationController
     data = Parliament::Request.new.parties(party_id).members.current(letter).get
     @party, @people = data.filter('http://id.ukpds.org/schema/Party', 'http://id.ukpds.org/schema/Person')
     @party = @party.first
+  end
+
+  def search_by_letters
+    letters = params[:letters]
+    data = Parliament::Request.new.parties(letters).get
+
+    if data.size == 1
+      redirect_to action: 'show', party: data.first.graph_id if data.size == 1
+    else
+      redirect_to action: 'letters', letter: letters
+    end
   end
 end

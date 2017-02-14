@@ -90,4 +90,24 @@ class PeopleController < ApplicationController
 
     render 'current_members'
   end
+
+  # def by_identifier
+  #   source = params.keys.first
+  #   id = params.values.first
+  #   data = Parliament::Request.new.people("by?#{source}=#{id}").get
+  #   @person = data.filter('http://id.ukpds.org/schema/Person').first
+  #
+  #   redirect_to action: 'show', id: @person.graph_id
+  # end
+
+  def search_by_letters
+    letters = params[:letters]
+    data = Parliament::Request.new.people(letters).get
+
+    if data.size == 1
+      redirect_to action: 'show', person: data.first.graph_id if data.size == 1
+    else
+      redirect_to action: 'letters', letter: letters
+    end
+  end
 end

@@ -110,4 +110,15 @@ class HousesController < ApplicationController
 
     render 'party_members'
   end
+
+  def search_by_letters
+    letters = params[:letters]
+    data = Parliament::Request.new.houses(letters).get
+
+    if data.size == 1
+      redirect_to action: 'show', house: data.first.graph_id if data.size == 1
+    else
+      redirect_to action: 'index'
+    end
+  end
 end
