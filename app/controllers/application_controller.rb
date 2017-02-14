@@ -2,7 +2,7 @@ require 'vcard/vcard'
 require 'parliament'
 
 class ApplicationController < ActionController::Base
-  include JSON_LD_Helper
+  include JSONLDHelper
   include FormatHelper
   include NotFoundHelper
   include VCardHelper
@@ -16,5 +16,9 @@ class ApplicationController < ActionController::Base
 
   def a_to_z
     @root_path = request.path
+  end
+
+  rescue_from Parliament::NoContentError do |error|
+    raise ActionController::RoutingError, error.message
   end
 end
