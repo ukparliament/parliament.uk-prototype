@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   get '/constituencies/current/a-z', to: 'application#a_to_z', as: 'constituencies_current_a_z'
   match '/constituencies/current/a-z/:letter', to: 'constituencies#current_letters', letter: /[A-Za-z]/, via: [:get], as: 'constituences_current_a_z_letter'
 
+  get '/meta', to: 'meta#index'
+  get '/meta/cookie-policy', to: 'meta#cookie_policy'
+
   resources :people, only: [:index, :show] do
     get '/contact-points', to: 'people#contact_points'
     get '/parties', to: 'people#parties'

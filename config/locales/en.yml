@@ -67,9 +67,23 @@ en:
       content: 'We are building a new website for Parliament. As we develop new features and services we will test and gather feedback on beta.parliament.uk.'
       links:
          people: 'People'
-
-
-
-
-
-
+  meta:
+    cookie_policy:
+      title: 'Cookies'
+      subtitle: 'Cookies on beta.parliament.uk'
+      which_cookies: 'Which cookies do we use?'
+      cookie:
+        definition: 'Cookies are small files put on your device to let us know how you use our website.'
+        explanation: 'We use Google Analytics cookies to collect information about how you use our services. This helps us meet your needs and improve our website.'
+        anonymous_statement: 'All the information we collect is anonymous.'
+      cookie_table:
+        meta:
+          name: 'Cookie Name'
+          usage: 'Cookie Usage'
+          expires: 'Expires after'
+          expiration:
+            minutes: 'It expires after %{time} minutes.'
+            years: 'It expires after %{time} years.'
+        explanations:
+          ga: 'This helps us know how many people have visited beta.parliament.uk by telling us if you’ve visited before.'
+          gat: 'This helps us know how long you spend on a page.'
