@@ -68,6 +68,8 @@ en:
       links:
          people: 'People'
   meta:
+    index:
+      title: 'Meta information'
     cookie_policy:
       title: 'Cookies'
       subtitle: 'Cookies on beta.parliament.uk'
@@ -78,12 +80,12 @@ en:
         anonymous_statement: 'All the information we collect is anonymous.'
       cookie_table:
         meta:
-          name: 'Cookie Name'
-          usage: 'Cookie Usage'
-          expires: 'Expires after'
+          name: 'Name'
+          purpose: 'Purpose'
+          expires: 'Expires'
           expiration:
-            minutes: 'It expires after %{time} minutes.'
-            years: 'It expires after %{time} years.'
+            minutes: 'After %{time} minutes.'
+            years: 'After %{time} years.'
         explanations:
           ga: 'This helps us know how many people have visited beta.parliament.uk by telling us if you’ve visited before.'
           gat: 'This helps us know how long you spend on a page.'
