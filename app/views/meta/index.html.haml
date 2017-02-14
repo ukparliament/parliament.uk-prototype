@@ -2,4 +2,4 @@
 
 %ul
   - @meta_routes.each do |route|
-    %li= link_to( t("meta.#{route[:translation].underscore}.title"), route[:url])
+    %li= link_to(t("meta.#{route[:translation].underscore}.title"), route[:url])

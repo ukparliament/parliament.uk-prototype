@@ -1,6 +1,5 @@
 class MetaController < ApplicationController
   def index
-
     @meta_routes = []
     Rails.application.routes.routes.each do |route|
       path = route.path.spec.to_s
@@ -9,7 +8,7 @@ class MetaController < ApplicationController
 
       path = path.sub(/\(.:format\)/, '')
       translation = path.split('/').last
-      @meta_routes << { url: path, translation: translation}
+      @meta_routes << { url: path, translation: translation }
     end
 
     render 'index'
