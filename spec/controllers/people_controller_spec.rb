@@ -25,7 +25,7 @@ RSpec.describe PeopleController, vcr: true do
 
   describe "GET show" do
     before(:each) do
-      get :show, params: { id: '626b57f9-6ef0-475a-ae12-40a44aca7eff' }
+      get :show, params: { person_id: '626b57f9-6ef0-475a-ae12-40a44aca7eff' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -239,9 +239,9 @@ RSpec.describe PeopleController, vcr: true do
     end
   end
 
-  describe "GET letters" do
+  describe 'GET letters' do
     before(:each) do
-      get :letters, params: { letter: "t" }
+      get :letters, params: { letter: 't' }
     end
 
     it 'should have a response with http status ok (200)' do

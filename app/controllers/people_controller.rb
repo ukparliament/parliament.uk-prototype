@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   end
 
   def show
-    person_id = params[:id]
+    person_id = params[:person_id]
     data = Parliament::Request.new.people(person_id).get
     @person = data.filter('http://id.ukpds.org/schema/Person').first
   end
