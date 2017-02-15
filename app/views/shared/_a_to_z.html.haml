@@ -2,6 +2,6 @@
   %nav{ aria:{ label: t('.a_to_z.aria_label') } }
     %ul.letter-navigation
       - ('a'..'z').each do |letter|
-        %li{ data:{ letter: letter }, class: (params[:letter] == letter) ? 'active' : ''}
+        %li{ data: { letter: letter }, class: (params[:letter] == letter) ? 'active' : '' }
           = link_to(send(route_symbol, letter), data: { 'atoz-see': 'true' } ) do
             = letter
