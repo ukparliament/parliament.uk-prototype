@@ -1,0 +1,6 @@
+%ul.people-list
+  - @people.each do |person|
+    %li
+      = person.personGivenName if person.personGivenName.present?
+      = person.personFamilyName if person.personFamilyName.present?
+
