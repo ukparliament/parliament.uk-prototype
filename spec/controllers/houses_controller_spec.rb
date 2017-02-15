@@ -25,7 +25,7 @@ RSpec.describe HousesController, vcr: true do
 
   describe "GET show" do
     before(:each) do
-      get :show, params: { id: 'c2d41b82-d4df-4f50-b0f9-f52b84a6a788' }
+      get :show, params: { house_id: 'c2d41b82-d4df-4f50-b0f9-f52b84a6a788' }
     end
 
     it 'should have a response with http status ok (200)' do

@@ -8,7 +8,7 @@ class PartiesController < ApplicationController
   end
 
   def show
-    id = params[:id]
+    id = params[:party_id]
     data = Parliament::Request.new.parties(id).get
 
     @party = data.first

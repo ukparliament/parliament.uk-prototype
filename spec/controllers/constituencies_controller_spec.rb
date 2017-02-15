@@ -25,7 +25,7 @@ RSpec.describe ConstituenciesController, vcr: true do
 
   describe 'GET show' do
     before(:each) do
-      get :show, params: { id: 'f9216185-f3dc-417c-a02e-455faedb2ac2' }
+      get :show, params: { constituency_id: 'f9216185-f3dc-417c-a02e-455faedb2ac2' }
     end
 
     it 'should have a response with a http status ok (200)' do
