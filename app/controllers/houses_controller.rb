@@ -4,7 +4,7 @@ class HousesController < ApplicationController
   end
 
   def show
-    house_id = params[:id]
+    house_id = params[:house_id]
     data = Parliament::Request.new.houses(house_id).get
     @house = data.filter('http://id.ukpds.org/schema/House').first
   end

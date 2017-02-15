@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/ukparliament/parliament-ruby
-  revision: 46b320221464ac34a93d09c66b99caf29465af51
+  revision: 6d36c4405dd7dd25c0a0a8cdba1beba86fcc2865
   specs:
     parliament-ruby (0.2.0)
       grom (~> 0.3.5)
 
 GIT
   remote: https://github.com/ukparliament/pugin
-  revision: 03fbf7b1f60f15ac4e14fa380840ebd0c1b45df0
+  revision: 95b73c53d77e44f029281f29459f0e6f13cd0366
   branch: development
   specs:
     pugin (0.2.0)
