@@ -1,1 +1,6 @@
 %h1= @house.name
+
+%h3= link_to('Members', house_members_path(@house.graph_id))
+%h3= link_to('Current Members', house_members_current_path(@house.graph_id))
+%h3= link_to('Parties', house_parties_path(@house.graph_id))
+%h3= link_to('Current Parties', house_parties_current_path(@house.graph_id))

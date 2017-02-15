@@ -1,5 +1,4 @@
 %h1= t('houses_title')
 %ul
-  - @houses.each do |house|
-    %li
-      = link_to(house.name, house_path(house.graph_id))
+  = render :partial => 'houses/house', collection: @houses
+

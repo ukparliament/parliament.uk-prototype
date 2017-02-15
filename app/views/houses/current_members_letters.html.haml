@@ -1,5 +1,4 @@
 %h1= @house.name
-%h3= t('.title', current: t('current'), members: t('members'))
+%h3= t('.title')
 %ul.people-list
   = render :partial => 'houses/current_person', collection: @people
-
