@@ -16,37 +16,34 @@ class PartiesController < ApplicationController
   def members
     party_id = params[:party_id]
     data = Parliament::Request.new.parties(party_id).members.get
-
     @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def current_members
     party_id = params[:party_id]
     data = Parliament::Request.new.parties(party_id).members.current.get
-
     @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def letters
     letter = params[:letter]
     data = Parliament::Request.new.parties(letter).get
-
     @party = data.first
   end
 
   def members_letters
     letter = params[:letter]
     party_id = params[:party_id]
-    data_members = Parliament::Request.new.parties(party_id).members(letter).get
-    @party = data_members.filter('http://id.ukpds.org/schema/Party').first
-    @people = data_members.filter('http://id.ukpds.org/schema/Person')
+    data = Parliament::Request.new.parties(party_id).members(letter).get
+    @party, @people = data.filter('http://id.ukpds.org/schema/Party', 'http://id.ukpds.org/schema/Person')
+    @party = @party.first
   end
 
   def current_members_letters
     letter = params[:letter]
     party_id = params[:party_id]
-    data_current_members = Parliament::Request.new.parties(party_id).members.current(letter).get
-    @party = data_current_members.filter('http://id.ukpds.org/schema/Party').first
-    @people = data_current_members.filter('http://id.ukpds.org/schema/Person')
+    data = Parliament::Request.new.parties(party_id).members.current(letter).get
+    @party, @people = data.filter('http://id.ukpds.org/schema/Party', 'http://id.ukpds.org/schema/Person')
+    @party = @party.first
   end
 end

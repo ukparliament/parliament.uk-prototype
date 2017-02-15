@@ -139,10 +139,6 @@ RSpec.describe PartiesController, vcr: true do
         expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
       end
 
-      it 'should return a Grom Node object as a party' do
-        expect(assigns(:party)).to be_a(Grom::Node)
-      end
-
       it 'assigns @people and checks that the type is Person' do
         assigns(:people).each do |person|
           expect(person.type).to eq('http://id.ukpds.org/schema/Person')
@@ -163,10 +159,6 @@ RSpec.describe PartiesController, vcr: true do
 
       it 'assigns party and checks that the type is Party' do
         expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
-      end
-
-      it 'should return a Grom Node object as a party' do
-        expect(assigns(:party)).to be_a(Grom::Node)
       end
 
       it 'assigns @people and checks that the type is Person' do

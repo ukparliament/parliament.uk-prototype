@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/ukparliament/parliament-ruby
-  revision: 6d36c4405dd7dd25c0a0a8cdba1beba86fcc2865
-  specs:
-    parliament-ruby (0.2.0)
-      grom (~> 0.3.5)
-
-GIT
   remote: https://github.com/ukparliament/pugin
   revision: 95b73c53d77e44f029281f29459f0e6f13cd0366
   branch: development
@@ -111,6 +104,8 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    parliament-ruby (0.2.2)
+      grom (~> 0.3.5)
     parser (2.4.0.0)
       ast (~> 2.2)
     passenger (5.1.2)
@@ -235,7 +230,7 @@ DEPENDENCIES
   foreman
   haml (= 4.0.7)
   json-ld (= 2.1.0)
-  parliament-ruby!
+  parliament-ruby (= 0.2.2)
   passenger
   pugin!
   rails (= 5.0.1)
