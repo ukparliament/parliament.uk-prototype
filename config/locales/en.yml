@@ -24,7 +24,7 @@ en:
   gender: 'Gender'
   parties: 'Parties'
   constituencies: 'Constituencies'
-  contact_points: 'Contact Points'
+  contact_points_title: 'Contact Points'
   houses_title: 'Houses'
   email: 'Email'
   phone: 'Phone'

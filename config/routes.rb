@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     get '/map', to: 'constituencies#map'
     get '/members', to: 'constituencies#members'
     get '/members/current', to: 'constituencies#current_member'
-    get '/contact_point', to: 'constituencies#contact_point'
+    get '/contact-point', to: 'constituencies#contact_point'
   end
 
   resources :houses, only: [:index, :show] do

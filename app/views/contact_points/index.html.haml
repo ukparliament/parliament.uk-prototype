@@ -1,11 +1,7 @@
-%h1= t('contact_points')
+%h1= t('contact_points_title')
 
 %ul
   - @contact_points.each do |contact_point|
     %li
-      %p= "#{t('email')}: #{contact_point.email}" unless contact_point.email == ''
-      %p= "#{t('phone')}: #{contact_point.phone_number}" unless contact_point.phone_number == ''
-      %p= "#{t('fax')}: #{contact_point.fax_number}" unless contact_point.fax_number == ''
-      %p= "#{t('address')}: #{contact_point.postal_addresses.first.full_address}" unless contact_point.postal_addresses.first.full_address == ''
-      %span= link_to "#{t('download')}", contact_point_path(contact_point.graph_id), target: '_blank'
+      = render partial: 'contact_points/contact_point', locals: { contact_point: contact_point }
 
