@@ -1,10 +1,14 @@
 .profile-card.spacer__vertical-small
   %h1 #{@person.given_name} #{@person.other_name} #{@person.family_name}
-  %p
-    =t('.mp_for')
-    %a{:href => "#"} Hackney North and Stoke Newington
-  %p
-    %a{:href => "#"} Labour
+
+  - if @current_seat_incumbency
+    %p
+      =t('.mp_for')
+      =link_to(@current_seat_incumbency.constituency.name, constituency_path(@current_seat_incumbency.constituency.graph_id))
+
+  -# if @current_party_membership
+    -#%p
+      -#=link_to(@current_party_membership.party.name, party_path(@current_party_membership.party.graph_id))
 
 .highlight-box
   %p= t('.mp_representative')
@@ -20,25 +24,18 @@
       %dt= t('.contact_phone')
       %dd
         %a{:href => "tel:#{contact_point.phone_number}"} #{contact_point.phone_number}
-      %dt= t('.contact_address')
+      %dt
+        = t('.contact_address')
         - contact_point.postal_addresses.each do |postal_address|
           %dd postal_address.full_address
 
 %h2.bordered.spacer__vertical-top-small= t('.election_history')
 %ol.result-list
-  %li.result-list__item
-    %ul
-      %li
-        MP for
-        %a{:href => "#"} Hackney North and Stoke Newington
-      %li 2015 - Current
-      %li
-        %a{:href => "#"} Labour
-  %li.result-list__item
-    %ul
-      %li
-        MP for
-        %a{:href => "#"} Hackney North and Stoke Newington
-      %li 1987 - 2015
-      %li
-        %a{:href => "#"} Labour
+  - @person.seat_incumbencies.each do |seat_incumbency|
+    %li.result-list__item
+      %p
+        =t('.mp_for')
+        =link_to(seat_incumbency.constituency.name, constituency_path(seat_incumbency.constituency.graph_id))
+      %p
+        = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+        = " - #{l(seat_incumbency.end_date, format: :default)}" unless seat_incumbency.end_date.nil?
