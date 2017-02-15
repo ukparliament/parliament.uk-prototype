@@ -24,8 +24,6 @@ group :development, :test do
 
   # In development and test environments, use the dotenv gem
   gem 'dotenv-rails'
-  gem 'pry'
-  gem 'pry-nav'
 
   # Use foreman as a gem in dev and test to orchestrate both the app and api
   gem 'foreman'
