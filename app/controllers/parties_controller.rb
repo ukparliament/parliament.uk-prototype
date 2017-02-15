@@ -8,9 +8,8 @@ class PartiesController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    data = Parliament::Request.new.parties(id).get
-
+    party_id = params[:id]
+    data = Parliament::Request.new.parties(party_id).get
     @party = data.first
   end
 
@@ -38,20 +37,16 @@ class PartiesController < ApplicationController
   def members_letters
     letter = params[:letter]
     party_id = params[:party_id]
-    data_party = Parliament::Request.new.parties(party_id).get
     data_members = Parliament::Request.new.parties(party_id).members(letter).get
-
-    @party = data_party.first
+    @party = data_members.filter('http://id.ukpds.org/schema/Party').first
     @people = data_members.filter('http://id.ukpds.org/schema/Person')
   end
 
   def current_members_letters
     letter = params[:letter]
     party_id = params[:party_id]
-    data_party = Parliament::Request.new.parties(party_id).get
     data_current_members = Parliament::Request.new.parties(party_id).members.current(letter).get
-
-    @party = data_party.first
+    @party = data_current_members.filter('http://id.ukpds.org/schema/Party').first
     @people = data_current_members.filter('http://id.ukpds.org/schema/Person')
   end
 end

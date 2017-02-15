@@ -1,0 +1,5 @@
+%ul.parties-list
+  - @parties.each do |party|
+    %li
+      = party.name if party.name.present?
+
