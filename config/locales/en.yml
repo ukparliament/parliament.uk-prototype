@@ -36,6 +36,7 @@ en:
   addresses: 'Addresses'
   download: 'download'
   members: 'Members'
+  member: 'Member'
   current: 'Current'
   people_title: 'People'
   time:
@@ -70,6 +71,15 @@ en:
       title: ! '%{current} %{members}'
     current:
       title: ! '%{current} %{parties}'
+  constituencies:
+    index:
+      title: ! '%{constituencies}'
+    current:
+      title: ! '%{current} %{constituencies}'
+    members:
+      title: ! '%{members}'
+    current_member:
+      title: ! '%{current} %{member}'
   home:
     index:
       title: 'Beta page for parliament.uk'
