@@ -1,21 +1,23 @@
 FROM ruby:2.3.1
+
 ARG PARLIAMENT_BASE_URL
+ARG GTM_KEY
+ARG ASSET_LOCATION_URL
 
+# Create user to run app in user space
 ENV APP_USER parliament
-ENV GTM_KEY $GTM_KEY
-ENV ASSET_LOCATION_URL $ASSET_LOCATION_URL
-
-# create user to run app in user space
 RUN set -x \
         && groupadd -g 5000 $APP_USER \
         && adduser --disabled-password --uid 5000 --gid 5000 --gecos '' $APP_USER
 
-ENV RAILS_ROOT /opt/parliamentukprototype
-
-# application specific environment variables
+# Application specific environment variables
 ENV PARLIAMENT_BASE_URL $PARLIAMENT_BASE_URL
 ENV DATA_URI_PREFIX http://id.ukpds.org
+ENV GTM_KEY $GTM_KEY
+ENV ASSET_LOCATION_URL $ASSET_LOCATION_URL
 
+# Create folder to install the application
+ENV RAILS_ROOT /opt/parliamentukprototype
 RUN mkdir -p $RAILS_ROOT
 
 # gems installation
