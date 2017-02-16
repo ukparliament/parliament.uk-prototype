@@ -1,7 +1,5 @@
-GIT
-  remote: https://github.com/ukparliament/pugin
-  revision: 95b73c53d77e44f029281f29459f0e6f13cd0366
-  branch: development
+PATH
+  remote: ../pugin
   specs:
     pugin (0.2.0)
       haml (~> 4.0)
@@ -249,4 +247,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.13.7
+   1.14.4
