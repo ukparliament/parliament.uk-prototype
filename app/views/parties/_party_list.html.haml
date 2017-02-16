@@ -1,5 +1,4 @@
 %ul.parties-list
   - @parties.each do |party|
     %li
-      = party.name if party.name.present?
-
+      = link_to party.name, party_path(party.graph_id) if party.name.present?

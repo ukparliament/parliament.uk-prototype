@@ -11,8 +11,6 @@ class ConstituenciesController < ApplicationController
 
   def current
     @constituencies = Parliament::Request.new.constituencies.current.get
-
-    render 'constituencies/index'
   end
 
   def map
@@ -31,29 +29,21 @@ class ConstituenciesController < ApplicationController
     constituency_id = params[:constituency_id]
     data = Parliament::Request.new.constituencies(constituency_id).members.get
     @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
-
-    render 'constituencies/show'
   end
 
   def current_member
     constituency_id = params[:constituency_id]
     data = Parliament::Request.new.constituencies(constituency_id).members.current.get
     @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
-
-    render 'constituencies/show'
   end
 
   def letters
     letter = params[:letter]
     @constituencies = Parliament::Request.new.constituencies(letter).get
-
-    render 'constituencies/index'
   end
 
   def current_letters
     letter = params[:letter]
     @constituencies = Parliament::Request.new.constituencies.current(letter).get
-
-    render 'constituencies/index'
   end
 end

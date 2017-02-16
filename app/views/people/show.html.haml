@@ -7,7 +7,7 @@
 %h4= t('gender')
 %p= @person.gender.name unless @person.gender.nil?
 
-%h3= t('parties')
+%h3= t('parties_title')
 %ul
   - @person.party_memberships.each do |party_membership|
     %li
@@ -16,7 +16,7 @@
         = "#{l(party_membership.start_date, format: :default)}" unless party_membership.start_date.nil?
         = " - #{l(party_membership.end_date, format: :default)}" unless party_membership.end_date.nil?
 
-%h3= t('constituencies')
+%h3= t('constituencies_title')
 %ul
   - @person.seat_incumbencies.each do |seat_incumbency|
     %li
@@ -34,7 +34,7 @@
         = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
         = " - #{l(seat_incumbency.end_date, format: :default)}" unless seat_incumbency.end_date.nil?
 
-%h3= t('contact_points')
+%h3= t('contact_points_title')
 %ul
   - @person.contact_points.each do |contact_point|
     %li

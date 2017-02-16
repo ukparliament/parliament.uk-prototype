@@ -1,4 +1,4 @@
-%h1= t('.title')
+%h1= t('.title', people: t('people_title'))
 %ul.people-list
   - @people.each do |person|
     %li

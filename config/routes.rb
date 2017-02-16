@@ -71,7 +71,6 @@ Rails.application.routes.draw do
     lookupable('people#lookup_by_letters')
   end
 
-
   ### Parties ###
   # /parties (multiple 'parties' scope)
   scope '/parties', as: 'parties' do
