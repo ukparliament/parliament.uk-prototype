@@ -147,7 +147,6 @@ Rails.application.routes.draw do
     get '/:contact_point_id', to: 'contact_points#show', contact_point_id: id_format_regex
   end
 
-
   ## Houses ##
   # /houses (multiple 'houses' scope)
   scope '/houses', as: 'houses' do

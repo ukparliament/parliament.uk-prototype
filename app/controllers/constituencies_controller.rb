@@ -46,4 +46,15 @@ class ConstituenciesController < ApplicationController
     letter = params[:letter]
     @constituencies = Parliament::Request.new.constituencies.current(letter).get
   end
+
+  def lookup_by_letters
+    letters = params[:letters]
+    data = Parliament::Request.new.constituencies(letters).get
+
+    if data.size == 1
+      redirect_to action: 'show', constituency: data.first.graph_id if data.size == 1
+    else
+      redirect_to action: 'letters', letter: letters
+    end
+  end
 end

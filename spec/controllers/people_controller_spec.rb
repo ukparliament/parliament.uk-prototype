@@ -190,7 +190,7 @@ RSpec.describe PeopleController, vcr: true do
       expect(assigns(:constituency).type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
     end
 
-    it 'renders the parties template' do
+    it 'renders the current_constituency template' do
       expect(response).to render_template('current_constituency')
     end
   end
@@ -234,7 +234,7 @@ RSpec.describe PeopleController, vcr: true do
       expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
     end
 
-    it 'renders the parties template' do
+    it 'renders the current_house template' do
       expect(response).to render_template('current_house')
     end
   end
@@ -255,8 +255,8 @@ RSpec.describe PeopleController, vcr: true do
       end
     end
 
-    it 'renders the index template' do
-      expect(response).to render_template('index')
+    it 'renders the letters template' do
+      expect(response).to render_template('letters')
     end
   end
 
@@ -276,8 +276,8 @@ RSpec.describe PeopleController, vcr: true do
       end
     end
 
-    it 'renders the members template' do
-      expect(response).to render_template('index')
+    it 'renders the members_letters template' do
+      expect(response).to render_template('members_letters')
     end
   end
 
@@ -297,8 +297,8 @@ RSpec.describe PeopleController, vcr: true do
       end
     end
 
-    it 'renders the members template' do
-      expect(response).to render_template('current_members')
+    it 'renders the current_members_letters template' do
+      expect(response).to render_template('current_members_letters')
     end
   end
 end

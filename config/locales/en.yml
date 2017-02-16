@@ -39,6 +39,7 @@ en:
   member: 'Member'
   current: 'Current'
   people_title: 'People'
+  members_title: 'Members'
   time:
     formats:
       default: '%Y-%m-%d'
@@ -55,6 +56,12 @@ en:
       title: ! '%{current} %{constituency}'
     current_house:
       title: ! '%{current} %{house}'
+    letters:
+      title: ! '%{people}'
+    members_letters:
+      title: ! '%{members}'
+    current_members_letters:
+      title: ! '%{current} %{members}'
   houses:
     members:
       title: ! '%{members}'
@@ -62,6 +69,18 @@ en:
       title: ! '%{current} %{members}'
     party_members:
       title: ! '%{members}'
+    current_parties:
+      title: ! '%{current} %{parties}'
+    members_letters:
+      title: ! '%{members}'
+    current_members_letters:
+      title: ! '%{current} %{members}'
+    party_members_letters:
+      title: ! '%{members}'
+    current_party_members:
+      title: ! '%{current} %{members}'
+    current_party_members_letters:
+      title: ! '%{current} %{members}'
   parties:
     index:
       title: ! '%{parties}'

@@ -1,13 +1,6 @@
 %h1= @person.full_name
 
-%h3= t('parties')
+%h3= t('parties_title')
 %ul
-  - @parties.each do |party|
-    %li
-      = link_to(party.name, party_path(party.graph_id))
-      %ol
-        - party.party_memberships.each do |party_membership|
-          %li
-            %p
-              = "#{l(party_membership.start_date, format: :default)}" unless party_membership.start_date.nil?
-              = " - #{l(party_membership.end_date, format: :default)}" unless party_membership.end_date.nil?
+  = render :partial => 'people/party', collection: @parties
+
