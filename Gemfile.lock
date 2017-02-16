@@ -1,5 +1,7 @@
-PATH
-  remote: ../pugin
+GIT
+  remote: https://github.com/ukparliament/pugin
+  revision: 667e4d0a3a359d274896aeb485d21e5a51f321a1
+  branch: development
   specs:
     pugin (0.2.0)
       haml (~> 4.0)
