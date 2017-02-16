@@ -1,6 +1,6 @@
 %h1= t('.title')
 %p= t('.content')
 %hr
-%h4= link_to t('.links.people'), people_path
+%h4= link_to t('.links.people', people: t('people_title')), people_path
 %h4= link_to t('.links.current_members_of_both_houses'), people_members_current_path
-%h4= link_to t('.links.constituencies'), constituencies_path
+%h4= link_to t('.links.constituencies', constituencies: t('constituencies_title')), constituencies_path

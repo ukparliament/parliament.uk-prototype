@@ -10,9 +10,7 @@ Rails.application.routes.draw do
     get '/:letters', to: action
   end
 
-  def id_format_regex
-    /\w{8}-\w{4}-\w{4}-\w{4}-\w{12}/
-  end
+  id_format_regex = /\w{8}-\w{4}-\w{4}-\w{4}-\w{12}/
 
 
   ### Root ###
@@ -25,7 +23,6 @@ Rails.application.routes.draw do
   scope '/people', as: 'people' do
     get '/', to: 'people#index'
 
-    lookupable('people#lookup_by_letters')
     listable('people#letters')
 
     # /people/members
@@ -69,8 +66,10 @@ Rails.application.routes.draw do
         get '/current', to: 'people#current_party'
       end
     end
-  end
 
+    # Allow lookups - but ensure they are SECOND in the routes list after /people/:person_id
+    lookupable('people#lookup_by_letters')
+  end
 
   ### Parties ###
   # /parties (multiple 'parties' scope)
@@ -78,7 +77,6 @@ Rails.application.routes.draw do
     get '/',        to: 'parties#index'
     get '/current', to: 'parties#current'
 
-    lookupable('parties#slookup_by_letters')
     listable('parties#letters')
   end
 
@@ -102,6 +100,9 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    # Allow lookups - but ensure they are SECOND in the routes list after /parties/:party_id
+    lookupable('parties#lookup_by_letters')
   end
 
   ### Constituencies ###
@@ -133,6 +134,9 @@ Rails.application.routes.draw do
         get '/current', to: 'constituencies#current_member'
       end
     end
+
+    # Allow lookups - but ensure they are SECOND in the routes list after /constituencies/:constituency_id
+    lookupable('constituencies#lookup_by_letters')
   end
 
 
@@ -195,6 +199,9 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    # Allow lookups - but ensure they are SECOND in the routes list after /houses/:house_id
+    lookupable('houses#lookup_by_letters')
   end
   
   

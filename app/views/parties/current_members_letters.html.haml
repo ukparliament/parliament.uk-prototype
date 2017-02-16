@@ -1,7 +1,1 @@
-%h1
-  = @party.respond_to?(:partyName) ? @party.partyName : ''
-%ul.people-list
-  - @people.each do |person|
-    %li
-      = person.respond_to?(:personGivenName) ? person.personGivenName : ''
-      = person.respond_to?(:personFamilyName) ? person.personFamilyName : ''
+= render 'letters'

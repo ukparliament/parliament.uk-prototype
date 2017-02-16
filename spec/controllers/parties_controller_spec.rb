@@ -41,7 +41,7 @@ RSpec.describe PartiesController, vcr: true do
   end
 
   describe 'GET show' do
-    context 'for a valid id' do
+    context 'for a valid party id' do
       before(:each) do
         get :show, params: { party_id: '7a048f56-0ddd-48b0-85bd-cf5dd9fa5427' }
       end
@@ -55,7 +55,11 @@ RSpec.describe PartiesController, vcr: true do
       end
 
       it 'assigns @party and checks that the partyName is contained within it' do
-        expect(assigns(:party).partyName).to eq('Labour')
+        expect(assigns(:party).name).to eq('Labour')
+      end
+
+      it 'renders the show template' do
+        expect(response).to render_template('show')
       end
     end
   end
@@ -75,6 +79,10 @@ RSpec.describe PartiesController, vcr: true do
       it 'should return a Parliament Response' do
         expect(assigns(:people)).to be_a(Parliament::Response)
       end
+
+      it 'renders the members template' do
+        expect(response).to render_template('members')
+      end
     end
   end
 
@@ -93,6 +101,10 @@ RSpec.describe PartiesController, vcr: true do
       it 'should return a Parliament Response' do
         expect(assigns(:people)).to be_a(Parliament::Response)
       end
+
+      it 'renders the current_members template' do
+        expect(response).to render_template('current_members')
+      end
     end
   end
 
@@ -107,7 +119,12 @@ RSpec.describe PartiesController, vcr: true do
       end
 
       it 'assigns @party and checks that the correct partyname is returned' do
-        expect(assigns(:party).partyName).to eq('Humanity')
+        #expect(assigns(:party).partyName).to eq('Humanity')
+        expect(assigns(:party).name).to eq('Humanity')
+      end
+
+      it 'renders the letters template' do
+        expect(response).to render_template('letters')
       end
     end
   end
@@ -122,14 +139,14 @@ RSpec.describe PartiesController, vcr: true do
         expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
       end
 
-      it 'should return a Grom Node object as a party' do
-        expect(assigns(:party)).to be_a(Grom::Node)
-      end
-
       it 'assigns @people and checks that the type is Person' do
         assigns(:people).each do |person|
           expect(person.type).to eq('http://id.ukpds.org/schema/Person')
         end
+      end
+
+      it 'renders the members_letters template' do
+        expect(response).to render_template('members_letters')
       end
     end
   end
@@ -144,14 +161,14 @@ RSpec.describe PartiesController, vcr: true do
         expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
       end
 
-      it 'should return a Grom Node object as a party' do
-        expect(assigns(:party)).to be_a(Grom::Node)
-      end
-
       it 'assigns @people and checks that the type is Person' do
         assigns(:people).each do |person|
           expect(person.type).to eq('http://id.ukpds.org/schema/Person')
         end
+      end
+
+      it 'renders the current_members_letters template' do
+        expect(response).to render_template('current_members_letters')
       end
     end
   end

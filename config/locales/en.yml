@@ -22,51 +22,72 @@
 en:
   date_of_birth: 'Date Of Birth'
   gender: 'Gender'
-  parties: 'Parties'
-  constituencies: 'Constituencies'
-  contact_points: 'Contact Points'
+  parties_title: 'Parties'
+  party: 'Party'
+  constituencies_title: 'Constituencies'
+  constituency: 'Constituency'
+  contact_points_title: 'Contact Points'
   houses_title: 'Houses'
+  house: 'House'
   email: 'Email'
   phone: 'Phone'
+  fax: 'Fax'
+  address: 'Address'
   addresses: 'Addresses'
+  download: 'download'
+  members: 'Members'
+  member: 'Member'
+  current: 'Current'
+  people_title: 'People'
   time:
     formats:
-      default: "%Y-%m-%d"
+      default: '%Y-%m-%d'
   people:
     index:
-      title: 'People'
+      title: ! '%{people}'
     members:
-      title: 'Members'
+      title: ! '%{members}'
     current_members:
-      title: 'Current Members'
+      title: ! '%{current} %{members}'
     current_party:
-      title: 'Current Party'
+      title: ! '%{current} %{party}'
     current_constituency:
-      title: 'Current Constituency'
+      title: ! '%{current} %{constituency}'
     current_house:
-      title: 'Current House'
+      title: ! '%{current} %{house}'
   houses:
     members:
-      title: 'Members'
+      title: ! '%{members}'
     current_members:
-      title: 'Current Members'
+      title: ! '%{current} %{members}'
     party_members:
-      title: 'Members'
+      title: ! '%{members}'
   parties:
     index:
-      title: 'Parties'
+      title: ! '%{parties}'
     members:
-      title: 'Members'
+      title: ! '%{members}'
     current_members:
-      title: 'Current Members'
+      title: ! '%{current} %{members}'
     current:
-      title: 'Current Parties'
+      title: ! '%{current} %{parties}'
+  constituencies:
+    index:
+      title: ! '%{constituencies}'
+    current:
+      title: ! '%{current} %{constituencies}'
+    members:
+      title: ! '%{members}'
+    current_member:
+      title: ! '%{current} %{member}'
   home:
     index:
       title: 'Beta page for parliament.uk'
       content: 'We are building a new website for Parliament. As we develop new features and services we will test and gather feedback on beta.parliament.uk.'
       links:
-         people: 'People'
+         people: ! '%{people}'
+         constituencies: ! '%{constituencies}'
+         current_members_of_both_houses: 'Current Members of both Houses'
   meta:
     index:
       title: 'Meta information'

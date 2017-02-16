@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/parties/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427.nt
+    uri: http://localhost:3030/parties/h.nt
     body:
       encoding: US-ASCII
       string: ''
@@ -29,20 +29,22 @@ http_interactions:
       Content-Type:
       - application/n-triples; charset=utf-8
       Etag:
-      - W/"445596fef4850196d099ba1f6d5adae1"
+      - W/"23aa18fcfa95a78fba64284b34b67c6f"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 8a28c426-70c6-4dc6-b8ac-66d47e9c3955
+      - cbb21e1b-e3ad-439d-89a2-55ed62902463
       X-Runtime:
-      - '0.025630'
+      - '0.028623'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: |
-        <http://id.ukpds.org/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Party> .
-        <http://id.ukpds.org/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427> <http://id.ukpds.org/schema/partyName> "Labour" .
+        <http://id.ukpds.org/de74edbd-7f73-4e54-bd63-4c3bd93c8b82> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Party> .
+        <http://id.ukpds.org/de74edbd-7f73-4e54-bd63-4c3bd93c8b82> <http://id.ukpds.org/schema/partyName> "Humanity" .
+        <http://id.ukpds.org/33152e23-181b-4e84-a0b6-46b5e78557f6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Party> .
+        <http://id.ukpds.org/33152e23-181b-4e84-a0b6-46b5e78557f6> <http://id.ukpds.org/schema/partyName> "Hoi Polloi" .
     http_version: 
-  recorded_at: Wed, 08 Feb 2017 17:24:49 GMT
+  recorded_at: Wed, 15 Feb 2017 11:00:56 GMT
 recorded_with: VCR 3.0.3
