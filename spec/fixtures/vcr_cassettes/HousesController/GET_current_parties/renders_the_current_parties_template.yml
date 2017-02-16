@@ -13,8 +13,6 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - localhost:3030
   response:
     status:
       code: 200
@@ -33,9 +31,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 37949a7c-02dd-4ca2-b4f3-d32dfa854d1c
+      - b3359fdb-2617-4062-8806-7182e172610c
       X-Runtime:
-      - '0.145030'
+      - '0.107668'
       Transfer-Encoding:
       - chunked
     body:
@@ -70,5 +68,5 @@ http_interactions:
         <http://id.ukpds.org/b24cf8e0-9552-4ea8-a102-134a395aaf18> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Party> .
         <http://id.ukpds.org/b24cf8e0-9552-4ea8-a102-134a395aaf18> <http://id.ukpds.org/schema/partyName> "UK Independence Party" .
     http_version: 
-  recorded_at: Wed, 08 Feb 2017 16:06:41 GMT
+  recorded_at: Wed, 15 Feb 2017 10:58:10 GMT
 recorded_with: VCR 3.0.3

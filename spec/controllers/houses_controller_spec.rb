@@ -129,8 +129,8 @@ RSpec.describe HousesController, vcr: true do
       end
     end
 
-    it 'renders the parties template' do
-      expect(response).to render_template('parties')
+    it 'renders the current_parties template' do
+      expect(response).to render_template('current_parties')
     end
   end
 
@@ -173,8 +173,8 @@ RSpec.describe HousesController, vcr: true do
       end
     end
 
-    it 'renders the members template' do
-      expect(response).to render_template('members')
+    it 'renders the members_letters template' do
+      expect(response).to render_template('members_letters')
     end
   end
 
@@ -196,8 +196,8 @@ RSpec.describe HousesController, vcr: true do
       end
     end
 
-    it 'renders the current_members template' do
-      expect(response).to render_template('current_members')
+    it 'renders the current_members_letters template' do
+      expect(response).to render_template('current_members_letters')
     end
   end
 
@@ -246,8 +246,8 @@ RSpec.describe HousesController, vcr: true do
       end
     end
 
-    it 'renders the party_members template' do
-      expect(response).to render_template('party_members')
+    it 'renders the party_members_letters template' do
+      expect(response).to render_template('party_members_letters')
     end
   end
 
@@ -271,8 +271,8 @@ RSpec.describe HousesController, vcr: true do
       end
     end
 
-    it 'renders the party_members template' do
-      expect(response).to render_template('party_members')
+    it 'renders the current_party_members template' do
+      expect(response).to render_template('current_party_members')
     end
   end
 
@@ -296,8 +296,8 @@ RSpec.describe HousesController, vcr: true do
       end
     end
 
-    it 'renders the party_members template' do
-      expect(response).to render_template('party_members')
+    it 'renders the current_party_members_letters template' do
+      expect(response).to render_template('current_party_members_letters')
     end
   end
 end

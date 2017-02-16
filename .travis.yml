@@ -1,3 +1,2 @@
 sudo: false
 language: ruby
-  - 2.3.1

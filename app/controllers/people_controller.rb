@@ -5,89 +5,121 @@ class PeopleController < ApplicationController
 
   def show
     person_id = params[:person_id]
+
     data = Parliament::Request.new.people(person_id).get
+
     @person = data.filter('http://id.ukpds.org/schema/Person').first
   end
 
   def members
     data = Parliament::Request.new.people.members.get
+
     @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def current_members
     data = Parliament::Request.new.people.members.current.get
+
     @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def contact_points
     person_id = params[:person_id]
+
     data = Parliament::Request.new.people(person_id).contact_points.get
-    @person = data.filter('http://id.ukpds.org/schema/Person').first
-    @contact_points = data.filter('http://id.ukpds.org/schema/ContactPoint')
+
+    @person, @contact_points = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/ContactPoint')
+    @person = @person.first
   end
 
   def parties
     person_id = params[:person_id]
+
     data = Parliament::Request.new.people(person_id).parties.get
-    @person = data.filter('http://id.ukpds.org/schema/Person').first
-    @parties = data.filter('http://id.ukpds.org/schema/Party')
+
+    @person, @parties = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/Party')
+    @person = @person.first
   end
 
   def current_party
     person_id = params[:person_id]
+
     data = Parliament::Request.new.people(person_id).parties.current.get
-    @person = data.filter('http://id.ukpds.org/schema/Person').first
-    @party = data.filter('http://id.ukpds.org/schema/Party').first
+
+    @person, @party = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/Party')
+    @person = @person.first
+    @party = @party.first
   end
 
   def constituencies
     person_id = params[:person_id]
+
     data = Parliament::Request.new.people(person_id).constituencies.get
-    @person = data.filter('http://id.ukpds.org/schema/Person').first
-    @constituencies = data.filter('http://id.ukpds.org/schema/ConstituencyGroup')
+
+    @person, @constituencies = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/ConstituencyGroup')
+    @person = @person.first
   end
 
   def current_constituency
     person_id = params[:person_id]
+
     data = Parliament::Request.new.people(person_id).constituencies.current.get
-    @person = data.filter('http://id.ukpds.org/schema/Person').first
-    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
+
+    @person, @constituency = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/ConstituencyGroup')
+    @person = @person.first
+    @constituency = @constituency.first
   end
 
   def houses
     person_id = params[:person_id]
+
     data = Parliament::Request.new.people(person_id).houses.get
-    @person = data.filter('http://id.ukpds.org/schema/Person').first
-    @houses = data.filter('http://id.ukpds.org/schema/House')
+
+    @person, @houses = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/House')
+    @person = @person.first
   end
 
   def current_house
     person_id = params[:person_id]
+
     data = Parliament::Request.new.people(person_id).houses.current.get
-    @person = data.filter('http://id.ukpds.org/schema/Person').first
-    @house = data.filter('http://id.ukpds.org/schema/House').first
+
+    @person, @house = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/House')
+    @person = @person.first
+    @house = @house.first
   end
 
   def letters
     letter = params[:letter]
-    @people = Parliament::Request.new.people(letter).get
 
-    render 'index'
+    @people = Parliament::Request.new.people(letter).get
   end
 
   def members_letters
     letter = params[:letter]
-    data = Parliament::Request.new.people.members(letter).get
-    @people = data.filter('http://id.ukpds.org/schema/Person')
 
-    render 'index'
+    data = Parliament::Request.new.people.members(letter).get
+
+    @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def current_members_letters
     letter = params[:letter]
-    data = Parliament::Request.new.people.members.current(letter).get
-    @people = data.filter('http://id.ukpds.org/schema/Person')
 
-    render 'current_members'
+    data = Parliament::Request.new.people.members.current(letter).get
+
+    @people = data.filter('http://id.ukpds.org/schema/Person')
+  end
+
+  def lookup_by_letters
+    letters = params[:letters]
+
+    data = Parliament::Request.new.people(letters).get
+
+    if data.size == 1
+      redirect_to action: 'show', person: data.first.graph_id if data.size == 1
+    else
+      redirect_to action: 'letters', letter: letters
+    end
   end
 end

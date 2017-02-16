@@ -2,6 +2,8 @@ FROM ruby:2.3.1
 ARG PARLIAMENT_BASE_URL
 
 ENV APP_USER parliament
+ENV GTM_KEY $GTM_KEY
+ENV ASSET_LOCATION_URL $ASSET_LOCATION_URL
 
 # create user to run app in user space
 RUN set -x \
