@@ -9,6 +9,9 @@ class PeopleController < ApplicationController
     data = Parliament::Request.new.people(person_id).get
 
     @person = data.filter('http://id.ukpds.org/schema/Person').first
+
+    @current_seat_incumbency = @person.seat_incumbencies.select(&:current?).first
+    @current_party_membership = @person.party_memberships.select(&:current?).first
   end
 
   def members

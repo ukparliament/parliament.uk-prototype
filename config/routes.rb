@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   def listable(letter_action)
     scope '/a-z', as: 'a_z' do
       get '/',        to: 'application#a_to_z'
-      get '/:letter', to: letter_action
+
+      scope '/:letter', as: 'letter' do
+        get '/', to: letter_action
+      end
     end
   end
 
@@ -202,8 +205,8 @@ Rails.application.routes.draw do
     # Allow lookups - but ensure they are SECOND in the routes list after /houses/:house_id
     lookupable('houses#lookup_by_letters')
   end
-  
-  
+
+
   ## Meta ##
   # /meta
   scope '/meta', as: 'meta' do

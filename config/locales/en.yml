@@ -43,9 +43,20 @@ en:
   time:
     formats:
       default: '%Y-%m-%d'
+  a_to_z:
+    aria_label: 'Paged navigation'
   people:
     index:
       title: ! '%{people}'
+    show:
+      mp_for: 'MP for'
+      mp_representative: 'Your MP is your representative in Parliament and can help with issues that are the responsiblity of UK Parliament.'
+      who_to_contact: 'Find out who to contact with your issue'
+      contact_title: 'Contact Details'
+      contact_email: ! '#{email}:'
+      contact_phone: ! '#{phone}:'
+      contact_address: ! '#{address}:'
+      election_history: 'Election History'
     members:
       title: ! '%{members}'
     current_members:
