@@ -202,4 +202,12 @@ Rails.application.routes.draw do
     # Allow lookups - but ensure they are SECOND in the routes list after /houses/:house_id
     lookupable('houses#lookup_by_letters')
   end
+  
+  
+  ## Meta ##
+  # /meta
+  scope '/meta', as: 'meta' do
+    get '/', to: 'meta#index'
+    get '/cookie-policy', to: 'meta#cookie_policy'
+  end
 end

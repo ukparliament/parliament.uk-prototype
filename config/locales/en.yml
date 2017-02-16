@@ -107,3 +107,25 @@ en:
          people: ! '%{people}'
          constituencies: ! '%{constituencies}'
          current_members_of_both_houses: 'Current Members of both Houses'
+  meta:
+    index:
+      title: 'Meta information'
+    cookie_policy:
+      title: 'Cookies'
+      subtitle: 'Cookies on beta.parliament.uk'
+      which_cookies: 'Which cookies do we use?'
+      cookie:
+        definition: 'Cookies are small files put on your device to let us know how you use our website.'
+        explanation: 'We use Google Analytics cookies to collect information about how you use our services. This helps us meet your needs and improve our website.'
+        anonymous_statement: 'All the information we collect is anonymous.'
+      cookie_table:
+        meta:
+          name: 'Name'
+          purpose: 'Purpose'
+          expires: 'Expires'
+          expiration:
+            minutes: 'After %{time} minutes.'
+            years: 'After %{time} years.'
+        explanations:
+          ga: 'This helps us know how many people have visited beta.parliament.uk by telling us if you’ve visited before.'
+          gat: 'This helps us know how long you spend on a page.'
