@@ -141,14 +141,17 @@ Rails.application.routes.draw do
 
 
   ## Contact Points ##
-  # /contact-points
+  # /contact-points  (multiple 'contact_points' scope)
   scope '/contact-points', as: 'contact_points' do
     get '/', to: 'contact_points#index'
   end
 
-  # /contact-points/:contact_point_id
-  scope '/:contact_point_id', as: 'contact_point' do
-    get '/', to: 'contact_points#show', contact_point_id: id_format_regex
+  # /contact-points (single 'contact_point' scope)
+  scope '/contact-points', as: 'contact_point' do
+    # /contact-points/:contact_point_id
+    scope '/:contact_point_id' do
+      get '/', to: 'contact_points#show', contact_point_id: id_format_regex
+    end
   end
 
   ## Houses ##
