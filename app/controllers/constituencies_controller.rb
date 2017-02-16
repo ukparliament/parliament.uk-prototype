@@ -47,7 +47,7 @@ class ConstituenciesController < ApplicationController
     @constituencies = Parliament::Request.new.constituencies.current(letter).get
   end
 
-  def search_by_letters
+  def lookup_by_letters
     letters = params[:letters]
     data = Parliament::Request.new.constituencies(letters).get
 

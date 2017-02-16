@@ -142,7 +142,7 @@ class HousesController < ApplicationController
     @party = @party.first
   end
 
-  def search_by_letters
+  def lookup_by_letters
     letters = params[:letters]
 
     data = Parliament::Request.new.houses(letters).get

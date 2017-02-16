@@ -111,7 +111,7 @@ class PeopleController < ApplicationController
     @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
-  def search_by_letters
+  def lookup_by_letters
     letters = params[:letters]
 
     data = Parliament::Request.new.people(letters).get

@@ -57,6 +57,10 @@ en:
       title: ! '%{current} %{house}'
     letters:
       title: ! '%{people}'
+    members_letters:
+      title: ! '%{members}'
+    current_members_letters:
+      title: ! '%{current} %{members}'
   houses:
     members:
       title: ! '%{members}'
@@ -72,6 +76,10 @@ en:
       title: ! '%{current} %{members}'
     party_members_letters:
       title: ! '%{members}'
+    current_party_members:
+      title: ! '%{current} %{members}'
+    current_party_members_letters:
+      title: ! '%{current} %{members}'
   parties:
     index:
       title: ! '%{parties}'

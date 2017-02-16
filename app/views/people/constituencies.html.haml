@@ -1,6 +1,7 @@
 %h1= @person.full_name
 
-%h3= t('constituencies')
-%ul
-  = render :partial => 'people/constituency', collection: @constituencies
+- unless @constituencies.empty?
+  %h3= t('constituencies')
+  %ul
+    = render :partial => 'people/constituency', collection: @constituencies
 
