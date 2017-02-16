@@ -4,7 +4,7 @@ class ConstituenciesController < ApplicationController
   end
 
   def show
-    constituency_id = params[:id]
+    constituency_id = params[:constituency_id]
     data = Parliament::Request.new.constituencies(constituency_id).get
     @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
   end

@@ -1,5 +1,3 @@
 %h1= t('.title', current: t('current'), parties: t('parties_title'))
-%ul.parties-list
-  - @parties.each do |party|
-    %li
-      = party.respond_to?(:partyName) ? party.partyName : ''
+
+= render 'party_list'

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/parties/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427/members/current/c.nt
+    uri: http://localhost:3030/parties/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427/members.nt
     body:
       encoding: US-ASCII
       string: ''
@@ -29,19 +29,19 @@ http_interactions:
       Content-Type:
       - application/n-triples; charset=utf-8
       Etag:
-      - W/"b370bc00e3cbf0c1c6b5428918b6b948"
+      - W/"6f43e5c264d3a1500d77f8588d5520c3"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3a205f7f-e9da-4707-8adc-74558c117234
+      - 871c85c2-9181-4262-a24c-c64072d08b7b
       X-Runtime:
-      - '0.111975'
+      - '0.707438'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: |
-           <http://id.ukpds.org/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Party> .
+               <http://id.ukpds.org/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Party> .
                      <http://id.ukpds.org/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427> <http://id.ukpds.org/schema/partyName> "Labour" .
                      <http://id.ukpds.org/0209183a-c96d-4d3f-a618-ae7cddeba64b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
                      <http://id.ukpds.org/0209183a-c96d-4d3f-a618-ae7cddeba64b> <http://id.ukpds.org/schema/personGivenName> "Person 1" .
@@ -63,5 +63,5 @@ http_interactions:
                      <http://id.ukpds.org/ae75ecc2-c6b9-45bb-bcf5-c1ee63362919> <http://id.ukpds.org/schema/partyMembershipStartDate> "2005-06-13"^^<http://www.w3.org/2001/XMLSchema#date> .
                      <http://id.ukpds.org/4d21f43a-89f1-47cc-80b8-6f3bbd13f853> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
     http_version:
-  recorded_at: Wed, 15 Feb 2017 17:05:33 GMT
+  recorded_at: Wed, 15 Feb 2017 11:00:57 GMT
 recorded_with: VCR 3.0.3

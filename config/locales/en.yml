@@ -86,9 +86,5 @@ en:
       content: 'We are building a new website for Parliament. As we develop new features and services we will test and gather feedback on beta.parliament.uk.'
       links:
          people: ! '%{people}'
-
-
-
-
-
-
+         constituencies: ! '%{constituencies}'
+         current_members_of_both_houses: 'Current Members of both Houses'
