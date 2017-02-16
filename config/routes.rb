@@ -144,9 +144,12 @@ Rails.application.routes.draw do
   # /contact-points
   scope '/contact-points', as: 'contact_points' do
     get '/', to: 'contact_points#index'
-    get '/:contact_point_id', to: 'contact_points#show', contact_point_id: id_format_regex
   end
 
+  # /contact-points/:contact_point_id
+  scope '/:contact_point_id', as: 'contact_point' do
+    get '/', to: 'contact_points#show', contact_point_id: id_format_regex
+  end
 
   ## Houses ##
   # /houses (multiple 'houses' scope)
@@ -203,8 +206,8 @@ Rails.application.routes.draw do
     # Allow lookups - but ensure they are SECOND in the routes list after /houses/:house_id
     lookupable('houses#lookup_by_letters')
   end
-  
-  
+
+
   ## Meta ##
   # /meta
   scope '/meta', as: 'meta' do
