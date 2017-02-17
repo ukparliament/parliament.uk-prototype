@@ -1,6 +1,11 @@
 .profile-card.spacer__vertical-small
   %h1 #{@person.given_name} #{@person.other_name} #{@person.family_name}
 
+  - if @person.date_of_birth
+    %h3
+      Date of Birth:
+      = @person.date_of_birth
+
   - if @current_seat_incumbency
     %p
       = t('.mp_for')
