@@ -1,99 +1,128 @@
 class PeopleController < ApplicationController
-
   def index
-    @people = order_list(Person.all, :surname, :forename)
-
-    format({ serialized_data: @people })
+    @people = Parliament::Request.new.people.get
   end
 
   def show
-    @person = Person.eager_find(params[:id]) or not_found
+    person_id = params[:person_id]
 
-    @sittings = order_list(@person.sittings, :start_date).reverse unless @person.sittings.nil?
-    @party_memberships = order_list(@person.party_memberships, :start_date).reverse
+    data = Parliament::Request.new.people(person_id).get
 
-    format({ serialized_data: @person })
+    @person = data.filter('http://id.ukpds.org/schema/Person').first
+
+    @current_seat_incumbency = @person.seat_incumbencies.select(&:current?).first
+    @current_party_membership = @person.party_memberships.select(&:current?).first
   end
 
   def members
-    @people = order_list(Person.eager_all('members'), :surname, :forename)
+    data = Parliament::Request.new.people.members.get
 
-    format({ serialized_data: @people })
+    @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def current_members
-    @people = order_list(Person.eager_all('members', 'current'), :surname, :forename)
+    data = Parliament::Request.new.people.members.current.get
 
-    format({ serialized_data: @people })
+    @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def contact_points
-    @person = Person.eager_find(params[:person_id], 'contact_points') or not_found
+    person_id = params[:person_id]
 
-    format({ serialized_data: @person })
+    data = Parliament::Request.new.people(person_id).contact_points.get
+
+    @person, @contact_points = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/ContactPoint')
+    @person = @person.first
   end
 
   def parties
-    @person = Person.eager_find(params[:person_id], 'parties') or not_found
-    @parties = order_list(@person.parties, :name)
+    person_id = params[:person_id]
 
-    format({ serialized_data: @person })
+    data = Parliament::Request.new.people(person_id).parties.get
+
+    @person, @parties = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/Party')
+    @person = @person.first
   end
 
   def current_party
-    @person = Person.eager_find(params[:person_id] ,'parties', 'current') or not_found
+    person_id = params[:person_id]
 
-    format({ serialized_data: @person })
+    data = Parliament::Request.new.people(person_id).parties.current.get
+
+    @person, @party = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/Party')
+    @person = @person.first
+    @party = @party.first
   end
 
   def constituencies
-    @person = Person.eager_find(params[:person_id], 'constituencies') or not_found
-    @constituencies = order_list(@person.constituencies, :name)
+    person_id = params[:person_id]
 
-    format({ serialized_data: @person })
+    data = Parliament::Request.new.people(person_id).constituencies.get
+
+    @person, @constituencies = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/ConstituencyGroup')
+    @person = @person.first
   end
 
   def current_constituency
-    @person = Person.eager_find(params[:person_id], 'constituencies', 'current') or not_found
-    @constituency = @person.constituencies.first
+    person_id = params[:person_id]
 
-    format({ serialized_data: @person })
+    data = Parliament::Request.new.people(person_id).constituencies.current.get
+
+    @person, @constituency = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/ConstituencyGroup')
+    @person = @person.first
+    @constituency = @constituency.first
   end
 
   def houses
-    @person = Person.eager_find(params[:person_id], 'houses') or not_found
+    person_id = params[:person_id]
 
-    format({ serialized_data: @person })
+    data = Parliament::Request.new.people(person_id).houses.get
+
+    @person, @houses = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/House')
+    @person = @person.first
   end
 
   def current_house
-    @person = Person.eager_find(params[:person_id], 'houses', 'current') or not_found
-    @house = @person.houses.first
+    person_id = params[:person_id]
 
-    format({ serialized_data: @person })
+    data = Parliament::Request.new.people(person_id).houses.current.get
+
+    @person, @house = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/House')
+    @person = @person.first
+    @house = @house.first
   end
 
   def letters
     letter = params[:letter]
-    @root_path = people_a_z_path
-    @people = order_list(Person.all(letter), :surname, :forename)
 
-    format({ serialized_data: @people })
+    @people = Parliament::Request.new.people(letter).get
   end
 
   def members_letters
     letter = params[:letter]
-    @root_path = people_members_a_z_path
-    @people = order_list(Person.eager_all('members', letter), :surname, :forename)
 
-    format({ serialized_data: @people })
+    data = Parliament::Request.new.people.members(letter).get
+
+    @people = data.filter('http://id.ukpds.org/schema/Person')
   end
 
   def current_members_letters
     letter = params[:letter]
-    @root_path = people_members_current_a_z_path
-    @people = order_list(Person.eager_all('members', 'current', letter), :surname, :forename)
 
-    format({ serialized_data: @people })
+    data = Parliament::Request.new.people.members.current(letter).get
+
+    @people = data.filter('http://id.ukpds.org/schema/Person')
+  end
+
+  def lookup_by_letters
+    letters = params[:letters]
+
+    data = Parliament::Request.new.people(letters).get
+
+    if data.size == 1
+      redirect_to action: 'show', person: data.first.graph_id if data.size == 1
+    else
+      redirect_to action: 'letters', letter: letters
+    end
   end
 end
