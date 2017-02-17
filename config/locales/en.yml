@@ -113,12 +113,24 @@ en:
       title: ! '%{current} %{member}'
   home:
     index:
-      title: 'Beta page for parliament.uk'
-      content: 'We are building a new website for Parliament. As we develop new features and services we will test and gather feedback on beta.parliament.uk.'
+      title: 'Beta on Parliament.uk'
+      content: 'We’re building a new website for Parliament.  The ‘beta’ label means you’re looking at the first version of a new page.'
+      beta-label: 'Beta label'
+      beta-label-text-1: 'The beta label is displayed on new pages to show they’re being tested and improved – they may not work for everyone.'
+      beta-label-text-2: 'Beta pages will be available at the same time as older pages so you can choose which one to use.'
+      beta-label-text-3: 'Successful beta pages will eventually replace older services.'
+      feedback: 'Feedback'
+      feedback-text: ! 'We want your %{feedbacklink} on these pages to help us improve them.'
+      current-beta-pages: 'Current beta pages'
+      beta-pages-text-1: 'We’re creating a page for every MP and Lord, past and present.'
+      beta-pages-text-2: 'We currently have over 4000 member pages, dating back to the 1940s.'
+      beta-pages-text-3: ! 'Find contact details and election history for %{current_mps}.'
       links:
          people: ! '%{people}'
          constituencies: ! '%{constituencies}'
          current_members_of_both_houses: 'Current Members of both Houses'
+         current_mps: 'all current MPs'
+         feedback: 'feedback'
   meta:
     index:
       title: 'Meta information'
