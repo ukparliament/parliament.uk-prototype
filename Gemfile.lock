@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ukparliament/pugin
-  revision: 9788e2f2e177ea9c7f6a870c2dd83056c3fe59dd
+  revision: 87e7a1a3566a6ff6e112c660631b8276fbf2a8e8
   branch: development
   specs:
     pugin (0.2.0)
