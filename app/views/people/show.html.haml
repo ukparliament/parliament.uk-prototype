@@ -11,10 +11,11 @@
 
 .highlight-box
   %p= t('.mp_representative')
-  %a{ :href => "contact.html" }= t('.who_to_contact')
 
 .contact-list.spacer__vertical-top-small
   %h2.bordered= t('.contact_title')
+  - if @person.contact_points.empty?
+    %p= t('.empty_contact_details')
   - @person.contact_points.each do |contact_point|
     %dl
       %dt= t('.contact_email')
@@ -30,6 +31,8 @@
 
 %h2.bordered.spacer__vertical-top-small= t('.election_history')
 %ol.result-list
+  - if @person.seat_incumbencies.empty?
+    %p= t('.empty_election_history')
   - @person.seat_incumbencies.each do |seat_incumbency|
     %li.result-list__item
       %p
