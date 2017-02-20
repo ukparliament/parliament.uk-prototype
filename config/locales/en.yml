@@ -49,7 +49,7 @@ en:
       title: ! '%{people}'
     show:
       mp_for: 'MP for'
-      mp_representative: 'Your MP is your representative in Parliament and can help with issues that are the responsiblity of UK Parliament.'
+      mp_representative: 'Your MP is your representative in Parliament and can help with issues that are the responsibility of UK Parliament.'
       who_to_contact: 'Find out who to contact with your issue'
       empty_contact_details: 'There is currently no contact information available for this person.'
       contact_title: 'Contact Details'
