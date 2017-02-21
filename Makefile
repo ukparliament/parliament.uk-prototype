@@ -23,6 +23,7 @@ build:
 		.
 # Container port 3000 is specified in Dockerfile
 # Browse to http://localhost:80 to see the application
+
 run:
 	docker run -p 80:3000 $(IMAGE)
 
@@ -35,6 +36,8 @@ test: build
 push:
 	docker push $(IMAGE):$(VERSION)
 	docker push $(IMAGE):latest
+
+rmi:
 	docker rmi $(IMAGE):$(VERSION)
 	docker rmi $(IMAGE):latest
 
