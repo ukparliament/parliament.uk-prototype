@@ -1,6 +1,6 @@
-%li.list--item
+%li.list__item
   = link_to(constituency.name, constituency_path(constituency.graph_id))
-  %ol.list
+  %ol
     - constituency.seat_incumbencies.each do |seat_incumbency|
       %li
         = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
