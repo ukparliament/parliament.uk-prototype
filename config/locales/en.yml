@@ -117,6 +117,10 @@ en:
       title: ! '%{members}'
     current_member:
       title: ! '%{current} %{member}'
+    letters:
+      title: ! '%{constituencies}'
+    current_letters:
+      title: ! '%{current} %{constituencies}'
   home:
     index:
       title: 'Beta on Parliament.uk'
