@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/ukparliament/pugin
-  revision: 87e7a1a3566a6ff6e112c660631b8276fbf2a8e8
-  branch: development
+  remote: https://github.com/ukparliament/parliament.uk-pugin-components-rails
+  revision: 636d7f2cd0443e13079faa485689e1f43bb22dcd
+  branch: master
   specs:
     pugin (0.2.0)
       haml (~> 4.0)
