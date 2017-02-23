@@ -3,6 +3,15 @@ class PartiesController < ApplicationController
     @parties = Parliament::Request.new.parties.get
   end
 
+  def lookup
+    source = params[:source]
+    id = params[:id]
+
+    @party = Parliament::Request.new.parties.lookup.get(params: { source: source, id: id }).first
+
+    redirect_to party_path(@party.graph_id)
+  end
+
   def current
     @parties = Parliament::Request.new.parties.current.get
   end
@@ -17,7 +26,8 @@ class PartiesController < ApplicationController
   def members
     party_id = params[:party_id]
     data = Parliament::Request.new.parties(party_id).members.get
-    @people = data.filter('http://id.ukpds.org/schema/Person')
+    @party, @people = data.filter('http://id.ukpds.org/schema/Party', 'http://id.ukpds.org/schema/Person')
+    @party = @party.first
   end
 
   def current_members
