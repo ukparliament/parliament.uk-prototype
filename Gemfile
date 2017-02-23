@@ -15,7 +15,7 @@ gem 'parliament-ruby', '0.3.0'
 # gem 'parliament-ruby', git: 'https://github.com/katylouise/parliament-ruby', branch: 'katylouise/website-399_query-parameters'
 
 # Pugin is the front-end component library used by Parliament
-gem 'pugin', git: 'https://github.com/ukparliament/pugin', branch: 'development'
+gem 'pugin', git: 'https://github.com/ukparliament/parliament.uk-pugin-components-rails', branch: 'master'
 
 # HAML is used for front-end template rendering
 gem 'haml', '4.0.7'
