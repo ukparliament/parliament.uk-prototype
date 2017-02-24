@@ -1,6 +1,6 @@
 class PartiesController < ApplicationController
   def index
-    @parties = Parliament::Request.new.parties.get
+    @parties = Parliament::Request.new.parties.get.sort_by(:name)
   end
 
   def lookup
@@ -13,11 +13,12 @@ class PartiesController < ApplicationController
   end
 
   def current
-    @parties = Parliament::Request.new.parties.current.get
+    @parties = Parliament::Request.new.parties.current.get.sort_by(:name)
   end
 
   def show
     party_id = params[:party_id]
+
     data = Parliament::Request.new.parties(party_id).get
 
     @party = data.first
@@ -25,39 +26,52 @@ class PartiesController < ApplicationController
 
   def members
     party_id = params[:party_id]
+
     data = Parliament::Request.new.parties(party_id).members.get
+
     @party, @people = data.filter('http://id.ukpds.org/schema/Party', 'http://id.ukpds.org/schema/Person')
     @party = @party.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def current_members
     party_id = params[:party_id]
+
     data = Parliament::Request.new.parties(party_id).members.current.get
+
     @party, @people = data.filter('http://id.ukpds.org/schema/Party', 'http://id.ukpds.org/schema/Person')
     @party = @party.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def letters
     letter = params[:letter]
+
     data = Parliament::Request.new.parties(letter).get
 
-    @parties = data.filter('http://id.ukpds.org/schema/Party')
+    @parties = data.filter('http://id.ukpds.org/schema/Party').sort_by(:name)
   end
 
   def members_letters
     letter = params[:letter]
     party_id = params[:party_id]
+
     data = Parliament::Request.new.parties(party_id).members(letter).get
+
     @party, @people = data.filter('http://id.ukpds.org/schema/Party', 'http://id.ukpds.org/schema/Person')
     @party = @party.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def current_members_letters
     letter = params[:letter]
     party_id = params[:party_id]
+
     data = Parliament::Request.new.parties(party_id).members.current(letter).get
+
     @party, @people = data.filter('http://id.ukpds.org/schema/Party', 'http://id.ukpds.org/schema/Person')
     @party = @party.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def lookup_by_letters

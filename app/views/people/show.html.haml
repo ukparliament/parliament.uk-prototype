@@ -35,7 +35,7 @@
   %ol.list
     - if @person.seat_incumbencies.empty?
       %p= t('.empty_election_history')
-    - @person.seat_incumbencies.each do |seat_incumbency|
+    - @person.seat_incumbencies.sort{ |inc_a, inc_b| inc_b.start_date <=> inc_a.start_date }.each do |seat_incumbency|
       %li.list__item--borderless-top
         %ul
           %li

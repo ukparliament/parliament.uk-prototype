@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   def index
-    @people = Parliament::Request.new.people.get
+    @people = Parliament::Request.new.people.get.sort_by(:family_name, :given_name)
   end
 
   def lookup
@@ -26,13 +26,13 @@ class PeopleController < ApplicationController
   def members
     data = Parliament::Request.new.people.members.get
 
-    @people = data.filter('http://id.ukpds.org/schema/Person')
+    @people = data.filter('http://id.ukpds.org/schema/Person').sort_by(:family_name, :given_name)
   end
 
   def current_members
     data = Parliament::Request.new.people.members.current.get
 
-    @people = data.filter('http://id.ukpds.org/schema/Person')
+    @people = data.filter('http://id.ukpds.org/schema/Person').sort_by(:family_name, :given_name)
   end
 
   def contact_points
@@ -51,6 +51,7 @@ class PeopleController < ApplicationController
 
     @person, @parties = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/Party')
     @person = @person.first
+    @parties = @parties.sort_by(:name)
   end
 
   def current_party
@@ -70,6 +71,7 @@ class PeopleController < ApplicationController
 
     @person, @constituencies = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/ConstituencyGroup')
     @person = @person.first
+    @constituencies = @constituencies.sort_by(:name)
   end
 
   def current_constituency
@@ -89,6 +91,7 @@ class PeopleController < ApplicationController
 
     @person, @houses = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/House')
     @person = @person.first
+    @houses = @houses.sort_by(:name)
   end
 
   def current_house
@@ -104,7 +107,7 @@ class PeopleController < ApplicationController
   def letters
     letter = params[:letter]
 
-    @people = Parliament::Request.new.people(letter).get
+    @people = Parliament::Request.new.people(letter).get.sort_by(:family_name, :given_name)
   end
 
   def members_letters
@@ -112,7 +115,7 @@ class PeopleController < ApplicationController
 
     data = Parliament::Request.new.people.members(letter).get
 
-    @people = data.filter('http://id.ukpds.org/schema/Person')
+    @people = data.filter('http://id.ukpds.org/schema/Person').sort_by(:family_name, :given_name)
   end
 
   def current_members_letters
@@ -120,7 +123,7 @@ class PeopleController < ApplicationController
 
     data = Parliament::Request.new.people.members.current(letter).get
 
-    @people = data.filter('http://id.ukpds.org/schema/Person')
+    @people = data.filter('http://id.ukpds.org/schema/Person').sort_by(:family_name, :given_name)
   end
 
   def lookup_by_letters

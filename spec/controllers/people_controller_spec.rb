@@ -18,6 +18,11 @@ RSpec.describe PeopleController, vcr: true do
       end
     end
 
+    it 'assigns @people in alphabetical order' do
+      expect(assigns(:people)[0].given_name).to eq('Person 1 - forename')
+      expect(assigns(:people)[1].given_name).to eq('Person 2 - forename')
+    end
+
     it 'renders the index template' do
       expect(response).to render_template('index')
     end
@@ -72,6 +77,11 @@ RSpec.describe PeopleController, vcr: true do
       end
     end
 
+    it 'assigns @people in alphabetical order' do
+      expect(assigns(:people)[0].given_name).to eq('Person 1 - forename')
+      expect(assigns(:people)[1].given_name).to eq('Person 2 - forename')
+    end
+
     it 'renders the members template' do
       expect(response).to render_template('members')
     end
@@ -91,6 +101,11 @@ RSpec.describe PeopleController, vcr: true do
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
       end
+    end
+
+    it 'assigns @people in alphabetical order' do
+      expect(assigns(:people)[0].given_name).to eq('Person 1 - givenName')
+      expect(assigns(:people)[1].given_name).to eq('Person 2 - givenName')
     end
 
     it 'renders the current_members template' do
@@ -139,6 +154,11 @@ RSpec.describe PeopleController, vcr: true do
       end
     end
 
+    it 'assigns @parties in alphabetical order' do
+      expect(assigns(:parties)[0].name).to eq('Labour')
+      expect(assigns(:parties)[1].name).to eq('Labour2')
+    end
+
     it 'renders the parties template' do
       expect(response).to render_template('parties')
     end
@@ -181,6 +201,11 @@ RSpec.describe PeopleController, vcr: true do
         expect(constituency).to be_a(Grom::Node)
         expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
       end
+    end
+
+    it 'assigns @constituencies in alphabetical order' do
+      expect(assigns(:constituencies)[0].name).to eq('Dulwich')
+      expect(assigns(:constituencies)[1].name).to eq('Dulwich and West Norwood')
     end
 
     it 'renders the parties template' do
@@ -227,6 +252,11 @@ RSpec.describe PeopleController, vcr: true do
       end
     end
 
+    it 'assigns @houses in alphabetical order' do
+      expect(assigns(:houses)[0].name).to eq('House of Commons')
+      expect(assigns(:houses)[1].name).to eq('House of Lords')
+    end
+
     it 'renders the parties template' do
       expect(response).to render_template('houses')
     end
@@ -269,6 +299,11 @@ RSpec.describe PeopleController, vcr: true do
       end
     end
 
+    it 'assigns @people in alphabetical order' do
+      expect(assigns(:people)[0].given_name).to eq('Person 1 - forename')
+      expect(assigns(:people)[1].given_name).to eq('Person 2 - forename')
+    end
+
     it 'renders the letters template' do
       expect(response).to render_template('letters')
     end
@@ -290,6 +325,11 @@ RSpec.describe PeopleController, vcr: true do
       end
     end
 
+    it 'assigns @people in alphabetical order' do
+      expect(assigns(:people)[0].given_name).to eq('Person 1 - forename')
+      expect(assigns(:people)[1].given_name).to eq('Person 2 - forename')
+    end
+
     it 'renders the members_letters template' do
       expect(response).to render_template('members_letters')
     end
@@ -309,6 +349,11 @@ RSpec.describe PeopleController, vcr: true do
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
       end
+    end
+
+    it 'assigns @people in alphabetical order' do
+      expect(assigns(:people)[0].given_name).to eq('Person 1 - givenName')
+      expect(assigns(:people)[1].given_name).to eq('Person 2 - givenName')
     end
 
     it 'renders the current_members_letters template' do
