@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/parties/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427/members/current/c
+    uri: http://localhost:3030/parties/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427/members
     body:
       encoding: US-ASCII
       string: ''
@@ -29,19 +29,19 @@ http_interactions:
       Content-Type:
       - application/n-triples; charset=utf-8
       Etag:
-      - W/"b370bc00e3cbf0c1c6b5428918b6b948"
+      - W/"6f43e5c264d3a1500d77f8588d5520c3"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a2737f81-c745-480d-bf00-a52fb25d27c2
+      - 871c85c2-9181-4262-a24c-c64072d08b7b
       X-Runtime:
-      - '0.088834'
+      - '0.707438'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: |
-           <http://id.ukpds.org/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Party> .
+               <http://id.ukpds.org/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Party> .
                      <http://id.ukpds.org/7a048f56-0ddd-48b0-85bd-cf5dd9fa5427> <http://id.ukpds.org/schema/partyName> "Labour" .
                      <http://id.ukpds.org/0209183a-c96d-4d3f-a618-ae7cddeba64b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
                      <http://id.ukpds.org/0209183a-c96d-4d3f-a618-ae7cddeba64b> <http://id.ukpds.org/schema/personGivenName> "Person 1" .
@@ -61,6 +61,7 @@ http_interactions:
                      <http://id.ukpds.org/6561d508-6b61-4bd9-b03d-c07d0d073c36> <http://id.ukpds.org/schema/partyMemberHasPartyMembership> <http://id.ukpds.org/ae75ecc2-c6b9-45bb-bcf5-c1ee63362919> .
                      <http://id.ukpds.org/ae75ecc2-c6b9-45bb-bcf5-c1ee63362919> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/PartyMembership> .
                      <http://id.ukpds.org/ae75ecc2-c6b9-45bb-bcf5-c1ee63362919> <http://id.ukpds.org/schema/partyMembershipStartDate> "2005-06-13"^^<http://www.w3.org/2001/XMLSchema#date> .
+                     <http://id.ukpds.org/4d21f43a-89f1-47cc-80b8-6f3bbd13f853> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
     http_version:
-  recorded_at: Wed, 15 Feb 2017 17:05:33 GMT
+  recorded_at: Wed, 15 Feb 2017 11:00:57 GMT
 recorded_with: VCR 3.0.3
