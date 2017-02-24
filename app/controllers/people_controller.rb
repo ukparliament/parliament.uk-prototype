@@ -110,7 +110,7 @@ class PeopleController < ApplicationController
     @people = Parliament::Request.new.people(letter).get.sort_by(:family_name, :given_name)
     @letters = Parliament::Request.new.people.a_z_letters.get
 
-    p @letters
+    @letters = @letters.split("\r\n")
   end
 
   def members_letters
