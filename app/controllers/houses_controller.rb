@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   def index
-    @houses = Parliament::Request.new.houses.get
+    @houses = Parliament::Request.new.houses.get.sort_by(:name)
   end
 
   def lookup
@@ -27,6 +27,7 @@ class HousesController < ApplicationController
 
     @house, @people = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Person')
     @house = @house.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def current_members
@@ -36,6 +37,7 @@ class HousesController < ApplicationController
 
     @house, @people = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Person')
     @house = @house.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def parties
@@ -45,6 +47,7 @@ class HousesController < ApplicationController
 
     @house, @parties = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Party')
     @house = @house.first
+    @parties = @parties.sort_by(:name)
   end
 
   def current_parties
@@ -54,6 +57,7 @@ class HousesController < ApplicationController
 
     @house, @parties = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Party')
     @house = @house.first
+    @parties = @parties.sort_by(:name)
   end
 
   def party
@@ -75,6 +79,7 @@ class HousesController < ApplicationController
 
     @house, @people = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Person')
     @house = @house.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def current_members_letters
@@ -85,6 +90,7 @@ class HousesController < ApplicationController
 
     @house, @people = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Person')
     @house = @house.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def party_members
@@ -100,6 +106,7 @@ class HousesController < ApplicationController
     )
     @house = @house.first
     @party = @party.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def party_members_letters
@@ -116,6 +123,7 @@ class HousesController < ApplicationController
     )
     @house = @house.first
     @party = @party.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def current_party_members
@@ -132,6 +140,7 @@ class HousesController < ApplicationController
 
     @house = @house.first
     @party = @party.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def current_party_members_letters
@@ -149,6 +158,7 @@ class HousesController < ApplicationController
 
     @house = @house.first
     @party = @party.first
+    @people = @people.sort_by(:family_name, :given_name)
   end
 
   def lookup_by_letters
