@@ -2,8 +2,6 @@ require 'simplecov'
 SimpleCov.start 'rails'
 
 require 'webmock/rspec'
-require 'pry'
-require 'pry-nav'
 
 WebMock.disable_net_connect!(allow_localhost: true)
 
