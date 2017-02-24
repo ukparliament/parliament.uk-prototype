@@ -18,6 +18,11 @@ RSpec.describe ConstituenciesController, vcr: true do
       end
     end
 
+    it 'assigns @constituencies in alphabetical order' do
+      expect(assigns(:constituencies)[0].name).to eq('Aberavon')
+      expect(assigns(:constituencies)[1].name).to eq('Aberavon')
+    end
+
     it 'renders the index template' do
       expect(response).to render_template('index')
     end
@@ -46,9 +51,19 @@ RSpec.describe ConstituenciesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @constituency' do
+    it 'assigns @constituency and @seat_incumbencies' do
       expect(assigns(:constituency)).to be_a(Grom::Node)
       expect(assigns(:constituency).type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
+
+      assigns(:seat_incumbencies).each do |seat_incumbency|
+        expect(seat_incumbency).to be_a(Grom::Node)
+        expect(seat_incumbency.type).to eq('http://id.ukpds.org/schema/SeatIncumbency')
+      end
+    end
+
+    it 'assigns @seat_incumbencies in reverse chronological order' do
+      expect(assigns(:seat_incumbencies)[0].start_date).to eq(DateTime.new(2015, 5, 7))
+      expect(assigns(:seat_incumbencies)[1].start_date).to eq(DateTime.new(2010, 5, 6))
     end
 
     it 'renders the show template' do
@@ -70,6 +85,11 @@ RSpec.describe ConstituenciesController, vcr: true do
         expect(constituency).to be_a(Grom::Node)
         expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
       end
+    end
+
+    it 'assigns @constituencies in alphabetical order' do
+      expect(assigns(:constituencies)[0].name).to eq('Aberavon')
+      expect(assigns(:constituencies)[1].name).to eq('Aberconwy')
     end
 
     it 'renders the current template' do
@@ -124,9 +144,19 @@ RSpec.describe ConstituenciesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @constituency' do
+    it 'assigns @constituency and @seat_incumbencies' do
       expect(assigns(:constituency)).to be_a(Grom::Node)
       expect(assigns(:constituency).type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
+
+      assigns(:seat_incumbencies).each do |seat_incumbency|
+        expect(seat_incumbency).to be_a(Grom::Node)
+        expect(seat_incumbency.type).to eq('http://id.ukpds.org/schema/SeatIncumbency')
+      end
+    end
+
+    it 'assigns @seat_incumbencies in reverse chronological order' do
+      expect(assigns(:seat_incumbencies)[0].start_date).to eq(DateTime.new(2015, 5, 7))
+      expect(assigns(:seat_incumbencies)[1].start_date).to eq(DateTime.new(2010, 5, 6))
     end
 
     it 'renders the members template' do
@@ -143,9 +173,12 @@ RSpec.describe ConstituenciesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @constituency' do
+    it 'assigns @constituency and @seat_incumbency' do
       expect(assigns(:constituency)).to be_a(Grom::Node)
       expect(assigns(:constituency).type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
+
+      expect(assigns(:seat_incumbency)).to be_a(Grom::Node)
+      expect(assigns(:seat_incumbency).type).to eq('http://id.ukpds.org/schema/SeatIncumbency')
     end
 
     it 'renders the current_member template' do
@@ -169,6 +202,11 @@ RSpec.describe ConstituenciesController, vcr: true do
       end
     end
 
+    it 'assigns @constituencies in alphabetical order' do
+      expect(assigns(:constituencies)[0].name).to eq('Aberavon')
+      expect(assigns(:constituencies)[1].name).to eq('Aberavon')
+    end
+
     it 'renders the letters template' do
       expect(response).to render_template('letters')
     end
@@ -188,6 +226,11 @@ RSpec.describe ConstituenciesController, vcr: true do
         expect(constituency).to be_a(Grom::Node)
         expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
       end
+    end
+
+    it 'assigns @constituencies in alphabetical order' do
+      expect(assigns(:constituencies)[0].name).to eq('Aberavon')
+      expect(assigns(:constituencies)[1].name).to eq('Aberconwy')
     end
 
     it 'renders the current_letters template' do

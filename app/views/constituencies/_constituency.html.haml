@@ -2,7 +2,7 @@
 %p= @constituency.end_date
 
 %ul.list
-  - @constituency.seat_incumbencies.each do |seat_incumbency|
+  - @seat_incumbencies.each do |seat_incumbency|
     %li.list__item
       = link_to seat_incumbency.member.full_name, person_path(seat_incumbency.member.graph_id)
       %ol

@@ -1,6 +1,6 @@
 class ConstituenciesController < ApplicationController
   def index
-    @constituencies = Parliament::Request.new.constituencies.get
+    @constituencies = Parliament::Request.new.constituencies.get.sort_by(:name)
   end
 
   def lookup
@@ -14,50 +14,78 @@ class ConstituenciesController < ApplicationController
 
   def show
     constituency_id = params[:constituency_id]
+
     data = Parliament::Request.new.constituencies(constituency_id).get
-    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
+
+    @constituency, @seat_incumbencies = data.filter(
+      'http://id.ukpds.org/schema/ConstituencyGroup',
+      'http://id.ukpds.org/schema/SeatIncumbency'
+    )
+    @constituency = @constituency.first
+    @seat_incumbencies = @seat_incumbencies.sort_by(:start_date).reverse!
   end
 
   def current
-    @constituencies = Parliament::Request.new.constituencies.current.get
+    @constituencies = Parliament::Request.new.constituencies.current.get.sort_by(:name)
   end
 
   def map
     constituency_id = params[:constituency_id]
+
     data = Parliament::Request.new.constituencies(constituency_id).get
+
     @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
   end
 
   def contact_point
     constituency_id = params[:constituency_id]
+
     data = Parliament::Request.new.constituencies(constituency_id).contact_point.get
+
     @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
   end
 
   def members
     constituency_id = params[:constituency_id]
+
     data = Parliament::Request.new.constituencies(constituency_id).members.get
-    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
+
+    @constituency, @seat_incumbencies = data.filter(
+      'http://id.ukpds.org/schema/ConstituencyGroup',
+      'http://id.ukpds.org/schema/SeatIncumbency'
+    )
+    @constituency = @constituency.first
+    @seat_incumbencies = @seat_incumbencies.sort_by(:start_date).reverse!
   end
 
   def current_member
     constituency_id = params[:constituency_id]
+
     data = Parliament::Request.new.constituencies(constituency_id).members.current.get
-    @constituency = data.filter('http://id.ukpds.org/schema/ConstituencyGroup').first
+
+    @constituency, @seat_incumbency = data.filter(
+      'http://id.ukpds.org/schema/ConstituencyGroup',
+      'http://id.ukpds.org/schema/SeatIncumbency'
+    )
+    @constituency = @constituency.first
+    @seat_incumbency = @seat_incumbency.first
   end
 
   def letters
     letter = params[:letter]
-    @constituencies = Parliament::Request.new.constituencies(letter).get
+
+    @constituencies = Parliament::Request.new.constituencies(letter).get.sort_by(:name)
   end
 
   def current_letters
     letter = params[:letter]
-    @constituencies = Parliament::Request.new.constituencies.current(letter).get
+
+    @constituencies = Parliament::Request.new.constituencies.current(letter).get.sort_by(:name)
   end
 
   def lookup_by_letters
     letters = params[:letters]
+
     data = Parliament::Request.new.constituencies(letters).get
 
     if data.size == 1
