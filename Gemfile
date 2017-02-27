@@ -51,4 +51,3 @@ end
 
 # Gems required for Docker containers
 gem 'passenger'
-gem 'therubyracer'
