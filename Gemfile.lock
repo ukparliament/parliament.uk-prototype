@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/katylouise/parliament-ruby
-  revision: b3506de4808cd780d72cbc3243450b98bb61c302
+  revision: 1b4153c7a0e7e4d1bfd55e23101724fac0b9d9dc
   branch: katylouise/website-551_return-a-z-letters
   specs:
     parliament-ruby (0.4.0)
@@ -68,7 +68,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    concurrent-ruby (1.0.4)
+    concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)

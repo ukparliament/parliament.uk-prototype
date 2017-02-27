@@ -108,9 +108,9 @@ class PeopleController < ApplicationController
     letter = params[:letter]
 
     @people = Parliament::Request.new.people(letter).get.sort_by(:family_name, :given_name)
-    @letters = Parliament::Request.new.people.a_z_letters.get
+    letter_response = Parliament::Request.new.people.a_z_letters.get
 
-    @letters = @letters.split("\r\n")
+    @letters = generate_letters(letter_response)
   end
 
   def members_letters
