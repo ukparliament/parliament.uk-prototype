@@ -29,13 +29,13 @@ http_interactions:
       Content-Type:
       - application/n-triples; charset=utf-8
       Etag:
-      - W/"a70325f7fcf222335ae814be273ff7a9"
+      - W/"df6f14f933730e7dbda245224af55973"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f79dbc8c-06bd-4b21-9fe7-a0bdf78e4feb
+      - b346e550-992e-4bd8-8965-607de90cab55
       X-Runtime:
-      - '7.488398'
+      - '15.362741'
       Transfer-Encoding:
       - chunked
     body:
@@ -84,7 +84,75 @@ http_interactions:
         <http://id.ukpds.org/086a14a9-c140-49c2-8c4d-6e24dde7f5b2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/SeatIncumbency> .
         <http://id.ukpds.org/086a14a9-c140-49c2-8c4d-6e24dde7f5b2> <http://id.ukpds.org/schema/seatIncumbencyEndDate> "2005-05-05"^^<http://www.w3.org/2001/XMLSchema#date> .
         <http://id.ukpds.org/086a14a9-c140-49c2-8c4d-6e24dde7f5b2> <http://id.ukpds.org/schema/seatIncumbencyStartDate> "2001-06-07"^^<http://www.w3.org/2001/XMLSchema#date> .
-
     http_version:
-  recorded_at: Wed, 08 Feb 2017 15:48:43 GMT
+  recorded_at: Mon, 27 Feb 2017 17:10:00 GMT
+- request:
+    method: get
+    uri: http://localhost:3030/houses/c2d41b82-d4df-4f50-b0f9-f52b84a6a788/members/a_z_letters
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - localhost:3030
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/n-triples; charset=utf-8
+      Etag:
+      - W/"e57362a714a8e75f69afc6089999a2af"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c1681623-0ebe-442c-9d87-b4d975fa643b
+      X-Runtime:
+      - '0.204971'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        _:node1869 <http://id.ukpds.org/schema/value> "M" .
+        _:node1870 <http://id.ukpds.org/schema/value> "F" .
+        _:node1871 <http://id.ukpds.org/schema/value> "D" .
+        _:node1872 <http://id.ukpds.org/schema/value> "B" .
+        _:node1873 <http://id.ukpds.org/schema/value> "J" .
+        _:node1874 <http://id.ukpds.org/schema/value> "C" .
+        _:node1875 <http://id.ukpds.org/schema/value> "L" .
+        _:node1876 <http://id.ukpds.org/schema/value> "S" .
+        _:node1877 <http://id.ukpds.org/schema/value> "E" .
+        _:node1878 <http://id.ukpds.org/schema/value> "T" .
+        _:node1879 <http://id.ukpds.org/schema/value> "H" .
+        _:node1880 <http://id.ukpds.org/schema/value> "P" .
+        _:node1881 <http://id.ukpds.org/schema/value> "R" .
+        _:node1882 <http://id.ukpds.org/schema/value> "W" .
+        _:node1883 <http://id.ukpds.org/schema/value> "K" .
+        _:node1884 <http://id.ukpds.org/schema/value> "G" .
+        _:node1885 <http://id.ukpds.org/schema/value> "I" .
+        _:node1886 <http://id.ukpds.org/schema/value> "A" .
+        _:node1887 <http://id.ukpds.org/schema/value> "Q" .
+        _:node1888 <http://id.ukpds.org/schema/value> "V" .
+        _:node1889 <http://id.ukpds.org/schema/value> "N" .
+        _:node1890 <http://id.ukpds.org/schema/value> "O" .
+        _:node1891 <http://id.ukpds.org/schema/value> "Y" .
+        _:node1892 <http://id.ukpds.org/schema/value> "U" .
+        _:node1893 <http://id.ukpds.org/schema/value> "Z" .
+        _:node1894 <http://id.ukpds.org/schema/value> "\u00D6" .
+    http_version:
+  recorded_at: Mon, 27 Feb 2017 17:10:04 GMT
 recorded_with: VCR 3.0.3

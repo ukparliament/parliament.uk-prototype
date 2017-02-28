@@ -1,6 +1,9 @@
 class PeopleController < ApplicationController
   def index
+    letter_data = Parliament::Request.new.people.a_z_letters.get
+
     @people = Parliament::Request.new.people.get.sort_by(:family_name, :given_name)
+    @letters = letter_data.map(&:value)
   end
 
   def lookup
@@ -25,14 +28,18 @@ class PeopleController < ApplicationController
 
   def members
     data = Parliament::Request.new.people.members.get
+    letter_data = Parliament::Request.new.people.members.a_z_letters.get
 
     @people = data.filter('http://id.ukpds.org/schema/Person').sort_by(:family_name, :given_name)
+    @letters = letter_data.map(&:value)
   end
 
   def current_members
     data = Parliament::Request.new.people.members.current.get
+    letter_data = Parliament::Request.new.people.members.current.a_z_letters.get
 
     @people = data.filter('http://id.ukpds.org/schema/Person').sort_by(:family_name, :given_name)
+    @letters = letter_data.map(&:value)
   end
 
   def contact_points
@@ -107,26 +114,30 @@ class PeopleController < ApplicationController
   def letters
     letter = params[:letter]
 
-    @people = Parliament::Request.new.people(letter).get.sort_by(:family_name, :given_name)
-    letter_response = Parliament::Request.new.people.a_z_letters.get
+    letter_data = Parliament::Request.new.people.a_z_letters.get
 
-    @letters = generate_letters(letter_response)
+    @people = Parliament::Request.new.people(letter).get.sort_by(:family_name, :given_name)
+    @letters = letter_data.map(&:value)
   end
 
   def members_letters
     letter = params[:letter]
 
     data = Parliament::Request.new.people.members(letter).get
+    letter_data = Parliament::Request.new.people.members.a_z_letters.get
 
     @people = data.filter('http://id.ukpds.org/schema/Person').sort_by(:family_name, :given_name)
+    @letters = letter_data.map(&:value)
   end
 
   def current_members_letters
     letter = params[:letter]
 
     data = Parliament::Request.new.people.members.current(letter).get
+    letter_data = Parliament::Request.new.people.members.current.a_z_letters.get
 
     @people = data.filter('http://id.ukpds.org/schema/Person').sort_by(:family_name, :given_name)
+    @letters = letter_data.map(&:value)
   end
 
   def lookup_by_letters
