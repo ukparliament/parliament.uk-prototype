@@ -1,5 +1,5 @@
-%p= @constituency.start_date
-%p= @constituency.end_date
+%p= "#{l(@constituency.start_date, format: :default)} - "
+%p= "#{l(@constituency.end_date, format: :default)}"
 
 %ul.list
   - @seat_incumbencies.each do |seat_incumbency|
