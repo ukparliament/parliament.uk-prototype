@@ -1,4 +1,4 @@
-%li
+%li.list__item
   = link_to(party_member.full_name, person_path(party_member.graph_id))
   %ul
     - party_member.party_memberships.sort{ |mem_a, mem_b| mem_b.send(:start_date) <=> mem_a.send(:start_date) }.each do |party_membership|
