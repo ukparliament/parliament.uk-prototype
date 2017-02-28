@@ -106,7 +106,7 @@ class HousesController < ApplicationController
     party_id = params[:party_id]
 
     data = Parliament::Request.new.houses(house_id).parties(party_id).members.get
-    letter_data = Parliament::Request.new.houses(house_id).members.current.a_z_letters.get
+    letter_data = Parliament::Request.new.houses(house_id).parties(party_id).members.a_z_letters.get
 
     @house, @party, @people = data.filter(
       'http://id.ukpds.org/schema/House',
@@ -125,7 +125,7 @@ class HousesController < ApplicationController
     letter = params[:letter]
 
     data = Parliament::Request.new.houses(house_id).parties(party_id).members(letter).get
-    letter_data = Parliament::Request.new.houses(house_id).members.current.a_z_letters.get
+    letter_data = Parliament::Request.new.houses(house_id).parties(party_id).members.a_z_letters.get
 
     @house, @party, @people = data.filter(
       'http://id.ukpds.org/schema/House',
@@ -143,7 +143,7 @@ class HousesController < ApplicationController
     party_id = params[:party_id]
 
     data = Parliament::Request.new.houses(house_id).parties(party_id).members.current.get
-    letter_data = Parliament::Request.new.houses(house_id).members.current.a_z_letters.get
+    letter_data = Parliament::Request.new.houses(house_id).parties(party_id).members.current.a_z_letters.get
 
     @house, @party, @people = data.filter(
       'http://id.ukpds.org/schema/House',
@@ -163,7 +163,7 @@ class HousesController < ApplicationController
     letter = params[:letter]
 
     data = Parliament::Request.new.houses(house_id).parties(party_id).members.current(letter).get
-    letter_data = Parliament::Request.new.houses(house_id).members.current.a_z_letters.get
+    letter_data = Parliament::Request.new.houses(house_id).parties(party_id).members.current.a_z_letters.get
 
     @house, @party, @people = data.filter(
       'http://id.ukpds.org/schema/House',

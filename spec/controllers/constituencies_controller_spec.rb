@@ -11,11 +11,13 @@ RSpec.describe ConstituenciesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @constituencies' do
+    it 'assigns @constituencies and @letters' do
       assigns(:constituencies).each do |constituency|
         expect(constituency).to be_a(Grom::Node)
         expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
       end
+
+      expect(assigns(:letters)).to be_a(Array)
     end
 
     it 'assigns @constituencies in alphabetical order' do
@@ -80,11 +82,13 @@ RSpec.describe ConstituenciesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @constituencies' do
+    it 'assigns @constituencies and @letters' do
       assigns(:constituencies).each do |constituency|
         expect(constituency).to be_a(Grom::Node)
         expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
       end
+
+      expect(assigns(:letters)).to be_a(Array)
     end
 
     it 'assigns @constituencies in alphabetical order' do
@@ -195,11 +199,13 @@ RSpec.describe ConstituenciesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @constituencies' do
+    it 'assigns @constituencies and @letters' do
       assigns(:constituencies).each do |constituency|
         expect(constituency).to be_a(Grom::Node)
         expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
       end
+
+      expect(assigns(:letters)).to be_a(Array)
     end
 
     it 'assigns @constituencies in alphabetical order' do
@@ -221,11 +227,13 @@ RSpec.describe ConstituenciesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @constituencies' do
+    it 'assigns @constituencies and @letters' do
       assigns(:constituencies).each do |constituency|
         expect(constituency).to be_a(Grom::Node)
         expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
       end
+
+      expect(assigns(:letters)).to be_a(Array)
     end
 
     it 'assigns @constituencies in alphabetical order' do
