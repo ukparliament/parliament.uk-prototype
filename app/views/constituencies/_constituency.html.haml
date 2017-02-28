@@ -1,10 +1,10 @@
-%p= @constituency.start_date
-%p= @constituency.end_date
+%p= "#{@constituency.start_date} - #{@constituency.end_date.nil? ? "Present" : @constituency.end_date}"
 
 %ul.list
   - @seat_incumbencies.each do |seat_incumbency|
     %li.list__item
       = link_to seat_incumbency.member.full_name, person_path(seat_incumbency.member.graph_id)
       %ol
-        %li= "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-        %li= " - #{l(seat_incumbency.end_date, format: :default)}" unless seat_incumbency.end_date.nil?
+        %li
+          = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+          = seat_incumbency.end_date.nil? ? " - Present" : " - #{l(seat_incumbency.end_date, format: :default)}"
