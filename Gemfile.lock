@@ -60,7 +60,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    concurrent-ruby (1.0.4)
+    concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
@@ -103,7 +103,7 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    parliament-ruby (0.4.0)
+    parliament-ruby (0.4.1)
       grom (~> 0.3.5)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -225,7 +225,7 @@ DEPENDENCIES
   foreman
   haml (= 4.0.7)
   json-ld (= 2.1.0)
-  parliament-ruby (= 0.4.0)
+  parliament-ruby (= 0.4.1)
   passenger
   pugin!
   rails (= 5.0.1)

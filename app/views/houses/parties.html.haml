@@ -1,6 +1,6 @@
 %h1= @house.name
 
 %h3= t('parties_title')
-%ul
+%ul.list
   = render :partial => 'houses/party', collection: @parties
 

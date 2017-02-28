@@ -65,7 +65,7 @@ http_interactions:
         _:node1505186 <http://id.ukpds.org/schema/value> "J" .
         _:node1505187 <http://id.ukpds.org/schema/value> "U" .
         _:node1505188 <http://id.ukpds.org/schema/value> "Q" .
-    http_version:
+    http_version: 
   recorded_at: Tue, 28 Feb 2017 09:47:00 GMT
 - request:
     method: get
@@ -7862,6 +7862,6 @@ http_interactions:
         <http://id.ukpds.org/8cdca237-af45-413e-bc02-4e98ec430515> <http://id.ukpds.org/schema/constituencyGroupName> "Worthing" .
         <http://id.ukpds.org/65b4e4c7-3302-4fb6-bc67-b5dc168fc1a1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ConstituencyGroup> .
         <http://id.ukpds.org/65b4e4c7-3302-4fb6-bc67-b5dc168fc1a1> <http://id.ukpds.org/schema/constituencyGroupName> "Yeovil" .
-    http_version:
+    http_version: 
   recorded_at: Tue, 28 Feb 2017 09:47:03 GMT
 recorded_with: VCR 3.0.3
