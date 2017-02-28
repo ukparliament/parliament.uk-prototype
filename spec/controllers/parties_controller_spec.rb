@@ -10,11 +10,13 @@ RSpec.describe PartiesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @parties' do
+    it 'assigns @parties and @letters' do
       assigns(:parties).each do |party|
         expect(party).to be_a(Grom::Node)
         expect(party.type).to eq('http://id.ukpds.org/schema/Party')
       end
+
+      expect(assigns(:letters)).to be_a(Array)
     end
 
     it 'assigns @parties in alphabetical order' do
@@ -105,9 +107,10 @@ RSpec.describe PartiesController, vcr: true do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'assigns @party and @people' do
+      it 'assigns @party, @people and @letters' do
         expect(assigns(:party)).to be_a(Grom::Node)
         expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
+        expect(assigns(:letters)).to be_a(Array)
 
         assigns(:people).each do |person|
           expect(person).to be_a(Grom::Node)
@@ -129,16 +132,17 @@ RSpec.describe PartiesController, vcr: true do
   describe 'GET current members' do
     context 'for a specific party' do
       before(:each) do
-        get :current_members, params: {party_id: '7a048f56-0ddd-48b0-85bd-cf5dd9fa5427'}
+        get :current_members, params: { party_id: '7a048f56-0ddd-48b0-85bd-cf5dd9fa5427' }
       end
 
       it 'should have a response with http status ok (200)' do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'assigns @party and @people' do
+      it 'assigns @party, @people and @letters' do
         expect(assigns(:party)).to be_a(Grom::Node)
         expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
+        expect(assigns(:letters)).to be_a(Array)
 
         assigns(:people).each do |person|
           expect(person).to be_a(Grom::Node)
@@ -167,11 +171,13 @@ RSpec.describe PartiesController, vcr: true do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'assigns @parties' do
+      it 'assigns @parties and @letters' do
         assigns(:parties).each do |party|
           expect(party).to be_a(Grom::Node)
           expect(party.type).to eq('http://id.ukpds.org/schema/Party')
         end
+
+        expect(assigns(:letters)).to be_a(Array)
       end
 
       it 'assigns @parties in alphabetical order' do
@@ -195,9 +201,10 @@ RSpec.describe PartiesController, vcr: true do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'assigns @party and @people' do
+      it 'assigns @party, @people and @letters' do
         expect(assigns(:party)).to be_a(Grom::Node)
         expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
+        expect(assigns(:letters)).to be_a(Array)
 
         assigns(:people).each do |person|
           expect(person).to be_a(Grom::Node)
@@ -226,9 +233,10 @@ RSpec.describe PartiesController, vcr: true do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'assigns @party and @people' do
+      it 'assigns @party, @people and @letters' do
         expect(assigns(:party)).to be_a(Grom::Node)
         expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
+        expect(assigns(:letters)).to be_a(Array)
 
         assigns(:people).each do |person|
           expect(person).to be_a(Grom::Node)

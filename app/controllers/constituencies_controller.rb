@@ -1,6 +1,9 @@
 class ConstituenciesController < ApplicationController
   def index
+    letter_data = Parliament::Request.new.constituencies.a_z_letters.get
+
     @constituencies = Parliament::Request.new.constituencies.get.sort_by(:name)
+    @letters = letter_data.map(&:value)
   end
 
   def lookup
@@ -26,7 +29,10 @@ class ConstituenciesController < ApplicationController
   end
 
   def current
+    letter_data = Parliament::Request.new.constituencies.current.a_z_letters.get
+
     @constituencies = Parliament::Request.new.constituencies.current.get.sort_by(:name)
+    @letters = letter_data.map(&:value)
   end
 
   def map
@@ -74,13 +80,19 @@ class ConstituenciesController < ApplicationController
   def letters
     letter = params[:letter]
 
+    letter_data = Parliament::Request.new.constituencies.a_z_letters.get
+
     @constituencies = Parliament::Request.new.constituencies(letter).get.sort_by(:name)
+    @letters = letter_data.map(&:value)
   end
 
   def current_letters
     letter = params[:letter]
 
+    letter_data = Parliament::Request.new.constituencies.current.a_z_letters.get
+
     @constituencies = Parliament::Request.new.constituencies.current(letter).get.sort_by(:name)
+    @letters = letter_data.map(&:value)
   end
 
   def lookup_by_letters

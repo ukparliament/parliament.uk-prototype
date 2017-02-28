@@ -11,11 +11,13 @@ RSpec.describe PeopleController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @people' do
+    it 'assigns @people and @letters' do
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
       end
+
+      expect(assigns(:letters)).to be_a(Array)
     end
 
     it 'assigns @people in alphabetical order' do
@@ -70,11 +72,13 @@ RSpec.describe PeopleController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @people' do
+    it 'assigns @people and @letters' do
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
       end
+
+      expect(assigns(:letters)).to be_a(Array)
     end
 
     it 'assigns @people in alphabetical order' do
@@ -96,11 +100,13 @@ RSpec.describe PeopleController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @people' do
+    it 'assigns @people and @letters' do
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
       end
+
+      expect(assigns(:letters)).to be_a(Array)
     end
 
     it 'assigns @people in alphabetical order' do
@@ -318,11 +324,13 @@ RSpec.describe PeopleController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @people' do
+    it 'assigns @people and @letters' do
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
       end
+
+      expect(assigns(:letters)).to be_a(Array)
     end
 
     it 'assigns @people in alphabetical order' do
@@ -344,11 +352,13 @@ RSpec.describe PeopleController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @people' do
+    it 'assigns @people and @letters' do
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
       end
+
+      expect(assigns(:letters)).to be_a(Array)
     end
 
     it 'assigns @people in alphabetical order' do

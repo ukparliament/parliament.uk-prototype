@@ -70,9 +70,11 @@ RSpec.describe HousesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @house and @people' do
+    it 'assigns @house, @people and @letters' do
       expect(assigns(:house)).to be_a(Grom::Node)
       expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
+      expect(assigns(:letters)).to be_a(Array)
+
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
@@ -98,9 +100,11 @@ RSpec.describe HousesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @house and @people' do
+    it 'assigns @house, @people and @letters' do
       expect(assigns(:house)).to be_a(Grom::Node)
       expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
+      expect(assigns(:letters)).to be_a(Array)
+
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
@@ -203,9 +207,11 @@ RSpec.describe HousesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @house and @people' do
+    it 'assigns @house, @people and @letters' do
       expect(assigns(:house)).to be_a(Grom::Node)
       expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
+      expect(assigns(:letters)).to be_a(Array)
+
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
@@ -231,9 +237,11 @@ RSpec.describe HousesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @house and @people' do
+    it 'assigns @house, @people and @letters' do
       expect(assigns(:house)).to be_a(Grom::Node)
       expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
+      expect(assigns(:letters)).to be_a(Array)
+
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
@@ -259,11 +267,13 @@ RSpec.describe HousesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @house, @party and @people' do
+    it 'assigns @house, @party, @letters and @people' do
       expect(assigns(:house)).to be_a(Grom::Node)
       expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
       expect(assigns(:party)).to be_a(Grom::Node)
       expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
+      expect(assigns(:letters)).to be_a(Array)
+
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
@@ -289,11 +299,13 @@ RSpec.describe HousesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @house, @party and @people' do
+    it 'assigns @house, @party, @letters and @people' do
       expect(assigns(:house)).to be_a(Grom::Node)
       expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
       expect(assigns(:party)).to be_a(Grom::Node)
       expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
+      expect(assigns(:letters)).to be_a(Array)
+
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
@@ -319,11 +331,13 @@ RSpec.describe HousesController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @house, @party and @people' do
+    it 'assigns @house, @party, @letters and @people' do
       expect(assigns(:house)).to be_a(Grom::Node)
       expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
       expect(assigns(:party)).to be_a(Grom::Node)
       expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
+      expect(assigns(:letters)).to be_a(Array)
+
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
@@ -342,18 +356,20 @@ RSpec.describe HousesController, vcr: true do
 
   describe "GET current_party_members_letters" do
     before(:each) do
-      get :current_party_members_letters, params: {house_id: 'c2d41b82-d4df-4f50-b0f9-f52b84a6a788', party_id: 'ab77ae5d-7559-4636-ac25-2a23fd961980', letter: 't'}
+      get :current_party_members_letters, params: { house_id: 'c2d41b82-d4df-4f50-b0f9-f52b84a6a788', party_id: 'ab77ae5d-7559-4636-ac25-2a23fd961980', letter: 't' }
     end
 
     it 'should have a response with http status ok (200)' do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @house, @party and @people' do
+    it 'assigns @house, @party, @letters and @people' do
       expect(assigns(:house)).to be_a(Grom::Node)
       expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
       expect(assigns(:party)).to be_a(Grom::Node)
       expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
+      expect(assigns(:letters)).to be_a(Array)
+
       assigns(:people).each do |person|
         expect(person).to be_a(Grom::Node)
         expect(person.type).to eq('http://id.ukpds.org/schema/Person')
