@@ -1,4 +1,6 @@
-%p= "#{@constituency.start_date} - #{@constituency.end_date.nil? ? "Present" : @constituency.end_date}"
+%p
+  = "#{l(@constituency.start_date, format: :default)}" unless @constituency.start_date.nil?
+  = @constituency.end_date.nil? ? " - Present" : " - #{l(@constituency.end_date, format: :default)}"
 
 %ul.list
   - @seat_incumbencies.each do |seat_incumbency|

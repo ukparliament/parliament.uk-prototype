@@ -45,7 +45,7 @@ en:
   members_commons: 'Members of the House of Commons'
   time:
     formats:
-      default: '%Y-%m-%d'
+      default: '%d %b %Y'
   a_to_z:
     aria_label: 'Paged navigation'
   people:
