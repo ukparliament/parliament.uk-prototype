@@ -1,5 +1,5 @@
 %li.list__item
-  = link_to(person.full_name, person_path(person.graph_id))
+  %h2= link_to(person.full_name, person_path(person.graph_id))
   %ul
     - person.seat_incumbencies.sort{ |inc_a, inc_b| inc_b.send(:start_date) <=> inc_a.send(:start_date) }.each do |seat_incumbency|
       %li

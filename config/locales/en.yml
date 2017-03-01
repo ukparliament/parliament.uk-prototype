@@ -28,18 +28,20 @@ en:
   constituency: 'Constituency'
   contact_points_title: 'Contact Points'
   houses_title: 'Houses'
+  past_present: '(Past & Present)'
   house: 'House'
   email: 'Email'
   phone: 'Phone'
   fax: 'Fax'
   address: 'Address'
   addresses: 'Addresses'
-  download: 'download'
+  download: 'Download'
   members: 'Members'
   member: 'Member'
   current: 'Current'
   people_title: 'People'
   coming_soon: 'Coming Soon'
+  vcard_download: 'vCard:'
   past_and_present_members: 'Past and present members'
   members_hol: 'Members of the House of Lords'
   members_commons: 'Members of the House of Commons'
@@ -108,6 +110,8 @@ en:
       title: ! '%{current} %{parties}'
     letters:
       title: ! '%{parties}'
+    current_members_letters:
+      title: ! '%{current} %{members}'
   constituencies:
     index:
       title: ! '%{constituencies}'
