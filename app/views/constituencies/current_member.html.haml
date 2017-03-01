@@ -1,12 +1,11 @@
-%h2= @constituency.name
-%h3= t('.title', current: t('current'), member: t('member'))
+%h1= "#{@constituency.name} - #{t('.title', current: t('current'), member: t('member'))}"
 
 %p= @constituency.start_date
 %p= @constituency.end_date
 
 .block
   %ul.list__item
-    %li= link_to @seat_incumbency.member.full_name, person_path(@seat_incumbency.member.graph_id)
+    %h2= link_to @seat_incumbency.member.full_name, person_path(@seat_incumbency.member.graph_id)
     %li= "#{l(@seat_incumbency.start_date, format: :default)} - Present" unless @seat_incumbency.start_date.nil?
 
 

@@ -28,6 +28,7 @@ en:
   constituency: 'Constituency'
   contact_points_title: 'Contact Points'
   houses_title: 'Houses'
+  past_present: '(Past & Present)'
   house: 'House'
   email: 'Email'
   phone: 'Phone'
@@ -108,6 +109,8 @@ en:
       title: ! '%{current} %{parties}'
     letters:
       title: ! '%{parties}'
+    current_members_letters:
+      title: ! '%{current} %{members}'
   constituencies:
     index:
       title: ! '%{constituencies}'
