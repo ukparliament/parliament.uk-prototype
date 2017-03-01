@@ -1,6 +1,4 @@
-%h1= @house.name
-
-%h3= t('parties_title')
+%h1= "#{@house.name} - #{t('parties_title')} #{t('past_present')}"
 %ul.list
   = render :partial => 'houses/party', collection: @parties
 
