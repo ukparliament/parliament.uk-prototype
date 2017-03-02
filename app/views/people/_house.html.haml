@@ -1,7 +1,16 @@
 %li.list__item
   %h2= link_to(house.name, house_path(house.graph_id))
-  %ol
-    - house.seat_incumbencies.each do |seat_incumbency|
-      %li
-        = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-        = seat_incumbency.end_date.nil? ? " - Present" : " - #{l(seat_incumbency.end_date, format: :default)}"
+
+  - unless house.house_incumbencies.empty?
+    %ol
+      - house.house_incumbencies.each do |house_incumbency|
+        %li
+          = "#{l(house_incumbency.start_date, format: :default)}" unless house_incumbency.start_date.nil?
+          = house_incumbency.end_date.nil? ? " - Present" : " - #{l(house_incumbency.end_date, format: :default)}"
+
+  - unless house.seat_incumbencies.empty?
+    %ol
+      - house.seat_incumbencies.each do |seat_incumbency|
+        %li
+          = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+          = seat_incumbency.end_date.nil? ? " - Present" : " - #{l(seat_incumbency.end_date, format: :default)}"

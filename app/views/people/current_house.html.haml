@@ -4,4 +4,8 @@
   .block
     %ol.list__item
       %h2= link_to(@house.name, house_path(@house.graph_id))
-      %li= "#{l(@house.seat_incumbencies.first.start_date, format: :default)} - Present" unless @house.seat_incumbencies.first.start_date.nil?
+      - unless @house.seat_incumbencies.empty?
+        %li= "#{l(@house.seat_incumbencies.first.start_date, format: :default)} - Present" unless @house.seat_incumbencies.first.start_date.nil?
+
+      - unless @house.house_incumbencies.empty?
+        %li= "#{l(@house.house_incumbencies.first.start_date, format: :default)} - Present" unless @house.house_incumbencies.first.start_date.nil?

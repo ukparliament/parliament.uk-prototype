@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/katylouise/parliament-ruby
+  revision: 40809aabb596bce628b154996f96d79c1baf009e
+  branch: katylouise/website-568_update-decorators-for-lords
+  specs:
+    parliament-ruby (0.4.1)
+      grom (~> 0.3.5)
+
+GIT
   remote: https://github.com/ukparliament/parliament.uk-pugin-components-rails
   revision: fa29251ba5abe4522fd6a914be49d8ee0b0ea976
   branch: master
@@ -103,8 +111,6 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    parliament-ruby (0.4.1)
-      grom (~> 0.3.5)
     parser (2.4.0.0)
       ast (~> 2.2)
     passenger (5.1.2)
@@ -225,7 +231,7 @@ DEPENDENCIES
   foreman
   haml (= 4.0.7)
   json-ld (= 2.1.0)
-  parliament-ruby (= 0.4.1)
+  parliament-ruby!
   passenger
   pugin!
   rails (= 5.0.1)

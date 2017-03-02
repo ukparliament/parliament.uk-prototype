@@ -45,6 +45,8 @@ en:
   past_and_present_members: 'Past and present members'
   members_hol: 'Members of the House of Lords'
   members_commons: 'Members of the House of Commons'
+  hol: 'House of Lords'
+  hoc: 'House of Commons'
   time:
     formats:
       default: '%d %b %Y'
@@ -59,9 +61,9 @@ en:
       who_to_contact: 'Find out who to contact with your issue'
       empty_contact_details: 'There is currently no contact information available for this person.'
       contact_title: 'Contact Details'
-      contact_email: ! '#{email}:'
-      contact_phone: ! '#{phone}:'
-      contact_address: ! '#{address}:'
+      email: ! '%{email}:'
+      phone: ! '%{phone}:'
+      address: ! '%{address}:'
       election_history: 'Election History'
       empty_election_history: 'There is currently no election information available for this person.'
     members:
