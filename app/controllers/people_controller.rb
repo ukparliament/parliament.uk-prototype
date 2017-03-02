@@ -44,6 +44,7 @@ class PeopleController < ApplicationController
     letter_data = Parliament::Request.new.people.members.current.a_z_letters.get
 
     @people = data.filter('http://id.ukpds.org/schema/Person').sort_by(:family_name, :given_name)
+    p @people.first.party_memberships.select(&:current?).first.party
     @letters = letter_data.map(&:value)
   end
 
