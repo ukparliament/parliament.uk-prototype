@@ -20,9 +20,14 @@ class PeopleController < ApplicationController
 
     data = Parliament::Request.new.people(person_id).get
 
-    @person = data.filter('http://id.ukpds.org/schema/Person').first
+    @person, @seat_incumbencies, @house_incumbencies = data.filter(
+      'http://id.ukpds.org/schema/Person',
+      'http://id.ukpds.org/schema/SeatIncumbency',
+      'http://id.ukpds.org/schema/HouseIncumbency')
 
-    @current_seat_incumbency = @person.seat_incumbencies.select(&:current?).first
+    @person = @person.first
+
+    @current_incumbency = @seat_incumbencies.select(&:current?).first || @house_incumbencies.select(&:current?).first
     @current_party_membership = @person.party_memberships.select(&:current?).first
   end
 
@@ -39,6 +44,7 @@ class PeopleController < ApplicationController
     letter_data = Parliament::Request.new.people.members.current.a_z_letters.get
 
     @people = data.filter('http://id.ukpds.org/schema/Person').sort_by(:family_name, :given_name)
+    p @people.first.party_memberships.select(&:current?).first.party
     @letters = letter_data.map(&:value)
   end
 
@@ -109,6 +115,7 @@ class PeopleController < ApplicationController
     @person, @house = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/House')
     @person = @person.first
     @house = @house.first
+    p @house.house_incumbencies
   end
 
   def letters
