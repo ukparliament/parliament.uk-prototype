@@ -47,6 +47,7 @@ en:
   members_commons: 'Members of the House of Commons'
   hol: 'House of Lords'
   hoc: 'House of Commons'
+  mp_for: 'MP for'
   time:
     formats:
       default: '%d %b %Y'

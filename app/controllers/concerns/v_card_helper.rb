@@ -24,8 +24,8 @@ module VCardHelper
   end
 
   def person_set(contact_point, name)
-    return false if contact_point.person.empty?
-    name.given = contact_point.person.first.given_name
-    name.family = contact_point.person.first.family_name
+    return false if contact_point.incumbency.nil? || contact_point.incumbency.member.nil?
+    name.given = contact_point.incumbency.member.given_name
+    name.family = contact_point.incumbency.member.family_name
   end
 end
