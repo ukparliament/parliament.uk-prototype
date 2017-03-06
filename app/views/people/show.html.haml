@@ -13,7 +13,6 @@
     .highlight__box
       %p= t('.mp_representative')
 
-
 - if @current_incumbency
   %h2.bordered= t('.contact_title')
   .block
@@ -21,18 +20,22 @@
       %p= t('.empty_contact_details')
     - @current_incumbency.contact_points.each do |contact_point|
       %dl.list__definition
-        %dt= "#{t('.email', email: t('email'))}"
-        %dd
-          %a{ :href => "mailto:#{contact_point.email}" }= contact_point.email
-        %dt= "#{t('.phone', phone: t('phone'))}"
-        %dd
-          %a{ :href => "tel:#{contact_point.phone_number}" }= contact_point.phone_number
-        %dt
-          = "#{t('.address', address: t('address'))}"
-          - contact_point.postal_addresses.each do |postal_address|
-            %dd= postal_address.full_address
-        %dt= "#{t('vcard_download')}"
-        %dd= link_to "#{t('download')}", contact_point_path(contact_point.graph_id), target: '_blank'
+        - if contact_point.email.present?
+          %dt= "#{t('.email', email: t('email'))}"
+          %dd
+            %a{ :href => "mailto:#{contact_point.email}" }= contact_point.email
+        - if contact_point.phone_number.present?
+          %dt= "#{t('.phone', phone: t('phone'))}"
+          %dd
+            %a{ :href => "tel:#{contact_point.phone_number}" }= contact_point.phone_number
+        - if contact_point.postal_addresses.present?
+          %dt
+            = "#{t('.address', address: t('address'))}"
+            - contact_point.postal_addresses.each do |postal_address|
+              %dd= postal_address.full_address
+        - if contact_point.graph_id.present?
+          %dt= t('vcard_download')
+          %dd= link_to "#{t('download')}", contact_point_path(contact_point.graph_id), target: '_blank'
 
 %h2.bordered= t('.membership_history')
 %ol.list
