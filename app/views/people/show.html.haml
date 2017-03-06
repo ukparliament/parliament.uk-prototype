@@ -31,8 +31,10 @@
           = "#{t('.address', address: t('address'))}"
           - contact_point.postal_addresses.each do |postal_address|
             %dd= postal_address.full_address
+        %dt= "#{t('vcard_download')}"
+        %dd= link_to "#{t('download')}", contact_point_path(contact_point.graph_id), target: '_blank'
 
-%h2.bordered= t('.election_history')
+%h2.bordered= t('.membership_history')
 %ol.list
   %h3= t('hol')
   - if @house_incumbencies.empty?
@@ -42,7 +44,7 @@
       %ul
         %li
           = "#{l(house_incumbency.start_date, format: :default)}" unless house_incumbency.start_date.nil?
-          = house_incumbency.end_date.nil? ? " - Present" : " - #{l(house_incumbency.end_date, format: :default)}"
+          = house_incumbency.end_date.nil? ? " to Present" : " to #{l(house_incumbency.end_date, format: :default)}"
 
   %h3= t('hoc')
   - if @seat_incumbencies.empty?
@@ -55,4 +57,4 @@
           = link_to(seat_incumbency.constituency.name, constituency_path(seat_incumbency.constituency.graph_id))
         %li
           = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-          = seat_incumbency.end_date.nil? ? " - Present" : " - #{l(seat_incumbency.end_date, format: :default)}"
+          = seat_incumbency.end_date.nil? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"

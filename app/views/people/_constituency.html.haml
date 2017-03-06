@@ -4,4 +4,4 @@
     - constituency.seat_incumbencies.each do |seat_incumbency|
       %li
         = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-        = seat_incumbency.end_date.nil? ? " - Present" : " - #{l(seat_incumbency.end_date, format: :default)}"
+        = seat_incumbency.end_date.nil? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"

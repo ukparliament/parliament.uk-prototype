@@ -65,7 +65,7 @@ en:
       email: ! '%{email}:'
       phone: ! '%{phone}:'
       address: ! '%{address}:'
-      election_history: 'Election History'
+      membership_history: 'Membership History'
       empty_election_history: 'There is currently no election information available for this person.'
     members:
       title: ! '%{members}'
