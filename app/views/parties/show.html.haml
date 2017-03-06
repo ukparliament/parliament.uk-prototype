@@ -1,3 +1,4 @@
 %h1
+  = @party.name if @party.name.present?
 
-= render 'party'
+%h2= link_to(t('members'), party_members_current_path(@party.graph_id))

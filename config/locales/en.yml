@@ -107,6 +107,8 @@ en:
       title: ! '%{parties}'
     members:
       title: ! '%{members}'
+    members_letters:
+      title: ! '%{members}'
     current_members:
       title: ! '%{current} %{members}'
     current:
