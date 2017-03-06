@@ -22,13 +22,16 @@ build:
 		--build-arg ASSET_LOCATION_URL=$(ASSET_LOCATION_URL) \
 		.
 
-# Container port 3000 is specified in Dockerfile
-# Browse to http://localhost:80 to see the application
+# Container port 3000 is specified in the Dockerfile
+CONTAINER_PORT = 3000
+# Host port of 80 can be changed to any value but remember the app URL would be http://localhost:<host-port>
+HOST_PORT = 80
+
 run: build
-	docker run --rm -p 80:3000 $(IMAGE)
+	docker run --rm -p $(HOST_PORT):$(CONTAINER_PORT) $(IMAGE)
 
 dev:
-	docker run -p 80:3000 -v ${PWD}:/opt/$(APP_NAME) $(IMAGE)
+	docker run -p $(HOST_PORT):$(CONTAINER_PORT) -v ${PWD}:/opt/$(APP_NAME) $(IMAGE)
 
 test: build
 	docker run --rm $(IMAGE) bundle exec rake
