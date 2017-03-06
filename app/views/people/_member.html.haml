@@ -1,16 +1,16 @@
 %li.list__item
   %ul
-    - if person.respond_to?(:full_name) && person.respond_to?(:graph_id)
+    - if member.respond_to?(:full_name) && member.respond_to?(:graph_id)
       %li
-        %a{:href => "/people/#{person.graph_id}"}= person.full_name
-        - if !person.constituencies.empty?
-          - seat_incumbency = person.seat_incumbencies.select(&:current?).first
+        %a{:href => "/people/#{member.graph_id}"}= member.full_name
+        - if !member.constituencies.empty?
+          - seat_incumbency = member.seat_incumbencies.select(&:current?).first
           - unless seat_incumbency.nil?
             %li
               MP for
               %a{:href => "/constituencies/#{seat_incumbency.constituency.graph_id}"}= seat_incumbency.constituency.name
-        - if !person.parties.empty?
-          - party_membership = person.party_memberships.select(&:current?).first
+        - if !member.parties.empty?
+          - party_membership = member.party_memberships.select(&:current?).first
           - unless party_membership.nil?
             %li
               %a{:href => "/parties/#{party_membership.party.graph_id}"}= party_membership.party.name
