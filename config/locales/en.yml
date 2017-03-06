@@ -50,7 +50,7 @@ en:
   mp_for: 'MP for'
   time:
     formats:
-      default: '%d %b %Y'
+      default: '%-d %b %Y'
   a_to_z:
     aria_label: 'Paged navigation'
   people:
