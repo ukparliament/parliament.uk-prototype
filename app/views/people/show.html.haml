@@ -16,7 +16,8 @@
 - if @current_incumbency
   %h2= t('.contact_title')
   - if @current_incumbency.contact_points.empty?
-    %p= t('.empty_contact_details')
+    .block
+      %p= t('.empty_contact_details')
   - @current_incumbency.contact_points.each do |contact_point|
     %dl.list__definition
       - if contact_point.email.present?
