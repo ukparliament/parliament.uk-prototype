@@ -7,7 +7,7 @@
           - seat_incumbency = member.seat_incumbencies.select(&:current?).first
           - unless seat_incumbency.nil?
             %li
-              MP for
+              Current MP for
               %a{:href => "/constituencies/#{seat_incumbency.constituency.graph_id}"}= seat_incumbency.constituency.name
         - if !member.parties.empty?
           - party_membership = member.party_memberships.select(&:current?).first
