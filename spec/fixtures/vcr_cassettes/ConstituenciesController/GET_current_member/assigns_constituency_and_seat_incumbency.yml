@@ -26,32 +26,26 @@ http_interactions:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
-      Content-Type:
-      - application/n-triples; charset=utf-8
-      Etag:
-      - W/"4fb5ebfc921ce86b2b8978bfaa7eb82a"
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       X-Request-Id:
-      - e8cd3e8b-089d-4e66-ba0d-e5149e84282b
+      - 31779c31-a5c7-4ded-b447-8ec9016af8ae
       X-Runtime:
-      - '0.120872'
-      Transfer-Encoding:
-      - chunked
+      - '0.062285'
     body:
       encoding: UTF-8
       string: |
-        <http://id.ukpds.org/f9216185-f3dc-417c-a02e-455faedb2ac2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ConstituencyGroup> .
-        <http://id.ukpds.org/f9216185-f3dc-417c-a02e-455faedb2ac2> <http://id.ukpds.org/schema/constituencyGroupName> "Arfon" .
-        <http://id.ukpds.org/f9216185-f3dc-417c-a02e-455faedb2ac2> <http://id.ukpds.org/schema/constituencyGroupHasHouseSeat> <http://id.ukpds.org/f18f4e29-617f-4d04-8f01-69d8b637ced4> .
-        <http://id.ukpds.org/f18f4e29-617f-4d04-8f01-69d8b637ced4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/HouseSeat> .
-        <http://id.ukpds.org/f18f4e29-617f-4d04-8f01-69d8b637ced4> <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency> <http://id.ukpds.org/612cb96f-b6bb-42d5-a7c1-7ae9d8b5ae94> .
-        <http://id.ukpds.org/612cb96f-b6bb-42d5-a7c1-7ae9d8b5ae94> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/SeatIncumbency> .
-        <http://id.ukpds.org/612cb96f-b6bb-42d5-a7c1-7ae9d8b5ae94> <http://id.ukpds.org/schema/seatIncumbencyHasMember> <http://id.ukpds.org/367d126b-620c-475d-99dc-c58bdca6966d> .
-        <http://id.ukpds.org/612cb96f-b6bb-42d5-a7c1-7ae9d8b5ae94> <http://id.ukpds.org/schema/seatIncumbencyStartDate> "2015-05-07"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/367d126b-620c-475d-99dc-c58bdca6966d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
-        <http://id.ukpds.org/367d126b-620c-475d-99dc-c58bdca6966d> <http://id.ukpds.org/schema/personGivenName> "Person - givenName" .
-        <http://id.ukpds.org/367d126b-620c-475d-99dc-c58bdca6966d> <http://id.ukpds.org/schema/personFamilyName> "Person - familyName" .
+                      <http://id.ukpds.org/f9216185-f3dc-417c-a02e-455faedb2ac2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ConstituencyGroup> .
+                      <http://id.ukpds.org/f9216185-f3dc-417c-a02e-455faedb2ac2> <http://id.ukpds.org/schema/constituencyGroupName> "Arfon" .
+                      <http://id.ukpds.org/f9216185-f3dc-417c-a02e-455faedb2ac2> <http://id.ukpds.org/schema/constituencyGroupHasHouseSeat> <http://id.ukpds.org/f18f4e29-617f-4d04-8f01-69d8b637ced4> .
+                      <http://id.ukpds.org/f18f4e29-617f-4d04-8f01-69d8b637ced4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/HouseSeat> .
+                      <http://id.ukpds.org/f18f4e29-617f-4d04-8f01-69d8b637ced4> <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency> <http://id.ukpds.org/612cb96f-b6bb-42d5-a7c1-7ae9d8b5ae94> .
+                      <http://id.ukpds.org/612cb96f-b6bb-42d5-a7c1-7ae9d8b5ae94> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/SeatIncumbency> .
+                      <http://id.ukpds.org/612cb96f-b6bb-42d5-a7c1-7ae9d8b5ae94> <http://id.ukpds.org/schema/incumbencyHasMember> <http://id.ukpds.org/367d126b-620c-475d-99dc-c58bdca6966d> .
+                      <http://id.ukpds.org/612cb96f-b6bb-42d5-a7c1-7ae9d8b5ae94> <http://id.ukpds.org/schema/incumbencyStartDate> "2015-05-07"^^<http://www.w3.org/2001/XMLSchema#date> .
+                      <http://id.ukpds.org/367d126b-620c-475d-99dc-c58bdca6966d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+                      <http://id.ukpds.org/367d126b-620c-475d-99dc-c58bdca6966d> <http://id.ukpds.org/schema/personGivenName> "Person - givenName" .
+                      <http://id.ukpds.org/367d126b-620c-475d-99dc-c58bdca6966d> <http://id.ukpds.org/schema/personFamilyName> "Person - familyName" .
     http_version:
-  recorded_at: Fri, 24 Feb 2017 11:40:16 GMT
+  recorded_at: Wed, 08 Mar 2017 17:43:18 GMT
 recorded_with: VCR 3.0.3
