@@ -3,4 +3,3 @@
     %li.list__item
       %ul
         %li= link_to constituency.name, constituency_path(constituency.graph_id)
-        %li= constituency.current? ? t('current_constituency') : t('past_constituency')

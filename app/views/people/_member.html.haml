@@ -3,6 +3,11 @@
     - if member.respond_to?(:full_name) && member.respond_to?(:graph_id)
       %li
         %a{:href => "/people/#{member.graph_id}"}= member.full_name
+
+        %li= "#{t('current_lord')}" if member.statuses.include?('Current Lord')
+        %li= "#{t('former_lord')}" if member.statuses.include?('Former Lord')
+        %li= "#{t('former_mp')}" if member.statuses.include?('Former MP')
+
         - if !member.constituencies.empty?
           - seat_incumbency = member.seat_incumbencies.select(&:current?).first
           - unless seat_incumbency.nil?

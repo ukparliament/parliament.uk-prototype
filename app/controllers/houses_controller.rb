@@ -63,7 +63,7 @@ class HousesController < ApplicationController
 
     @house, @parties = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Party')
     @house = @house.first
-    @parties = @parties.sort_by(:name)
+    @parties = @parties.sort_by(:member_count).reverse
   end
 
   def party

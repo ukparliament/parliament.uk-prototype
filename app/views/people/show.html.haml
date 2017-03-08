@@ -1,14 +1,18 @@
 %h1 #{@person.given_name} #{@person.family_name}
-.block
-  - if @current_incumbency && @current_incumbency.type == 'http://id.ukpds.org/schema/SeatIncumbency'
-    %p
-      = t('.mp_for')
-      = link_to(@current_incumbency.constituency.name, constituency_path(@current_incumbency.constituency.graph_id))
+- unless @person.statuses.empty?
+  .block
+    - if @person.statuses.include?('Current MP')
+      %p
+        = t('.mp_for')
+        = link_to(@current_incumbency.constituency.name, constituency_path(@current_incumbency.constituency.graph_id))
 
-  - if @current_party_membership
-    %p= link_to(@current_party_membership.party.name, party_path(@current_party_membership.party.graph_id))
+    - if !@person.statuses.empty? && !@person.statuses.include?('Current MP')
+      %p= @person.statuses.join(' and ')
 
-- if @current_incumbency && @current_incumbency.type == 'http://id.ukpds.org/schema/SeatIncumbency'
+    - if @current_party_membership
+      %p= link_to(@current_party_membership.party.name, party_path(@current_party_membership.party.graph_id))
+
+- unless @seat_incumbencies.select(&:current?).empty?
   .block
     .highlight__box
       %p= t('.mp_representative')

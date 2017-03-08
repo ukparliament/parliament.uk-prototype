@@ -1,0 +1,7 @@
+%li.list__item
+  %h2= link_to(party_membership.party.name, party_path(party_membership.party.graph_id))
+  %ol
+    %li
+      = "#{l(party_membership.start_date, format: :default)}" unless party_membership.start_date.nil?
+      = party_membership.end_date.nil? ? " to Present" : " to #{l(party_membership.end_date, format: :default)}"
+

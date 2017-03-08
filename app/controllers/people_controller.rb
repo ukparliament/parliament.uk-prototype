@@ -62,9 +62,9 @@ class PeopleController < ApplicationController
 
     data = Parliament::Request.new.people(person_id).parties.get
 
-    @person, @parties = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/Party')
+    @person, @party_memberships = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/PartyMembership')
     @person = @person.first
-    @parties = @parties.sort_by(:name)
+    @party_memberships = @party_memberships.sort_by(:start_date).reverse
   end
 
   def current_party
@@ -82,9 +82,9 @@ class PeopleController < ApplicationController
 
     data = Parliament::Request.new.people(person_id).constituencies.get
 
-    @person, @constituencies = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/ConstituencyGroup')
+    @person, @seat_incumbencies = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/SeatIncumbency')
     @person = @person.first
-    @constituencies = @constituencies.sort_by(:name)
+    @seat_incumbencies = @seat_incumbencies.sort_by(:start_date).reverse
   end
 
   def current_constituency
@@ -102,9 +102,12 @@ class PeopleController < ApplicationController
 
     data = Parliament::Request.new.people(person_id).houses.get
 
-    @person, @houses = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/House')
+    @person, @incumbencies, @house_incumbencies = data.filter(
+      'http://id.ukpds.org/schema/Person',
+      'http://id.ukpds.org/schema/Incumbency'
+    )
     @person = @person.first
-    @houses = @houses.sort_by(:name)
+    @incumbencies = @incumbencies.sort_by(:start_date).reverse
   end
 
   def current_house
