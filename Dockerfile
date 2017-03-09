@@ -21,11 +21,11 @@ ENV RAILS_ROOT /opt/parliamentukprototype
 RUN mkdir -p $RAILS_ROOT
 
 # gems installation
-COPY Gemfile* $RAILS_ROOT/
+COPY Gemfile $RAILS_ROOT/
 RUN cd $RAILS_ROOT \
     && gem update --system \
     && gem install bundler \
-    && env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
+    && NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
     && bundle update pugin \
     && chown -R $APP_USER:$APP_USER $GEM_HOME
 
@@ -41,11 +41,9 @@ ARG GIT_TAG=unknown
 LABEL git-sha=$GIT_SHA \
 	      git-tag=$GIT_TAG
 
-# Just to check the env var
-RUN env
-
 # EXPOSE 3000
 
-RUN rails assets:precompile
+RUN bundle update pugin \
+    && rails assets:precompile
 
 CMD ["passenger", "start"]
