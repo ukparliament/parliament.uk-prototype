@@ -3,65 +3,68 @@
 <head>
   <title>The change you wanted was rejected (422)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
-
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
+  <link href="https://s3-eu-west-1.amazonaws.com/pdswebops.pugin-website/1.1.1/stylesheets/main.css" rel="stylesheet">
 </head>
 
-<body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
+<body class="has-js">
+    <header>
+      <div class="c-fs header">
+        <div class="c-fg">
+          <div class="row--indent-horizontal">
+            <div class="header__logo">
+              <a href="/">
+                <img alt="parliament.uk" src="https://s3-eu-west-1.amazonaws.com/pdswebops.pugin-website/images/parliament-uk--white.png" srcset="https://s3-eu-west-1.amazonaws.com/pdswebops.pugin-website/images/parliament-uk--white.svg">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="highlight__status">
+      <div class="container--full-screen status">
+        <div class="container--full-grid">
+          <div class="row--indent-horizontal">
+            <p>This is a <a href="/"><strong>BETA</strong></a>. Give <a target="_blank" title="website opens in a new window" href="https://ukparliament-self.achieveservice.com/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-032e1b1d-958f-4402-9ab2-97a38ed9b899/AF-Stage9b7ecae8-0c85-4ee7-afda-b256cffe5f08/definition.json&amp;redirectlink=%2F&amp;cancelRedirectLink=%2F&amp;category=AF-Category-48936b5c-9329-48c7-a0a5-563463aacadf">feedback</a> to improve it.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+    <main id="content">
+      <div class="container--full-grid">
+        <div class="row--indent-full">
+          <h1>The change you wanted was rejected.</h1>
+          <div class="block">
+            <p>Maybe you tried to change something you didn't have access to.</p>
+            <a href="http://beta.parliament.uk">Back to beta.parliament.uk</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="c-fs footer">
+        <div class="c-fg">
+          <div class="row--indent-horizontal">
+            <div class="footer__logo">
+              <img alt="parliament.uk" src="https://s3-eu-west-1.amazonaws.com/pdswebops.pugin-website/images/parliament-uk--darkgrey.png" srcset="https://s3-eu-west-1.amazonaws.com/pdswebops.pugin-website/images/parliament-uk--darkgrey.svg">
+            </div>
+            <ul class="footer__list">
+              <li>
+                Parliament.uk
+                <a href="https://pds.blog.parliament.uk/" target="_blank">digital blog</a>
+              </li>
+              <li>
+                Visit the
+                <a href="https://www.parliament.uk/" target="_blank">current parliament.uk</a>
+                website
+              </li>
+              <li>
+                <a href="/meta/cookie-policy">Cookie Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://s3-eu-west-1.amazonaws.com/pdswebops.pugin-website/1.1.1/javascripts/main.js"></script>
 </body>
 </html>
