@@ -2,4 +2,5 @@
   - @constituencies.each do |constituency|
     %li.list__item
       %ul
-        %li= link_to constituency.name, constituency_path(constituency.graph_id)
+        %li= link_to(constituency.name, constituency_path(constituency.graph_id))
+        %li= constituency.members.first.full_name
