@@ -26,6 +26,7 @@ RUN cd $RAILS_ROOT \
     && gem update --system \
     && gem install bundler \
     && env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
+    && bundle update pugin \
     && chown -R $APP_USER:$APP_USER $GEM_HOME
 
 # add project
@@ -39,6 +40,9 @@ ARG GIT_SHA=unknown
 ARG GIT_TAG=unknown
 LABEL git-sha=$GIT_SHA \
 	      git-tag=$GIT_TAG
+
+# Just to check the env var
+RUN env
 
 # EXPOSE 3000
 
