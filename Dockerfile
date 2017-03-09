@@ -27,7 +27,7 @@ RUN cd $RAILS_ROOT \
     && gem install bundler \
     && NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install
 
-RUN env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle update pugin \
+RUN NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle update pugin \
     cat $RAILS_ROOT/Gemfile.lock \
     && chown -R $APP_USER:$APP_USER $GEM_HOME
 
