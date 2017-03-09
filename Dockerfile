@@ -25,11 +25,11 @@ COPY Gemfile* $RAILS_ROOT/
 RUN cd $RAILS_ROOT \
     && gem update --system \
     && gem install bundler \
-#    && env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
-    && env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle update pugin \
-    && chown -R $APP_USER:$APP_USER $GEM_HOME
+    && env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
 
-RUN cat $RAILS_ROOT/Gemfile.lock
+RUN env NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle update pugin \
+    cat $RAILS_ROOT/Gemfile.lock \
+    && chown -R $APP_USER:$APP_USER $GEM_HOME
 
 # add project
 COPY . $RAILS_ROOT
