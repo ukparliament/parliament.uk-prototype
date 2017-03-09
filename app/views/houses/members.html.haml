@@ -4,9 +4,9 @@
   = render :partial => 'houses/person', collection: @people
 
 - if @house.name == 'House of Commons'
-  %p= link_to(t('members_hol'), house_path('f1a325bf-f550-48a5-ad40-e30cb7b7bdf4'))
+  %p= link_to(t('members_hol'), house_path(@lords_id))
 - if @house.name == 'House of Lords'
-  %p= link_to(t('members_commons'), house_members_a_z_letter_path('4b77dd58-f6ba-4121-b521-c8ad70465f52 ', 'a'))
+  %p= link_to(t('members_commons'), house_members_a_z_letter_path(@commons_id, 'a'))
 %p= link_to(t('past_and_present_members'), house_members_a_z_letter_path(@house.graph_id, 'a'))
 
 
