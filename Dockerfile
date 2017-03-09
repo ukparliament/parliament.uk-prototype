@@ -27,7 +27,6 @@ RUN cd $RAILS_ROOT \
     && gem install bundler \
     && NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
     && bundle update pugin \
-    && cat Gemfile.lock \
     && chown -R $APP_USER:$APP_USER $GEM_HOME
 
 # add project
@@ -44,6 +43,7 @@ LABEL git-sha=$GIT_SHA \
 
 # EXPOSE 3000
 
-RUN rails assets:precompile
+RUN bundle update pugin \
+    && rails assets:precompile
 
 CMD ["passenger", "start"]
