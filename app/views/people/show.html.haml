@@ -1,13 +1,13 @@
 %h1 #{@person.given_name} #{@person.family_name}
-- unless @person.statuses.empty?
+- unless @person.statuses[:house_membership_status].empty?
   .block
-    - if @person.statuses.include?('Current MP')
+    - if @person.statuses[:house_membership_status].include?('Current MP')
       %p
         = t('.mp_for')
         = link_to(@current_incumbency.constituency.name, constituency_path(@current_incumbency.constituency.graph_id))
 
-    - if !@person.statuses.empty? && !@person.statuses.include?('Current MP')
-      %p= @person.statuses.join(' and ')
+    - if !@person.statuses[:house_membership_status].empty? && !@person.statuses[:house_membership_status].include?('Current MP')
+      %p= @person.statuses[:house_membership_status].join(' and ')
 
     - if @current_party_membership
       %p= link_to(@current_party_membership.party.name, party_path(@current_party_membership.party.graph_id))

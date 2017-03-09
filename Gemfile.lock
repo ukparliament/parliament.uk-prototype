@@ -1,12 +1,4 @@
 GIT
-  remote: http://github.com/katylouise/parliament-ruby
-  revision: dce9209a5754fd3e8bda06356eb912ee65788ecf
-  branch: katylouise/website-689_current-historical-distinction
-  specs:
-    parliament-ruby (0.5.7)
-      grom (~> 0.3.5)
-
-GIT
   remote: https://github.com/ukparliament/parliament.uk-pugin-components-rails
   revision: 322544eafa1d986bf4b5373dde7dafc6ea91a823
   branch: master
@@ -111,11 +103,8 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-<<<<<<< 4e92644faeac83c18d67961e62a0040e836df3aa
     parliament-ruby (0.5.8)
       grom (~> 0.3.5)
-=======
->>>>>>> Changed sort_by.reverse! to use new reverse_sort_by method and added an additional check to contact details to only show if a member is current with a current party membership
     parser (2.4.0.0)
       ast (~> 2.2)
     passenger (5.1.2)
@@ -236,11 +225,7 @@ DEPENDENCIES
   foreman
   haml (= 4.0.7)
   json-ld (= 2.1.0)
-<<<<<<< 4e92644faeac83c18d67961e62a0040e836df3aa
   parliament-ruby (= 0.5.8)
-=======
-  parliament-ruby!
->>>>>>> Changed sort_by.reverse! to use new reverse_sort_by method and added an additional check to contact details to only show if a member is current with a current party membership
   passenger
   pugin!
   rails (= 5.0.1)

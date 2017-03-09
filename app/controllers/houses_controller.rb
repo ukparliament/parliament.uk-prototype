@@ -44,7 +44,7 @@ class HousesController < ApplicationController
     @house = @house.first
     @people = @people.sort_by(:family_name, :given_name)
     @letters = letter_data.map(&:value)
-    
+
     houses_id
   end
 
