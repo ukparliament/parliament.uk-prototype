@@ -17,8 +17,8 @@ http_interactions:
       - localhost:3030
   response:
     status:
-      code: 204
-      message: No Content
+      code: 200
+      message: OK
     headers:
       X-Frame-Options:
       - SAMEORIGIN
@@ -33,14 +33,18 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d3b29821-6914-4028-b021-8c0f641e10ae
+      - e776a5b7-354e-4bd6-85cc-169439df7cb9
       X-Runtime:
-      - '0.051186'
+      - '0.089222'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: ''
-    http_version:
-  recorded_at: Wed, 08 Mar 2017 11:15:36 GMT
+      string: |
+        <http://id.ukpds.org/4b77dd58-f6ba-4121-b521-c8ad70465f52> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
+        <http://id.ukpds.org/4b77dd58-f6ba-4121-b521-c8ad70465f52> <http://id.ukpds.org/schema/houseName> "House of Commons" .
+        <http://id.ukpds.org/f1a325bf-f550-48a5-ad40-e30cb7b7bdf4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
+        <http://id.ukpds.org/f1a325bf-f550-48a5-ad40-e30cb7b7bdf4> <http://id.ukpds.org/schema/houseName> "House of Lords" .
+    http_version: 
+  recorded_at: Thu, 09 Mar 2017 11:58:59 GMT
 recorded_with: VCR 3.0.3
