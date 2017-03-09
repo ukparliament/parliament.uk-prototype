@@ -25,7 +25,7 @@ class ConstituenciesController < ApplicationController
       'http://id.ukpds.org/schema/SeatIncumbency'
     )
     @constituency = @constituency.first
-    @seat_incumbencies = @seat_incumbencies.sort_by(:start_date).reverse!
+    @seat_incumbencies = @seat_incumbencies.reverse_sort_by(:start_date)
   end
 
   def current
@@ -64,7 +64,7 @@ class ConstituenciesController < ApplicationController
       'http://id.ukpds.org/schema/SeatIncumbency'
     )
     @constituency = @constituency.first
-    @seat_incumbencies = @seat_incumbencies.sort_by(:start_date).reverse!
+    @seat_incumbencies = @seat_incumbencies.reverse_sort_by(:start_date)
   end
 
   def current_member

@@ -64,7 +64,7 @@ class PeopleController < ApplicationController
 
     @person, @party_memberships = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/PartyMembership')
     @person = @person.first
-    @party_memberships = @party_memberships.sort_by(:start_date).reverse
+    @party_memberships = @party_memberships.reverse_sort_by(:start_date)
   end
 
   def current_party
@@ -84,7 +84,7 @@ class PeopleController < ApplicationController
 
     @person, @seat_incumbencies = data.filter('http://id.ukpds.org/schema/Person', 'http://id.ukpds.org/schema/SeatIncumbency')
     @person = @person.first
-    @seat_incumbencies = @seat_incumbencies.sort_by(:start_date).reverse
+    @seat_incumbencies = @seat_incumbencies.reverse_sort_by(:start_date)
   end
 
   def current_constituency
@@ -107,7 +107,7 @@ class PeopleController < ApplicationController
       'http://id.ukpds.org/schema/Incumbency'
     )
     @person = @person.first
-    @incumbencies = @incumbencies.sort_by(:start_date).reverse
+    @incumbencies = @incumbencies.reverse_sort_by(:start_date)
   end
 
   def current_house

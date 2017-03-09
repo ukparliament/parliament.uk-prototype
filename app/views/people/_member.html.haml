@@ -4,9 +4,8 @@
       %li
         %a{:href => "/people/#{member.graph_id}"}= member.full_name
 
-        %li= "#{t('current_lord')}" if member.statuses.include?('Current Lord')
-        %li= "#{t('former_lord')}" if member.statuses.include?('Former Lord')
-        %li= "#{t('former_mp')}" if member.statuses.include?('Former MP')
+        - if !member.statuses.empty? && !member.statuses.include?('Current MP')
+          %p= member.statuses.join(' and ')
 
         - if !member.constituencies.empty?
           - seat_incumbency = member.seat_incumbencies.select(&:current?).first

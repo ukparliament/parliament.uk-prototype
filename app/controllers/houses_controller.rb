@@ -30,6 +30,7 @@ class HousesController < ApplicationController
     @house = @house.first
     @people = @people.sort_by(:family_name, :given_name)
     @letters = letter_data.map(&:value)
+
     houses_id
   end
 
@@ -43,6 +44,7 @@ class HousesController < ApplicationController
     @house = @house.first
     @people = @people.sort_by(:family_name, :given_name)
     @letters = letter_data.map(&:value)
+    
     houses_id
   end
 
@@ -63,7 +65,7 @@ class HousesController < ApplicationController
 
     @house, @parties = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Party')
     @house = @house.first
-    @parties = @parties.sort_by(:member_count).reverse
+    @parties = @parties.reverse_sort_by(:member_count)
   end
 
   def party

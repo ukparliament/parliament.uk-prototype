@@ -17,7 +17,7 @@
     .highlight__box
       %p= t('.mp_representative')
 
-- if @current_incumbency
+- if @current_incumbency && @current_party_membership
   %h2= t('.contact_title')
   - if @current_incumbency.contact_points.empty?
     .block
