@@ -102,7 +102,7 @@ class PeopleController < ApplicationController
 
     data = Parliament::Request.new.people(person_id).houses.get
 
-    @person, @incumbencies, @house_incumbencies = data.filter(
+    @person, @incumbencies = data.filter(
       'http://id.ukpds.org/schema/Person',
       'http://id.ukpds.org/schema/Incumbency'
     )
