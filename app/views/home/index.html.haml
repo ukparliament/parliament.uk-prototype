@@ -14,7 +14,7 @@
 .block
   %p= t('.beta-pages-text-1')
   %p= t('.beta-pages-text-2')
-  %p= t('.beta-pages-text-3', current_mps: link_to(t('.links.current_mps'), people_members_current_a_z_letter_path('a'))).html_safe
+  %p= t('.beta-pages-text-3', current_mps: link_to(t('.links.current_mps'), house_members_current_a_z_letter_path(@commons_id, 'a'))).html_safe
 %h3= link_to t('.links.commons', commons: t('commons')), house_path(@commons_id)
 %ul.list
   %li= link_to t('.links.members', members: t('members')), house_members_current_a_z_letter_path(@commons_id, 'a')
