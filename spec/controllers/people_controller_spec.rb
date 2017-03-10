@@ -144,7 +144,7 @@ RSpec.describe PeopleController, vcr: true do
 
   describe "GET parties" do
     before(:each) do
-      get :parties, params: {person_id: '626b57f9-6ef0-475a-ae12-40a44aca7eff'}
+      get :parties, params: {person_id: 'a9bd4923-9964-4196-b6b7-e42ada6e5284'}
     end
 
     it 'should have a response with http status ok (200)' do
@@ -160,9 +160,9 @@ RSpec.describe PeopleController, vcr: true do
       end
     end
 
-    it 'assigns @party_membership in reverse chronological order' do
-      expect(assigns(:party_memberships)[0].start_date).to eq(DateTime.new(2015, 10, 27))
-      expect(assigns(:party_memberships)[1].start_date).to eq(DateTime.new(1992, 4, 9))
+    it 'assigns @party_memberships in reverse chronological order' do
+      expect(assigns(:party_memberships)[0].start_date).to eq(DateTime.new(2015, 5, 7))
+      expect(assigns(:party_memberships)[1].start_date).to eq(DateTime.new(2014, 10, 9))
     end
 
     it 'renders the parties template' do

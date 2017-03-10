@@ -92,8 +92,8 @@ RSpec.describe ConstituenciesController, vcr: true do
     end
 
     it 'assigns @constituencies in alphabetical order' do
-      expect(assigns(:constituencies)[0].name).to eq('Aberavon')
-      expect(assigns(:constituencies)[1].name).to eq('Aberconwy')
+      expect(assigns(:constituencies)[0].name).to eq('Normanton, Pontefract and Castleford')
+      expect(assigns(:constituencies)[1].name).to eq('Stockport')
     end
 
     it 'renders the current template' do
@@ -237,8 +237,8 @@ RSpec.describe ConstituenciesController, vcr: true do
     end
 
     it 'assigns @constituencies in alphabetical order' do
-      expect(assigns(:constituencies)[0].name).to eq('Aberavon')
-      expect(assigns(:constituencies)[1].name).to eq('Aberconwy')
+      expect(assigns(:constituencies)[0].name).to eq('Aberdeen North')
+      expect(assigns(:constituencies)[1].name).to eq('Aldridge-Brownhills')
     end
 
     it 'renders the current_letters template' do

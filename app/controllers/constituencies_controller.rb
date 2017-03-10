@@ -93,8 +93,10 @@ class ConstituenciesController < ApplicationController
     letter = params[:letter]
 
     letter_data = Parliament::Request.new.constituencies.current.a_z_letters.get
+    data = Parliament::Request.new.constituencies.current(letter).get
 
-    @constituencies = Parliament::Request.new.constituencies.current(letter).get.sort_by(:name)
+    @constituencies = data.filter('http://id.ukpds.org/schema/ConstituencyGroup')
+    @constituencies = @constituencies.sort_by(:name)
     @letters = letter_data.map(&:value)
   end
 
