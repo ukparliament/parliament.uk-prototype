@@ -30,6 +30,7 @@ class HousesController < ApplicationController
     @house = @house.first
     @people = @people.sort_by(:family_name, :given_name)
     @letters = letter_data.map(&:value)
+    houses_id
   end
 
   def current_members
@@ -42,6 +43,7 @@ class HousesController < ApplicationController
     @house = @house.first
     @people = @people.sort_by(:family_name, :given_name)
     @letters = letter_data.map(&:value)
+    houses_id
   end
 
   def parties
@@ -86,6 +88,7 @@ class HousesController < ApplicationController
     @house = @house.first
     @people = @people.sort_by(:family_name, :given_name)
     @letters = letter_data.map(&:value)
+    houses_id
   end
 
   def current_members_letters
@@ -99,6 +102,7 @@ class HousesController < ApplicationController
     @house = @house.first
     @people = @people.sort_by(:family_name, :given_name)
     @letters = letter_data.map(&:value)
+    houses_id
   end
 
   def party_members
