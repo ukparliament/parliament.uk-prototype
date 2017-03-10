@@ -43,7 +43,7 @@ http_interactions:
       string: |
          <http://id.ukpds.org/d8df7e22-bb60-476c-8c2e-2f86c9f37971> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
               <http://id.ukpds.org/d8df7e22-bb60-476c-8c2e-2f86c9f37971> <http://id.ukpds.org/schema/personGivenName> "Person 1 - givenName" .
-              <http://id.ukpds.org/d8df7e22-bb60-476c-8c2e-2f86c9f37971> <http://id.ukpds.org/schema/personFamilyName> "Timms" .
+              <http://id.ukpds.org/d8df7e22-bb60-476c-8c2e-2f86c9f37971> <http://id.ukpds.org/schema/personFamilyName> "Person 1 - familyName" .
               <http://id.ukpds.org/d8df7e22-bb60-476c-8c2e-2f86c9f37971> <http://id.ukpds.org/schema/partyMemberHasPartyMembership> <http://id.ukpds.org/20481ef1-f244-47b3-9895-1cadfa7f2534> .
               <http://id.ukpds.org/d8df7e22-bb60-476c-8c2e-2f86c9f37971> <http://id.ukpds.org/schema/memberHasIncumbency> <http://id.ukpds.org/1dffb4ba-7ed1-457e-9ae9-7125e923e4c8> .
               <http://id.ukpds.org/4b77dd58-f6ba-4121-b521-c8ad70465f52> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
@@ -61,7 +61,7 @@ http_interactions:
               <http://id.ukpds.org/179fe9d8-2bf5-4573-a3f4-7495d1ae68be> <http://id.ukpds.org/schema/constituencyGroupName> "East Ham" .
               <http://id.ukpds.org/8c7610be-0e42-456f-a5a3-4eb514cc3c1a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
               <http://id.ukpds.org/8c7610be-0e42-456f-a5a3-4eb514cc3c1a> <http://id.ukpds.org/schema/personGivenName> "Person 2 - givenName" .
-              <http://id.ukpds.org/8c7610be-0e42-456f-a5a3-4eb514cc3c1a> <http://id.ukpds.org/schema/personFamilyName> "Tomlinson" .
+              <http://id.ukpds.org/8c7610be-0e42-456f-a5a3-4eb514cc3c1a> <http://id.ukpds.org/schema/personFamilyName> "Person 2 - familyName" .
               <http://id.ukpds.org/8c7610be-0e42-456f-a5a3-4eb514cc3c1a> <http://id.ukpds.org/schema/partyMemberHasPartyMembership> <http://id.ukpds.org/ccc34934-55e1-49b8-aa91-cd798e85163b> .
               <http://id.ukpds.org/8c7610be-0e42-456f-a5a3-4eb514cc3c1a> <http://id.ukpds.org/schema/memberHasIncumbency> <http://id.ukpds.org/db286b93-e284-4a62-a7f5-ffe0f1a854d8> .
               <http://id.ukpds.org/db286b93-e284-4a62-a7f5-ffe0f1a854d8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/SeatIncumbency> .

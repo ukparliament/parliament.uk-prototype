@@ -144,25 +144,25 @@ RSpec.describe PeopleController, vcr: true do
 
   describe "GET parties" do
     before(:each) do
-      get :parties, params: {person_id: '626b57f9-6ef0-475a-ae12-40a44aca7eff'}
+      get :parties, params: {person_id: 'a9bd4923-9964-4196-b6b7-e42ada6e5284'}
     end
 
     it 'should have a response with http status ok (200)' do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @person and @parties' do
+    it 'assigns @person and @party_memberships' do
       expect(assigns(:person)).to be_a(Grom::Node)
       expect(assigns(:person).type).to eq('http://id.ukpds.org/schema/Person')
-      assigns(:parties).each do |party|
-        expect(party).to be_a(Grom::Node)
-        expect(party.type).to eq('http://id.ukpds.org/schema/Party')
+      assigns(:party_memberships).each do |party_membership|
+        expect(party_membership).to be_a(Grom::Node)
+        expect(party_membership.type).to eq('http://id.ukpds.org/schema/PartyMembership')
       end
     end
 
-    it 'assigns @parties in alphabetical order' do
-      expect(assigns(:parties)[0].name).to eq('Labour')
-      expect(assigns(:parties)[1].name).to eq('Labour2')
+    it 'assigns @party_memberships in reverse chronological order' do
+      expect(assigns(:party_memberships)[0].start_date).to eq(DateTime.new(2015, 5, 7))
+      expect(assigns(:party_memberships)[1].start_date).to eq(DateTime.new(2014, 10, 9))
     end
 
     it 'renders the parties template' do
@@ -200,18 +200,18 @@ RSpec.describe PeopleController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @person and @constituencies' do
+    it 'assigns @person and @seat_incumbencies' do
       expect(assigns(:person)).to be_a(Grom::Node)
       expect(assigns(:person).type).to eq('http://id.ukpds.org/schema/Person')
-      assigns(:constituencies).each do |constituency|
-        expect(constituency).to be_a(Grom::Node)
-        expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
+      assigns(:seat_incumbencies).each do |seat_incumbency|
+        expect(seat_incumbency).to be_a(Grom::Node)
+        expect(seat_incumbency.type).to eq('http://id.ukpds.org/schema/SeatIncumbency')
       end
     end
 
-    it 'assigns @constituencies in alphabetical order' do
-      expect(assigns(:constituencies)[0].name).to eq('Dulwich')
-      expect(assigns(:constituencies)[1].name).to eq('Dulwich and West Norwood')
+    it 'assigns @seat_incumbencies in reverse chronological order' do
+      expect(assigns(:seat_incumbencies)[0].start_date).to eq(DateTime.new(2010, 5, 6))
+      expect(assigns(:seat_incumbencies)[1].start_date).to eq(DateTime.new(2005, 5, 5))
     end
 
     it 'renders the parties template' do
@@ -249,18 +249,18 @@ RSpec.describe PeopleController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @person and @houses' do
+    it 'assigns @person and @incumbencies' do
       expect(assigns(:person)).to be_a(Grom::Node)
       expect(assigns(:person).type).to eq('http://id.ukpds.org/schema/Person')
-      assigns(:houses).each do |house|
-        expect(house).to be_a(Grom::Node)
-        expect(house.type).to eq('http://id.ukpds.org/schema/House')
+      assigns(:incumbencies).each do |incumbency|
+        expect(incumbency).to be_a(Grom::Node)
+        expect(incumbency.type).to eq('http://id.ukpds.org/schema/Incumbency')
       end
     end
 
-    it 'assigns @houses in alphabetical order' do
-      expect(assigns(:houses)[0].name).to eq('House of Commons')
-      expect(assigns(:houses)[1].name).to eq('House of Lords')
+    it 'assigns @incumbencies in reverse chronological order' do
+      expect(assigns(:incumbencies)[0].start_date).to eq(DateTime.new(2015, 5, 7))
+      expect(assigns(:incumbencies)[1].start_date).to eq(DateTime.new(2010, 5, 6))
     end
 
     it 'renders the parties template' do

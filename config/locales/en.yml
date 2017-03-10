@@ -48,6 +48,14 @@ en:
   hol: 'House of Lords'
   hoc: 'House of Commons'
   mp_for: 'MP for'
+  current_mp: 'Current MP'
+  current_lord: 'Lord'
+  former_mp: 'Former MP'
+  former_lord: 'Former Lord'
+  current_constituency: 'Current Constituency'
+  past_constituency: 'Past Constituency'
+  past_members: 'Past Members'
+  party_no_current_members: 'There are currently no members of this party in either House.'
   time:
     formats:
       default: '%-d %b %Y'
@@ -125,7 +133,7 @@ en:
     members:
       title: ! '%{members}'
     current_member:
-      title: ! '%{current} %{member}'
+      title: ! '%{current} %{constituency} %{member}'
     letters:
       title: ! '%{constituencies}'
     current_letters:

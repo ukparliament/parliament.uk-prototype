@@ -1,4 +1,4 @@
-%h1= "#{@constituency.name} - #{t('.title', current: t('current'), member: t('member'))}"
+%h1= "#{@constituency.name} - #{t('.title', current: t('current'), constituency: t('constituency'), member: t('member'))}"
 
 %p
   = "#{l(@constituency.start_date, format: :default)}" unless @constituency.start_date.nil?
