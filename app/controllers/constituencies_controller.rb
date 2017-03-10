@@ -25,13 +25,16 @@ class ConstituenciesController < ApplicationController
       'http://id.ukpds.org/schema/SeatIncumbency'
     )
     @constituency = @constituency.first
-    @seat_incumbencies = @seat_incumbencies.sort_by(:start_date).reverse!
+    @seat_incumbencies = @seat_incumbencies.reverse_sort_by(:start_date)
   end
 
   def current
     letter_data = Parliament::Request.new.constituencies.current.a_z_letters.get
 
-    @constituencies = Parliament::Request.new.constituencies.current.get.sort_by(:name)
+    data = Parliament::Request.new.constituencies.current.get
+
+    @constituencies = data.filter('http://id.ukpds.org/schema/ConstituencyGroup')
+    @constituencies = @constituencies.sort_by(:name)
     @letters = letter_data.map(&:value)
   end
 
@@ -61,7 +64,7 @@ class ConstituenciesController < ApplicationController
       'http://id.ukpds.org/schema/SeatIncumbency'
     )
     @constituency = @constituency.first
-    @seat_incumbencies = @seat_incumbencies.sort_by(:start_date).reverse!
+    @seat_incumbencies = @seat_incumbencies.reverse_sort_by(:start_date)
   end
 
   def current_member
@@ -90,8 +93,10 @@ class ConstituenciesController < ApplicationController
     letter = params[:letter]
 
     letter_data = Parliament::Request.new.constituencies.current.a_z_letters.get
+    data = Parliament::Request.new.constituencies.current(letter).get
 
-    @constituencies = Parliament::Request.new.constituencies.current(letter).get.sort_by(:name)
+    @constituencies = data.filter('http://id.ukpds.org/schema/ConstituencyGroup')
+    @constituencies = @constituencies.sort_by(:name)
     @letters = letter_data.map(&:value)
   end
 

@@ -169,9 +169,9 @@ RSpec.describe HousesController, vcr: true do
       end
     end
 
-    it 'assigns @parties in alphabetical order' do
+    it 'assigns @parties in member_count order' do
       expect(assigns(:parties)[0].name).to eq('Conservative')
-      expect(assigns(:parties)[1].name).to eq('Democratic Unionist Party')
+      expect(assigns(:parties)[1].name).to eq('Labour')
     end
 
     it 'renders the current_parties template' do
