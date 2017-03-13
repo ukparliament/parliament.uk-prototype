@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ukparliament/parliament.uk-pugin-components-rails
-  revision: 0cfd1f1015724cf5ee2895713626c42f9fcf4ec6
+  revision: 322544eafa1d986bf4b5373dde7dafc6ea91a823
   branch: master
   specs:
     pugin (0.2.0)
@@ -103,7 +103,7 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    parliament-ruby (0.5.1)
+    parliament-ruby (0.5.8)
       grom (~> 0.3.5)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -225,7 +225,7 @@ DEPENDENCIES
   foreman
   haml (= 4.0.7)
   json-ld (= 2.1.0)
-  parliament-ruby (= 0.5.1)
+  parliament-ruby (= 0.5.8)
   passenger
   pugin!
   rails (= 5.0.1)
@@ -243,4 +243,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.13.7
+   1.14.6

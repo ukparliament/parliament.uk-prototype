@@ -1,7 +1,0 @@
-%li.list__item
-  %h2= link_to(constituency.name, constituency_path(constituency.graph_id))
-  %ol
-    - constituency.seat_incumbencies.each do |seat_incumbency|
-      %li
-        = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-        = seat_incumbency.end_date.nil? ? " - Present" : " - #{l(seat_incumbency.end_date, format: :default)}"

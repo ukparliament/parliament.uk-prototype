@@ -48,9 +48,17 @@ en:
   hol: 'House of Lords'
   hoc: 'House of Commons'
   mp_for: 'MP for'
+  current_mp: 'Current MP'
+  current_lord: 'Lord'
+  former_mp: 'Former MP'
+  former_lord: 'Former Lord'
+  current_constituency: 'Current Constituency'
+  past_constituency: 'Past Constituency'
+  past_members: 'Past Members'
+  party_no_current_members: 'There are currently no members of this party in either House.'
   time:
     formats:
-      default: '%d %b %Y'
+      default: '%-d %b %Y'
   a_to_z:
     aria_label: 'Paged navigation'
   people:
@@ -65,7 +73,7 @@ en:
       email: ! '%{email}:'
       phone: ! '%{phone}:'
       address: ! '%{address}:'
-      election_history: 'Election History'
+      membership_history: 'Membership History'
       empty_election_history: 'There is currently no election information available for this person.'
     members:
       title: ! '%{members}'
@@ -107,6 +115,8 @@ en:
       title: ! '%{parties}'
     members:
       title: ! '%{members}'
+    members_letters:
+      title: ! '%{members}'
     current_members:
       title: ! '%{current} %{members}'
     current:
@@ -123,7 +133,7 @@ en:
     members:
       title: ! '%{members}'
     current_member:
-      title: ! '%{current} %{member}'
+      title: ! '%{current} %{constituency} %{member}'
     letters:
       title: ! '%{constituencies}'
     current_letters:

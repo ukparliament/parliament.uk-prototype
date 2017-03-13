@@ -63,7 +63,7 @@ RSpec.describe HousesController, vcr: true do
 
   describe "GET members" do
     before(:each) do
-      get :members, params: {house_id: 'c2d41b82-d4df-4f50-b0f9-f52b84a6a788'}
+      get :members, params: {house_id: '4b77dd58-f6ba-4121-b521-c8ad70465f52'}
     end
 
     it 'should have a response with http status ok (200)' do
@@ -92,32 +92,34 @@ RSpec.describe HousesController, vcr: true do
   end
 
   describe "GET current_members" do
-    before(:each) do
-      get :current_members, params: {house_id: 'c2d41b82-d4df-4f50-b0f9-f52b84a6a788'}
-    end
+    context 'display members letters view' do
+        before(:each) do
+          get :current_members, params: {house_id: '4b77dd58-f6ba-4121-b521-c8ad70465f52'}
+        end
 
-    it 'should have a response with http status ok (200)' do
-      expect(response).to have_http_status(:ok)
-    end
+        it 'should have a response with http status ok (200)' do
+          expect(response).to have_http_status(:ok)
+        end
 
-    it 'assigns @house, @people and @letters' do
-      expect(assigns(:house)).to be_a(Grom::Node)
-      expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
-      expect(assigns(:letters)).to be_a(Array)
+        it 'assigns @house, @people and @letters' do
+          expect(assigns(:house)).to be_a(Grom::Node)
+          expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
+          expect(assigns(:letters)).to be_a(Array)
 
-      assigns(:people).each do |person|
-        expect(person).to be_a(Grom::Node)
-        expect(person.type).to eq('http://id.ukpds.org/schema/Person')
-      end
-    end
+          assigns(:people).each do |person|
+            expect(person).to be_a(Grom::Node)
+            expect(person.type).to eq('http://id.ukpds.org/schema/Person')
+          end
+        end
 
-    it 'assigns @people in alphabetical order' do
-      expect(assigns(:people)[0].given_name).to eq('Person 1 - givenName')
-      expect(assigns(:people)[1].given_name).to eq('Person 2 - givenName')
-    end
+        it 'assigns @people in alphabetical order' do
+          expect(assigns(:people)[0].given_name).to eq('Person 1 - givenName')
+          expect(assigns(:people)[1].given_name).to eq('Person 2 - givenName')
+        end
 
-    it 'renders the current_members template' do
-      expect(response).to render_template('current_members')
+        it 'renders the current_members template' do
+          expect(response).to render_template('current_members')
+        end
     end
   end
 
@@ -167,9 +169,9 @@ RSpec.describe HousesController, vcr: true do
       end
     end
 
-    it 'assigns @parties in alphabetical order' do
+    it 'assigns @parties in member_count order' do
       expect(assigns(:parties)[0].name).to eq('Conservative')
-      expect(assigns(:parties)[1].name).to eq('Democratic Unionist Party')
+      expect(assigns(:parties)[1].name).to eq('Labour')
     end
 
     it 'renders the current_parties template' do
@@ -199,38 +201,54 @@ RSpec.describe HousesController, vcr: true do
   end
 
   describe "GET members_letters" do
-    before(:each) do
-      get :members_letters, params: {house_id: 'c2d41b82-d4df-4f50-b0f9-f52b84a6a788', letter: "t"}
+
+    context 'display members letters view' do
+
+        before(:each) do
+          get :members_letters, params: {house_id: '4b77dd58-f6ba-4121-b521-c8ad70465f52', letter: "a"}
+        end
+
+        it 'should have a response with http status ok (200)' do
+          expect(response).to have_http_status(:ok)
+        end
+
+        it 'assigns @house, @people and @letters' do
+          expect(assigns(:house)).to be_a(Grom::Node)
+          expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
+          expect(assigns(:letters)).to be_a(Array)
+
+          assigns(:people).each do |person|
+            expect(person).to be_a(Grom::Node)
+            expect(person.type).to eq('http://id.ukpds.org/schema/Person')
+          end
+        end
+
+        it 'assigns @people in alphabetical order' do
+          expect(assigns(:people)[0].given_name).to eq('Person 1 - givenName')
+          expect(assigns(:people)[1].given_name).to eq('Person 2 - givenName')
+        end
+
+        it 'renders the members_letters template' do
+          expect(response).to render_template('members_letters')
+        end
     end
 
-    it 'should have a response with http status ok (200)' do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'assigns @house, @people and @letters' do
-      expect(assigns(:house)).to be_a(Grom::Node)
-      expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
-      expect(assigns(:letters)).to be_a(Array)
-
-      assigns(:people).each do |person|
-        expect(person).to be_a(Grom::Node)
-        expect(person.type).to eq('http://id.ukpds.org/schema/Person')
-      end
-    end
-
-    it 'assigns @people in alphabetical order' do
-      expect(assigns(:people)[0].given_name).to eq('Person 1 - givenName')
-      expect(assigns(:people)[1].given_name).to eq('Person 2 - givenName')
-    end
-
-    it 'renders the members_letters template' do
-      expect(response).to render_template('members_letters')
-    end
+    # context 'it should ids for both house of commons and house of lords' do
+    #   it 'it should return house of commons id' do
+    #     get :members_letters
+    #     expect(assigns(:commons_id)).to eq('4b77dd58-f6ba-4121-b521-c8ad70465f52')
+    #   end
+    #
+    #   it 'should return house of lords id' do
+    #     get :members_letters
+    #     expect(assigns(:lords_id)).to eq('f1a325bf-f550-48a5-ad40-e30cb7b7bdf4')
+    #   end
+    # end
   end
 
   describe "GET current_members_letters" do
     before(:each) do
-      get :current_members_letters, params: {house_id: 'c2d41b82-d4df-4f50-b0f9-f52b84a6a788', letter: "t"}
+      get :current_members_letters, params: {house_id: '4b77dd58-f6ba-4121-b521-c8ad70465f52', letter: "a"}
     end
 
     it 'should have a response with http status ok (200)' do

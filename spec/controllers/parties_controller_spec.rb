@@ -76,7 +76,7 @@ RSpec.describe PartiesController, vcr: true do
   describe 'GET show' do
     context 'for a valid party id' do
       before(:each) do
-        get :show, params: {party_id: '7a048f56-0ddd-48b0-85bd-cf5dd9fa5427'}
+        get :show, params: {party_id: 'f4e62fb8-2cf4-41b2-b7a3-7e621522a30d'}
       end
 
       it 'response should return ok' do

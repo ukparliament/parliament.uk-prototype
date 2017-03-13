@@ -1,6 +1,7 @@
+%p= @constituency.current? ? t('current_constituency') : t('past_constituency')
 %p
   = "#{l(@constituency.start_date, format: :default)}" unless @constituency.start_date.nil?
-  = @constituency.end_date.nil? ? " - Present" : " - #{l(@constituency.end_date, format: :default)}"
+  = @constituency.end_date.nil? ? " to Present" : " to #{l(@constituency.end_date, format: :default)}"
 
 %ul.list
   - @seat_incumbencies.each do |seat_incumbency|
@@ -9,4 +10,4 @@
       %ol
         %li
           = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-          = seat_incumbency.end_date.nil? ? " - Present" : " - #{l(seat_incumbency.end_date, format: :default)}"
+          = seat_incumbency.end_date.nil? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"

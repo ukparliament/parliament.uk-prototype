@@ -1,0 +1,191 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/houses/4b77dd58-f6ba-4121-b521-c8ad70465f52/members/a
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - localhost:3030
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/n-triples; charset=utf-8
+      Etag:
+      - W/"c7ee85c37ee906556fba478f3fe874b6"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f8b67232-0454-4b02-84c1-e553f9cb67db
+      X-Runtime:
+      - '0.224610'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <http://id.ukpds.org/f464a087-364e-4eb0-86be-7599446d68d8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/f464a087-364e-4eb0-86be-7599446d68d8> <http://id.ukpds.org/schema/personGivenName> "Person 1 - givenName" .
+        <http://id.ukpds.org/f464a087-364e-4eb0-86be-7599446d68d8> <http://id.ukpds.org/schema/personFamilyName> "Person 1 - familyName" .
+        <http://id.ukpds.org/f464a087-364e-4eb0-86be-7599446d68d8> <http://id.ukpds.org/schema/memberHasIncumbency> <http://id.ukpds.org/401efb10-24e4-4732-a7ca-341343057c63> .
+        <http://id.ukpds.org/4b77dd58-f6ba-4121-b521-c8ad70465f52> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
+        <http://id.ukpds.org/4b77dd58-f6ba-4121-b521-c8ad70465f52> <http://id.ukpds.org/schema/houseName> "House of Commons" .
+        <http://id.ukpds.org/401efb10-24e4-4732-a7ca-341343057c63> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Incumbency> .
+        <http://id.ukpds.org/401efb10-24e4-4732-a7ca-341343057c63> <http://id.ukpds.org/schema/incumbencyEndDate> "1979-05-03"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <http://id.ukpds.org/401efb10-24e4-4732-a7ca-341343057c63> <http://id.ukpds.org/schema/incumbencyStartDate> "1977-11-24"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <http://id.ukpds.org/f464a087-364e-4eb0-86be-7599446d68d8> <http://id.ukpds.org/schema/memberHasIncumbency> <http://id.ukpds.org/28da0f24-8fd9-4b13-9fef-2c23dc3b34ba> .
+        <http://id.ukpds.org/28da0f24-8fd9-4b13-9fef-2c23dc3b34ba> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Incumbency> .
+        <http://id.ukpds.org/28da0f24-8fd9-4b13-9fef-2c23dc3b34ba> <http://id.ukpds.org/schema/incumbencyEndDate> "1983-06-09"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <http://id.ukpds.org/28da0f24-8fd9-4b13-9fef-2c23dc3b34ba> <http://id.ukpds.org/schema/incumbencyStartDate> "1979-05-03"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <http://id.ukpds.org/5225fa6d-09ca-44e7-9167-63cab40f4f04> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/5225fa6d-09ca-44e7-9167-63cab40f4f04> <http://id.ukpds.org/schema/personGivenName> "Person 2 - givenName" .
+        <http://id.ukpds.org/5225fa6d-09ca-44e7-9167-63cab40f4f04> <http://id.ukpds.org/schema/personFamilyName> "Person 2 - familyName" .
+        <http://id.ukpds.org/5225fa6d-09ca-44e7-9167-63cab40f4f04> <http://id.ukpds.org/schema/memberHasIncumbency> <http://id.ukpds.org/31acbeb7-ad78-46b4-84f1-b17dd05513f0> .
+        <http://id.ukpds.org/31acbeb7-ad78-46b4-84f1-b17dd05513f0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Incumbency> .
+        <http://id.ukpds.org/31acbeb7-ad78-46b4-84f1-b17dd05513f0> <http://id.ukpds.org/schema/incumbencyEndDate> "1974-10-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <http://id.ukpds.org/31acbeb7-ad78-46b4-84f1-b17dd05513f0> <http://id.ukpds.org/schema/incumbencyStartDate> "1974-02-28"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <http://id.ukpds.org/5225fa6d-09ca-44e7-9167-63cab40f4f04> <http://id.ukpds.org/schema/memberHasIncumbency> <http://id.ukpds.org/a78bac22-bc61-4c78-be5d-2040e767b141> .
+        <http://id.ukpds.org/a78bac22-bc61-4c78-be5d-2040e767b141> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Incumbency> .
+        <http://id.ukpds.org/a78bac22-bc61-4c78-be5d-2040e767b141> <http://id.ukpds.org/schema/incumbencyEndDate> "1979-05-03"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <http://id.ukpds.org/a78bac22-bc61-4c78-be5d-2040e767b141> <http://id.ukpds.org/schema/incumbencyStartDate> "1974-10-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <http://id.ukpds.org/5225fa6d-09ca-44e7-9167-63cab40f4f04> <http://id.ukpds.org/schema/memberHasIncumbency> <http://id.ukpds.org/f402d2f0-7671-4191-b33f-227337c51c59> .
+        <http://id.ukpds.org/f402d2f0-7671-4191-b33f-227337c51c59> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Incumbency> .
+        <http://id.ukpds.org/f402d2f0-7671-4191-b33f-227337c51c59> <http://id.ukpds.org/schema/incumbencyEndDate> "1983-06-09"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <http://id.ukpds.org/f402d2f0-7671-4191-b33f-227337c51c59> <http://id.ukpds.org/schema/incumbencyStartDate> "1979-05-03"^^<http://www.w3.org/2001/XMLSchema#date> .
+
+    http_version:
+  recorded_at: Fri, 10 Mar 2017 09:23:39 GMT
+- request:
+    method: get
+    uri: http://localhost:3030/houses/4b77dd58-f6ba-4121-b521-c8ad70465f52/members/a_z_letters
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - localhost:3030
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/n-triples; charset=utf-8
+      Etag:
+      - W/"703f749cf2934442fb52091f83e6af3f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7c6f8948-b55a-47e1-af11-a0c6cb816b86
+      X-Runtime:
+      - '0.201775'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        _:node8869 <http://id.ukpds.org/schema/value> "C" .
+        _:node8870 <http://id.ukpds.org/schema/value> "R" .
+        _:node8871 <http://id.ukpds.org/schema/value> "T" .
+        _:node8872 <http://id.ukpds.org/schema/value> "G" .
+        _:node8873 <http://id.ukpds.org/schema/value> "O" .
+        _:node8874 <http://id.ukpds.org/schema/value> "Y" .
+        _:node8875 <http://id.ukpds.org/schema/value> "F" .
+        _:node8876 <http://id.ukpds.org/schema/value> "M" .
+        _:node8877 <http://id.ukpds.org/schema/value> "B" .
+        _:node8878 <http://id.ukpds.org/schema/value> "K" .
+        _:node8879 <http://id.ukpds.org/schema/value> "E" .
+        _:node8880 <http://id.ukpds.org/schema/value> "D" .
+        _:node8881 <http://id.ukpds.org/schema/value> "S" .
+        _:node8882 <http://id.ukpds.org/schema/value> "L" .
+        _:node8883 <http://id.ukpds.org/schema/value> "W" .
+        _:node8884 <http://id.ukpds.org/schema/value> "P" .
+        _:node8885 <http://id.ukpds.org/schema/value> "H" .
+        _:node8886 <http://id.ukpds.org/schema/value> "N" .
+        _:node8887 <http://id.ukpds.org/schema/value> "V" .
+        _:node8888 <http://id.ukpds.org/schema/value> "J" .
+        _:node8889 <http://id.ukpds.org/schema/value> "I" .
+        _:node8890 <http://id.ukpds.org/schema/value> "A" .
+        _:node8891 <http://id.ukpds.org/schema/value> "U" .
+        _:node8892 <http://id.ukpds.org/schema/value> "Q" .
+        _:node8893 <http://id.ukpds.org/schema/value> "Z" .
+        _:node8894 <http://id.ukpds.org/schema/value> "\u00D6" .
+    http_version:
+  recorded_at: Fri, 10 Mar 2017 09:23:39 GMT
+- request:
+    method: get
+    uri: http://localhost:3030/houses
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - localhost:3030
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/n-triples; charset=utf-8
+      Etag:
+      - W/"f2b8452df137a5afa3eb1bc95b521e5c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a6de6ce2-46e6-4a77-86ea-1c1573849226
+      X-Runtime:
+      - '0.044451'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <http://id.ukpds.org/4b77dd58-f6ba-4121-b521-c8ad70465f52> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
+        <http://id.ukpds.org/4b77dd58-f6ba-4121-b521-c8ad70465f52> <http://id.ukpds.org/schema/houseName> "House of Commons" .
+        <http://id.ukpds.org/f1a325bf-f550-48a5-ad40-e30cb7b7bdf4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
+        <http://id.ukpds.org/f1a325bf-f550-48a5-ad40-e30cb7b7bdf4> <http://id.ukpds.org/schema/houseName> "House of Lords" .
+    http_version:
+  recorded_at: Fri, 10 Mar 2017 09:23:39 GMT
+recorded_with: VCR 3.0.3

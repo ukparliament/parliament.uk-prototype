@@ -1,58 +1,68 @@
 %h1 #{@person.given_name} #{@person.family_name}
-.block
-  - if @current_incumbency && @current_incumbency.type == 'http://id.ukpds.org/schema/SeatIncumbency'
-    %p
-      = t('.mp_for')
-      = link_to(@current_incumbency.constituency.name, constituency_path(@current_incumbency.constituency.graph_id))
+- unless @person.statuses[:house_membership_status].empty?
+  .block
+    - if @person.statuses[:house_membership_status].include?('Current MP')
+      %p
+        = t('.mp_for')
+        = link_to(@current_incumbency.constituency.name, constituency_path(@current_incumbency.constituency.graph_id))
 
-  - if @current_party_membership
-    %p= link_to(@current_party_membership.party.name, party_path(@current_party_membership.party.graph_id))
+    - if !@person.statuses[:house_membership_status].empty? && !@person.statuses[:house_membership_status].include?('Current MP')
+      %p= @person.statuses[:house_membership_status].join(' and ')
 
-- if @current_incumbency && @current_incumbency.type == 'http://id.ukpds.org/schema/SeatIncumbency'
+    - if @current_party_membership
+      %p= link_to(@current_party_membership.party.name, party_path(@current_party_membership.party.graph_id))
+
+- unless @seat_incumbencies.select(&:current?).empty?
   .block
     .highlight__box
       %p= t('.mp_representative')
 
-
-- if @current_incumbency
-  %h2.bordered= t('.contact_title')
-  .block
-    - if @current_incumbency.contact_points.empty?
+- if @current_incumbency && @current_party_membership
+  %h2= t('.contact_title')
+  - if @current_incumbency.contact_points.empty?
+    .block
       %p= t('.empty_contact_details')
-    - @current_incumbency.contact_points.each do |contact_point|
-      %dl.list__definition
-        %dt= "#{t('.email', email: t('email'))}"
+  - @current_incumbency.contact_points.each do |contact_point|
+    %dl.list__definition
+      - if contact_point.email.present?
+        %dt= t('.email', email: t('email'))
         %dd
           %a{ :href => "mailto:#{contact_point.email}" }= contact_point.email
-        %dt= "#{t('.phone', phone: t('phone'))}"
+      - if contact_point.phone_number.present?
+        %dt= t('.phone', phone: t('phone'))
         %dd
           %a{ :href => "tel:#{contact_point.phone_number}" }= contact_point.phone_number
+      - if contact_point.postal_addresses.present?
         %dt
-          = "#{t('.address', address: t('address'))}"
+          = t('.address', address: t('address'))
           - contact_point.postal_addresses.each do |postal_address|
             %dd= postal_address.full_address
+      - if contact_point.graph_id.present?
+        %dt= t('vcard_download')
+        %dd= link_to "#{t('download')}", contact_point_path(contact_point.graph_id), target: '_blank'
 
-%h2.bordered= t('.election_history')
-%ol.list
-  %h3= t('hol')
-  - if @house_incumbencies.empty?
-    %p= t('.empty_election_history')
-  - @house_incumbencies.sort{ |inc_a, inc_b| inc_b.start_date <=> inc_a.start_date }.each do |house_incumbency|
-    %li.list__item--borderless-top
-      %ul
-        %li
-          = "#{l(house_incumbency.start_date, format: :default)}" unless house_incumbency.start_date.nil?
-          = house_incumbency.end_date.nil? ? " - Present" : " - #{l(house_incumbency.end_date, format: :default)}"
+- if @house_incumbencies.present? || @seat_incumbencies.present?
+  %h2= t('.membership_history')
+  .block
+    - if @house_incumbencies.present?
+      %h3= t('hol')
+      %ol.list
+        - @house_incumbencies.sort{ |inc_a, inc_b| inc_b.start_date <=> inc_a.start_date }.each do |house_incumbency|
+          %li.list__item
+            %ul
+              %li
+                = "#{l(house_incumbency.start_date, format: :default)}" unless house_incumbency.start_date.nil?
+                = house_incumbency.end_date.nil? ? " to Present" : " to #{l(house_incumbency.end_date, format: :default)}"
 
-  %h3= t('hoc')
-  - if @seat_incumbencies.empty?
-    %p= t('.empty_election_history')
-  - @seat_incumbencies.sort{ |inc_a, inc_b| inc_b.start_date <=> inc_a.start_date }.each do |seat_incumbency|
-    %li.list__item--borderless-top
-      %ul
-        %li
-          = t('.mp_for')
-          = link_to(seat_incumbency.constituency.name, constituency_path(seat_incumbency.constituency.graph_id))
-        %li
-          = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-          = seat_incumbency.end_date.nil? ? " - Present" : " - #{l(seat_incumbency.end_date, format: :default)}"
+    - if @seat_incumbencies.present?
+      %h3= t('hoc')
+      %ol.list
+        - @seat_incumbencies.sort{ |inc_a, inc_b| inc_b.start_date <=> inc_a.start_date }.each do |seat_incumbency|
+          %li.list__item
+            %ul
+              %li
+                = t('.mp_for')
+                = link_to(seat_incumbency.constituency.name, constituency_path(seat_incumbency.constituency.graph_id))
+              %li
+                = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+                = seat_incumbency.end_date.nil? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"
