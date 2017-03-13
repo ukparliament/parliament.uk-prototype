@@ -28,8 +28,16 @@ class PeopleController < ApplicationController
 
     @person = @person.first
 
-    @current_incumbency = @seat_incumbencies.select(&:current?).first || @house_incumbencies.select(&:current?).first
     @current_party_membership = @person.party_memberships.select(&:current?).first
+
+    sorted_incumbencies = Parliament::Utils.sort_by({
+      list:             @person.incumbencies,
+      parameters:       [:end_date],
+      prepend_rejected: false
+    })
+
+    @most_recent_incumbency = sorted_incumbencies.last
+    @current_incumbency = @most_recent_incumbency && @most_recent_incumbency.current? ? @most_recent_incumbency : nil
   end
 
   def members
