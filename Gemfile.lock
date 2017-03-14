@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/katylouise/parliament-ruby
+  revision: 7dab1b7e640268feee2c4631118161d08c3c316d
+  branch: katylouise/website-612_sort-name-decorator
+  specs:
+    parliament-ruby (0.5.18)
+      grom (~> 0.3.5)
+
+GIT
   remote: https://github.com/ukparliament/parliament.uk-pugin-components-rails
   revision: 322544eafa1d986bf4b5373dde7dafc6ea91a823
   branch: master
@@ -103,8 +111,6 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    parliament-ruby (0.5.18)
-      grom (~> 0.3.5)
     parser (2.4.0.0)
       ast (~> 2.2)
     passenger (5.1.2)
@@ -225,7 +231,7 @@ DEPENDENCIES
   foreman
   haml (= 4.0.7)
   json-ld (= 2.1.0)
-  parliament-ruby (= 0.5.18)
+  parliament-ruby!
   passenger
   pugin!
   rails (= 5.0.1)
