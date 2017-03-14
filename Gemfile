@@ -11,9 +11,7 @@ gem 'vcard', '0.2.15'
 
 # Parliament Ruby is a wrapper for the internal Parliament data API
 
-gem 'parliament-ruby', git: 'https://github.com/katylouise/parliament-ruby', branch: 'katylouise/website-612_sort-name-decorator'
-
-# gem 'parliament-ruby', '0.5.18'
+gem 'parliament-ruby', '0.5.19'
 
 # Pugin is the front-end component library used by Parliament
 gem 'pugin', git: 'https://github.com/ukparliament/parliament.uk-pugin-components-rails', branch: 'master'
