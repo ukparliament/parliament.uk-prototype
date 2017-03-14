@@ -57,7 +57,7 @@
             %ul
               %li
                 = "#{l(house_incumbency.start_date, format: :default)}" unless house_incumbency.start_date.nil?
-                = house_incumbency.end_date.nil? ? " to Present" : " to #{l(house_incumbency.end_date, format: :default)}"
+                = house_incumbency.current? ? " to Present" : " to #{l(house_incumbency.end_date, format: :default)}"
 
     - if @seat_incumbencies.present?
       %h3= t('hoc')
@@ -70,4 +70,4 @@
                 = link_to(seat_incumbency.constituency.name, constituency_path(seat_incumbency.constituency.graph_id))
               %li
                 = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-                = seat_incumbency.end_date.nil? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"
+                = seat_incumbency.current? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"
