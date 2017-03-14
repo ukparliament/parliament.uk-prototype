@@ -1,13 +1,45 @@
 %p= @constituency.current? ? t('current_constituency') : t('past_constituency')
 %p
-  = "#{l(@constituency.start_date, format: :default)}" unless @constituency.start_date.nil?
+  = "Constituency from #{l(@constituency.start_date, format: :default)}" unless @constituency.start_date.nil?
   = @constituency.end_date.nil? ? " to Present" : " to #{l(@constituency.end_date, format: :default)}"
 
-%ul.list
   - @seat_incumbencies.each do |seat_incumbency|
-    %li.list__item
-      %h2= link_to seat_incumbency.member.full_name, person_path(seat_incumbency.member.graph_id)
-      %ol
-        %li
-          = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-          = seat_incumbency.end_date.nil? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"
+    - if seat_incumbency.current?
+      %section.block--top
+        %h2 Current MP
+        .block--border
+          %h3= link_to seat_incumbency.member.full_name, person_path(seat_incumbency.member.graph_id)
+          %p
+            = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+            = seat_incumbency.end_date.nil? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"
+
+  - if @seat_incumbencies.size > 1
+    %section.block--top
+    %h2 Former MPs
+    %ul.list
+      - @seat_incumbencies.each do |seat_incumbency|
+        - if !seat_incumbency.current?
+          %li.list__item--secondary
+            %h3= link_to seat_incumbency.member.full_name, person_path(seat_incumbency.member.graph_id)
+            %ol
+              %li
+                = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+                = seat_incumbency.end_date.nil? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"
+  - else
+    - @seat_incumbencies.each do |seat_incumbency|
+      - if seat_incumbency.current?
+        %section.block--top
+          %h2 Current MP
+          .block--border
+            %h3= link_to seat_incumbency.member.full_name, person_path(seat_incumbency.member.graph_id)
+            %p
+              = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+              = seat_incumbency.end_date.nil? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"
+      - else
+        %section.block--top
+          %h2 Former MP
+          .block--border
+            %h3= link_to seat_incumbency.member.full_name, person_path(seat_incumbency.member.graph_id)
+            %p
+              = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
+              = seat_incumbency.end_date.nil? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"
