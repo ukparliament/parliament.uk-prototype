@@ -185,6 +185,40 @@ class HousesController < ApplicationController
     @letters = letter_data.map(&:value)
   end
 
+  def a_to_z_members
+    @house_id = params[:house_id]
+
+    letter_data = Parliament::Request.new.houses(@house_id).members.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_current_members
+    @house_id = params[:house_id]
+
+    letter_data = Parliament::Request.new.houses(@house_id).members.current.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_party_members
+    @house_id = params[:house_id]
+    @party_id = params[:party_id]
+
+    letter_data = Parliament::Request.new.houses(@house_id).parties(@party_id).members.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_current_party_members
+    @house_id = params[:house_id]
+    @party_id = params[:party_id]
+
+    letter_data = Parliament::Request.new.houses(@house_id).parties(@party_id).members.current.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
   def lookup_by_letters
     letters = params[:letters]
 

@@ -104,6 +104,18 @@ class ConstituenciesController < ApplicationController
     @letters = letter_data.map(&:value)
   end
 
+  def a_to_z
+    letter_data = Parliament::Request.new.constituencies.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_current
+    letter_data = Parliament::Request.new.constituencies.current.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
   def lookup_by_letters
     letters = params[:letters]
 
