@@ -10,5 +10,9 @@
     .column__float--right-20
       %p
         = party.member_count
-        %span= t('mps')
+        %span
+          - if @house.graph_id == @commons_id
+            = t('mps')
+          - else
+            = t('lords')
 
