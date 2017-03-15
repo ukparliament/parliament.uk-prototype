@@ -8,7 +8,7 @@
       %h2 Current MP
       .list
         .block--border
-          %h3= link_to @current_incumbency.member.full_name, person_path(@current_incumbency.member.graph_id)
+          %h3= link_to @current_incumbency.member.display_name, person_path(@current_incumbency.member.graph_id)
           %p
             = "#{l(@current_incumbency.start_date, format: :default)} to Present" unless @current_incumbency.start_date.nil?
 
@@ -19,8 +19,8 @@
         - @seat_incumbencies.each do |seat_incumbency|
           - if !seat_incumbency.current?
             %li.list__item--secondary
-              %h3= link_to seat_incumbency.member.full_name, person_path(seat_incumbency.member.graph_id)
+              %h3= link_to seat_incumbency.member.display_name, person_path(seat_incumbency.member.graph_id)
               %ol
                 %li
                   = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-                  = "to #{l(seat_incumbency.end_date, format: :default)}" unless seat_incumbency.end_date.nil?
+                  = seat_incumbency.current? ? " to Present" : " to #{l(seat_incumbency.end_date, format: :default)}"
