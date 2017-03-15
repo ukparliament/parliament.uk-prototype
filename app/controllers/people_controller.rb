@@ -157,6 +157,24 @@ class PeopleController < ApplicationController
     @letters = letter_data.map(&:value)
   end
 
+  def a_to_z
+    letter_data = Parliament::Request.new.people.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_members
+    letter_data = Parliament::Request.new.people.members.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_current_members
+    letter_data = Parliament::Request.new.people.members.current.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
   def lookup_by_letters
     letters = params[:letters]
 

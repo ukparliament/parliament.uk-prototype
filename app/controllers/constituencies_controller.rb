@@ -27,9 +27,7 @@ class ConstituenciesController < ApplicationController
     @constituency = @constituency.first
     @seat_incumbencies = @seat_incumbencies.reverse_sort_by(:start_date)
 
-    if @seat_incumbencies.size > 0 && @seat_incumbencies.first.current?
-        @current_incumbency = @seat_incumbencies.shift
-    end
+    @current_incumbency = @seat_incumbencies.shift if !@seat_incumbencies.empty? && @seat_incumbencies.first.current?
   end
 
   def current
@@ -101,6 +99,18 @@ class ConstituenciesController < ApplicationController
 
     @constituencies = data.filter('http://id.ukpds.org/schema/ConstituencyGroup')
     @constituencies = @constituencies.sort_by(:name)
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z
+    letter_data = Parliament::Request.new.constituencies.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_current
+    letter_data = Parliament::Request.new.constituencies.current.a_z_letters.get
+
     @letters = letter_data.map(&:value)
   end
 

@@ -250,6 +250,42 @@ RSpec.describe ConstituenciesController, vcr: true do
     end
   end
 
+  describe "GET a_to_z" do
+    before(:each) do
+      get :a_to_z
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @letters' do
+      expect(assigns(:letters)).to be_a(Array)
+    end
+
+    it 'renders the a_to_z template' do
+      expect(response).to render_template('a_to_z')
+    end
+  end
+
+  describe "GET a_to_z_current" do
+    before(:each) do
+      get :a_to_z_current
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @letters' do
+      expect(assigns(:letters)).to be_a(Array)
+    end
+
+    it 'renders the a_to_z_current template' do
+      expect(response).to render_template('a_to_z_current')
+    end
+  end
+
   describe 'GET lookup_by_letters' do
     context 'it returns multiple results' do
       before(:each) do

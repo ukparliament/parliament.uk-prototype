@@ -404,6 +404,78 @@ RSpec.describe HousesController, vcr: true do
     end
   end
 
+  describe "GET a_to_z_members" do
+    before(:each) do
+      get :a_to_z_members, params: { house_id: '4b77dd58-f6ba-4121-b521-c8ad70465f52' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @letters' do
+      expect(assigns(:letters)).to be_a(Array)
+    end
+
+    it 'renders the a_to_z_members template' do
+      expect(response).to render_template('a_to_z_members')
+    end
+  end
+
+  describe "GET a_to_z_current_members" do
+    before(:each) do
+      get :a_to_z_current_members, params: { house_id: '4b77dd58-f6ba-4121-b521-c8ad70465f52' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @letters' do
+      expect(assigns(:letters)).to be_a(Array)
+    end
+
+    it 'renders the a_to_z_current_members template' do
+      expect(response).to render_template('a_to_z_current_members')
+    end
+  end
+
+  describe "GET a_to_z_party_members" do
+    before(:each) do
+      get :a_to_z_party_members, params: { house_id: '4b77dd58-f6ba-4121-b521-c8ad70465f52', party_id: 'c5858995-6d25-4eb5-b92e-fba3fbd8ba47' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @letters' do
+      expect(assigns(:letters)).to be_a(Array)
+    end
+
+    it 'renders the a_to_z_party_members template' do
+      expect(response).to render_template('a_to_z_party_members')
+    end
+  end
+
+  describe "GET a_to_z_current_party_members" do
+    before(:each) do
+      get :a_to_z_current_party_members, params: { house_id: '4b77dd58-f6ba-4121-b521-c8ad70465f52', party_id: 'c5858995-6d25-4eb5-b92e-fba3fbd8ba47' }
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns @letters' do
+      expect(assigns(:letters)).to be_a(Array)
+    end
+
+    it 'renders the a_to_z_current_party_members template' do
+      expect(response).to render_template('a_to_z_current_party_members')
+    end
+  end
+
   describe 'GET lookup_by_letters' do
     context 'it returns multiple results' do
       before(:each) do
