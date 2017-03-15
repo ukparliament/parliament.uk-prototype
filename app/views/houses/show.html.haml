@@ -1,7 +1,10 @@
 %h1= @house.name
 .block
   .list__item
-    %h2= link_to("#{t('current')} #{t('members')}", house_members_current_a_z_letter_path(@house.graph_id, 'a'))
+    - if @house.graph_id == @commons_id
+      %h2= link_to("#{t('current')} #{t('mps')}", house_members_current_a_z_letter_path(@house.graph_id, 'a'))
+    - else
+      %h2= link_to("#{t('current')} #{t('lords')}", house_members_current_a_z_letter_path(@house.graph_id, 'a'))
     %p= "#{t('.members')} #{@house.name}."
 .block
   .list__item

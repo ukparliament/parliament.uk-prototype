@@ -18,6 +18,7 @@ class HousesController < ApplicationController
     data = Parliament::Request.new.houses(house_id).get
 
     @house = data.filter('http://id.ukpds.org/schema/House').first
+    houses_id
   end
 
   def members
