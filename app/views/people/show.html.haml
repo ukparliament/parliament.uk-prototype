@@ -1,9 +1,9 @@
 %section
-  %h1= @person.display_name == '' ? "#{@person.full_name}" : "#{@person.display_name}"
+  %h1= @person.display_name
 
   - if @most_recent_incumbency.nil? || @most_recent_incumbency.house.name == 'House of Lords'
     %p.lead= @person.full_title
-    %p.lead= "#{@person.full_name}" unless @person.display_name == ''
+    %p.lead= "#{@person.full_name}" unless @person.display_name == @person.full_name
 
   - unless @person.statuses[:house_membership_status].empty?
     .block
