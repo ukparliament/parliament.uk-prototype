@@ -125,7 +125,7 @@ RSpec.describe HousesController, vcr: true do
 
   describe "GET parties" do
     before(:each) do
-      get :parties, params: {house_id: 'c2d41b82-d4df-4f50-b0f9-f52b84a6a788'}
+      get :parties, params: {house_id: '4b77dd58-f6ba-4121-b521-c8ad70465f52'}
     end
 
     it 'should have a response with http status ok (200)' do
@@ -153,7 +153,7 @@ RSpec.describe HousesController, vcr: true do
 
   describe "GET current_parties" do
     before(:each) do
-      get :current_parties, params: {house_id: 'c2d41b82-d4df-4f50-b0f9-f52b84a6a788'}
+      get :current_parties, params: {house_id: '4b77dd58-f6ba-4121-b521-c8ad70465f52'}
     end
 
     it 'should have a response with http status ok (200)' do

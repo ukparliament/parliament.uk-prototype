@@ -56,6 +56,7 @@ class HousesController < ApplicationController
     @house, @parties = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Party')
     @house = @house.first
     @parties = @parties.sort_by(:name)
+    houses_id
   end
 
   def current_parties
@@ -66,6 +67,7 @@ class HousesController < ApplicationController
     @house, @parties = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Party')
     @house = @house.first
     @parties = @parties.reverse_sort_by(:member_count)
+    houses_id
   end
 
   def party

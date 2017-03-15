@@ -62,6 +62,8 @@ en:
   mps: 'MPs'
   lords: 'Lords'
   view_all_current: 'View all current'
+  all_current: 'All current'
+  commons: 'Commons'
   time:
     formats:
       default: '%-d %b %Y'
@@ -85,6 +87,8 @@ en:
       address: ! '%{address}:'
       membership_history: 'Membership History'
       empty_election_history: 'There is currently no election information available for this person.'
+      hol: 'Lord'
+      hoc: 'MP'
       links:
         contact_mp: "when an MP can help you and when they can't"
         contact_lord: 'Who should I contact with my issue?'
