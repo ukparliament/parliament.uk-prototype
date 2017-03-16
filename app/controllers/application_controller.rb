@@ -13,10 +13,6 @@ class ApplicationController < ActionController::Base
 
   layout 'pugin/layouts/pugin'
 
-  def a_to_z
-    @root_path = request.path
-  end
-
   rescue_from Parliament::NoContentError do |error|
     raise ActionController::RoutingError, error.message
   end
