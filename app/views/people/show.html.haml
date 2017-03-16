@@ -53,15 +53,12 @@
             - if contact_point.phone_number.present?
               %dt= t('.phone', phone: t('phone'))
               %dd
-                %a{ :href => "tel:#{contact_point.phone_number}" }= contact_point.phone_number
+                %a{ :href => "tel:#{contact_point.phone_number.gsub(/\s+/, "") }" }= contact_point.phone_number
             - if contact_point.postal_addresses.present?
               %dt
                 = t('.address', address: t('address'))
                 - contact_point.postal_addresses.each do |postal_address|
                   %dd= postal_address.full_address
-            /- if contact_point.graph_id.present?
-            /%dt= t('vcard_download')
-            /%dd= link_to "#{t('download')}", contact_point_path(contact_point.graph_id), target: '_blank'
             - if @current_incumbency.contact_points.length > 1
               - unless contact_point.equal?(@current_incumbency.contact_points.last)
                 .line-break-heavy
