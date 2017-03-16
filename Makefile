@@ -22,6 +22,7 @@ build:
 		--build-arg PARLIAMENT_BASE_URL=$(PARLIAMENT_BASE_URL) \
 		--build-arg GTM_KEY=$(GTM_KEY) \
 		--build-arg ASSET_LOCATION_URL=$(ASSET_LOCATION_URL) \
+		--build-arg SECRET_KEY_BASE=$(SECRET_KEY_BASE) \
 		.
 
 # Container port 3000 is specified in the Dockerfile
