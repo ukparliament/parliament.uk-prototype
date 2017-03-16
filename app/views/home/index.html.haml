@@ -20,7 +20,7 @@
       %h4= link_to t('.links.constituencies', constituencies: t('constituencies_title')), constituencies_current_a_z_letter_path('a')
       %p Find MPs by the area they represent
     %li.list__item
-      %h4= link_to t('.links.parties', parties: t('parties_title')), house_parties_path(@commons_id)
+      %h4= link_to t('.links.parties', parties: t('parties_title')), house_parties_current_path(@commons_id)
       %p Find MPs and Lords by their party or group
 
 %section.block--top
