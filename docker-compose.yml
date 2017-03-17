@@ -1,22 +1,21 @@
-version: '2'
-services:
-  traefik:
-    image: traefik
-    command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
-    ports:
-      - "80:80"
-      - "8080:8080"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /dev/null:/traefik.toml
+version: '3'
 
+services:
   web:
-    build: .
-    volumes:
-       - .:/opt/sparql-exploration
-       - /etc/localtime:/etc/localtime:ro
+    build:
+      context: .
+    environment:
+      PARLIAMENT_BASE_URL: http://api:3000
+    env_file: ~/.ukpds/parliament.uk-prototype.env
     ports:
-      - "3000"
-    labels:
-      - "traefik.backend=content-driven"
-      - "traefik.frontend.rule=Host:members-prototype.docker.localhost"
+      - "3000:3000"
+    links:
+      - api
+
+  api:
+    build:
+      context: ../member-service-api
+    env_file: ~/.ukpds/member-service-api.env
+    ports:
+      - "3030:3000"
+

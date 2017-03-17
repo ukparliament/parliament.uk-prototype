@@ -3,65 +3,44 @@
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
-
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
+  <link href="https://s3-eu-west-1.amazonaws.com/web1devci.pugin-website/1.2.2/stylesheets/main.css" rel="stylesheet">
 </head>
 
-<body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+<body class="has-js">
+    <header>
+      <div class="container--full-screen header">
+        <div class="container--full-grid">
+          <div class="row--indent-horizontal">
+            <div class="header__logo">
+              <span>
+                <a href="/">UK Parliament</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="content">
+      <div class="container--full-grid">
+        <div class="row--indent-full">
+          <h1>This page doesn’t exist.</h1>
+          <div class="block">
+            <h2>What could have caused this?</h2>
+            <ul>
+              <li>The page might have been moved or deleted</li>
+              <li>You might have typed the page address in the browser incorrectly</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h2>What can you do now?</h2>
+            <ul>
+              <li>Try typing the page address again</li>
+              <li>Go back to <a href="/">beta.parliament.uk</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
 </body>
 </html>

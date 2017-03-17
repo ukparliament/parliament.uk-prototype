@@ -20,4 +20,207 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  date_of_birth: 'Date Of Birth'
+  gender: 'Gender'
+  parties_title: 'Parties & Groups'
+  party: 'Party'
+  constituencies_title: 'Constituencies'
+  constituency: 'Constituency'
+  contact_points_title: 'Contact Points'
+  houses_title: 'Houses'
+  past_present: '(Past & Present)'
+  house: 'House'
+  email: 'Email'
+  phone: 'Phone'
+  fax: 'Fax'
+  address: 'Address'
+  addresses: 'Addresses'
+  download: 'Download'
+  all_past_present: 'All past and present'
+  members: 'Members'
+  member: 'Member'
+  current: 'Current'
+  people_title: 'People'
+  coming_soon: 'Coming Soon'
+  vcard_download: 'vCard:'
+  past_and_present_members: 'View all past and present members'
+  past_and_present_members_commons: 'View all past and present members of the House of Commons'
+  past_and_present_members_lords: 'View all past and present members of the House of Lords'
+  members_hol: 'Members of the House of Lords'
+  members_commons: 'Members of the House of Commons'
+  hol: 'House of Lords'
+  hoc: 'House of Commons'
+  mp_for: 'MP for'
+  current_mp: 'Current MP'
+  current_lord: 'Lord'
+  former_mp: 'Former MP'
+  former_lord: 'Former Lord'
+  current_constituency: 'Current Constituency'
+  past_constituency: 'Past Constituency'
+  past_members: 'Past members'
+  party_no_current_members: 'There are currently no members of this party in either House.'
+  mps: 'MPs'
+  lords: 'Lords'
+  view_all_current: 'View all current'
+  all_current: 'All current'
+  commons: 'Commons'
+  time:
+    formats:
+      default: '%-d %b %Y'
+  a_to_z:
+    aria_label: 'Paged navigation'
+  people:
+    index:
+      title: ! '%{people}'
+    show:
+      mp_for: 'MP for'
+      view_all: 'View all current'
+      mp_representative_1: 'Find out %{contactlink}.'
+      mp_representative_2: 'Your MP is your representative in Parliament and can help with issues that are the responsibility of UK Parliament.'
+      mp_caution: 'Please include your postcode when emailing an MP.'
+      lord_representative: 'Lords can be contacted about issues that are the responsibility of Parliament but do not represent constituencies.'
+      who_to_contact: 'Find out who to contact with your issue'
+      empty_contact_details: 'There is currently no contact information available for this person.'
+      contact_title: 'Contact Details'
+      email: ! '%{email}:'
+      phone: ! '%{phone}:'
+      address: ! '%{address}:'
+      membership_history: 'Membership History'
+      empty_election_history: 'There is currently no election information available for this person.'
+      hol: 'Lord'
+      hoc: 'MP'
+      links:
+        contact_mp: "when an MP can help you and when they can't"
+        contact_lord: 'Who should I contact with my issue?'
+    members:
+      title: ! '%{members}'
+    current_members:
+      title: ! '%{current} %{members}'
+    current_party:
+      title: ! '%{current} %{party}'
+    current_constituency:
+      title: ! '%{current} %{constituency}'
+    current_house:
+      title: ! '%{current} %{house}'
+    letters:
+      title: ! '%{people}'
+    members_letters:
+      title: ! '%{members}'
+    current_members_letters:
+      title: ! '%{current} %{members}'
+  houses:
+    members:
+      title: ! '%{members}'
+    current_members:
+      title: ! '%{current} %{members}'
+    party_members:
+      title: ! '%{members}'
+    current_parties:
+      title: ! '%{current} %{parties}'
+    members_letters:
+      title: ! '%{members}'
+    current_members_letters:
+      title: ! '%{current} %{members}'
+    party_members_letters:
+      title: ! '%{members}'
+    current_party_members:
+      title: ! '%{current} %{members}'
+    current_party_members_letters:
+      title: ! '%{current} %{members}'
+    party:
+      party_members: 'party members.'
+    index:
+      all_parties_members: 'All parties and members of the'
+    show:
+      members: 'All current members of the'
+      parties: 'All current parties in the'
+  parties:
+    index:
+      title: ! '%{parties}'
+    members:
+      title: ! '%{members}'
+    members_letters:
+      title: ! '%{members}'
+    current_members:
+      title: ! '%{current} %{members}'
+    current:
+      title: ! '%{current} %{parties}'
+    letters:
+      title: ! '%{parties}'
+    current_members_letters:
+      title: ! '%{current} %{members}'
+    show:
+      party_members: 'party members.'
+      past: 'All past'
+  constituencies:
+    index:
+      title: ! '%{constituencies}'
+    current:
+      title: ! '%{current} %{constituencies}'
+    members:
+      title: ! '%{members}'
+    current_member:
+      title: ! '%{current} %{constituency} %{member}'
+    letters:
+      title: ! '%{constituencies}'
+    current_letters:
+      title: ! '%{current} %{constituencies}'
+  home:
+    index:
+      title: 'UK Parliament test website'
+      title-context: 'Welcome to beta.parliament.uk, a beta website for UK Parliament.'
+      beta-highlight-title: 'About this website'
+      beta-highlight-text-1: 'We’re building a new website for Parliament. These pages are being tested and improved – they may be inaccurate or misleading.'
+      beta-highlight-text-2: 'Test pages are separate from the current %{parliamentlink} website'
+      whats-on: "What's on our beta website"
+      members-info: 'Members Information'
+      feedback: 'Feedback'
+      feedback-text: ! 'We want %{feedbacklink} on these beta pages to help us improve them further.'
+      follow: 'Follow our progress'
+      follow-text: 'Follow all %{bloglink}.'
+      current-beta-pages: 'Current beta pages'
+      beta-pages-text-1: 'We’re creating a page for every MP and Lord, past and present.'
+      beta-pages-text-2: 'We currently have over 4000 member pages, dating back to the 1940s.'
+      beta-pages-text-3: ! 'Find contact details and election history for %{current_mps}.'
+      links:
+         people: ! '%{people}'
+         constituencies: ! '%{constituencies}'
+         current_members_of_both_houses: 'Current Members of both Houses'
+         current_mps: 'all current MPs'
+         current_website: 'parliament.uk'
+         blog: 'new website developments on our blog'
+         feedback: 'your feedback'
+         commons: 'Commons'
+         lords: 'Lords'
+         members: 'MPs'
+         parties: 'Parties and groups'
+         constituencies: '%{constituencies}'
+  meta:
+    index:
+      title: 'Meta information'
+    cookie_policy:
+      title: 'Cookies'
+      subtitle: 'Cookies on beta.parliament.uk'
+      which_cookies: 'Which cookies do we use?'
+      cookie:
+        definition: 'Cookies are small files put on your device to let us know how you use our website.'
+        explanation: 'We use Google Analytics cookies to collect information about how you use our services. This helps us meet your needs and improve our website.'
+        anonymous_statement: 'All the information we collect is anonymous.'
+      cookie_table:
+        meta:
+          name: 'Name'
+          purpose: 'Purpose'
+          expires: 'Expires'
+          expiration:
+            minutes: 'After %{time} minutes.'
+            years: 'After %{time} years.'
+        explanations:
+          ga: 'This helps us know how many people have visited beta.parliament.uk by telling us if you’ve visited before.'
+          gat: 'This helps us know how long you spend on a page.'
+      managing_cookies:
+        title: 'How to manage your cookies'
+        subtitle: 'Most web browsers allow you to control cookies through browser settings.'
+        find_out: "Find out how to %{link}."
+        find_out_link: "manage and delete cookies"
+        opt_out: "You can %{link}."
+        opt_out_link: "opt out of Google Analytics cookies"

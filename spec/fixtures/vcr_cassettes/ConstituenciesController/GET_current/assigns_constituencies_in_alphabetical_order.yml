@@ -1,0 +1,143 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/constituencies/current/a_z_letters
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - localhost:3030
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/n-triples; charset=utf-8
+      Etag:
+      - W/"5a1e2bb73ce7d57a9d2cb801900c8d3f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 897cb169-6003-4920-aae8-b409de7a2c81
+      X-Runtime:
+      - '0.141714'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        _:node10881 <http://id.ukpds.org/schema/value> "B" .
+        _:node10882 <http://id.ukpds.org/schema/value> "C" .
+        _:node10883 <http://id.ukpds.org/schema/value> "A" .
+        _:node10884 <http://id.ukpds.org/schema/value> "D" .
+        _:node10885 <http://id.ukpds.org/schema/value> "E" .
+        _:node10886 <http://id.ukpds.org/schema/value> "G" .
+        _:node10887 <http://id.ukpds.org/schema/value> "H" .
+        _:node10888 <http://id.ukpds.org/schema/value> "L" .
+        _:node10889 <http://id.ukpds.org/schema/value> "M" .
+        _:node10890 <http://id.ukpds.org/schema/value> "I" .
+        _:node10891 <http://id.ukpds.org/schema/value> "K" .
+        _:node10892 <http://id.ukpds.org/schema/value> "N" .
+        _:node10893 <http://id.ukpds.org/schema/value> "F" .
+        _:node10894 <http://id.ukpds.org/schema/value> "R" .
+        _:node10895 <http://id.ukpds.org/schema/value> "P" .
+        _:node10896 <http://id.ukpds.org/schema/value> "S" .
+        _:node10897 <http://id.ukpds.org/schema/value> "O" .
+        _:node10898 <http://id.ukpds.org/schema/value> "W" .
+        _:node10899 <http://id.ukpds.org/schema/value> "T" .
+        _:node10900 <http://id.ukpds.org/schema/value> "J" .
+        _:node10901 <http://id.ukpds.org/schema/value> "Y" .
+        _:node10902 <http://id.ukpds.org/schema/value> "V" .
+        _:node10903 <http://id.ukpds.org/schema/value> "U" .
+    http_version:
+  recorded_at: Fri, 10 Mar 2017 12:17:52 GMT
+- request:
+    method: get
+    uri: http://localhost:3030/constituencies/current
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - localhost:3030
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/n-triples; charset=utf-8
+      Etag:
+      - W/"df938d58b4d6a46fd6f8ee6bbc549d69"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b9f7cfb8-d7a6-49d6-b8ea-6b699be054a7
+      X-Runtime:
+      - '0.653066'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <http://id.ukpds.org/a5e85602-3569-4f2b-9fd9-cfe944102daf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ConstituencyGroup> .
+        <http://id.ukpds.org/a5e85602-3569-4f2b-9fd9-cfe944102daf> <http://id.ukpds.org/schema/constituencyGroupName> "Normanton, Pontefract and Castleford" .
+        <http://id.ukpds.org/a5e85602-3569-4f2b-9fd9-cfe944102daf> <http://id.ukpds.org/schema/constituencyGroupHasHouseSeat> <http://id.ukpds.org/861f333a-98e2-4066-aa20-9c8591e5ec07> .
+        <http://id.ukpds.org/861f333a-98e2-4066-aa20-9c8591e5ec07> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/HouseSeat> .
+        <http://id.ukpds.org/861f333a-98e2-4066-aa20-9c8591e5ec07> <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency> <http://id.ukpds.org/d323285f-cc88-4028-8d86-e15dcdc78705> .
+        <http://id.ukpds.org/d323285f-cc88-4028-8d86-e15dcdc78705> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/SeatIncumbency> .
+        <http://id.ukpds.org/d323285f-cc88-4028-8d86-e15dcdc78705> <http://id.ukpds.org/schema/incumbencyHasMember> <http://id.ukpds.org/dc671d40-3cd8-4fe9-9504-e9d755f382fc> .
+        <http://id.ukpds.org/dc671d40-3cd8-4fe9-9504-e9d755f382fc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/dc671d40-3cd8-4fe9-9504-e9d755f382fc> <http://id.ukpds.org/schema/personGivenName> "Person 1 - givenName" .
+        <http://id.ukpds.org/dc671d40-3cd8-4fe9-9504-e9d755f382fc> <http://id.ukpds.org/schema/personFamilyName> "Person 1 - familyName" .
+        <http://id.ukpds.org/2b70e394-7835-42aa-a6ea-ed4e12ba9b8c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ConstituencyGroup> .
+        <http://id.ukpds.org/2b70e394-7835-42aa-a6ea-ed4e12ba9b8c> <http://id.ukpds.org/schema/constituencyGroupName> "Stockport" .
+        <http://id.ukpds.org/2b70e394-7835-42aa-a6ea-ed4e12ba9b8c> <http://id.ukpds.org/schema/constituencyGroupHasHouseSeat> <http://id.ukpds.org/bafe2b09-b709-4f23-98cb-b08cfe6afd9f> .
+        <http://id.ukpds.org/bafe2b09-b709-4f23-98cb-b08cfe6afd9f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/HouseSeat> .
+        <http://id.ukpds.org/bafe2b09-b709-4f23-98cb-b08cfe6afd9f> <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency> <http://id.ukpds.org/a73b6347-61d8-4f4b-bac1-1699eed2284b> .
+        <http://id.ukpds.org/a73b6347-61d8-4f4b-bac1-1699eed2284b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/SeatIncumbency> .
+        <http://id.ukpds.org/a73b6347-61d8-4f4b-bac1-1699eed2284b> <http://id.ukpds.org/schema/incumbencyHasMember> <http://id.ukpds.org/77b9a8a7-393a-4194-b963-c9be6376ed1c> .
+        <http://id.ukpds.org/77b9a8a7-393a-4194-b963-c9be6376ed1c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/77b9a8a7-393a-4194-b963-c9be6376ed1c> <http://id.ukpds.org/schema/personGivenName> "Person 2 - givenName" .
+        <http://id.ukpds.org/77b9a8a7-393a-4194-b963-c9be6376ed1c> <http://id.ukpds.org/schema/personFamilyName> "Person 2 - familyName" .
+        <http://id.ukpds.org/42f1e5e6-5f27-4dbe-9fe8-04faa8c90d39> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ConstituencyGroup> .
+        <http://id.ukpds.org/42f1e5e6-5f27-4dbe-9fe8-04faa8c90d39> <http://id.ukpds.org/schema/constituencyGroupName> "West Lancashire" .
+        <http://id.ukpds.org/42f1e5e6-5f27-4dbe-9fe8-04faa8c90d39> <http://id.ukpds.org/schema/constituencyGroupHasHouseSeat> <http://id.ukpds.org/efc564d3-f5cd-495d-9baa-9a1a885648df> .
+        <http://id.ukpds.org/efc564d3-f5cd-495d-9baa-9a1a885648df> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/HouseSeat> .
+        <http://id.ukpds.org/efc564d3-f5cd-495d-9baa-9a1a885648df> <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency> <http://id.ukpds.org/281e0827-36dd-4be7-9f5e-b0de0371ff00> .
+        <http://id.ukpds.org/281e0827-36dd-4be7-9f5e-b0de0371ff00> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/SeatIncumbency> .
+        <http://id.ukpds.org/281e0827-36dd-4be7-9f5e-b0de0371ff00> <http://id.ukpds.org/schema/incumbencyHasMember> <http://id.ukpds.org/d5226495-5123-42b5-9cad-89b0d3ce5c10> .
+        <http://id.ukpds.org/d5226495-5123-42b5-9cad-89b0d3ce5c10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/d5226495-5123-42b5-9cad-89b0d3ce5c10> <http://id.ukpds.org/schema/personGivenName> "Person 3 - givenName" .
+        <http://id.ukpds.org/d5226495-5123-42b5-9cad-89b0d3ce5c10> <http://id.ukpds.org/schema/personFamilyName> "Person 3 - familyName" .
+
+    http_version:
+  recorded_at: Fri, 10 Mar 2017 12:17:53 GMT
+recorded_with: VCR 3.0.3
