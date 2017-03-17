@@ -29,17 +29,17 @@
   %section.block--top
     %h2= t('.contact_title')
     - if @person.statuses[:house_membership_status].include?('Current MP') || @person.statuses[:house_membership_status].include?('Lord')
-      .block
-        .highlight__box
-          - if @person.statuses[:house_membership_status].include?('Current MP')
-            /%p= t('.mp_representative_1', contactlink: link_to(t('.links.contact_mp'), 'https://www.parliament.uk', target: '_blank', title: 'web site opens in a new window')).html_safe
-            %p= t('.mp_representative_2')
-          - else
-            %p= t('.lord_representative')
-            /%p= link_to(t('.links.contact_lord'), '#', target: '_blank', title: 'web site opens in a new window')
-        - if @person.statuses[:house_membership_status].include?('Current MP')
-          .highlight__box--caution
-            %p= t('.mp_caution')
+      -# .block
+        -# .highlight__box
+          -# - if @person.statuses[:house_membership_status].include?('Current MP')
+            -# %p= t('.mp_representative_1', contactlink: link_to(t('.links.contact_mp'), 'https://www.parliament.uk', target: '_blank', title: 'web site opens in a new window')).html_safe
+            -# %p= t('.mp_representative_2')
+          -# - else
+            -# %p= t('.lord_representative')
+            -# %p= link_to(t('.links.contact_lord'), '#', target: '_blank', title: 'web site opens in a new window')
+        -# - if @person.statuses[:house_membership_status].include?('Current MP')
+          -# .highlight__box--caution
+            -# %p= t('.mp_caution')
       - if @current_incumbency.contact_points.empty?
         .block
           %p= t('.empty_contact_details')
