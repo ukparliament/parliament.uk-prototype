@@ -5,7 +5,7 @@
 
 = render partial: 'shared/id_a_to_z', locals: { route_symbol: :house_members_a_z_letter_path, id: @house.graph_id}
 %ul.list
-  = render :partial => 'houses/person', collection: @people
+  = render partial: 'pugin/cards/person-list', locals: { people: @people }
 
 .block
   - if @house.name == 'House of Commons'
