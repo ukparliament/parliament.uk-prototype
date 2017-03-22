@@ -7,7 +7,7 @@
 -if @people.empty?
   = render partial: 'shared/empty_list', locals: {title: t('no_content.empty_list.constituencies.title'), description: t('no_content.empty_list.constituencies.description')}
 -else
-  = render partial: 'pugin/cards/person-list', locals: { people: @people }
+  = render partial: 'pugin/cards/person-list', locals: { people: @people, letter: params[:letter] }
 
 .block
   %p= link_to(t('past_and_present_members'), house_parties_party_members_a_z_letter_path(@house.graph_id, @party.graph_id, 'a'))
