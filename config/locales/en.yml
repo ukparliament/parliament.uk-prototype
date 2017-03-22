@@ -173,6 +173,14 @@ en:
       title: ! '%{constituencies}'
     current_letters:
       title: ! '%{current} %{constituencies}'
+  no_content:
+    empty_list:
+      constituencies:
+        description: "Sorry there are no results for '%{letter}'"
+      houses:
+        description: "Sorry there are no results for '%{letter}'"
+      parties:
+        description: "Sorry there are no results for '%{letter}'"
   home:
     index:
       title: 'UK Parliament test website'
