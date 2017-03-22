@@ -175,21 +175,19 @@ en:
       title: ! '%{current} %{constituencies}'
   home:
     index:
-      title: 'UK Parliament test website'
-      title-context: 'Welcome to beta.parliament.uk, a beta website for UK Parliament.'
-      beta-highlight-title: 'About this website'
-      beta-highlight-text-1: 'We’re building a new website for Parliament. These pages are being tested and improved – they may be inaccurate or misleading.'
-      beta-highlight-text-2: 'Test pages are separate from the current %{parliamentlink} website'
-      whats-on: "What's on our beta website"
+      title: 'Welcome to the UK Parliament test website'
+      title-context-1: 'We’re building a %{new_website_link}. These pages are being tested and improved – they may be inaccurate or misleading.'
+      title-context-2: 'Test pages are separate from the current %{parliamentlink} website.'
+      whats-on: "What's on our test website"
       members-info: 'Members Information'
-      feedback: 'Feedback'
+      feedback: 'Give feedback'
       feedback-text: ! 'We want %{feedbacklink} on these beta pages to help us improve them further.'
       follow: 'Follow our progress'
       follow-text: 'Follow all %{bloglink}.'
-      current-beta-pages: 'Current beta pages'
-      beta-pages-text-1: 'We’re creating a page for every MP and Lord, past and present.'
-      beta-pages-text-2: 'We currently have over 4000 member pages, dating back to the 1940s.'
-      beta-pages-text-3: ! 'Find contact details and election history for %{current_mps}.'
+      current_mps: 'All current members of the House of Commons'
+      current_lords: 'All current members of the House of Lords'
+      current_constituencies: 'Find current MPs by the area they represent'
+      current_parties_groups: 'Find current MPs and Lords by their party or group'
       links:
          people: ! '%{people}'
          constituencies: ! '%{constituencies}'
@@ -203,6 +201,7 @@ en:
          members: 'MPs'
          parties: 'Parties and groups'
          constituencies: '%{constituencies}'
+         new_website: 'new website for Parliament'
   meta:
     index:
       title: 'Meta information'
