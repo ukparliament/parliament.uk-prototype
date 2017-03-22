@@ -22,7 +22,7 @@
 en:
   date_of_birth: 'Date Of Birth'
   gender: 'Gender'
-  parties_title: 'Parties'
+  parties_title: 'Parties and Groups'
   party: 'Party'
   constituencies_title: 'Constituencies'
   constituency: 'Constituency'
@@ -36,7 +36,7 @@ en:
   address: 'Address'
   addresses: 'Addresses'
   download: 'Download'
-  all_past_present: 'All past and present'
+  current_and_former: 'All current and former'
   members: 'Members'
   member: 'Member'
   current: 'Current'
@@ -58,7 +58,7 @@ en:
   current_constituency: 'Current Constituency'
   past_constituency: 'Past Constituency'
   past_members: 'Past members'
-  party_no_current_members: 'There are currently no members of this party in either House.'
+  party_no_current_members: 'There are no MPs or Lords in this party.'
   party_no_current_members_house: 'There are currently no members of this party in this House.'
   mps: 'MPs'
   lords: 'Lords'
@@ -67,6 +67,7 @@ en:
   commons: 'Commons'
   the_speaker_of_the_house_of_commons: 'The Speaker of the House of Commons'
   awaiting_by_election: 'Currently vacant seat - awaiting by-election'
+  former: 'former'
   time:
     formats:
       default: '%-d %b %Y'
@@ -144,22 +145,29 @@ en:
       members_all_lords: 'All current Lords'
   parties:
     index:
+      title: ! '%{current_and_former} %{parties}'
+    a_to_z:
       title: ! '%{parties}'
+    letters:
+      title: ! '%{parties} %{past_present}'
     members:
       title: ! '%{members}'
+    current:
+      title: ! '%{current} %{parties_title}'
+      current_and_former: ! '%{current_and_former} %{parties_title}'
+    show:
+      party_members: 'party members.'
+      past: 'All past'
+    members:
+    a_to_z_members:
     members_letters:
       title: ! '%{members}'
     current_members:
       title: ! '%{current} %{members}'
-    current:
-      title: ! '%{current} %{parties}'
-    letters:
-      title: ! '%{parties}'
+    a_to_z_current_members:
     current_members_letters:
       title: ! '%{current} %{members}'
-    show:
-      party_members: 'party members.'
-      past: 'All past'
+
   constituencies:
     index:
       title: ! '%{constituencies}'
