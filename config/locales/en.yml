@@ -63,6 +63,14 @@ en:
   party_no_current_members: 'There are no MPs or Lords in this party.'
   party_no_current_members_house: 'There are currently no members of this party in this House.'
   mps: 'MPs'
+  mp_count:
+    zero: 'MPs'
+    one: 'MP'
+    other: 'MPs'
+  lord_count:
+    zero: 'Lords'
+    one: 'Lord'
+    other: 'Lords'
   lords: 'Lords'
   mps_and_lords: 'MPs and Lords'
   view_all_current: 'View all current'
