@@ -1,11 +1,14 @@
 require 'vcard/vcard'
 require 'parliament'
-require 'houses_id_helper'
+require 'houses_helper'
+require 'request_helper'
 
+# Base class for all other controllers
 class ApplicationController < ActionController::Base
   include VCardHelper
   include Parliament
-  include HouseIdHelper
+  include HousesHelper
+  include RequestHelper
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -13,7 +16,8 @@ class ApplicationController < ActionController::Base
 
   layout 'pugin/layouts/pugin'
 
-  rescue_from Parliament::NoContentError do |error|
+  # Rescues from a Parliament::NoContentResponseError and raises an ActionController::RoutingError
+  rescue_from Parliament::NoContentResponseError do |error|
     raise ActionController::RoutingError, error.message
   end
 end

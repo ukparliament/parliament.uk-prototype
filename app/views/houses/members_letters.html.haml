@@ -1,14 +1,16 @@
-- if @house.graph_id == @commons_id
-  %h1= "#{@house.name} - #{t('.title', members: t('mps'))} #{t('past_present')}"
+- if HousesHelper.commons?(@house)
+  - page_title = title("#{@house.name} - #{t('.title', members: t('mps'))} #{t('past_present')}")
 - else
-  %h1= "#{@house.name} - #{t('.title', members: t('lords'))} #{t('past_present')}"
+  - page_title = title("#{@house.name} - #{t('.title', members: t('lords'))} #{t('past_present')}")
+
+%h1= page_title
 
 = render partial: 'shared/id_a_to_z', locals: { route_symbol: :house_members_a_z_letter_path, id: @house.graph_id}
-%ul.list
-  = render :partial => 'houses/person', collection: @people
+= render partial: 'pugin/cards/person-list', locals: { people: @people, letter: params[:letter] }
 
 .block
-  - if @house.name == 'House of Commons'
-    %p= link_to(t('members_hol'), house_path(@lords_id))
-  - if @house.name == 'House of Lords'
-    %p= link_to(t('members_commons'), house_members_a_z_letter_path(@commons_id, 'a'))
+  - if HousesHelper.commons?(@house)
+    %p= link_to(t('members_hol'), house_members_a_z_letter_path(HousesHelper.lords_id, 'a'))
+
+  - if HousesHelper.lords?(@house)
+    %p= link_to(t('members_commons'), house_members_a_z_letter_path(HousesHelper.commons_id, 'a'))
