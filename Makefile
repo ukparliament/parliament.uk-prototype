@@ -4,10 +4,10 @@ APP_NAME = parliamentukprototype
 
 # The value assigned here is for execution in local machines
 # When executed by GoCD it may inject another value from a GoCD environment variable
-AWS_ACCOUNT_ID=$(shell aws sts get-caller-identity --output text --query "Account" 2> /dev/null)
+AWS_ACCOUNT_ID = $(shell aws sts get-caller-identity --output text --query "Account" 2> /dev/null)
 
 # GO_PIPELINE_COUNTER is the pipeline number, passed from our build agent.
-GO_PIPELINE_COUNTER?="unknown"
+GO_PIPELINE_COUNTER? = unknown
 
 # VERSION is used to tag the Docker images
 VERSION=0.2.$(GO_PIPELINE_COUNTER)
@@ -30,14 +30,21 @@ CONTAINER_PORT = 3000
 # Host port of 80 can be changed to any value but remember the app URL would be http://localhost:<host-port>
 HOST_PORT = 80
 
-run: build
+run:
 	docker run --rm -p $(HOST_PORT):$(CONTAINER_PORT) $(IMAGE)
 
 dev:
 	docker run -p $(HOST_PORT):$(CONTAINER_PORT) -v ${PWD}:/opt/$(APP_NAME) $(IMAGE)
 
-test: build
-	docker run --rm $(IMAGE) bundle exec rake
+test:
+	rvm --version
+	rvm use 2.3.1 --install
+	ruby --version
+	gem --version
+	gem install bundler
+	bundle --version
+	bundle install --jobs=3 --retry=3
+	PARLIAMENT_BASE_URL=http://localhost:3030 bundle exec rake
 
 push:
 	docker push $(IMAGE):$(VERSION)
@@ -47,8 +54,6 @@ rmi:
 	docker rmi $(IMAGE):$(VERSION)
 	docker rmi $(IMAGE):latest
 
-# http://serverfault.com/questions/682340/update-the-container-of-a-service-in-amazon-ecs?rq=1
 deploy-ecs:
-# aws ecs register-task-definition --cli-input-json file://./aws_ecs/task-definition.json
 	./aws_ecs/register-task-definition.sh $(APP_NAME)
 	aws ecs update-service --service $(APP_NAME) --cluster $(ECS_CLUSTER) --region $(AWS_REGION) --task-definition $(APP_NAME)
