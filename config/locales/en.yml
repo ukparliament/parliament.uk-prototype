@@ -146,7 +146,7 @@ en:
     current_party_members_letters:
       title: ! '%{current} %{members}'
     party:
-      party_members: 'party members.'
+      party_members: 'members.'
       past: 'All past'
     index:
       all_mps_info: 'MPs, parties and constituencies in the House of Commons'
@@ -164,12 +164,12 @@ en:
     a_to_z:
       title: ! '%{parties}'
     letters:
-      title: ! '%{parties} %{past_present}'    
+      title: ! '%{parties} %{past_present}'
     current:
       title: ! '%{current} %{parties_title}'
       current_and_former: ! '%{current_and_former} %{parties_title}'
     show:
-      party_members: 'party members.'
+      party_members: 'members.'
       past: 'All past'
     members:
       title: ! '%{members}'
