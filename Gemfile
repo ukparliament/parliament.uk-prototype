@@ -18,6 +18,13 @@ gem 'pugin', '0.5.0'
 # HAML is used for front-end template rendering
 gem 'haml', '4.0.7'
 
+# Include time zone information
+gem 'tzinfo-data'
+
+# Use Puma as our web server
+gem 'puma'
+gem 'rack-timeout'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -50,6 +57,3 @@ group :test do
   gem 'webmock'
   gem 'vcr'
 end
-
-# Gems required for Docker containers
-gem 'passenger'
