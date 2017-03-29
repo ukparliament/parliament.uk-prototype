@@ -1,53 +1,55 @@
-FROM ruby:2.3.1
+FROM ruby:2.3.1-alpine
 
+# Add command line argument variables used to cusomise the image at build-time.
 ARG PARLIAMENT_BASE_URL
 ARG GTM_KEY
 ARG ASSET_LOCATION_URL
 ARG SECRET_KEY_BASE
+ARG RACK_ENV=production
 
-# Create user to run app in user space
-ENV APP_USER parliament
-RUN set -x \
-        && groupadd -g 5000 $APP_USER \
-        && adduser --disabled-password --uid 5000 --gid 5000 --gecos '' $APP_USER
+# Add Gemfiles.
+ADD Gemfile /app/
+ADD Gemfile.lock /app/
 
-# Application specific environment variables
+# Set the working DIR.
+WORKDIR /app
+
+# Install system and application dependencies.
+RUN apk --update add --virtual build-dependencies build-base ruby-dev && \
+    gem install bundler --no-ri --no-rdoc && \
+    echo "Environment (RACK_ENV): $RACK_ENV" && \
+    if [ "$RACK_ENV" == "production" ]; then \
+      bundle install --without development test --path vendor/bundle; \
+    else \
+      bundle install --path vendor/bundle; \
+    fi && \
+    apk del build-dependencies
+
+# Copy the application onto our image.
+ADD . /app
+
+# Make sure our user owns the application directory.
+RUN chown -R nobody:nogroup /app
+
+# Set up our user and environment
+USER nobody
 ENV PARLIAMENT_BASE_URL $PARLIAMENT_BASE_URL
-ENV DATA_URI_PREFIX http://id.ukpds.org
 ENV GTM_KEY $GTM_KEY
 ENV ASSET_LOCATION_URL $ASSET_LOCATION_URL
 ENV SECRET_KEY_BASE $SECRET_KEY_BASE
-ENV RAILS_ENV=production
-ENV RAILS_SERVE_STATIC_FILES=true
+ENV RACK_ENV $RACK_ENV
+ENV RAILS_SERVE_STATIC_FILES true
 
-# Create folder to install the application
-ENV RAILS_ROOT /opt/parliamentukprototype
-RUN mkdir -p $RAILS_ROOT
+# Precompile assets
+RUN rails assets:precompile
 
-# gems installation
-COPY Gemfile $RAILS_ROOT/
-RUN cd $RAILS_ROOT \
-    && gem update --system \
-    && gem install bundler \
-    && NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install \
-    && bundle update pugin \
-    && chown -R $APP_USER:$APP_USER $GEM_HOME
-
-# add project
-COPY . $RAILS_ROOT
-RUN chown -R $APP_USER:$APP_USER $RAILS_ROOT
-
-USER $USER
-WORKDIR $RAILS_ROOT
-
+# Add additional labels to our image
 ARG GIT_SHA=unknown
 ARG GIT_TAG=unknown
 LABEL git-sha=$GIT_SHA \
-	      git-tag=$GIT_TAG
+	    git-tag=$GIT_TAG \
+	    rack-env=$RACK_ENV \
+	    maintainer=mattrayner1@gmail.com
 
-# EXPOSE 3000
-
-RUN bundle update pugin \
-    && rails assets:precompile
-
-CMD ["passenger", "start"]
+# Launch puma
+CMD ["bundle", "exec", "rails", "s", "Puma"]
