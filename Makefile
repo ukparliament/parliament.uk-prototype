@@ -1,4 +1,4 @@
-.PHONY: build run dev test push rmi deploy-ecs
+.PHONY: build run dev test push scan-image rmi deploy-ecs
 
 ##
 # Makefile used to build, test and (locally) run the parliament.uk-prototype project.
@@ -26,9 +26,15 @@ RACK_ENV ?= production
 # VERSION is used to tag the Docker images
 VERSION = 0.2.$(GO_PIPELINE_COUNTER)
 
-# ECS related varuabked ysed to build our image name
+# ECS related variables used to build our image name
 ECS_CLUSTER = ecs
 AWS_REGION = eu-west-1
+
+# Tenable.io
+TENABLEIO_USER ?= user # passed from an envvar in the CDP
+TENABLEIO_PASSWORD ?= password # passed from an envvar in the CDP
+TENABLEIO_REGISTRY = cloud.flawcheck.com
+TENABLEIO_REPO = web1live
 
 # The name of our Docker image
 IMAGE = $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(APP_NAME)
@@ -67,6 +73,11 @@ test: # Build the docker image in development mode, using a test PARLIAMENT_BASE
 push: # Push the Docker images we have build to the configured Docker repository (Run in GoCD to push the image to AWS)
 	docker push $(IMAGE):$(VERSION)
 	docker push $(IMAGE):latest
+
+scan-image:
+	docker login -u $(TENABLEIO_USER) -p $(TENABLEIO_PASSWORD) $(TENABLEIO_REGISTRY)
+	docker tag $(IMAGE):$(VERSION) $(TENABLEIO_REGISTRY)/$(TENABLEIO_REPO)/$(APP_NAME):$(VERSION)
+	docker push $(TENABLEIO_REGISTRY)/$(TENABLEIO_REPO)/$(APP_NAME):$(VERSION)
 
 rmi: # Remove local versions of our images.
 	docker rmi $(IMAGE):$(VERSION)
