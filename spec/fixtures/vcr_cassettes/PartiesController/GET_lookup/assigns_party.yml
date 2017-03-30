@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/parties/lookup?id=96&source=mnisId
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - localhost:3030
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/n-triples; charset=utf-8
+      Etag:
+      - W/"3a61a35dba743b819bbf400439aab4ba"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e8bdc9c5-e5ad-4336-8d70-bba6af6617c1
+      X-Runtime:
+      - '0.058751'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "<http://id.ukpds.org/a03479ce-6ffb-495e-aaaf-6e411e1c9848> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\n"
+    http_version: 
+  recorded_at: Wed, 22 Mar 2017 13:48:07 GMT
+recorded_with: VCR 3.0.3

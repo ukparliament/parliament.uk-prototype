@@ -30,8 +30,6 @@ class HousesController < ApplicationController
     @house = @house.first
     @people = @people.sort_by(:sort_name)
     @letters = letter_data.map(&:value)
-
-    houses_id
   end
 
   def current_members
@@ -44,8 +42,6 @@ class HousesController < ApplicationController
     @house = @house.first
     @people = @people.sort_by(:sort_name)
     @letters = letter_data.map(&:value)
-
-    houses_id
   end
 
   def parties
@@ -75,36 +71,41 @@ class HousesController < ApplicationController
     data = Parliament::Request.new.houses(house_id).parties(party_id).get
 
     @house, @party = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Party')
+
     @house = @house.first
     @party = @party.first
+
+    raise ActionController::RoutingError, 'Invalid party id' if @party.nil?
   end
 
   def members_letters
     house_id = params[:house_id]
     letter = params[:letter]
 
-    data = Parliament::Request.new.houses(house_id).members(letter).get
     letter_data = Parliament::Request.new.houses(house_id).members.a_z_letters.get
-
-    @house, @people = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Person')
-    @house = @house.first
-    @people = @people.sort_by(:sort_name)
     @letters = letter_data.map(&:value)
-    houses_id
+
+    @house = Parliament::Request.new.houses(house_id).get.filter('http://id.ukpds.org/schema/House').first
+
+    request = Parliament::Request.new.houses(house_id).members(letter)
+    response = RequestHelper.handler(request) { @people = [] }
+
+    @people = response[:response].filter('http://id.ukpds.org/schema/Person').sort_by(:sort_name) if response[:success]
   end
 
   def current_members_letters
     house_id = params[:house_id]
     letter = params[:letter]
 
-    data = Parliament::Request.new.houses(house_id).members.current(letter).get
     letter_data = Parliament::Request.new.houses(house_id).members.current.a_z_letters.get
-
-    @house, @people = data.filter('http://id.ukpds.org/schema/House', 'http://id.ukpds.org/schema/Person')
-    @house = @house.first
-    @people = @people.sort_by(:sort_name)
     @letters = letter_data.map(&:value)
-    houses_id
+
+    @house = Parliament::Request.new.houses(house_id).get.filter('http://id.ukpds.org/schema/House').first
+
+    request = Parliament::Request.new.houses(house_id).members.current(letter)
+    response = RequestHelper.handler(request) { @people = [] }
+
+    @people = response[:response].filter('http://id.ukpds.org/schema/Person').sort_by(:sort_name) if response[:success]
   end
 
   def party_members
@@ -130,18 +131,16 @@ class HousesController < ApplicationController
     party_id = params[:party_id]
     letter = params[:letter]
 
-    data = Parliament::Request.new.houses(house_id).parties(party_id).members(letter).get
     letter_data = Parliament::Request.new.houses(house_id).parties(party_id).members.a_z_letters.get
-
-    @house, @party, @people = data.filter(
-      'http://id.ukpds.org/schema/House',
-      'http://id.ukpds.org/schema/Party',
-      'http://id.ukpds.org/schema/Person'
-    )
-    @house = @house.first
-    @party = @party.first
-    @people = @people.sort_by(:sort_name)
     @letters = letter_data.map(&:value)
+
+    @house = Parliament::Request.new.houses(house_id).get.filter('http://id.ukpds.org/schema/House').first
+    @party = Parliament::Request.new.parties(party_id).get.filter('http://id.ukpds.org/schema/Party').first
+
+    request = Parliament::Request.new.houses(house_id).parties(party_id).members(letter)
+    response = RequestHelper.handler(request) { @people = [] }
+
+    @people = response[:response].filter('http://id.ukpds.org/schema/Person').sort_by(:sort_name) if response[:success]
   end
 
   def current_party_members
@@ -168,18 +167,49 @@ class HousesController < ApplicationController
     party_id = params[:party_id]
     letter = params[:letter]
 
-    data = Parliament::Request.new.houses(house_id).parties(party_id).members.current(letter).get
     letter_data = Parliament::Request.new.houses(house_id).parties(party_id).members.current.a_z_letters.get
+    @letters = letter_data.map(&:value)
 
-    @house, @party, @people = data.filter(
-      'http://id.ukpds.org/schema/House',
-      'http://id.ukpds.org/schema/Party',
-      'http://id.ukpds.org/schema/Person'
-    )
+    @house = Parliament::Request.new.houses(house_id).get.filter('http://id.ukpds.org/schema/House').first
+    @party = Parliament::Request.new.parties(party_id).get.filter('http://id.ukpds.org/schema/Party').first
 
-    @house = @house.first
-    @party = @party.first
-    @people = @people.sort_by(:sort_name)
+    request = Parliament::Request.new.houses(house_id).parties(party_id).members.current(letter)
+    response = RequestHelper.handler(request) { @people = [] }
+
+    @people = response[:response].filter('http://id.ukpds.org/schema/Person').sort_by(:sort_name) if response[:success]
+  end
+
+  def a_to_z_members
+    @house_id = params[:house_id]
+
+    letter_data = Parliament::Request.new.houses(@house_id).members.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_current_members
+    @house_id = params[:house_id]
+
+    letter_data = Parliament::Request.new.houses(@house_id).members.current.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_party_members
+    @house_id = params[:house_id]
+    @party_id = params[:party_id]
+
+    letter_data = Parliament::Request.new.houses(@house_id).parties(@party_id).members.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_current_party_members
+    @house_id = params[:house_id]
+    @party_id = params[:party_id]
+
+    letter_data = Parliament::Request.new.houses(@house_id).parties(@party_id).members.current.a_z_letters.get
+
     @letters = letter_data.map(&:value)
   end
 

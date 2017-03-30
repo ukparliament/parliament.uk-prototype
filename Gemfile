@@ -10,14 +10,20 @@ gem 'json-ld', '2.1.0'
 gem 'vcard', '0.2.15'
 
 # Parliament Ruby is a wrapper for the internal Parliament data API
-
-gem 'parliament-ruby', '0.5.19'
+gem 'parliament-ruby', '0.6.1'
 
 # Pugin is the front-end component library used by Parliament
-gem 'pugin', git: 'https://github.com/ukparliament/parliament.uk-pugin-components-rails', branch: 'master'
+gem 'pugin', '0.5.0'
 
 # HAML is used for front-end template rendering
 gem 'haml', '4.0.7'
+
+# Include time zone information
+gem 'tzinfo-data'
+
+# Use Puma as our web server
+gem 'puma'
+gem 'rack-timeout'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -38,6 +44,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'web-console'
+
+  gem 'pry'
 end
 
 group :test do
@@ -49,6 +57,3 @@ group :test do
   gem 'webmock'
   gem 'vcr'
 end
-
-# Gems required for Docker containers
-gem 'passenger'

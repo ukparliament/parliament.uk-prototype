@@ -27,9 +27,7 @@ class ConstituenciesController < ApplicationController
     @constituency = @constituency.first
     @seat_incumbencies = @seat_incumbencies.reverse_sort_by(:start_date)
 
-    if @seat_incumbencies.size > 0 && @seat_incumbencies.first.current?
-        @current_incumbency = @seat_incumbencies.shift
-    end
+    @current_incumbency = @seat_incumbencies.shift if !@seat_incumbencies.empty? && @seat_incumbencies.first.current?
   end
 
   def current
@@ -69,6 +67,7 @@ class ConstituenciesController < ApplicationController
     )
     @constituency = @constituency.first
     @seat_incumbencies = @seat_incumbencies.reverse_sort_by(:start_date)
+    @current_incumbency = @seat_incumbencies.shift if !@seat_incumbencies.empty? && @seat_incumbencies.first.current?
   end
 
   def current_member
@@ -88,19 +87,35 @@ class ConstituenciesController < ApplicationController
     letter = params[:letter]
 
     letter_data = Parliament::Request.new.constituencies.a_z_letters.get
-
-    @constituencies = Parliament::Request.new.constituencies(letter).get.sort_by(:name)
     @letters = letter_data.map(&:value)
+
+    request = Parliament::Request.new.constituencies(letter)
+    response = RequestHelper.handler(request) { @constituencies = [] }
+
+    @constituencies = response[:response].sort_by(:name) if response[:success]
   end
 
   def current_letters
     letter = params[:letter]
 
     letter_data = Parliament::Request.new.constituencies.current.a_z_letters.get
-    data = Parliament::Request.new.constituencies.current(letter).get
+    @letters = letter_data.map(&:value)
 
-    @constituencies = data.filter('http://id.ukpds.org/schema/ConstituencyGroup')
-    @constituencies = @constituencies.sort_by(:name)
+    request = Parliament::Request.new.constituencies.current(letter)
+    response = RequestHelper.handler(request) { @constituencies = [] }
+
+    @constituencies = response[:response].filter('http://id.ukpds.org/schema/ConstituencyGroup').sort_by(:name) if response[:success]
+  end
+
+  def a_to_z
+    letter_data = Parliament::Request.new.constituencies.a_z_letters.get
+
+    @letters = letter_data.map(&:value)
+  end
+
+  def a_to_z_current
+    letter_data = Parliament::Request.new.constituencies.current.a_z_letters.get
+
     @letters = letter_data.map(&:value)
   end
 
