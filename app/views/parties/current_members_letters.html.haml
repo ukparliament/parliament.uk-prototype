@@ -1,7 +1,7 @@
 - page_title = title("#{@party.name} - #{t('.title', current: t('current'), members: t('members'))} - #{params[:letter].upcase}")
 
 %h1= page_title
-= render partial: 'shared/id_a_to_z', locals: { route_symbol: :party_members_current_a_z_letter_path, id: @party.graph_id}
+= render partial: 'pugin/components/letter-navigation', locals: { route_symbol: :party_members_current_a_z_letter_path, primary_id: @party.graph_id }
 = render partial: 'pugin/cards/person-list', locals: { people: @people, letter: params[:letter] }
 
 .block
