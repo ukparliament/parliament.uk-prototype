@@ -13,7 +13,8 @@ gem 'vcard', '0.2.15'
 gem 'parliament-ruby', '0.6.1'
 
 # Pugin is the front-end component library used by Parliament
-gem 'pugin', '0.5.0'
+# gem 'pugin', '0.5.0'
+gem 'pugin', path: '../pugin'
 
 # HAML is used for front-end template rendering
 gem 'haml', '4.0.7'
