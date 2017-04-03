@@ -1,4 +1,7 @@
-- page_title = title("#{@house.name} - #{@party.name} #{t('.title', current: t('current'), members: t('members'))}")
+- if HousesHelper.commons?(@house)
+  - page_title = title("#{@party.name} - #{t('.title', current: t('current').capitalize, member_type: t('mp_plural'))}")
+- if HousesHelper.lords?(@house)
+  - page_title = title("#{@party.name} - #{t('.title', current: t('current').capitalize, member_type: t('lord_plural'))}")
 
 %h1= page_title
 
@@ -6,4 +9,4 @@
 = render partial: 'pugin/cards/person-list', locals: { people: @people, letter: params[:letter] }
 
 .block
-  %p= link_to(t('past_and_present_members'), house_parties_party_members_a_z_letter_path(@house.graph_id, @party.graph_id, 'a'))
+  %p= link_to("#{t('view_all').capitalize} #{t('current_and_former')} #{t('member_plural')}", house_parties_party_members_a_z_letter_path(@house.graph_id, @party.graph_id, 'a'))
