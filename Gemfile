@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.1'
+gem 'rails', '5.0.2'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '5.0.1'
 
-gem 'json-ld', '2.1.0'
+gem 'json-ld', '2.1.2'
 gem 'vcard', '0.2.15'
 
 # Parliament Ruby is a wrapper for the internal Parliament data API
-gem 'parliament-ruby', '0.6.1'
+gem 'parliament-ruby', '0.6.3'
 
 # Pugin is the front-end component library used by Parliament
 gem 'pugin', '0.5.1'
@@ -34,7 +34,7 @@ group :development, :test do
 
   # Use foreman as a gem in dev and test to orchestrate both the app and api
   gem 'foreman'
-  gem 'subcontractor', '0.8.0'
+  gem 'subcontractor'
 
   # Use Rubocop for static code quality analysis
   gem 'rubocop'

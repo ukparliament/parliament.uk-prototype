@@ -17,3 +17,4 @@ coverage
 doc
 aws_ecs
 log
+vendor
