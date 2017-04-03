@@ -226,8 +226,8 @@ en:
       old_website_link: 'parliament.uk'
       feedback:
         title: 'Give feedback'
-        provide: 'We want %{link} on these beta pages to help us improve them further.'
-        provide_link: 'your feedback'
+        provide: 'We want your feedback to %{link} further.'
+        provide_link: 'help us improve these pages'
       whats_on:
         title: "What's on our test website"
       members_info:
