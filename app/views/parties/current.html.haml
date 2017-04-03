@@ -1,6 +1,8 @@
-- page_title = title(t('.title', current: t('current'), parties_title: t('parties_title')))
+- page_title = title(t('.title', current: t('current').capitalize, parties_and_groups: t('parties_and_groups')))
 
 %h1= page_title
 
 = render 'party_list'
-%p= link_to(t('.current_and_former', current_and_former: t('current_and_former'), parties_title: t('parties_title')), parties_path)
+
+.block
+  %p= link_to("#{t('view_all').capitalize} #{t('current_and_former')} #{t('parties_and_groups')}", parties_path)

@@ -1,3 +1,4 @@
 %h2= @constituency.name
 
-%div= @constituency.area.polygon unless @constituency.area.nil?
+.block
+  %div= @constituency.area.polygon unless @constituency.area.nil?

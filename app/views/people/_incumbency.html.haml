@@ -7,5 +7,4 @@
   %ol
     %li
       = "#{l(incumbency.start_date, format: :default)}" unless incumbency.start_date.nil?
-      = incumbency.current? ? " to Present" : " to #{l(incumbency.end_date, format: :default)}"
-
+      = incumbency.current? ? t('to_present') : " #{t('to')} #{l(incumbency.end_date, format: :default)}"
