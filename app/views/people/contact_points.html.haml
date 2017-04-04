@@ -1,4 +1,4 @@
-- page_title = title("#{@person.display_name} - #{t('contact_points_title')}")
+- page_title = title("#{@person.display_name} - #{t('contact_points.index.title').capitalize}")
 
 %h1= page_title
 
@@ -6,17 +6,16 @@
   - @contact_points.each do |contact_point|
     %dl.list__definition
       - if contact_point.email.present?
-        %dt= "#{t('email')}:"
+        %dt= "#{t('contact_points.email').capitalize}:"
         %dd= "#{contact_point.email}"
       - if contact_point.phone_number.present?
-        %dt= "#{t('phone')}:"
+        %dt= "#{t('contact_points.phone').capitalize}:"
         %dd= "#{contact_point.phone_number}"
       - if contact_point.fax_number.present?
-        %dt= "#{t('fax')}:"
+        %dt= "#{t('contact_points.fax').capitalize}:"
         %dd= "#{contact_point.fax_number}"
       - contact_point.postal_addresses.each do |postal_address|
         - if postal_address.full_address.present?
-          %dt= "#{t('address')}:"
+          %dt= "#{t('contact_points.address').capitalize}:"
           %dd= "#{postal_address.full_address}"
-      %dt= "#{t('vcard_download')}"
-      %dd= link_to "#{t('download')}", contact_point_path(contact_point.graph_id), target: '_blank'
+    %p= link_to "#{t('contact_points.add_address_book').capitalize}", contact_point_path(contact_point.graph_id), target: '_blank'

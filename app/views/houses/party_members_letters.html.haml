@@ -1,4 +1,7 @@
-- page_title = title("#{@house.name} - #{@party.name} #{t('.title', members: t('members'))} #{t('past_present')}")
+- if HousesHelper.commons?(@house)
+  - page_title = title("#{@party.name} - #{t('.title', current_and_former: t('current_and_former').capitalize, member_type: t('mp_plural'))}")
+- if HousesHelper.lords?(@house)
+  - page_title = title("#{@party.name} - #{t('.title', current_and_former: t('current_and_former').capitalize, member_type: t('lord_plural'))}")
 
 %h1= page_title
 
