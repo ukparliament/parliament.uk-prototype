@@ -58,6 +58,7 @@ build: # Using the variables defined above, run `docker build`, tagging the imag
 		--build-arg SECRET_KEY_BASE=$(SECRET_KEY_BASE) \
 		--build-arg RACK_ENV=$(RACK_ENV) \
 		--build-arg GIT_SHA="$(GO_REVISION)" \
+		--build-arg GIT_TAG="$(shell git describe --tags --exact-match 2> /dev/null)" \
 		.
 
 run: # Run the Docker image we have created, mapping the HOST_PORT and CONTAINER_PORT
