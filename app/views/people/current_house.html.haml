@@ -1,4 +1,4 @@
-- page_title = title("#{@person.display_name} - #{t('.title', current: t('current'), house: t('house'))}")
+- page_title = title("#{@person.display_name} - #{t('.title', current: t('current').capitalize, house: t('house'))}")
 
 %h1= page_title
 
@@ -7,7 +7,7 @@
     .list__item
       %h2= link_to(@house.name, house_path(@house.graph_id))
       - unless @house.seat_incumbencies.empty?
-        %p= "#{l(@house.seat_incumbencies.first.start_date, format: :default)} to Present" unless @house.seat_incumbencies.first.start_date.nil?
+        %p= "#{l(@house.seat_incumbencies.first.start_date, format: :default)} #{t('to_present')}" unless @house.seat_incumbencies.first.start_date.nil?
 
       - unless @house.house_incumbencies.empty?
-        %p= "#{l(@house.house_incumbencies.first.start_date, format: :default)} to Present" unless @house.house_incumbencies.first.start_date.nil?
+        %p= "#{l(@house.house_incumbencies.first.start_date, format: :default)} #{t('to_present')} " unless @house.house_incumbencies.first.start_date.nil?

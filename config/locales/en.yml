@@ -20,49 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  date_of_birth: 'Date Of Birth'
-  gender: 'Gender'
-  parties_title: 'Parties and Groups'
-  parties_title_2: 'Parties'
-  party: 'Party'
-  constituencies_title: 'Constituencies'
-  constituency: 'Constituency'
-  contact_points_title: 'Contact Points'
-  houses_title: 'Houses'
-  past_present: '(Past & Present)'
-  house: 'House'
-  email: 'Email'
-  phone: 'Phone'
-  fax: 'Fax'
-  address: 'Address'
-  addresses: 'Addresses'
-  download: 'Download'
-  current_and_former: 'All current and former'
-  current_and_former_2: 'Current and former'
-  members: 'Members'
-  member: 'Member'
-  current: 'Current'
-  people_title: 'People'
-  coming_soon: 'Coming Soon'
-  vcard_download: 'vCard:'
-  past_and_present_members: 'View all past and present members'
-  past_and_present_members_commons: 'All current and former MPs'
-  past_and_present_members_lords: 'All current and former Lords'
-  members_hol: 'Members of the House of Lords'
-  members_commons: 'Members of the House of Commons'
-  hol: 'House of Lords'
-  hoc: 'House of Commons'
-  mp_for: 'MP for'
-  current_mp: 'Current MP'
-  current_lord: 'Lord'
-  former_mp: 'Former MP'
-  former_lord: 'Former Lord'
-  current_constituency: 'Current Constituency'
-  past_constituency: 'Former Constituency'
-  past_members: 'Past members'
-  party_no_current_members: 'There are no MPs or Lords in this party.'
-  party_no_current_members_house: 'There are currently no members of this party in this House.'
-  mps: 'MPs'
+  # global people translations
+  mp: 'MP'
+  mp_plural: 'MPs'
+  lord: 'Lord'
+  lord_plural: 'Lords'
+  mps_and_lords: 'MPs and Lords'
   mp_count:
     zero: 'MPs'
     one: 'MP'
@@ -71,129 +34,183 @@ en:
     zero: 'Lords'
     one: 'Lord'
     other: 'Lords'
-  lords: 'Lords'
-  mps_and_lords: 'MPs and Lords'
-  view_all_current: 'View all current'
-  view_all_2: 'View all'
-  all_current: 'All current'
+  house_of_commons_speaker: 'The Speaker of the House of Commons'
+  # global constituency translations
+  constituency: 'constituency'
+  constituency_plural: 'constituencies'
+  # global party translations
+  party: 'party'
+  party_plural: 'parties'
+  parties_and_groups: 'parties and groups'
+  member: 'member'
+  member_plural: 'members'
+  # global house translations
+  house: 'house'
+  house_plural: 'houses'
+  house_of_commons: 'House of Commons'
+  house_of_lords: 'House of Lords'
   commons: 'Commons'
-  the_speaker_of_the_house_of_commons: 'The Speaker of the House of Commons'
-  awaiting_by_election: 'Currently vacant seat - awaiting by-election'
+  lords: 'Lords'
+  # global generic translations
+  view_all: 'view all'
+  all: 'all'
+  find: 'find'
+  current: 'current'
   former: 'former'
-  vacant_by_election: 'Vacant until by-election'
+  current_and_former: 'current and former'
+  to_present: 'to present'
+  to: 'to'
+  from: 'from'
+  of_the: 'of the'
+  in_the: 'in the'
+  open_new_window: "website opens in a new window"
+  # global a-z navigation translations
+  a_to_z:
+    aria_label: 'Paged navigation'
+  # global time format translations
   time:
     formats:
       default: '%-d %b %Y'
-  a_to_z:
-    aria_label: 'Paged navigation'
+  # people translations
   people:
     index:
-      title: ! '%{current_and_former_2} %{mps_and_lords}'
+      title: '%{current_and_former} %{mps_and_lords}'
+    a_to_z:
+      title: # needs title
+    letters:
+      title: '%{current_and_former} %{mps_and_lords}'
+    members:
+      title: '%{current_and_former} %{mps_and_lords}'
+    a_to_z_members:
+      title: # needs title
+    members_letters:
+      title: '%{current_and_former} %{mps_and_lords}'
+    current_members:
+      title: '%{current} %{mps_and_lords}'
+    current_members_letters:
+      title: '%{current} %{mps_and_lords}'
     show:
       mp_for: 'MP for'
-      view_all: 'View all current'
-      mp_representative_1: 'Find out %{contactlink}.'
-      mp_representative_2: 'Your MP is your representative in Parliament and can help with issues that are the responsibility of UK Parliament.'
-      mp_caution: 'Please include your postcode when emailing an MP.'
-      lord_representative: 'Lords can be contacted about issues that are the responsibility of Parliament but do not represent constituencies.'
-      who_to_contact: 'Find out who to contact with your issue'
-      empty_contact_details: 'There is currently no contact information available for this person.'
-      contact_title: 'Contact'
-      email: ! '%{email}:'
-      phone: ! '%{phone}:'
-      address: ! '%{address}:'
-      membership_history: 'Membership History'
-      election_history: 'Election History'
-      empty_election_history: 'There is currently no election information available for this person.'
-      hol: 'Lord'
-      hoc: 'MP'
-      links:
-        contact_mp: "when an MP can help you and when they can't"
-        contact_lord: 'Who should I contact with my issue?'
-    members:
-      title: ! '%{current_and_former_2} %{mps_and_lords}'
-    current_members:
-      title: ! '%{current} %{mps_and_lords}'
-    current_party:
-      title: ! '%{current} %{party}'
+      contact: 'contact'
+      membership_history: 'membership history'
+      election_history: 'election history'
+      biography: 'biography'
+    constituencies:
+      title: '%{current_and_former} %{constituency_plural}'
     current_constituency:
-      title: ! '%{current} %{constituency}'
+      title: '%{current} %{constituency}'
+    contact_points:
+    houses:
+      title: '%{current_and_former} %{house_plural}'
     current_house:
-      title: ! '%{current} %{house}'
-    letters:
-      title: ! '%{current_and_former_2} %{mps_and_lords}'
-    members_letters:
-      title: ! '%{current_and_former_2} %{mps_and_lords}'
-    current_members_letters:
-      title: ! '%{current} %{mps_and_lords}'
-  houses:
-    members:
-      title: ! '%{current_and_former_2} %{members}'
-    current_members:
-      title: ! '%{current} %{members}'
-    party_members:
-      title: ! '%{members}'
-    current_parties:
-      title: ! '%{current} %{parties}'
-    members_letters:
-      title: ! '%{members}'
-    current_members_letters:
-      title: ! '%{current} %{members}'
-    party_members_letters:
-      title: ! '%{members}'
-    current_party_members:
-      title: ! '%{current} %{members}'
-    current_party_members_letters:
-      title: ! '%{current} %{members}'
-    party:
-      party_members: 'members.'
-      past: 'All past'
+      title: '%{current} %{house}'
+    parties:
+      title: '%{current_and_former} %{parties_and_groups}'
+    current_party:
+      title: '%{current} %{party}'
+  # contact points translations
+  contact_points:
     index:
+      web-title: 'contact points'
+      page-title: 'contact details'
+    email: 'email'
+    phone: 'phone'
+    fax: 'fax'
+    address: 'address'
+    download: 'download'
+    add_address_book: 'add to address book'
+  # constituencies translations
+  constituencies:
+    index:
+      title: '%{current_and_former} %{constituency_plural}'
+    a_to_z:
+      title: # needs title
+    letters:
+      title: '%{current_and_former} %{constituency_plural}'
+    current:
+      title: '%{current} %{constituency}'
+    a_to_z_current:
+      title: # needs title
+    show:
+      title: # title does not require translation
+    members:
+      title: '%{current_and_former} %{mp_plural}'
+    current_member:
+      title:  '%{current} %{mp}'
+    current_letters:
+      title: '%{current} %{constituency_plural}'
+    map:
+      title: # title does not require translation
+    contact_point:
+      title: # title does not require translation
+    shared_translations:
+      vacant_by_election: 'Vacant until by-election'
+  # parties translations
+  parties:
+    index:
+      title: '%{current_and_former} %{parties_and_groups}'
+    a_to_z:
+      title: # needs title
+    letters:
+      title: '%{current_and_former} %{parties_and_groups}'
+    current:
+      title: '%{current} %{parties_and_groups}'
+    show:
+      title: # title does not require translation
+      party_no_current_members: 'There are no MPs or Lords in this party.'
+    members:
+      title: '%{current_and_former} %{member_plural}'
+    a_to_z_members:
+      title: # needs title
+    members_letters:
+      title: '%{current_and_former} %{member_plural}'
+    current_members:
+      title: '%{current} %{member_plural}'
+    a_to_z_current_members:
+      title: # needs title
+    current_members_letters:
+      title: '%{current} %{member_plural}'
+  # houses translations
+  houses:
+    index:
+      title: '%{house_plural}'
       all_mps_info: 'MPs, parties and constituencies in the House of Commons'
       all_lords_info: 'Lords, parties and groups in the House of Lords'
     show:
-      mps: 'All current and former MPs'
-      lords: 'All current and former Lords'
-      members: 'All current members of the'
-      parties: 'All current parties and groups in the'
-      members_all_commons: 'All current MPs'
-      members_all_lords: 'All current Lords'
-  parties:
-    index:
-      title: ! '%{current_and_former} %{parties}'
-    a_to_z:
-      title: ! '%{parties}'
-    letters:
-      title: ! '%{parties} %{past_present}'
-    current:
-      title: ! '%{current} %{parties_title}'
-      current_and_former: ! '%{current_and_former} %{parties_title}'
-    show:
-      party_members: 'members.'
-      past: 'All past'
+      title: # title does not require translation
+      area_they_represent: 'by the area they represent'
     members:
-      title: ! '%{members}'
+      title: '%{current_and_former} %{member_type}'
     a_to_z_members:
+      title: # needs title
     members_letters:
-      title: ! '%{members}'
+      title: '%{current_and_former} %{member_type}'
     current_members:
-      title: ! '%{current} %{members}'
+      title: '%{current} %{member_type}'
     a_to_z_current_members:
+      title: # needs title
     current_members_letters:
-      title: ! '%{current} %{members}'
-  constituencies:
-    index:
-      title: ! '%{current_and_former} %{constituencies}'
-    current:
-      title: ! '%{current} %{constituencies}'
-    members:
-      title: ! '%{members}'
-    current_member:
-      title: ! '%{current} %{constituency} %{member}'
-    letters:
-      title: ! '%{constituencies}'
-    current_letters:
-      title: ! '%{current} %{constituencies}'
+      title: '%{current} %{member_type}'
+    parties:
+      title: '%{current_and_former} %{parties_and_groups}'
+    current_parties:
+      title: '%{current} %{parties_and_groups}'
+    party:
+      title: # title does not require translation
+      house_no_current_party_members: 'There are currently no members of this party in this House.'
+    party_members:
+      title: '%{current_and_former} %{member_type}'
+    a_to_z_party_members:
+      title: # needs title
+    party_members_letters:
+      title: '%{current_and_former} %{member_type}'
+    current_party_members:
+      title: '%{current} %{member_type}'
+    a_to_z_current_party_members:
+      title: # needs title
+    current_party_members_letters:
+      title: '%{current} %{member_type}'
+  # no content translations
   no_content:
     empty_list:
       constituencies:
@@ -202,35 +219,31 @@ en:
         description: "Sorry there are no results for '%{letter}'"
       parties:
         description: "Sorry there are no results for '%{letter}'"
+  # homepage translations
   home:
     index:
       title: 'Welcome to the UK Parliament test website'
-      title-context-1: 'We’re building a %{new_website_link}. These pages are being tested and improved – they may be inaccurate or misleading.'
-      title-context-2: 'Test pages are separate from the current %{parliamentlink} website.'
-      whats-on: "What's on our test website"
-      members-info: 'Members Information'
-      feedback: 'Give feedback'
-      feedback-text: ! 'We want %{feedbacklink} on these beta pages to help us improve them further.'
-      follow: 'Follow our progress'
-      follow-text: 'Follow all %{bloglink}.'
-      current_mps: 'All current members of the House of Commons'
-      current_lords: 'All current members of the House of Lords'
-      current_constituencies: 'Find current MPs by the area they represent'
-      current_parties_groups: 'Find current MPs and Lords by their party or group'
-      links:
-         people: ! '%{people}'
-         constituencies: ! '%{constituencies}'
-         current_members_of_both_houses: 'Current Members of both Houses'
-         current_mps: 'all current MPs'
-         current_website: 'parliament.uk'
-         blog: 'new website developments on our blog'
-         feedback: 'your feedback'
-         commons: 'Commons'
-         lords: 'Lords'
-         members: 'MPs'
-         parties: 'Parties and groups'
-         constituencies: '%{constituencies}'
-         new_website: 'new website for Parliament'
+      new_website: 'We’re building a %{link}. These pages are being tested and improved – they may be inaccurate or misleading.'
+      new_website_link: 'new website for Parliament'
+      old_website: 'Test pages are separate from the current %{link} website.'
+      old_website_link: 'parliament.uk'
+      feedback:
+        title: 'Give feedback'
+        provide: 'We want your feedback to %{link} further.'
+        provide_link: 'help us improve these pages'
+      whats_on:
+        title: "What's on our test website"
+      members_info:
+        title: 'Members Information'
+        current_mps: 'View all current members of the House of Commons'
+        current_lords: 'View all current members of the House of Lords'
+        current_constituencies: 'Find current MPs by the area they represent'
+        current_parties: 'Find current MPs and Lords by their party or group'
+      follow_progress:
+        title: 'Follow our progress'
+        blog: 'Follow all %{link}.'
+        blog_link: 'new website developments on our blog'
+  # meta information translations
   meta:
     index:
       title: 'Meta information'

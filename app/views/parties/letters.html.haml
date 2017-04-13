@@ -1,8 +1,6 @@
-- page_title = title(t('.title', parties: t('parties_title'), past_present: t('past_present')))
+- page_title = title(t('.title', current_and_former: t('current_and_former').capitalize, parties_and_groups: t('parties_and_groups')))
 
 %h1= page_title
-= render partial: 'shared/a_to_z', locals: { route_symbol: :parties_a_z_letter_path }
+
+= render partial: 'pugin/components/letter-navigation', locals: { route_symbol: :parties_a_z_letter_path }
 = render partial: 'party_list', locals: {parties: @parties}
-
-
-

@@ -30,4 +30,4 @@ passenger.3000.pid
 .yardoc
 /doc/
 
-vendor/bundle
+vendor

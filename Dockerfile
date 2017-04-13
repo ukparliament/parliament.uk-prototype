@@ -1,4 +1,4 @@
-FROM ruby:2.3.1-alpine
+FROM ruby:2-alpine
 
 # Add command line argument variables used to cusomise the image at build-time.
 ARG PARLIAMENT_BASE_URL
@@ -20,16 +20,20 @@ RUN apk --update add --virtual build-dependencies build-base ruby-dev git && \
     echo "Environment (RACK_ENV): $RACK_ENV" && \
     if [ "$RACK_ENV" == "production" ]; then \
       bundle install --without development test --path vendor/bundle; \
+      apk del build-dependencies; \
     else \
       bundle install --path vendor/bundle; \
-    fi && \
-    apk del build-dependencies
+    fi
 
 # Copy the application onto our image.
 ADD . /app
 
 # Make sure our user owns the application directory.
-RUN chown -R nobody:nogroup /app
+RUN if [ "$RACK_ENV" == "production" ]; then \
+      chown -R nobody:nogroup /app; \
+    else \
+      chown -R nobody:nogroup /app /usr/local/bundle; \
+    fi
 
 # Set up our user and environment
 USER nobody

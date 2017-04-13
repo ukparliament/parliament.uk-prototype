@@ -1,7 +1,7 @@
 # Parliament.uk prototype
 Parliament.uk prototype is a [Rails 5][rails] application designed to be the beginnings of a new [parliament.uk][parliament] website and API.
 
-[![License][shield-license]][info-license]
+[![Build][shield-build]][info-build] [![Gemnasium][shield-dependencies]][info-dependencies] [![License][shield-license]][info-license]
 
 ### Contents
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -132,3 +132,9 @@ If you wish to submit a bug fix or feature, you can create a pull request and it
 
 [info-license]:   http://www.parliament.uk/site-information/copyright/open-parliament-licence/
 [shield-license]: https://img.shields.io/badge/license-Open%20Parliament%20Licence-blue.svg
+
+[info-build]:   https://travis-ci.org/ukparliament/parliament.uk-prototype
+[shield-build]: https://img.shields.io/travis/ukparliament/parliament.uk-prototype.svg
+
+[info-dependencies]:   https://gemnasium.com/github.com/ukparliament/parliament.uk-prototype
+[shield-dependencies]: https://img.shields.io/gemnasium/ukparliament/parliament.uk-prototype.svg
