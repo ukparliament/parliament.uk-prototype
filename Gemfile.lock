@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/ukparliament/parliament.uk-pugin-components-rails
+  revision: 5fe640c3fc7f07ce206c4b85a09a7bd49a5fea9d
+  tag: 0.5.5
+  specs:
+    pugin (0.5.5)
+      haml (~> 4.0)
+      rails (~> 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -105,9 +114,6 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    pugin (0.5.2)
-      haml (~> 4.0)
-      rails (~> 5.0)
     puma (3.8.2)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -228,7 +234,7 @@ DEPENDENCIES
   json-ld (= 2.1.2)
   parliament-ruby (= 0.6.3)
   pry
-  pugin (= 0.5.2)
+  pugin!
   puma
   rack-timeout
   rails (= 5.0.2)
