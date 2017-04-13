@@ -48,7 +48,7 @@ ENV RAILS_SERVE_STATIC_FILES true
 RUN rails assets:precompile
 
 # Add additional labels to our image
-ARG GIT_SHA=unknown
+ARG GIT_SHA="${GO_REVISION}"
 ARG GIT_TAG=unknown
 LABEL git-sha=$GIT_SHA \
 	    git-tag=$GIT_TAG \
