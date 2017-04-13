@@ -15,7 +15,7 @@ ADD Gemfile.lock /app/
 WORKDIR /app
 
 # Install system and application dependencies.
-RUN apk --update add --virtual build-dependencies build-base ruby-dev && \
+RUN apk --update add --virtual build-dependencies build-base ruby-dev git && \
     gem install bundler --no-ri --no-rdoc && \
     echo "Environment (RACK_ENV): $RACK_ENV" && \
     if [ "$RACK_ENV" == "production" ]; then \
