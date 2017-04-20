@@ -1,14 +1,9 @@
-- if @house.graph_id == @commons_id
-  %h1= "#{@house.name} - #{t('.title', current: t('current'), members: t('mps'))}"
-- else
-  %h1= "#{@house.name} - #{t('.title', current: t('current'), members: t('lords'))}"
+- title("#{ @house.name } - #{ t( '.title', current: t('current').capitalize, member_type: @current_person_type ) }")
 
-= render partial: 'shared/id_a_to_z', locals: { route_symbol: :house_members_current_a_z_letter_path, id: @house.graph_id}
-%ul.list
-  = render :partial => 'houses/current_person', collection: @people
-.block
-  - if @house.name == 'House of Commons'
-    %p= link_to(t('members_hol'), house_path(@lords_id))
-  - if @house.name == 'House of Lords'
-    %p= link_to(t('members_commons'), house_members_current_a_z_letter_path(@commons_id, 'a'))
-  %p= link_to(t('past_and_present_members'), house_members_a_z_letter_path(@house.graph_id, 'a'))
+%h1= "#{t('current').capitalize} #{@current_person_type}"
+
+= render partial: 'pugin/components/letter-navigation', locals: { route_symbol: :house_members_current_a_z_letter_path, primary_id: @house.graph_id }
+= render partial: 'pugin/cards/person-list', locals: { people: @people, letter: params[:letter] }
+
+%p= link_to("#{t('all').capitalize} #{t('current_and_former')} #{@current_person_type}", house_members_a_z_letter_path(@house.graph_id, 'a'))
+%p= link_to("#{t('current').capitalize} #{@other_person_type}", house_members_current_a_z_letter_path(@other_house_id, 'a'))

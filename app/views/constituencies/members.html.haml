@@ -1,2 +1,5 @@
-%h1= "#{@constituency.name} - #{t('.title', members: t('members'))} #{t('past_present')}"
+- page_title = title("#{@constituency.name} - #{t('.title', current_and_former: t('current_and_former').capitalize, mp_plural: t('mp_plural'))}")
+
+%h1= page_title
+
 = render 'constituencies/constituency'

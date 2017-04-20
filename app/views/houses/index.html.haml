@@ -1,7 +1,11 @@
-%h1= t('houses_title')
+- page_title = title(t('house_plural').capitalize)
+
+%h1= page_title
+
 - @houses.each do |house|
-  .block
-    .list__item
-      %h2= link_to(house.name, house_path(house.graph_id))
-      %p= "#{t('.all_parties_members')} #{house.name}."
-      /%p= "#{t('current')} #{@party.name} #{t('.party_members')}"
+  .list__item
+    %h2= link_to(house.name, house_path(house.graph_id))
+    - if HousesHelper.commons?(house)
+      %p= "#{t('.all_mps_info')}"
+    - else
+      %p= "#{t('.all_lords_info')}"

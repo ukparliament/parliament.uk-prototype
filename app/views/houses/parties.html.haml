@@ -1,18 +1,21 @@
-%h1= "#{@house.name} - #{t('parties_title')} #{t('past_present')}"
+- title("#{@house.name} - #{t('current_and_former').capitalize} #{t('parties_and_groups')}")
+
+%h1= "#{t('current_and_former').capitalize} #{HousesHelper.commons?(@house) ? t('party_plural') : t('parties_and_groups')}"
+
 .block
   .link__tab
-    -if @house.name == "House of Commons"
+    - if HousesHelper.commons?(@house)
       .link__tab--item.active
         %p= t('commons')
     - else
       .link__tab--item
-        = link_to(t('commons'),house_parties_path(@commons_id))
-    -if @house.name == "House of Lords"
+        = link_to(t('commons'),house_parties_path(HousesHelper.commons_id))
+    - if HousesHelper.lords?(@house)
       .link__tab--item.active
         %p= t('lords')
     - else
       .link__tab--item
-        = link_to(t('lords'),house_parties_path(@lords_id))
-%ul.list
-  = render :partial => 'houses/party', collection: @parties
+        = link_to(t('lords'),house_parties_path(HousesHelper.lords_id))
 
+%ol.list
+  = render :partial => 'houses/party', collection: @parties

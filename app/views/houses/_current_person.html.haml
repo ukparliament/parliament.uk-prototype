@@ -1,8 +1,0 @@
-%li.list__item
-  %h2= link_to(current_person.display_name, person_path(current_person.graph_id))
-  %ul
-    - unless current_person.constituencies.empty?
-      %li
-        = t('mp_for')
-        = link_to(current_person.constituencies.first.name, constituency_path(current_person.constituencies.first.graph_id))
-    %li= link_to(current_person.parties.first.name, party_path(current_person.parties.first.graph_id)) unless current_person.parties.empty?
