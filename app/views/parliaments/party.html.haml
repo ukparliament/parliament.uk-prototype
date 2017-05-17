@@ -1,0 +1,3 @@
+%h2= "#{@party.name} between #{@parliament.date_range(date_format: '%Y')}"
+
+%h3= link_to 'Members', parliament_party_members_path(@parliament.graph_id, @party.graph_id)

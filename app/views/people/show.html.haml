@@ -66,8 +66,7 @@
           - @house_incumbencies.sort{ |inc_a, inc_b| inc_b.start_date <=> inc_a.start_date }.each do |house_incumbency|
             %li
               %p
-                = "#{l(house_incumbency.start_date, format: :default)}" unless house_incumbency.start_date.nil?
-                = house_incumbency.current? ? t( 'to_present') : " #{t('to')} #{l(house_incumbency.end_date, format: :default)}"
+                = house_incumbency.date_range
       - if @seat_incumbencies.present?
         %h3= "#{t('member').capitalize} #{t('of_the')} #{t('house_of_commons')}"
         %ol.list--pipe
@@ -77,5 +76,4 @@
                 = t('.mp_for')
                 = link_to(seat_incumbency.constituency.name, constituency_path(seat_incumbency.constituency.graph_id))
               %p
-                = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-                = seat_incumbency.current? ? t( 'to_present') : " #{t('to')} #{l(seat_incumbency.end_date, format: :default)}"
+                = seat_incumbency.date_range

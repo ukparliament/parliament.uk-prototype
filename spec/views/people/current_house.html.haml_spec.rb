@@ -30,7 +30,7 @@ RSpec.describe 'people/current_house', vcr: true do
 
     context 'not nil' do
       before do
-        assign(:house, double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP', seat_incumbencies: [double(:seat_incumbency, start_date: nil)], house_incumbencies: [double(:house_incumbency, start_date: nil)]))
+        assign(:house, double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP', seat_incumbencies: [double(:seat_incumbency, start_date: nil, date_range: '')], house_incumbencies: [double(:house_incumbency, start_date: nil, date_range: '')]))
         render
       end
 
@@ -41,7 +41,7 @@ RSpec.describe 'people/current_house', vcr: true do
       context 'house seat incumbency start date' do
         context 'nil' do
           before do
-            assign(:house, double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP', seat_incumbencies: [double(:seat_incumbency, start_date: nil)], house_incumbencies: [double(:house_incumbency, start_date: nil)]))
+            assign(:house, double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP', seat_incumbencies: [double(:seat_incumbency, start_date: nil, date_range: '')], house_incumbencies: [double(:house_incumbency, start_date: nil, date_range: '')]))
             render
           end
 
@@ -52,7 +52,7 @@ RSpec.describe 'people/current_house', vcr: true do
 
         context 'not nil' do
           before do
-            assign(:house, double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP', seat_incumbencies: [double(:seat_incumbency, start_date: Time.zone.now - 1.month)], house_incumbencies: [double(:house_incumbency, start_date: Time.zone.now - 2.month)]))
+            assign(:house, double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP', seat_incumbencies: [double(:seat_incumbency, start_date: Time.zone.now - 1.month, date_range: '')], house_incumbencies: [double(:house_incumbency, start_date: Time.zone.now - 2.month, date_range: "from #{(Time.zone.now - 2.month).strftime('%-e %b %Y')} to present")]))
             render
           end
 
