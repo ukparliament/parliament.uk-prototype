@@ -1,5 +1,4 @@
 class ConstituenciesController < ApplicationController
-
   # Renders a list of all constituencies with current incumbents and sorted in ascending order by name from a GET request. Shown with an a - z partial view
   # @controller_action_param :name [String] the name of the constituency
   # @return [Array] array of letters which are first letters of constituencies
@@ -8,7 +7,6 @@ class ConstituenciesController < ApplicationController
     @letters = RequestHelper.process_available_letters(parliament_request.constituencies.a_z_letters)
     @constituencies = parliament_request.constituencies.get.sort_by(:name)
   end
-
 
   # Renders a single constituency given an external source and an id that identifies this constituency in this source
   # @controller_action_param :source [String] external source mnisId (MNIS system)
@@ -109,7 +107,6 @@ class ConstituenciesController < ApplicationController
     ).first
   end
 
-
   # Renders a list of seat incumbents in reverse chronological start date order, given a constituency id, with current seat incumbent listed at the top
   # @controller_action_param :constituency_id [String] 8 character identifier that identifies constituency in graph database
   # @return [Array<Grom::Node] seat_incumbencies, [Grom::Node] constituency
@@ -174,7 +171,6 @@ class ConstituenciesController < ApplicationController
 
     @constituencies = response[:response].filter('http://id.ukpds.org/schema/ConstituencyGroup').sort_by(:name) if response[:success]
   end
-
 
   # Renders a list of letters taken from first letter of all constituencies. Shown with an a - z partial view
 
