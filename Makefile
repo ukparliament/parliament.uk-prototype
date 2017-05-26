@@ -41,8 +41,8 @@ AIRBRAKE_PROJECT_ID ?=
 AIRBRAKE_PROJECT_KEY ?=
 AIRBRAKE_ENVIRONMENT = $(RACK_ENV)
 AIRBRAKE_REPOSITORY = https://github.com/ukparliament/parliament.uk-prototype
-GIT_SHA ?= unknown
-GIT_TAG ?= unknown
+GIT_SHA = $(or $(GO_REVISION), unknown)
+GIT_TAG = $(or $(shell git describe --tags --exact-match 2> /dev/null), unknown)
 AWS_ACCOUNT ?= unknown
 
 # The name of our Docker image
@@ -70,8 +70,8 @@ build: # Using the variables defined above, run `docker build`, tagging the imag
 		--build-arg ASSET_LOCATION_URL=$(ASSET_LOCATION_URL) \
 		--build-arg SECRET_KEY_BASE=$(SECRET_KEY_BASE) \
 		--build-arg RACK_ENV=$(RACK_ENV) \
-		--build-arg GIT_SHA="$(GO_REVISION)" \
-		--build-arg GIT_TAG="$(shell git describe --tags --exact-match 2> /dev/null)" \
+		--build-arg GIT_SHA="$(GIT_SHA)" \
+		--build-arg GIT_TAG="$(GIT_TAG)" \
 		.
 
 run: # Run the Docker image we have created, mapping the HOST_PORT and CONTAINER_PORT
