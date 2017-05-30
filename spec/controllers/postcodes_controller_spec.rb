@@ -62,19 +62,59 @@ RSpec.describe PostcodesController, vcr: true do
         expect(flash[:error]).to eq("We couldn't find the postcode you entered.")
       end
 
+      it 'assigns flash[:postcode]' do
+        expect(flash[:postcode]).to eq("apple")
+      end
+
       it 'redirects to constituencies_current' do
+        expect(response).to redirect_to(constituencies_current_path)
+      end
+    end
+
+    context 'given a xss search' do
+      before(:each) do
+        PostcodeHelper.previous_path = constituencies_current_path
+
+        get :show, params: { postcode: '<script>alert(document.cookie)</script>' }
+      end
+
+      it 'assigns xss flash[:error]' do
+        expect(flash[:error]).to eq("We couldn't find the postcode you entered.")
+      end
+
+      it 'assigns xss flash[:postcode]' do
+        expect(flash[:postcode]).to eq('alert(document.cookie)')
+      end
+
+      it 'redirects xss to constituencies_current' do
         expect(response).to redirect_to(constituencies_current_path)
       end
     end
   end
 
   describe 'POST lookup' do
-    before(:each) do
-      get :lookup, params: { postcode: 'SW1A 2AA' }
+    context 'given a valid postcode' do
+      before(:each) do
+        post :lookup, params: { postcode: 'SW1A 2AA', previous_controller: 'postcodes', previous_action: 'index' }
+      end
+
+      it 'redirects to show' do
+        expect(response).to redirect_to(postcode_path('SW1A-2AA'))
+      end
     end
 
-    it 'redirects to show' do
-      expect(response).to redirect_to(postcode_path('SW1A-2AA'))
+    context 'given a blank postcode' do
+      before(:each) do
+        post :lookup, params: { postcode: '', previous_controller: 'postcodes', previous_action: 'index' }
+      end
+
+      it 'assigns flash[:error]' do
+        expect(flash[:error]).to eq("We couldn't find the postcode you entered.")
+      end
+
+      it 'redirects to postcodes index' do
+        expect(response).to redirect_to(postcodes_path)
+      end
     end
   end
 end

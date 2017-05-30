@@ -24,37 +24,37 @@ class HousesController < ApplicationController
   def members
     house_id = params[:house_id]
 
-    @house, @people = RequestHelper.filter_response_data(
+    @house, @people, @letters = RequestHelper.filter_response_data(
       parliament_request.houses(house_id).members,
       'http://id.ukpds.org/schema/House',
-      'http://id.ukpds.org/schema/Person'
+      'http://id.ukpds.org/schema/Person',
+      ::Grom::Node::BLANK
     )
 
     @house = @house.first
     @people = @people.sort_by(:sort_name)
+    @letters = @letters.map(&:value)
 
     @current_person_type, @other_person_type = HousesHelper.person_type_string(@house)
     @current_house_id, @other_house_id = HousesHelper.house_id_string(@house)
-
-    @letters = RequestHelper.process_available_letters(parliament_request.houses(house_id).members.a_z_letters)
   end
 
   def current_members
     house_id = params[:house_id]
 
-    @house, @people = RequestHelper.filter_response_data(
+    @house, @people, @letters = RequestHelper.filter_response_data(
       parliament_request.houses(house_id).members.current,
       'http://id.ukpds.org/schema/House',
-      'http://id.ukpds.org/schema/Person'
+      'http://id.ukpds.org/schema/Person',
+      ::Grom::Node::BLANK
     )
 
     @house = @house.first
     @people = @people.sort_by(:sort_name)
+    @letters = @letters.map(&:value)
 
     @current_person_type, @other_person_type = HousesHelper.person_type_string(@house)
     @current_house_id, @other_house_id = HousesHelper.house_id_string(@house)
-
-    @letters = RequestHelper.process_available_letters(parliament_request.houses(house_id).members.current.a_z_letters)
   end
 
   def parties
@@ -80,7 +80,7 @@ class HousesController < ApplicationController
     )
 
     @house = @house.first
-    @parties = @parties.reverse_sort_by(:member_count)
+    @parties = @parties.multi_direction_sort({ member_count: :desc, name: :asc })
   end
 
   def party
@@ -104,16 +104,16 @@ class HousesController < ApplicationController
     house_id = params[:house_id]
     letter = params[:letter]
 
-    @letters = RequestHelper.process_available_letters(parliament_request.houses(house_id).members.a_z_letters)
-    @house = RequestHelper.filter_response_data(
-      parliament_request.houses(house_id),
-      'http://id.ukpds.org/schema/House'
-    ).first
+    @house, @people, @letters = RequestHelper.filter_response_data(
+      parliament_request.houses(house_id).members(letter),
+      'http://id.ukpds.org/schema/House',
+      'http://id.ukpds.org/schema/Person',
+      ::Grom::Node::BLANK
+    )
 
-    request = parliament_request.houses(house_id).members(letter)
-    response = RequestHelper.handle(request) { @people = [] }
-
-    @people = response[:response].filter('http://id.ukpds.org/schema/Person').sort_by(:sort_name) if response[:success]
+    @house = @house.first
+    @people = @people.sort_by(:sort_name)
+    @letters = @letters.map(&:value)
     @current_person_type, @other_person_type = HousesHelper.person_type_string(@house)
     @current_house_id, @other_house_id = HousesHelper.house_id_string(@house)
   end
@@ -122,16 +122,16 @@ class HousesController < ApplicationController
     house_id = params[:house_id]
     letter = params[:letter]
 
-    @letters = RequestHelper.process_available_letters(parliament_request.houses(house_id).members.current.a_z_letters)
-    @house = RequestHelper.filter_response_data(
-      parliament_request.houses(house_id),
-      'http://id.ukpds.org/schema/House'
-    ).first
+    @house, @people, @letters = RequestHelper.filter_response_data(
+      parliament_request.houses(house_id).members.current(letter),
+      'http://id.ukpds.org/schema/House',
+      'http://id.ukpds.org/schema/Person',
+      ::Grom::Node::BLANK
+    )
 
-    request = parliament_request.houses(house_id).members.current(letter)
-    response = RequestHelper.handle(request) { @people = [] }
-
-    @people = response[:response].filter('http://id.ukpds.org/schema/Person').sort_by(:sort_name) if response[:success]
+    @house = @house.first
+    @people = @people.sort_by(:sort_name)
+    @letters = @letters.map(&:value)
     @current_person_type, @other_person_type = HousesHelper.person_type_string(@house)
     @current_house_id, @other_house_id = HousesHelper.house_id_string(@house)
   end
@@ -140,18 +140,18 @@ class HousesController < ApplicationController
     house_id = params[:house_id]
     party_id = params[:party_id]
 
-    @house, @party, @people = RequestHelper.filter_response_data(
+    @house, @party, @people, @letters = RequestHelper.filter_response_data(
       parliament_request.houses(house_id).parties(party_id).members,
       'http://id.ukpds.org/schema/House',
       'http://id.ukpds.org/schema/Party',
-      'http://id.ukpds.org/schema/Person'
+      'http://id.ukpds.org/schema/Person',
+      ::Grom::Node::BLANK
     )
     @house = @house.first
     @party = @party.first
     @people = @people.sort_by(:sort_name)
-
+    @letters = @letters.map(&:value)
     @current_person_type, @other_person_type = HousesHelper.person_type_string(@house)
-    @letters = RequestHelper.process_available_letters(parliament_request.houses(house_id).parties(party_id).members.a_z_letters)
   end
 
   def party_members_letters
@@ -159,23 +159,17 @@ class HousesController < ApplicationController
     party_id = params[:party_id]
     letter = params[:letter]
 
-    @letters = RequestHelper.process_available_letters(parliament_request.houses(house_id).parties(party_id).members.a_z_letters)
-
-    @house = RequestHelper.filter_response_data(
-      parliament_request.houses(house_id),
-      'http://id.ukpds.org/schema/House'
-    ).first
-
-    @party = RequestHelper.filter_response_data(
-      parliament_request.parties(party_id),
-      'http://id.ukpds.org/schema/Party'
-    ).first
-
-    request = parliament_request.houses(house_id).parties(party_id).members(letter)
-    response = RequestHelper.handle(request) { @people = [] }
-
-    @people = response[:response].filter('http://id.ukpds.org/schema/Person').sort_by(:sort_name) if response[:success]
-
+    @house, @party, @people, @letters = RequestHelper.filter_response_data(
+      parliament_request.houses(house_id).parties(party_id).members(letter),
+      'http://id.ukpds.org/schema/House',
+      'http://id.ukpds.org/schema/Party',
+      'http://id.ukpds.org/schema/Person',
+      ::Grom::Node::BLANK
+    )
+    @house = @house.first
+    @party = @party.first
+    @people = @people.sort_by(:sort_name)
+    @letters = @letters.map(&:value)
     @current_person_type, @other_person_type = HousesHelper.person_type_string(@house)
   end
 
@@ -183,20 +177,19 @@ class HousesController < ApplicationController
     house_id = params[:house_id]
     party_id = params[:party_id]
 
-    request = parliament_request.houses(house_id).parties(party_id).members.current
-
-    @house, @party, @people = RequestHelper.filter_response_data(
-      request,
+    @house, @party, @people, @letters = RequestHelper.filter_response_data(
+      parliament_request.houses(house_id).parties(party_id).members.current,
       'http://id.ukpds.org/schema/House',
       'http://id.ukpds.org/schema/Party',
-      'http://id.ukpds.org/schema/Person'
+      'http://id.ukpds.org/schema/Person',
+      ::Grom::Node::BLANK
     )
 
     @house = @house.first
     @party = @party.first
-
+    @people = @people.sort_by(:sort_name)
+    @letters = @letters.map(&:value)
     @current_person_type, @other_person_type = HousesHelper.person_type_string(@house)
-    @letters = RequestHelper.process_available_letters(parliament_request.houses(house_id).parties(party_id).members.current.a_z_letters)
   end
 
   def current_party_members_letters
@@ -204,24 +197,18 @@ class HousesController < ApplicationController
     party_id = params[:party_id]
     letter = params[:letter]
 
-    request = parliament_request.houses(house_id).parties(party_id).members.current(letter)
+    @house, @party, @people, @letters = RequestHelper.filter_response_data(
+      parliament_request.houses(house_id).parties(party_id).members.current(letter),
+      'http://id.ukpds.org/schema/House',
+      'http://id.ukpds.org/schema/Party',
+      'http://id.ukpds.org/schema/Person',
+      ::Grom::Node::BLANK
+    )
 
-    @letters = RequestHelper.process_available_letters(parliament_request.houses(house_id).parties(party_id).members.current.a_z_letters)
-
-    @house = RequestHelper.filter_response_data(
-      parliament_request.houses(house_id),
-      'http://id.ukpds.org/schema/House'
-    ).first
-
-    @party = RequestHelper.filter_response_data(
-      parliament_request.parties(party_id),
-      'http://id.ukpds.org/schema/Party'
-    ).first
-
-    response = RequestHelper.handle(request) { @people = [] }
-
-    @people = response[:response].filter('http://id.ukpds.org/schema/Person').sort_by(:sort_name) if response[:success]
-
+    @house = @house.first
+    @party = @party.first
+    @people = @people.sort_by(:sort_name)
+    @letters = @letters.map(&:value)
     @current_person_type, @other_person_type = HousesHelper.person_type_string(@house)
   end
 
