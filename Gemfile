@@ -40,6 +40,8 @@ gem 'rack-rewrite'
 # Manually update mail to account for security issues
 gem 'mail', '~> 2.6.6.rc1'
 
+# Gem to sanitize html into safe format
+gem 'sanitize'
 # Use Airbrake for production error reporting
 gem 'airbrake', '~> 6.1'
 
