@@ -8,9 +8,12 @@
     = hidden_field_tag('previous_action', params[:action])
     = hidden_field_tag('constituency_id', @constituency.graph_id) if @constituency
     = hidden_field_tag('person_id', @person.graph_id) if @person
-    = label_tag 'postcode', t('.search_by_postcode')
-    = text_field_tag('postcode', @postcode, value: flash[:postcode], maxlength: 8, pattern:'[0-9a-zA-Z ]{5,}')
-    - submit_text = @person.nil? && @constituency.nil? ? "Find" : "Check"
-    = submit_tag(submit_text, class: 'btn--secondary')
+    = label_tag 'input', t('.search_by_postcode')
+    = text_field_tag(:postcode, @postcode, value: flash[:postcode], maxlength: 8, pattern:'[0-9a-zA-Z ]{5,}', id:'input')
+    - button_text = @person.nil? && @constituency.nil? ? "Find" : "Check"
+    %button{:id => 'btn_loading', :class => 'btn--secondary', :value => button_text, :type => 'submit'}
+      %span{:class => 'btn--loading__text'}= button_text
+      %span{:class => 'btn--loading__icon'}
+        %object{:data => 'https://s3-eu-west-1.amazonaws.com/web1devci.pugin-website/1.4.4/icons/loading.svg', :type => 'image/svg+xml'}
 
 %p= t('.do_not_know_postcode', link: link_to(t('.do_not_know_postcode_link'), 'http://www.royalmail.com/find-a-postcode', target: '_blank', title: t('open_new_window'))).html_safe
