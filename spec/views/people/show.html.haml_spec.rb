@@ -153,13 +153,6 @@ RSpec.describe 'people/show', vcr: true do
           render
         end
 
-        it 'will render link to house_members_current_a_z_letter_path' do
-          expect(rendered).to have_link('All current MPs', href: house_members_current_a_z_letter_path(house_of_commons_graph_id, 'a'))
-        end
-
-        it 'will render link to house_members_a_z_letter_path' do
-          expect(rendered).to have_link('All Lords', href: house_members_a_z_letter_path(house_of_lords_graph_id, 'a'))
-        end
       end
 
       context 'person is not a former Lord' do
@@ -184,10 +177,6 @@ RSpec.describe 'people/show', vcr: true do
         expect(rendered).to match(/Lord and Test Membership/)
       end
 
-      it 'will render link to house_members_current_a_z_letter_path' do
-        expect(rendered).to have_link('All current Lords', href: house_members_current_a_z_letter_path(house_of_lords_graph_id, 'a'))
-      end
-
       context 'person is a former MP' do
         before do
           assign(:person,
@@ -204,13 +193,6 @@ RSpec.describe 'people/show', vcr: true do
           expect(rendered).to match(/Former MP and Lord/)
         end
 
-        it 'will render link to house_members_current_a_z_letter_path' do
-          expect(rendered).to have_link('All current Lords', href: house_members_current_a_z_letter_path(house_of_lords_graph_id, 'a'))
-        end
-
-        it 'will render link to house_members_a_z_letter_path' do
-          expect(rendered).to have_link('All MPs', href: house_members_a_z_letter_path(house_of_commons_graph_id, 'a'))
-        end
       end
     end
 
@@ -230,10 +212,6 @@ RSpec.describe 'people/show', vcr: true do
         expect(rendered).to match(/Test Membership/)
       end
 
-      it 'will render link to house_members_a_z_letter_path' do
-        expect(rendered).to have_link('All current and former Lords', href: house_members_a_z_letter_path(house_of_lords_graph_id, 'a'))
-      end
-
       context 'person is a former MP' do
         before do
           assign(:person,
@@ -248,10 +226,6 @@ RSpec.describe 'people/show', vcr: true do
 
         it 'will render statuses' do
           expect(rendered).to match(/Former MP/)
-        end
-
-        it 'will render link to house_members_a_z_letter_path' do
-          expect(rendered).to have_link('All current and former MPs', href: house_members_a_z_letter_path(house_of_commons_graph_id, 'a'))
         end
 
         context 'person is a former Lord' do
@@ -270,13 +244,6 @@ RSpec.describe 'people/show', vcr: true do
             expect(rendered).to match(/Former MP and Former Lord/)
           end
 
-          it 'will render link to house_members_a_z_letter_path for MPs' do
-            expect(rendered).to have_link('All current and former MPs', href: house_members_a_z_letter_path(house_of_commons_graph_id, 'a'))
-          end
-
-          it 'will render link to house_members_a_z_letter_path for Lords' do
-            expect(rendered).to have_link('All current and former Lords', href: house_members_a_z_letter_path(house_of_lords_graph_id, 'a'))
-          end
         end
       end
     end
