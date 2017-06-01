@@ -547,12 +547,21 @@ RSpec.describe PeopleController, vcr: true do
         get :lookup_by_letters, params: { letters: 'cam' }
       end
 
-      it 'should have a response with http status redirect (302)' do
-        expect(response).to have_http_status(302)
+      it 'should have a response with http status ok (200)' do
+        expect(response).to have_http_status(200)
       end
 
-      it 'redirects to people/a-z/cam' do
-        expect(response).to redirect_to(people_a_z_letter_path(letter: 'cam'))
+      it 'assigns @people and @letters' do
+        assigns(:people).each do |person|
+          expect(person).to be_a(Grom::Node)
+          expect(person.type).to eq('http://id.ukpds.org/schema/Person')
+        end
+
+        expect(assigns(:letters)).to be_a(Array)
+      end
+
+      it 'renders the lookup_by_letters template' do
+        expect(response).to render_template('lookup_by_letters')
       end
     end
 
@@ -566,7 +575,7 @@ RSpec.describe PeopleController, vcr: true do
       end
 
       it 'redirects to people/:id' do
-        expect(response).to redirect_to(person_path('LzzPGdFd'))
+        expect(response).to redirect_to(person_path('SmopkDY2'))
       end
     end
   end

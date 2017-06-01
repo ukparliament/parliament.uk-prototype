@@ -228,12 +228,18 @@ class PeopleController < ApplicationController
   def lookup_by_letters
     letters = params[:letters]
 
-    data = parliament_request.people(letters).get
+    @people, @letters = RequestHelper.filter_response_data(
+      parliament_request.people.partial(letters),
+      'http://id.ukpds.org/schema/Person',
+      ::Grom::Node::BLANK
+    )
 
-    if data.size == 1
-      redirect_to person_path(data.first.graph_id)
-    else
-      redirect_to people_a_z_letter_path(letters)
+    if @people.size == 1
+      redirect_to person_path(@people.first.graph_id)
+      return
     end
+
+    @people = @people.sort_by(:name)
+    @letters = @letters.map(&:value)
   end
 end

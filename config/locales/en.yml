@@ -87,6 +87,8 @@ en:
       title: # needs title
     letters:
       title: '%{current_and_former} %{mps_and_lords}'
+    lookup_by_letters:
+      title: '%{current_and_former} %{mps_and_lords}'
     members:
       title: '%{current_and_former} %{mps_and_lords}'
     a_to_z_members:
@@ -138,6 +140,8 @@ en:
       title: # needs title
     letters:
       title: '%{current_and_former} %{constituency_plural}'
+    lookup_by_letters:
+      title: '%{current_and_former} %{constituency_plural}'
     current:
       title: '%{current} %{constituency}'
     a_to_z_current:
@@ -169,6 +173,8 @@ en:
     a_to_z:
       title: # needs title
     letters:
+      title: '%{current_and_former} %{parties_and_groups}'
+    lookup_by_letters:
       title: '%{current_and_former} %{parties_and_groups}'
     current:
       title: '%{current} %{parties_and_groups}'
