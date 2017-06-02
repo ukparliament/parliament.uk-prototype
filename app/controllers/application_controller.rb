@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   include HousesHelper
   include RequestHelper
   include ParliamentHelper
+  include ResourceHelper
 
   include Pugin::Helpers::ControllerHelpers
 
