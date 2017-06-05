@@ -23,7 +23,7 @@ gem 'parliament-grom-decorators', '~> 0.1'
 gem 'bandiera-client'
 
 # Pugin is the front-end component library used by Parliament
-gem 'pugin', '~> 0.7'
+gem 'pugin', '~> 0.8'
 
 # HAML is used for front-end template rendering
 gem 'haml', '~> 5.0'

@@ -261,6 +261,10 @@ en:
       description_text_2: 'to find your constituency and its former MPs.'
     dissolution_singular:
       description_text: 'There are currently no MPs because Parliament has been dissolved before the general election on 8 June.'
+    election_message:
+      description_text: 'There are currently no MPs. Vote today in the general election to choose yours.'
+    post_election_message:
+      description_text: "As new MPs are announced following the general election, we're updating our pages."
   # homepage translations
   home:
     index:
