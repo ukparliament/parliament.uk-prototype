@@ -290,8 +290,8 @@ en:
         blog_link: 'MPs and Lords information blog post'
       follow_progress:
         title: 'Follow our progress'
-        blog: 'Follow all new website developments on %{link}.'
-        blog_link: 'our blog'
+        blog: 'Follow all %{link}.'
+        blog_link: 'new website developments on our blog'
   # meta information translations
   meta:
     index:
