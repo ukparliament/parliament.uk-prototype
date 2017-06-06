@@ -91,9 +91,16 @@ class ParliamentsController < ApplicationController
   end
 
   def a_to_z_members
-    @parliament_id = params[:parliament_id]
+    parliament_id = params[:parliament_id]
 
-    @letters = RequestHelper.process_available_letters(parliament_request.parliaments(@parliament_id).members.a_z_letters)
+    @parliament, @letters = RequestHelper.filter_response_data(
+      parliament_request.parliaments(parliament_id).members,
+      'http://id.ukpds.org/schema/ParliamentPeriod',
+      ::Grom::Node::BLANK
+    )
+
+    @parliament = @parliament.first
+    @letters    = @letters.map(&:value)
   end
 
   def parties
@@ -144,10 +151,19 @@ class ParliamentsController < ApplicationController
   end
 
   def a_to_z_party_members
-    @parliament_id = params[:parliament_id]
-    @party_id      = params[:party_id]
+    parliament_id = params[:parliament_id]
+    party_id      = params[:party_id]
 
-    @letters = RequestHelper.process_available_letters(parliament_request.parliaments(@parliament_id).parties(@party_id).members.a_z_letters)
+    @parliament, @party, @letters = RequestHelper.filter_response_data(
+      parliament_request.parliaments(parliament_id).parties(party_id).members,
+      'http://id.ukpds.org/schema/ParliamentPeriod',
+      'http://id.ukpds.org/schema/Party',
+      ::Grom::Node::BLANK
+    )
+
+    @parliament = @parliament.first
+    @party      = @party.first
+    @letters    = @letters.map(&:value)
   end
 
   def party_members_letters
@@ -217,10 +233,19 @@ class ParliamentsController < ApplicationController
   end
 
   def a_to_z_house_members
-    @parliament_id = params[:parliament_id]
-    @house_id      = params[:house_id]
+    parliament_id = params[:parliament_id]
+    house_id      = params[:house_id]
 
-    @letters       = RequestHelper.process_available_letters(parliament_request.parliaments(@parliament_id).houses(@house_id).members.a_z_letters)
+    @parliament, @house, @letters = RequestHelper.filter_response_data(
+      parliament_request.parliaments(parliament_id).houses(house_id).members,
+      'http://id.ukpds.org/schema/ParliamentPeriod',
+      'http://id.ukpds.org/schema/House',
+      ::Grom::Node::BLANK
+    )
+
+    @parliament = @parliament.first
+    @house      = @house.first
+    @letters    = @letters.map(&:value)
   end
 
   def house_members_letters
@@ -301,11 +326,22 @@ class ParliamentsController < ApplicationController
   end
 
   def a_to_z_house_party_members
-    @parliament_id = params[:parliament_id]
-    @house_id      = params[:house_id]
-    @party_id      = params[:party_id]
+    parliament_id = params[:parliament_id]
+    house_id      = params[:house_id]
+    party_id      = params[:party_id]
 
-    @letters = RequestHelper.process_available_letters(parliament_request.parliaments(@parliament_id).houses(@house_id).parties(@party_id).members.a_z_letters)
+    @parliament, @house, @party, @letters = RequestHelper.filter_response_data(
+      parliament_request.parliaments(parliament_id).houses(house_id).parties(party_id).members,
+      'http://id.ukpds.org/schema/ParliamentPeriod',
+      'http://id.ukpds.org/schema/House',
+      'http://id.ukpds.org/schema/Party',
+      ::Grom::Node::BLANK
+    )
+
+    @parliament = @parliament.first
+    @house      = @house.first
+    @party      = @party.first
+    @letters    = @letters.map(&:value)
   end
 
   def house_party_members_letters
@@ -333,21 +369,31 @@ class ParliamentsController < ApplicationController
   def constituencies
     parliament_id = params[:parliament_id]
 
-    @parliament, @constituencies = RequestHelper.filter_response_data(
+    @parliament, @constituencies, @letters = RequestHelper.filter_response_data(
       parliament_request.parliaments(parliament_id).constituencies,
       'http://id.ukpds.org/schema/ParliamentPeriod',
-      'http://id.ukpds.org/schema/ConstituencyGroup'
+      'http://id.ukpds.org/schema/ConstituencyGroup',
+      ::Grom::Node::BLANK
     )
 
     @parliament     = @parliament.first
     @constituencies = @constituencies.sort_by(:name)
-    @letters        = RequestHelper.process_available_letters(parliament_request.parliaments(parliament_id).constituencies.a_z_letters)
+    @letters        = @letters.map(&:value)
   end
 
   def a_to_z_constituencies
-    @parliament_id = params[:parliament_id]
+    parliament_id = params[:parliament_id]
 
-    @letters = RequestHelper.process_available_letters(parliament_request.parliaments(@parliament_id).constituencies.a_z_letters)
+    @parliament, @constituencies, @letters = RequestHelper.filter_response_data(
+      parliament_request.parliaments(parliament_id).constituencies,
+      'http://id.ukpds.org/schema/ParliamentPeriod',
+      'http://id.ukpds.org/schema/ConstituencyGroup',
+      ::Grom::Node::BLANK
+    )
+
+    @parliament     = @parliament.first
+    @constituencies = @constituencies.sort_by(:name)
+    @letters        = @letters.map(&:value)
   end
 
   def constituencies_letters

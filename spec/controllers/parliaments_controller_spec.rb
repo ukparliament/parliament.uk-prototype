@@ -257,11 +257,14 @@ RSpec.describe ParliamentsController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @letters' do
+    it 'assigns @parliament and @letters' do
+      expect(assigns(:parliament)).to be_a(Grom::Node)
+      expect(assigns(:parliament).type).to eq('http://id.ukpds.org/schema/ParliamentPeriod')
+
       expect(assigns(:letters)).to be_a(Array)
     end
 
-    it 'renders the a_to_z_members template' do
+    it 'renders the members a-z template' do
       expect(response).to render_template('a_to_z_members')
     end
   end
@@ -380,11 +383,27 @@ RSpec.describe ParliamentsController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @letters' do
-      expect(assigns(:letters)).to be_a(Array)
+    context '@parliament' do
+      it 'assigns @parliament' do
+        expect(assigns(:parliament)).to be_a(Grom::Node)
+        expect(assigns(:parliament).type).to eq('http://id.ukpds.org/schema/ParliamentPeriod')
+      end
     end
 
-    it 'renders the a_to_z_party_members template' do
+    context '@house' do
+      it 'assigns @house' do
+        expect(assigns(:house)).to be_a(Grom::Node)
+        expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
+      end
+    end
+
+    context '@letters' do
+      it 'assigns @letters' do
+        expect(assigns(:letters)).to be_a(Array)
+      end
+    end
+
+    it 'renders the house a-z template' do
       expect(response).to render_template('a_to_z_house_members')
     end
   end
@@ -581,11 +600,34 @@ RSpec.describe ParliamentsController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @letters' do
-      expect(assigns(:letters)).to be_a(Array)
+    context '@parliament' do
+      it 'assigns @parliament' do
+        expect(assigns(:parliament)).to be_a(Grom::Node)
+        expect(assigns(:parliament).type).to eq('http://id.ukpds.org/schema/ParliamentPeriod')
+      end
     end
 
-    it 'renders the a_to_z_party_members template' do
+    context '@house' do
+      it 'assigns @house' do
+        expect(assigns(:house)).to be_a(Grom::Node)
+        expect(assigns(:house).type).to eq('http://id.ukpds.org/schema/House')
+      end
+    end
+
+    context '@party' do
+      it 'assigns @party' do
+        expect(assigns(:party)).to be_a(Grom::Node)
+        expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
+      end
+    end
+
+    context '@letters' do
+      it 'assigns @letters' do
+        expect(assigns(:letters)).to be_a(Array)
+      end
+    end
+
+    it 'renders the house template' do
       expect(response).to render_template('a_to_z_house_party_members')
     end
   end
@@ -768,8 +810,24 @@ RSpec.describe ParliamentsController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @letters' do
-      expect(assigns(:letters)).to be_a(Array)
+    context '@parliament' do
+      it 'assigns @parliament' do
+        expect(assigns(:parliament)).to be_a(Grom::Node)
+        expect(assigns(:parliament).type).to eq('http://id.ukpds.org/schema/ParliamentPeriod')
+      end
+    end
+
+    context '@party' do
+      it 'assigns @party' do
+        expect(assigns(:party)).to be_a(Grom::Node)
+        expect(assigns(:party).type).to eq('http://id.ukpds.org/schema/Party')
+      end
+    end
+
+    context '@letters' do
+      it 'assigns @letters' do
+        expect(assigns(:letters)).to be_a(Array)
+      end
     end
 
     it 'renders the a_to_z_party_members template' do
@@ -849,11 +907,23 @@ RSpec.describe ParliamentsController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @letters' do
-      expect(assigns(:letters)).to be_a(Array)
+    context '@parliament' do
+      it 'assigns @parliament' do
+        expect(assigns(:parliament)).to be_a(Grom::Node)
+        expect(assigns(:parliament).type).to eq('http://id.ukpds.org/schema/ParliamentPeriod')
+      end
     end
 
-    it 'renders the a_to_z_constituencies template' do
+    context '@constituencies' do
+      it 'assigns @constituencies' do
+        assigns(:constituencies).each do |constituency|
+          expect(constituency).to be_a(Grom::Node)
+          expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
+        end
+      end
+    end
+
+    it 'renders the constituencies template' do
       expect(response).to render_template('a_to_z_constituencies')
     end
   end

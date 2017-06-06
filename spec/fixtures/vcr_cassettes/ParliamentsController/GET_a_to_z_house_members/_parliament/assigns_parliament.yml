@@ -168,7 +168,7 @@ http_interactions:
         _:node113911187 <http://id.ukpds.org/schema/value> "U" .
         _:node113911188 <http://id.ukpds.org/schema/value> "Z" .
     http_version: 
-  recorded_at: Tue, 06 Jun 2017 13:17:10 GMT
+  recorded_at: Tue, 06 Jun 2017 13:17:19 GMT
 - request:
     method: get
     uri: http://localhost:3030/houses
@@ -208,5 +208,5 @@ http_interactions:
         <http://id.ukpds.org/m1EgVTLj> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
         <http://id.ukpds.org/m1EgVTLj> <http://id.ukpds.org/schema/houseName> "houseName - 2" .
     http_version: 
-  recorded_at: Tue, 06 Jun 2017 13:17:11 GMT
+  recorded_at: Tue, 06 Jun 2017 13:17:20 GMT
 recorded_with: VCR 3.0.3
