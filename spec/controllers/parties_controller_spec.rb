@@ -319,21 +319,30 @@ RSpec.describe PartiesController, vcr: true do
   describe 'GET lookup_by_letters' do
     context 'it returns multiple results' do
       before(:each) do
-        get :lookup_by_letters, params: {letters: 'labour'}
+        get :lookup_by_letters, params: { letters: 'labour' }
       end
 
-      it 'should have a response with http status redirect (302)' do
-        expect(response).to have_http_status(302)
+      it 'should have a response with http status ok (200)' do
+        expect(response).to have_http_status(200)
       end
 
-      it 'redirects to parties/a-z/labour' do
-        expect(response).to redirect_to(parties_a_z_letter_path(letter: 'labour'))
+      it 'assigns @parties and @letters' do
+        assigns(:parties).each do |party|
+          expect(party).to be_a(Grom::Node)
+          expect(party.type).to eq('http://id.ukpds.org/schema/Party')
+        end
+
+        expect(assigns(:letters)).to be_a(Array)
+      end
+
+      it 'renders the lookup_by_letters template' do
+        expect(response).to render_template('lookup_by_letters')
       end
     end
 
     context 'it returns a single result' do
       before(:each) do
-        get :lookup_by_letters, params: {letters: 'guildford'}
+        get :lookup_by_letters, params: { letters: 'guildford' }
       end
 
       it 'should have a response with http status redirect (302)' do
@@ -341,7 +350,7 @@ RSpec.describe PartiesController, vcr: true do
       end
 
       it 'redirects to people/:id' do
-        expect(response).to redirect_to(party_path('89pNcJ5u'))
+        expect(response).to redirect_to(party_path('CwHG1QXZ'))
       end
     end
   end

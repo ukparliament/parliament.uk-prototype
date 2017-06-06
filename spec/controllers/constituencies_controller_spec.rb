@@ -378,12 +378,21 @@ RSpec.describe ConstituenciesController, vcr: true do
         get :lookup_by_letters, params: { letters: 'hove' }
       end
 
-      it 'should have a response with http status redirect (302)' do
-        expect(response).to have_http_status(302)
+      it 'should have a response with http status ok (200)' do
+        expect(response).to have_http_status(200)
       end
 
-      it 'redirects to constituencies/a-z/hove' do
-        expect(response).to redirect_to(constituencies_a_z_letter_path(:letter => 'hove'))
+      it 'assigns @constituencies and @letters' do
+        assigns(:constituencies).each do |constituency|
+          expect(constituency).to be_a(Grom::Node)
+          expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
+        end
+
+        expect(assigns(:letters)).to be_a(Array)
+      end
+
+      it 'renders the lookup_by_letters template' do
+        expect(response).to render_template('lookup_by_letters')
       end
     end
 
@@ -397,7 +406,7 @@ RSpec.describe ConstituenciesController, vcr: true do
       end
 
       it 'redirects to constituencies/:id' do
-        expect(response).to redirect_to(constituency_path('vTNSMo38'))
+        expect(response).to redirect_to(constituency_path('HWhM7sev'))
       end
     end
   end

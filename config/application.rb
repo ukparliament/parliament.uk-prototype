@@ -20,7 +20,6 @@ require 'pugin'
 
 module MembersPrototype
   class Application < Rails::Application
-
     # Rewrite trailing slashes
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       r301 %r{^/(.*)/$}, '/$1'
