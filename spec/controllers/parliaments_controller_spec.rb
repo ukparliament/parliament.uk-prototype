@@ -907,11 +907,23 @@ RSpec.describe ParliamentsController, vcr: true do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'assigns @letters' do
-      expect(assigns(:letters)).to be_a(Array)
+    context '@parliament' do
+      it 'assigns @parliament' do
+        expect(assigns(:parliament)).to be_a(Grom::Node)
+        expect(assigns(:parliament).type).to eq('http://id.ukpds.org/schema/ParliamentPeriod')
+      end
     end
 
-    it 'renders the a_to_z_constituencies template' do
+    context '@constituencies' do
+      it 'assigns @constituencies' do
+        assigns(:constituencies).each do |constituency|
+          expect(constituency).to be_a(Grom::Node)
+          expect(constituency.type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
+        end
+      end
+    end
+
+    it 'renders the constituencies template' do
       expect(response).to render_template('a_to_z_constituencies')
     end
   end
