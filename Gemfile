@@ -16,7 +16,7 @@ gem 'parliament-ruby', '~> 0.7'
 gem 'parliament-ntriple', '~> 0.1', require: false
 
 # Parliament Grom Decorators decorates Grom nodes
-gem 'parliament-grom-decorators', '~> 0.1'
+gem 'parliament-grom-decorators', '~> 0.2.0'
 
 # Client for Bandiera feature flagging
 gem 'bandiera-client'
