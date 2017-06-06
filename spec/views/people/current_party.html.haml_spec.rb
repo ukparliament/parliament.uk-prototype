@@ -30,7 +30,7 @@ RSpec.describe 'people/current_party', vcr: true do
 
     context 'not nil' do
       before do
-        assign(:party, double(:party, name: 'Conservative', graph_id: 'jF43Jxoc', party_memberships: [double(:party_membership, start_date: nil)]))
+        assign(:party, double(:party, name: 'Conservative', graph_id: 'jF43Jxoc', party_memberships: [double(:party_membership, start_date: nil, date_range: '[No Date]')]))
         render
       end
 
@@ -41,7 +41,7 @@ RSpec.describe 'people/current_party', vcr: true do
       context 'house seat incumbency start date' do
         context 'nil' do
           before do
-            assign(:party, double(:party, name: 'Conservative', graph_id: 'jF43Jxoc', party_memberships: [double(:party_membership, start_date: nil)]))
+            assign(:party, double(:party, name: 'Conservative', graph_id: 'jF43Jxoc', party_memberships: [double(:party_membership, start_date: nil, date_range: '[No Date]')]))
             render
           end
 
@@ -52,7 +52,7 @@ RSpec.describe 'people/current_party', vcr: true do
 
         context 'not nil' do
           before do
-            assign(:party, double(:party, name: 'Conservative', graph_id: 'jF43Jxoc', party_memberships: [double(:party_membership, start_date: Time.zone.now - 2.month)]))
+            assign(:party, double(:party, name: 'Conservative', graph_id: 'jF43Jxoc', party_memberships: [double(:party_membership, start_date: Time.zone.now - 2.month, date_range: "from #{(Time.zone.now - 2.month).strftime('%-e %b %Y')} to present")]))
             render
           end
 

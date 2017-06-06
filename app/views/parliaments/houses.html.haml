@@ -1,0 +1,5 @@
+%h3= "Houses between #{@parliament.date_range(date_format: '%Y')}"
+
+%ul
+  - @houses.each do |house|
+    %li= link_to house.name, parliament_house_path(@parliament.graph_id, house.graph_id)

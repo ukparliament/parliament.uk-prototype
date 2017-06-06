@@ -1,0 +1,9 @@
+%h2= "#{@parliament.number} (#{@parliament.date_range(date_format: '%Y')})"
+
+= link_to('Next Parliament', parliament_next_path(@parliament.graph_id)) if @parliament.next_parliament?
+= link_to('Previous Parliament', parliament_previous_path(@parliament.graph_id))
+
+%h4= link_to 'Members', parliament_members_path(@parliament.graph_id)
+%h4= link_to 'Parties', parliament_parties_path(@parliament.graph_id)
+%h4= link_to 'Constituencies', parliament_constituencies_path(@parliament.graph_id)
+%h4= link_to 'Houses', parliament_houses_path(@parliament.graph_id)

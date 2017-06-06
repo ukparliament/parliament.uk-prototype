@@ -1,0 +1,13 @@
+.section--primary
+  .container
+    = render partial: 'pugin/components/navigation-letter', locals: { route_symbol: :parliament_party_members_a_z_letter_path, route_args: [@parliament.graph_id, @party.graph_id] }
+
+%h2= "#{@party.name} members between (#{@parliament.date_range(date_format: '%Y')})"
+
+%ul
+  - @people.each do |person|
+    %li
+      = link_to person.display_name, person_path(person.graph_id)
+      - person.seat_incumbencies.each do |seat_incumbency|
+        = seat_incumbency.constituency.name
+        = seat_incumbency.constituency.date_range

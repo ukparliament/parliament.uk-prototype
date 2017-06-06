@@ -6,6 +6,7 @@ RSpec.describe 'people/_seat_incumbency', vcr: true do
       seat_incumbency = double(:seat_incumbency,
         start_date:   Time.zone.now - 1.month,
         end_date:     nil,
+        date_range:   'From 2010',
         constituency: double(:constituency, name: 'Test Constituency', graph_id: 'MtbjxRrE'))
 
       allow(seat_incumbency).to receive(:current?).and_return(true)
@@ -21,8 +22,9 @@ RSpec.describe 'people/_seat_incumbency', vcr: true do
     context 'is nil' do
       before do
         seat_incumbency = double(:seat_incumbency,
-          start_date:   Time.zone.now - 1.month,
+          start_date:   nil,
           end_date:     Time.zone.now - 1.day,
+          date_range:   "[No Date]",
           constituency: double(:constituency, name: 'Test Constituency', graph_id: 'MtbjxRrE'))
 
         allow(seat_incumbency).to receive(:current?).and_return(true)
@@ -39,6 +41,7 @@ RSpec.describe 'people/_seat_incumbency', vcr: true do
         seat_incumbency = double(:seat_incumbency,
           start_date:   Time.zone.now - 1.month,
           end_date:     Time.zone.now - 1.day,
+          date_range:   "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to #{(Time.zone.now - 1.day).strftime('%-e %b %Y')}",
           constituency: double(:constituency, name: 'Test Constituency', graph_id: 'MtbjxRrE'))
 
         allow(seat_incumbency).to receive(:current?).and_return(true)
@@ -57,6 +60,7 @@ RSpec.describe 'people/_seat_incumbency', vcr: true do
         seat_incumbency = double(:seat_incumbency,
           start_date:   Time.zone.now - 1.month,
           end_date:     Time.zone.now - 1.day,
+          date_range:   "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to #{(Time.zone.now - 1.day).strftime('%-e %b %Y')}",
           constituency: double(:constituency, name: 'Test Constituency', graph_id: 'MtbjxRrE'))
 
         allow(seat_incumbency).to receive(:current?).and_return(false)
@@ -73,6 +77,7 @@ RSpec.describe 'people/_seat_incumbency', vcr: true do
         seat_incumbency = double(:seat_incumbency,
           start_date:   Time.zone.now - 1.month,
           end_date:     nil,
+          date_range:   "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to present}",
           constituency: double(:constituency, name: 'Test Constituency', graph_id: 'MtbjxRrE'))
 
         allow(seat_incumbency).to receive(:current?).and_return(true)
