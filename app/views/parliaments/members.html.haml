@@ -1,13 +1,10 @@
-%h2= "Members from #{@parliament.date_range(date_format: '%Y')}"
-
 .section--primary
   .container
-    = render partial: 'pugin/components/navigation-letter', locals: { route_symbol: :parliament_members_a_z_letter_path, route_args: [@parliament.graph_id] }
+    %h1
+      = "#{t('mps_and_lords')}"
+      %span= link_to "- #{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
+    %ol.list--box
+      %li
+        %h2= link_to "A-Z", parliament_members_a_z_path(@parliament.graph_id)
+        %p= t('parliaments.find_mp_a_to_z')
 
-%h3 People
-%ul
-  - @people.each do |person|
-    %li= link_to person.display_name, person_path(person.graph_id)
-    - person.seat_incumbencies.each do |seat_incumbency|
-      %li= seat_incumbency.constituency.name
-      %li= seat_incumbency.date_range

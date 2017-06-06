@@ -1,5 +1,15 @@
-%h2= "Parties between #{@parliament.date_range(date_format: '%Y')}"
+%section.section--primary
+  .container
+    %h1
+      = t('parties_and_groups').capitalize
+      %span= link_to "- #{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
 
-%ul
-  - @parties.each do |party|
-    %li= link_to "#{party.name} - #{party.count}", parliament_party_path(@parliament.graph_id, party.graph_id)
+%section#content
+  .container
+    %ul.list--box
+      - @parties.each do |party|
+        %li
+          .column--75
+            %h2= link_to party.name, parliament_party_path(@parliament.graph_id, party.graph_id)
+          .column--25
+            %p= "#{party.count} #{t('mp_count', count: party.count)}"

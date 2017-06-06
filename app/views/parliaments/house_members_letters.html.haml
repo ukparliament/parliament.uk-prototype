@@ -1,13 +1,11 @@
-%h3= "MPs between #{@parliament.date_range(date_format: '%Y')}"
-
 .section--primary
   .container
+    %h1
+      = t('mp_plural')
+      %span= link_to "- #{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
+
     = render partial: 'pugin/components/navigation-letter', locals: { route_symbol: :parliament_house_members_a_z_letter_path, route_args: [@parliament.graph_id, @house.graph_id] }
 
-%ul
-  - @people.each do |person|
-    %li
-      = link_to person.display_name, person_path(person.graph_id)
-      - person.seat_incumbencies.each do |seat_incumbency|
-        = seat_incumbency.constituency.name
-        = seat_incumbency.constituency.date_range
+%section#content
+  .container
+    = render partial: 'pugin/cards/person-list', locals: { people: @people }

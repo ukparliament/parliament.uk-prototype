@@ -1,9 +1,23 @@
-%h2= "#{@parliament.number} (#{@parliament.date_range(date_format: '%Y')})"
+%section.section--primary
+  .container
+    %h1= "#{@parliament.date_range(date_format: '%Y')} #{t('parliament')}"
 
-= link_to('Next Parliament', parliament_next_path(@parliament.graph_id)) if @parliament.next_parliament?
-= link_to('Previous Parliament', parliament_previous_path(@parliament.graph_id))
+    = link_to("#{t('view_all').capitalize} #{t('parliament_plural')}", parliaments_path)
+    /= link_to('Next Parliament', parliament_next_path(@parliament.graph_id)) if @parliament.next_parliament?
+    /= link_to('Previous Parliament', parliament_previous_path(@parliament.graph_id))
 
-%h4= link_to 'Members', parliament_members_path(@parliament.graph_id)
-%h4= link_to 'Parties', parliament_parties_path(@parliament.graph_id)
-%h4= link_to 'Constituencies', parliament_constituencies_path(@parliament.graph_id)
-%h4= link_to 'Houses', parliament_houses_path(@parliament.graph_id)
+%section#content
+  .container
+    %ul.list--box
+      %li
+        %h2= link_to "#{t('mp_plural')}", parliament_members_path(@parliament.graph_id)
+        %p= t('parliaments.find_mp_a_to_z')
+      %li
+        %h2= link_to "#{t('party_plural').capitalize}", parliament_parties_path(@parliament.graph_id)
+        %p= t('.find_mp_area')
+      %li
+        %h2= link_to "#{t('constituency_plural').capitalize}", parliament_constituencies_path(@parliament.graph_id)
+        %p= t('.find_party_a_to_z')
+      %li
+        %h2= link_to "#{t('house_plural').capitalize}", parliament_houses_path(@parliament.graph_id)
+        %p= t('.find_mp_house')

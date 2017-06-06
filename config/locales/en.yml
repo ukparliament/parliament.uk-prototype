@@ -51,6 +51,9 @@ en:
   house_of_lords: 'House of Lords'
   commons: 'Commons'
   lords: 'Lords'
+  # global parliaments translations
+  parliament: 'parliament'
+  parliament_plural: 'parliaments'
   # global generic translations
   view_all: 'view all'
   all: 'all'
@@ -249,6 +252,17 @@ en:
       do_not_know_postcode: "Don't know your postcode? Find it on the %{link}."
       do_not_know_postcode_link: 'Royal Mail postcode finder'
 
+  # parliament translations
+  parliaments:
+    find_mp_a_to_z: 'Find an MP by A-Z list'
+    find_mp_area: 'Find an MP by the area they represented'
+    find_party_a_to_z: 'Find a party by A-Z list'
+    a_to_z: 'A to Z'
+    index:
+    show:
+      find_mp_house: 'Find an MP by house'
+    constituencies:
+      find_constituency_a_to_z: 'Find a constituency by A-Z list'
   # no content translations
   no_content:
     empty_list:
