@@ -30,7 +30,7 @@ RSpec.describe 'people/current_constituency', vcr: true do
 
     context 'not nil' do
       before do
-        assign(:constituency, double(:constituency, name: 'Aberavon', graph_id: 'MtbjxRrE', seat_incumbencies: [double(:seat_incumbency, start_date: nil)]))
+        assign(:constituency, double(:constituency, name: 'Aberavon', graph_id: 'MtbjxRrE', seat_incumbencies: [double(:seat_incumbency, start_date: nil, date_range: '[No Data]')]))
         render
       end
 
@@ -41,7 +41,7 @@ RSpec.describe 'people/current_constituency', vcr: true do
       context 'constituency seat incumbency start date' do
         context 'nil' do
           before do
-            assign(:constituency, double(:constituency, name: 'Aberavon', graph_id: 'MtbjxRrE', seat_incumbencies: [double(:seat_incumbency, start_date: nil)]))
+            assign(:constituency, double(:constituency, name: 'Aberavon', graph_id: 'MtbjxRrE', seat_incumbencies: [double(:seat_incumbency, start_date: nil, date_range: '[No Data]')]))
             render
           end
 
@@ -52,7 +52,7 @@ RSpec.describe 'people/current_constituency', vcr: true do
 
         context 'not nil' do
           before do
-            assign(:constituency, double(:constituency, name: 'Aberavon', graph_id: 'MtbjxRrE', seat_incumbencies: [double(:seat_incumbency, start_date: Time.zone.now - 1.month)]))
+            assign(:constituency, double(:constituency, name: 'Aberavon', graph_id: 'MtbjxRrE', seat_incumbencies: [double(:seat_incumbency, start_date: Time.zone.now - 1.month, date_range: "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to present")]))
             render
           end
 

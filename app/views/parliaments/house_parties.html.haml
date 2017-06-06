@@ -1,0 +1,5 @@
+%h2= "Parties between #{@parliament.date_range(date_format: '%Y')}"
+
+%ul
+  - @parties.each do |party|
+    %li= link_to party.name, parliament_house_party_path(@parliament.graph_id, @house.graph_id, party.graph_id)

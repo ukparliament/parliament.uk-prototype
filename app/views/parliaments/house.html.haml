@@ -1,0 +1,6 @@
+%h3= "#{@house.name} between #{@parliament.date_range(date_format: '%Y')}"
+
+%ul
+  %li= link_to 'MPs', parliament_house_members_path(@parliament.graph_id, @house.graph_id)
+  %li= link_to 'Constituenciues', parliament_constituencies_path(@parliament.graph_id)
+  %li= link_to 'Parties', parliament_house_parties_path(@parliament.graph_id, @house.graph_id)

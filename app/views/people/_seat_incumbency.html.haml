@@ -4,9 +4,7 @@
       = seat_incumbency.constituency.name
       %span.sr-only
         = " #{t('constituency')} #{t('from')} "
-        = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-        = seat_incumbency.current? ? t('to_present') : " #{t('to')} #{l(seat_incumbency.end_date, format: :default)}"
+        = seat_incumbency.date_range
 
   %p(aria-hidden="true")
-    = "#{l(seat_incumbency.start_date, format: :default)}" unless seat_incumbency.start_date.nil?
-    = seat_incumbency.current? ? t('to_present') : " #{t('to')} #{l(seat_incumbency.end_date, format: :default)}"
+    = seat_incumbency.date_range

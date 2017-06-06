@@ -1,6 +1,11 @@
-workers Integer(ENV['WEB_CONCURRENCY'] || 2)
-threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
-threads threads_count, threads_count
+worker_count = ENV['WEB_CONCURRENCY']
+worker_count ||= Rails.env.development? ? 1 : 2
+
+thread_count = ENV['RAILS_MAX_THREADS']
+thread_count ||= Rails.env.development? ? 1 : 5
+
+workers Integer(worker_count)
+threads Integer(thread_count), Integer(thread_count)
 
 preload_app!
 

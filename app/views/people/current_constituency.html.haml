@@ -8,4 +8,4 @@
       %ul.list--box
         %li
           %h2= link_to(@constituency.name, party_path(@constituency.graph_id))
-          %p= "#{l(@constituency.seat_incumbencies.first.start_date, format: :default)} #{t('to_present')}" unless @constituency.seat_incumbencies.first.start_date.nil?
+          %p= @constituency.seat_incumbencies.first.date_range

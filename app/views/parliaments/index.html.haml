@@ -1,0 +1,4 @@
+%h2 Parliaments
+%ul
+  - @parliaments.each do |parliament|
+    %li= link_to "#{parliament.number} (#{parliament.date_range(date_format: '%Y')})", parliament_path(parliament.graph_id)

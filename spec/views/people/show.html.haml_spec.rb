@@ -18,7 +18,7 @@ RSpec.describe 'people/show', vcr: true do
       assign(:house_incumbencies, [])
       assign(:current_incumbency,
         double(:current_incumbency,
-          constituency: double(:constituency, name: 'Aberavon', graph_id: constituency_graph_id)))
+          constituency: double(:constituency, name: 'Aberavon', graph_id: constituency_graph_id, date_range: 'from 2010')))
       assign(:seat_incumbencies, [])
       assign(:most_recent_incumbency, nil)
 
@@ -43,7 +43,7 @@ RSpec.describe 'people/show', vcr: true do
       assign(:house_incumbencies, [])
       assign(:current_incumbency,
         double(:current_incumbency,
-          constituency: double(:constituency, name: 'Aberavon', graph_id: constituency_graph_id)))
+          constituency: double(:constituency, name: 'Aberavon', graph_id: constituency_graph_id, date_range: 'from 2010')))
       assign(:seat_incumbencies, [])
     end
 
@@ -96,7 +96,7 @@ RSpec.describe 'people/show', vcr: true do
       assign(:house_incumbencies, [])
       assign(:current_incumbency,
         double(:current_incumbency,
-          constituency: double(:constituency, name: 'Aberavon', graph_id: constituency_graph_id)))
+          constituency: double(:constituency, name: 'Aberavon', graph_id: constituency_graph_id, date_range: 'from 2010')))
       assign(:seat_incumbencies, [])
       assign(:most_recent_incumbency, nil)
     end
@@ -260,7 +260,7 @@ RSpec.describe 'people/show', vcr: true do
 
         assign(:current_incumbency,
           double(:current_incumbency,
-            constituency: double(:constituency, name: 'Aberavon', graph_id: constituency_graph_id), contact_points: []))
+            constituency: double(:constituency, name: 'Aberavon', graph_id: constituency_graph_id), contact_points: [], date_range: 'from 2010'))
 
         assign(:current_party_membership,
           double(:current_party_membership, party: double(:party, name: 'Conservative', graph_id: 'jF43Jxoc')))
@@ -297,7 +297,8 @@ RSpec.describe 'people/show', vcr: true do
             contact_points: [],
             constituency:   double(:constituency,
               name:     'Aberavon',
-              graph_id: constituency_graph_id)))
+              graph_id: constituency_graph_id,
+              date_range: 'from 2010')))
       end
 
       context 'postcode is not assigned' do
@@ -358,7 +359,8 @@ RSpec.describe 'people/show', vcr: true do
               contact_points: [],
               constituency:   double(:constituency,
                 name:     'Aberavon',
-                graph_id: constituency_graph_id)))
+                graph_id: constituency_graph_id,
+                date_range: 'from 2010')))
           render
         end
 
@@ -373,7 +375,8 @@ RSpec.describe 'people/show', vcr: true do
             double(:current_incumbency,
               constituency:   double(:constituency,
                 name:     'Aberavon',
-                graph_id: constituency_graph_id),
+                graph_id: constituency_graph_id,
+                date_range: 'from 2010'),
               contact_points: [
                 double(:contact_point,
                   email:            'testemail@test.com',
@@ -400,7 +403,8 @@ RSpec.describe 'people/show', vcr: true do
                 double(:current_incumbency,
                   constituency:   double(:constituency,
                     name:     'Aberavon',
-                    graph_id: constituency_graph_id),
+                    graph_id: constituency_graph_id,
+                    date_range: 'from 2010'),
                   contact_points: [
                     double(:contact_point,
                       email:            'testemail@test.com',
@@ -433,7 +437,8 @@ RSpec.describe 'people/show', vcr: true do
               double(:current_incumbency,
                 constituency:   double(:constituency,
                   name:     'Aberavon',
-                  graph_id: constituency_graph_id),
+                  graph_id: constituency_graph_id,
+                  date_range: 'from 2010'),
                 contact_points: [
                   double(:contact_point,
                     email:            'testemail@test.com',
@@ -475,7 +480,8 @@ RSpec.describe 'people/show', vcr: true do
             contact_points: [],
             constituency:   double(:constituency,
               name:     'Aberavon',
-              graph_id: constituency_graph_id)))
+              graph_id: constituency_graph_id,
+              date_range: 'from 2010')))
 
         render
       end
@@ -511,10 +517,12 @@ RSpec.describe 'people/show', vcr: true do
                  double(:house_incumbency,
                    start_date: Time.zone.now - 1.month,
                    end_date:   nil,
+                   date_range: "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to present",
                    current?:   true),
                  double(:house_incumbency,
                    start_date: Time.zone.now - 2.months,
                    end_date:   Time.zone.now - 1.week,
+                   date_range: "from #{(Time.zone.now - 2.month).strftime('%-e %b %Y')} to #{(Time.zone.now - 1.week).strftime('%-e %b %Y')}",
                    current?:   false)
                ])
         render
@@ -553,18 +561,22 @@ RSpec.describe 'people/show', vcr: true do
                    start_date:   Time.zone.now - 1.month,
                    end_date:     nil,
                    current?:     true,
+                   date_range:   "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to present",
                    constituency: double(:constituency,
                      name:       'Aberavon',
                      graph_id:   constituency_graph_id,
-                     start_date: Time.zone.now - 1.month)),
+                     start_date: Time.zone.now - 1.month,
+                     date_range: 'from 2010')),
                  double(:seat_incumbency,
                    start_date:   Time.zone.now - 2.months,
                    end_date:     Time.zone.now - 1.week,
                    current?:     false,
+                   date_range:   "from #{(Time.zone.now - 2.months).strftime('%-e %b %Y')} to #{(Time.zone.now - 1.week).strftime('%-e %b %Y')}",
                    constituency: double(:constituency,
                      name:       'Aberconwy',
                      graph_id:   constituency_graph_id,
-                     start_date: Time.zone.now - 1.month))
+                     start_date: Time.zone.now - 1.month,
+                     date_range: 'from 2010'))
                ])
 
         render

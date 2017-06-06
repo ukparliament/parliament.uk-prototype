@@ -1,5 +1,4 @@
 %li
   %h2= link_to(party_membership.party.name, party_path(party_membership.party.graph_id))
   %p
-    = "#{l(party_membership.start_date, format: :default)}" unless party_membership.start_date.nil?
-    = party_membership.current? ? t('to_present') : " #{t('to')} #{l(party_membership.end_date, format: :default)}"
+    = party_membership.date_range
