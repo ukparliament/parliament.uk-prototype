@@ -689,7 +689,7 @@ RSpec.describe ParliamentsController, vcr: true do
 
   describe 'GET parties' do
     before(:each) do
-      get :parties, params: { parliament_id: '0FxbTVtr' }
+      get :parties, params: { parliament_id: 'GEFMX81E' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -711,9 +711,17 @@ RSpec.describe ParliamentsController, vcr: true do
         end
       end
 
-      it 'assigns @parties in name order' do
-        expect(assigns(:parties)[0].name).to eq('partyName - 1')
-        expect(assigns(:parties)[1].name).to eq('partyName - 2')
+      it 'assigns @parties in member count then name order' do
+        expect(assigns(:parties)[0].name).to eq('partyName - 11')
+        expect(assigns(:parties)[0].member_count).to eq(333)
+        expect(assigns(:parties)[1].name).to eq('partyName - 1')
+        expect(assigns(:parties)[1].member_count).to eq(240)
+        expect(assigns(:parties)[10].name).to eq('partyName - 3')
+        expect(assigns(:parties)[10].member_count).to eq(1)
+        expect(assigns(:parties)[11].name).to eq('partyName - 4')
+        expect(assigns(:parties)[11].member_count).to eq(1)
+        expect(assigns(:parties)[12].name).to eq('partyName - 7')
+        expect(assigns(:parties)[12].member_count).to eq(1)
       end
     end
 
