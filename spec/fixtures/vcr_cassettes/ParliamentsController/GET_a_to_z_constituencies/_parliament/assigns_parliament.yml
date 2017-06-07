@@ -93,13 +93,8 @@ http_interactions:
         <http://id.ukpds.org/hpiAOg2A> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 11" .
         <http://id.ukpds.org/hpiAOg2A> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 11" .
         <http://id.ukpds.org/hpiAOg2A> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 11" .
-        <http://id.ukpds.org/i90auOwG> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
-        <http://id.ukpds.org/i90auOwG> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 12" .
-        <http://id.ukpds.org/i90auOwG> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 12" .
-        <http://id.ukpds.org/i90auOwG> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 12" .
-        <http://id.ukpds.org/i90auOwG> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 12" .
     http_version: 
-  recorded_at: Tue, 06 Jun 2017 15:37:54 GMT
+  recorded_at: Tue, 06 Jun 2017 15:40:11 GMT
 - request:
     method: get
     uri: http://localhost:3030/houses
@@ -139,5 +134,5 @@ http_interactions:
         <http://id.ukpds.org/m1EgVTLj> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
         <http://id.ukpds.org/m1EgVTLj> <http://id.ukpds.org/schema/houseName> "houseName - 2" .
     http_version: 
-  recorded_at: Tue, 06 Jun 2017 15:37:56 GMT
+  recorded_at: Tue, 06 Jun 2017 15:40:14 GMT
 recorded_with: VCR 3.0.3
