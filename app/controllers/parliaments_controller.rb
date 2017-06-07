@@ -113,7 +113,7 @@ class ParliamentsController < ApplicationController
     )
 
     @parliament = @parliament.first
-    @parties    = @parties.sort_by(:name)
+    @parties = @parties.multi_direction_sort({ member_count: :desc, name: :asc })
   end
 
   def party
