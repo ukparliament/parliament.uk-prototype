@@ -583,7 +583,7 @@ RSpec.describe 'people/show', vcr: true do
       end
 
       it 'will render the correct sub-header' do
-        expect(rendered).to match(/Member of the House of Commons/)
+        expect(rendered).to match(/MP/)
       end
 
       it 'will render link to first constituency_path' do
