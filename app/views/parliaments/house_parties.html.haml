@@ -1,8 +1,8 @@
 %section.section--primary
   .container
     %h1
-      = t('party_plural').capitalize
-      %span= link_to "- #{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
+      %span= t('party_plural').capitalize
+      = link_to "#{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
 
 %section#content
   .container
@@ -12,4 +12,6 @@
           .column--75
             %h2= link_to party.name, parliament_house_party_path(@parliament.graph_id,@house.graph_id, party.graph_id)
           .column--25
-            %p=# "#{party.count} #{t('mp_count', count: party.count)}"
+            %p
+              /= party.count
+              /%span= t('mp_count', count: party.count)

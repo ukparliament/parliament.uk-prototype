@@ -258,6 +258,7 @@ en:
     find_mp_area: 'Find an MP by the area they represented'
     find_party_a_to_z: 'Find a party by A-Z list'
     a_to_z: 'A to Z'
+    showing_results: 'showing results for'
     index:
     show:
       find_mp_house: 'Find an MP by house'
@@ -280,8 +281,9 @@ en:
       description_link: 'Find your constituency'
       description_text_2: 'to find your constituency and its former MPs.'
     dissolution_singular:
-      description_text: 'There are currently no MPs because Parliament has been dissolved before the general election on 8 June.'
+      description_text: 'There is currently no MP because Parliament has been dissolved before the general election on 8 June.'
     election_message:
+      description_singular: 'There is currently no MP. Vote today in the general election to choose yours.'
       description_text: 'There are currently no MPs. Vote today in the general election to choose yours.'
     post_election_message:
       description_text: "As new MPs are announced following the general election, we're updating our pages."
