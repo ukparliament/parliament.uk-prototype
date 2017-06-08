@@ -68,7 +68,7 @@
               %p
                 = house_incumbency.date_range
       - if @seat_incumbencies.present?
-        %h3= "#{t('member').capitalize} #{t('of_the')} #{t('house_of_commons')}"
+        %h3= "#{t('mp')}"
         %ol.list--pipe
           - @seat_incumbencies.sort{ |inc_a, inc_b| inc_b.start_date <=> inc_a.start_date }.each do |seat_incumbency|
             %li
