@@ -33,6 +33,7 @@ RSpec.describe 'people/houses', vcr: true do
         assign(:incumbencies, [double(:incumbency,
           start_date: Time.zone.now - 1.month,
           end_date:   nil,
+          date_range: "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to present",
           house:      double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP'),
           seat:       double(:seat, house: double(:house, name: 'House of Lords', graph_id: 'm1EgVTLj')),
           current?:   true)])

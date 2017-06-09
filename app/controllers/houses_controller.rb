@@ -241,7 +241,7 @@ class HousesController < ApplicationController
   def lookup_by_letters
     letters = params[:letters]
 
-    data = parliament_request.houses(letters).get
+    data = parliament_request.houses.partial(letters).get
 
     if data.size == 1
       redirect_to house_path(data.first.graph_id)

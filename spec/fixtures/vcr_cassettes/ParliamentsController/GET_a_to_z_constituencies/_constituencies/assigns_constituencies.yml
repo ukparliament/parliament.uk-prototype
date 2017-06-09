@@ -1,0 +1,138 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/parliaments/0FxbTVtr/constituencies
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/n-triples
+      User-Agent:
+      - Ruby
+      Ocp-Apim-Subscription-Key:
+      - "<AUTH_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/n-triples
+      Content-Disposition:
+      - inline; filename="index"
+      Last-Modified:
+      - Mon, 05 Jun 2017 11:05:32 GMT
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '2232091'
+    body:
+      encoding: UTF-8
+      string: |
+        <http://id.ukpds.org/0FxbTVtr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
+        <http://id.ukpds.org/0FxbTVtr> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "2017-06-13"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <http://id.ukpds.org/0FxbTVtr> <http://id.ukpds.org/schema/parliamentPeriodNumber> "57"^^<http://www.w3.org/2001/XMLSchema#integer> .
+        <http://id.ukpds.org/0FxbTVtr> <http://id.ukpds.org/schema/parliamentPeriodHasImmediatelyPreviousParliamentPeriod> <http://id.ukpds.org/GEFMX81E> .
+        <http://id.ukpds.org/btIASFP9> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/btIASFP9> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 1" .
+        <http://id.ukpds.org/btIASFP9> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 1" .
+        <http://id.ukpds.org/btIASFP9> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 1" .
+        <http://id.ukpds.org/btIASFP9> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 1" .
+        <http://id.ukpds.org/BpDAncWL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/BpDAncWL> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 2" .
+        <http://id.ukpds.org/BpDAncWL> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 2" .
+        <http://id.ukpds.org/BpDAncWL> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 2" .
+        <http://id.ukpds.org/BpDAncWL> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 2" .
+        <http://id.ukpds.org/lczMVEOP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/lczMVEOP> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 3" .
+        <http://id.ukpds.org/lczMVEOP> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 3" .
+        <http://id.ukpds.org/lczMVEOP> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 3" .
+        <http://id.ukpds.org/lczMVEOP> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 3" .
+        <http://id.ukpds.org/m9b9c9fy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/m9b9c9fy> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 4" .
+        <http://id.ukpds.org/m9b9c9fy> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 4" .
+        <http://id.ukpds.org/m9b9c9fy> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 4" .
+        <http://id.ukpds.org/m9b9c9fy> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 4" .
+        <http://id.ukpds.org/vsZ0ayrw> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/vsZ0ayrw> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 5" .
+        <http://id.ukpds.org/vsZ0ayrw> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 5" .
+        <http://id.ukpds.org/vsZ0ayrw> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 5" .
+        <http://id.ukpds.org/vsZ0ayrw> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 5" .
+        <http://id.ukpds.org/BNZIphuE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/BNZIphuE> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 6" .
+        <http://id.ukpds.org/BNZIphuE> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 6" .
+        <http://id.ukpds.org/BNZIphuE> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 6" .
+        <http://id.ukpds.org/BNZIphuE> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 6" .
+        <http://id.ukpds.org/ZKUqBBQ4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/ZKUqBBQ4> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 7" .
+        <http://id.ukpds.org/ZKUqBBQ4> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 7" .
+        <http://id.ukpds.org/ZKUqBBQ4> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 7" .
+        <http://id.ukpds.org/ZKUqBBQ4> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 7" .
+        <http://id.ukpds.org/WWiVRjoi> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/WWiVRjoi> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 8" .
+        <http://id.ukpds.org/WWiVRjoi> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 8" .
+        <http://id.ukpds.org/WWiVRjoi> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 8" .
+        <http://id.ukpds.org/WWiVRjoi> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 8" .
+        <http://id.ukpds.org/nBgFuTeL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/nBgFuTeL> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 9" .
+        <http://id.ukpds.org/nBgFuTeL> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 9" .
+        <http://id.ukpds.org/nBgFuTeL> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 9" .
+        <http://id.ukpds.org/nBgFuTeL> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 9" .
+        <http://id.ukpds.org/iAtibodW> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/iAtibodW> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 10" .
+        <http://id.ukpds.org/iAtibodW> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 10" .
+        <http://id.ukpds.org/iAtibodW> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 10" .
+        <http://id.ukpds.org/iAtibodW> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 10" .
+        <http://id.ukpds.org/hpiAOg2A> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
+        <http://id.ukpds.org/hpiAOg2A> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 11" .
+        <http://id.ukpds.org/hpiAOg2A> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 11" .
+        <http://id.ukpds.org/hpiAOg2A> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 11" .
+        <http://id.ukpds.org/hpiAOg2A> <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> "A5EE13ABE03C4D3A8F1A274F57097B6C - 11" .
+    http_version: 
+  recorded_at: Tue, 06 Jun 2017 15:41:33 GMT
+- request:
+    method: get
+    uri: http://localhost:3030/houses
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/n-triples
+      User-Agent:
+      - Ruby
+      Ocp-Apim-Subscription-Key:
+      - "<AUTH_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/n-triples
+      Content-Disposition:
+      - inline; filename="index"
+      Last-Modified:
+      - Thu, 27 Apr 2017 13:41:19 GMT
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '416'
+    body:
+      encoding: UTF-8
+      string: |
+        <http://id.ukpds.org/KL2k1BGP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
+        <http://id.ukpds.org/KL2k1BGP> <http://id.ukpds.org/schema/houseName> "houseName - 1" .
+        <http://id.ukpds.org/m1EgVTLj> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
+        <http://id.ukpds.org/m1EgVTLj> <http://id.ukpds.org/schema/houseName> "houseName - 2" .
+    http_version: 
+  recorded_at: Tue, 06 Jun 2017 15:41:35 GMT
+recorded_with: VCR 3.0.3

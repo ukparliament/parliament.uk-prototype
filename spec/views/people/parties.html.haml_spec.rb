@@ -6,6 +6,7 @@ RSpec.describe 'people/parties', vcr: true do
     assign(:party_memberships, [double(:party_membership,
       start_date: Time.zone.now - 1.month,
       end_date:   nil,
+      date_range: "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to present",
       party:      double(:party, name: 'Conservative', graph_id: 'jF43Jxoc'),
       current?:   true)])
     assign(:letters, 'A')

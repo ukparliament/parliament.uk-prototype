@@ -128,7 +128,7 @@ GEM
     parallel (1.11.2)
     parallel_tests (2.14.1)
       parallel
-    parliament-grom-decorators (0.1.6)
+    parliament-grom-decorators (0.1.7)
     parliament-ntriple (0.1.2)
       grom (~> 0.3.6)
     parliament-ruby (0.7.7)
@@ -140,7 +140,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    pugin (0.7.1)
+    pugin (0.8.1)
     puma (3.9.0)
     rack (2.0.3)
     rack-rewrite (1.5.1)
@@ -289,7 +289,7 @@ DEPENDENCIES
   parliament-ntriple (~> 0.1)
   parliament-ruby (~> 0.7)
   pry
-  pugin (~> 0.7)
+  pugin (~> 0.8.1)
   puma
   rack-rewrite
   rack-timeout

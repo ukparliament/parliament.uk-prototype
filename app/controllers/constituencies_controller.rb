@@ -39,7 +39,8 @@ class ConstituenciesController < ApplicationController
       'http://id.ukpds.org/schema/ConstituencyGroup',
       'http://id.ukpds.org/schema/SeatIncumbency'
     )
-
+    # Instance variable for single MP pages
+    @single_mp = true
     @constituency = @constituency.first
     @seat_incumbencies = @seat_incumbencies.reverse_sort_by(:start_date)
 
@@ -200,12 +201,18 @@ class ConstituenciesController < ApplicationController
   def lookup_by_letters
     letters = params[:letters]
 
-    data = parliament_request.constituencies(letters).get
+    @constituencies, @letters = RequestHelper.filter_response_data(
+      parliament_request.constituencies.partial(letters),
+      'http://id.ukpds.org/schema/ConstituencyGroup',
+      ::Grom::Node::BLANK
+    )
 
-    if data.size == 1
-      redirect_to constituency_path(data.first.graph_id)
-    else
-      redirect_to constituencies_a_z_letter_path(letters)
+    if @constituencies.size == 1
+      redirect_to constituency_path(@constituencies.first.graph_id)
+      return
     end
+
+    @constituencies = @constituencies.sort_by(:name)
+    @letters = @letters.map(&:value)
   end
 end

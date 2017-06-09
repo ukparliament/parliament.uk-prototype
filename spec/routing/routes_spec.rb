@@ -22,9 +22,6 @@ RSpec.describe 'routes', type: :routing do
           )
         end
       end
-
     end
   end
-
-  
 end

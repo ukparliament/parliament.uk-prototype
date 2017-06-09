@@ -5,10 +5,13 @@
 
     %h1= "#{t('current').capitalize} #{@current_person_type}"
 
-    = render partial: 'pugin/components/navigation-letter', locals: { route_symbol: :house_members_current_a_z_letter_path, primary_id: @house.graph_id }
+    = render partial: 'pugin/components/navigation-letter', locals: { route_symbol: :house_members_current_a_z_letter_path, route_args: [@house.graph_id]}
 
     - if HousesHelper.commons?(@house)
-      = render partial: 'shared/dissolution_message'
+      - if FlagHelper.dissolution?
+        = render partial: 'shared/dissolution_message'
+      - elsif FlagHelper.post_election?
+        = render partial: 'shared/election_message'
 
 - unless @letters.empty?
 
