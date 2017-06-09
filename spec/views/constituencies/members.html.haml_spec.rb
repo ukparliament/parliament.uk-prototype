@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'constituencies/members', vcr: true do
   before do
-    assign(:constituency, double(:constituency, name: 'Aberavon', graph_id: 'MtbjxRrE', start_date: nil, end_date: nil, current?: true))
+    assign(:constituency, double(:constituency, name: 'Aberavon', graph_id: 'MtbjxRrE', start_date: nil, end_date: nil, current?: true, date_range: 'from 2010'))
     assign(:seat_incumbencies, [double(:seat_incumbencies, start_date: nil, end_date: nil, current?: true)])
     render
   end

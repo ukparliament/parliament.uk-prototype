@@ -517,7 +517,7 @@ RSpec.describe HousesController, vcr: true do
       end
 
       it 'redirects to houses/:id' do
-        expect(response).to redirect_to(house_path('KL2k1BGP'))
+        expect(response).to redirect_to(house_path('cqIATgUK'))
       end
     end
   end

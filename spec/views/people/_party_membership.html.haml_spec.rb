@@ -6,6 +6,7 @@ RSpec.describe 'people/_party_membership', vcr: true do
       party_membership = double(:party_membership,
         start_date: Time.zone.now - 1.month,
         end_date:   nil,
+        date_range: 'from 2010',
         party:      double(:party, name: 'Conservative', graph_id: 'jF43Jxoc'))
 
       allow(party_membership).to receive(:current?).and_return(true)
@@ -23,6 +24,7 @@ RSpec.describe 'people/_party_membership', vcr: true do
         party_membership = double(:party_membership,
           start_date: nil,
           end_date:   nil,
+          date_range: '[No Date]',
           party:      double(:party, name: 'Conservative', graph_id: 'jF43Jxoc'))
 
         allow(party_membership).to receive(:current?).and_return(true)
@@ -39,6 +41,7 @@ RSpec.describe 'people/_party_membership', vcr: true do
         party_membership = double(:party_membership,
           start_date: Time.zone.now - 1.month,
           end_date:   nil,
+          date_range: "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to present",
           party:      double(:party, name: 'Conservative', graph_id: 'jF43Jxoc'))
 
         allow(party_membership).to receive(:current?).and_return(true)
@@ -57,6 +60,7 @@ RSpec.describe 'people/_party_membership', vcr: true do
         party_membership = double(:party_membership,
           start_date: Time.zone.now - 1.month,
           end_date:   nil,
+          date_range: "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to present",
           party:      double(:party, name: 'Conservative', graph_id: 'jF43Jxoc'))
 
         allow(party_membership).to receive(:current?).and_return(true)
@@ -73,6 +77,7 @@ RSpec.describe 'people/_party_membership', vcr: true do
         party_membership = double(:party_membership,
           start_date: Time.zone.now - 1.month,
           end_date:   Time.zone.now - 1.day,
+          date_range: "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to #{(Time.zone.now - 1.day).strftime('%-e %b %Y')}",
           party:      double(:party, name: 'Conservative', graph_id: 'jF43Jxoc'))
 
         allow(party_membership).to receive(:current?).and_return(false)

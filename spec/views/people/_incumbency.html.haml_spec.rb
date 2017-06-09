@@ -7,6 +7,7 @@ RSpec.describe 'people/_incumbency', vcr: true do
         start_date: Time.zone.now - 1.month,
         end_date:   nil,
         house:      nil,
+        date_range: '[No Date]',
         seat:       double(:seat, house: double(:house, name: 'House of Lords', graph_id: 'm1EgVTLj')))
       allow(incumbency).to receive(:current?).and_return(true)
       render partial: 'people/incumbency', locals: { incumbency: incumbency }
@@ -24,6 +25,7 @@ RSpec.describe 'people/_incumbency', vcr: true do
       incumbency = double(:incumbency,
         start_date: Time.zone.now - 1.month,
         end_date:   nil,
+        date_range: "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to present",
         house:      double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP'),
         seat:       double(:seat, house: double(:house, name: 'House of Lords', graph_id: 'm1EgVTLj')))
       allow(incumbency).to receive(:current?).and_return(true)
@@ -42,6 +44,7 @@ RSpec.describe 'people/_incumbency', vcr: true do
       incumbency = double(:incumbency,
         start_date: nil,
         end_date:   nil,
+        date_range: '[No Date]',
         house:      double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP'),
         seat:       double(:seat, house: double(:house, name: 'House of Lords', graph_id: 'm1EgVTLj')))
       allow(incumbency).to receive(:current?).and_return(true)
@@ -59,6 +62,7 @@ RSpec.describe 'people/_incumbency', vcr: true do
         incumbency = double(:incumbency,
           start_date: Time.zone.now - 1.month,
           end_date:   Time.zone.now - 1.day,
+          date_range: "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to #{(Time.zone.now - 1.day).strftime('%-e %b %Y')}",
           house:      double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP'),
           seat:       double(:seat, house: double(:house, name: 'House of Lords', graph_id: 'm1EgVTLj')))
         allow(incumbency).to receive(:current?).and_return(false)
@@ -75,6 +79,7 @@ RSpec.describe 'people/_incumbency', vcr: true do
         incumbency = double(:incumbency,
           start_date: Time.zone.now - 1.month,
           end_date:   nil,
+          date_range: "from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')} to present",
           house:      double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP'),
           seat:       double(:seat, house: double(:house, name: 'House of Lords', graph_id: 'm1EgVTLj')))
         allow(incumbency).to receive(:current?).and_return(true)

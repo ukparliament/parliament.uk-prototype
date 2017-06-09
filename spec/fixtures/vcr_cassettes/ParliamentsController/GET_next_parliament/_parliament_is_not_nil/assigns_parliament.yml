@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/parliaments/0FxbTVtr/next
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/n-triples
+      User-Agent:
+      - Ruby
+      Ocp-Apim-Subscription-Key:
+      - "<AUTH_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/n-triples
+      Content-Disposition:
+      - inline; filename="index"
+      Last-Modified:
+      - Wed, 31 May 2017 11:18:14 GMT
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '129'
+    body:
+      encoding: UTF-8
+      string: "<http://id.ukpds.org/0FxbTVtr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\n"
+    http_version: 
+  recorded_at: Fri, 02 Jun 2017 13:58:11 GMT
+recorded_with: VCR 3.0.3

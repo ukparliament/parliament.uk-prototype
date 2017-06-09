@@ -51,6 +51,9 @@ en:
   house_of_lords: 'House of Lords'
   commons: 'Commons'
   lords: 'Lords'
+  # global parliaments translations
+  parliament: 'parliament'
+  parliament_plural: 'parliaments'
   # global generic translations
   view_all: 'view all'
   all: 'all'
@@ -86,6 +89,8 @@ en:
     a_to_z:
       title: # needs title
     letters:
+      title: '%{current_and_former} %{mps_and_lords}'
+    lookup_by_letters:
       title: '%{current_and_former} %{mps_and_lords}'
     members:
       title: '%{current_and_former} %{mps_and_lords}'
@@ -138,6 +143,8 @@ en:
       title: # needs title
     letters:
       title: '%{current_and_former} %{constituency_plural}'
+    lookup_by_letters:
+      title: '%{current_and_former} %{constituency_plural}'
     current:
       title: '%{current} %{constituency}'
     a_to_z_current:
@@ -169,6 +176,8 @@ en:
     a_to_z:
       title: # needs title
     letters:
+      title: '%{current_and_former} %{parties_and_groups}'
+    lookup_by_letters:
       title: '%{current_and_former} %{parties_and_groups}'
     current:
       title: '%{current} %{parties_and_groups}'
@@ -243,6 +252,18 @@ en:
       do_not_know_postcode: "Don't know your postcode? Find it on the %{link}."
       do_not_know_postcode_link: 'Royal Mail postcode finder'
 
+  # parliament translations
+  parliaments:
+    find_mp_a_to_z: 'Find an MP by A-Z list'
+    find_mp_area: 'Find an MP by the area they represented'
+    find_party_a_to_z: 'Find a party by A-Z list'
+    a_to_z: 'A to Z'
+    showing_results: 'showing results for'
+    index:
+    show:
+      find_mp_house: 'Find an MP by house'
+    constituencies:
+      find_constituency_a_to_z: 'Find a constituency by A-Z list'
   # no content translations
   no_content:
     empty_list:
@@ -260,7 +281,12 @@ en:
       description_link: 'Find your constituency'
       description_text_2: 'to find your constituency and its former MPs.'
     dissolution_singular:
-      description_text: 'There are currently no MPs because Parliament has been dissolved before the general election on 8 June.'
+      description_text: 'There is currently no MP because Parliament has been dissolved before the general election on 8 June.'
+    election_message:
+      description_singular: 'There is currently no MP. Vote today in the general election to choose yours.'
+      description_text: 'There are currently no MPs. Vote today in the general election to choose yours.'
+    post_election_message:
+      description_text: "As new MPs are announced following the general election, we're updating our pages."
   # homepage translations
   home:
     index:
@@ -286,8 +312,8 @@ en:
         blog_link: 'MPs and Lords information blog post'
       follow_progress:
         title: 'Follow our progress'
-        blog: 'Follow all new website developments on %{link}.'
-        blog_link: 'our blog'
+        blog: 'Follow all %{link}.'
+        blog_link: 'new website developments on our blog'
   # meta information translations
   meta:
     index:

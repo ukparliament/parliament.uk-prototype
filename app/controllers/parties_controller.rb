@@ -125,12 +125,19 @@ class PartiesController < ApplicationController
 
   def lookup_by_letters
     letters = params[:letters]
-    data = parliament_request.parties(letters).get
 
-    if data.size == 1
-      redirect_to party_path(data.first.graph_id)
-    else
-      redirect_to parties_a_z_letter_path(letters)
+    @parties, @letters = RequestHelper.filter_response_data(
+      parliament_request.parties.partial(letters),
+      'http://id.ukpds.org/schema/Party',
+      ::Grom::Node::BLANK
+    )
+
+    if @parties.size == 1
+      redirect_to party_path(@parties.first.graph_id)
+      return
     end
+
+    @parties = @parties.sort_by(:name)
+    @letters = @letters.map(&:value)
   end
 end

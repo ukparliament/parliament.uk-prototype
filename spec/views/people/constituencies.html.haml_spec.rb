@@ -18,7 +18,7 @@ RSpec.describe 'people/constituencies', vcr: true do
     context 'not empty' do
       before do
         assign(:person, double(:person, display_name: 'Test Name'))
-        @seat_incumbencies = [double(:seat_incumbency, start_date: Time.zone.now, end_date: nil, current?: true, constituency: double(:constituency, name: 'Aberavon', graph_id: 'MtbjxRrE'))]
+        @seat_incumbencies = [double(:seat_incumbency, start_date: Time.zone.now, end_date: nil, current?: true, date_range: '', constituency: double(:constituency, name: 'Aberavon', graph_id: 'MtbjxRrE'))]
 
         render
       end
