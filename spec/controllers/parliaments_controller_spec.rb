@@ -223,7 +223,7 @@ RSpec.describe ParliamentsController, vcr: true do
 
   describe 'GET members_letters' do
     before(:each) do
-      get :members_letters, params: { parliament_id: '0FxbTVtr', letter: 'a' }
+      get :members_letters, params: { parliament_id: 'GEFMX81E', letter: 'a' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -634,7 +634,7 @@ RSpec.describe ParliamentsController, vcr: true do
 
   describe 'GET house_party_members_letters' do
     before(:each) do
-      get :house_party_members_letters, params: { parliament_id: '0FxbTVtr', house_id: 'cqIATgUK', party_id: 'P6LNyUn4', letter: 'a' }
+      get :house_party_members_letters, params: { parliament_id: 'GEFMX81E', house_id: 'cqIATgUK', party_id: 'lk3RZ8EB', letter: 'a' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -671,8 +671,8 @@ RSpec.describe ParliamentsController, vcr: true do
       end
 
       it 'assigns @people in alphabetical order' do
-        expect(assigns(:people)[0].given_name).to eq('personGivenName - 101')
-        expect(assigns(:people)[1].given_name).to eq('personGivenName - 105')
+        expect(assigns(:people)[0].given_name).to eq('personGivenName - 1')
+        expect(assigns(:people)[1].given_name).to eq('personGivenName - 2')
       end
     end
 
@@ -845,7 +845,7 @@ RSpec.describe ParliamentsController, vcr: true do
 
   describe 'GET party_members_letters' do
     before(:each) do
-      get :party_members_letters, params: { parliament_id: '0FxbTVtr', party_id: 'P6LNyUn4', letter: 'a' }
+      get :party_members_letters, params: { parliament_id: 'GEFMX81E', party_id: 'lk3RZ8EB', letter: 'a' }
     end
 
     it 'should have a response with http status ok (200)' do

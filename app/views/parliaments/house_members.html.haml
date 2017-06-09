@@ -1,8 +1,8 @@
 .section--primary
   .container
     %h1
-      = t('mp_plural')
-      %span= link_to "- #{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
+      %span= t('mp_plural')
+      = link_to "#{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
 
 %section#content
   .container

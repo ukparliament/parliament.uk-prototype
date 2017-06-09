@@ -3,7 +3,6 @@
     = "#{t('constituency').capitalize}"
     = "#{t('from')} #{l(@constituency.start_date, format: :default)}" unless @constituency.start_date.nil?
     = @constituency.end_date.nil? ? t('to_present') : " #{t('to')} #{l(@constituency.end_date, format: :default)}"
-
 %h2= "#{t('mp')}"
 - if FlagHelper.dissolution?
   = render partial: 'shared/dissolution_message'
