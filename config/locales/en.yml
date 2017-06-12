@@ -319,12 +319,16 @@ en:
     index:
       title: 'Meta information'
     cookie_policy:
-      title: 'Cookies'
-      subtitle: 'Cookies on beta.parliament.uk'
+      title: 'Cookies on beta.parliament.uk'
+      subtitle:
+        ga: 'Google Analytics cookies'
+        hj: 'HotJar cookies'
       which_cookies: 'Which cookies do we use?'
       cookie:
         definition: 'Cookies are small files put on your device to let us know how you use our website.'
-        explanation: 'We use Google Analytics cookies to collect information about how you use our services. This helps us meet your needs and improve our website.'
+        explanations:
+          ga: 'We use Google Analytics cookies to collect information about how you use our services. This helps us meet your needs and improve our website.'
+          hj: 'We use HotJar to find out how you use our website to improve your experience.'
         anonymous_statement: 'All the information we collect is anonymous.'
       cookie_table:
         meta:
@@ -332,15 +336,24 @@ en:
           purpose: 'Purpose'
           expires: 'Expires'
           expiration:
-            minutes: 'After %{time} minutes.'
-            years: 'After %{time} years.'
+            minutes:
+              one: 'After 1 minute.'
+              other: 'After %{count} minutes.'
+            years:
+              one: 'After 1 year.'
+              other: 'After %{count} years.'
         explanations:
           ga: 'This helps us know how many people have visited beta.parliament.uk by telling us if you’ve visited before.'
           gat: 'This helps us know how long you spend on a page.'
+          hjdonepolls: 'This ensures a poll will not reappear once you have completed it.'
+          hjminimizedpolls: 'This ensures a poll remains minimised when you move through our site.'
+          hjdonetesterswidgets: 'This ensures a form does not reappear once you have completed it.'
+          hjminimizedtesterswidgets: 'This ensures a form remains minimised when you move through our site.'
+          hjincludedinsample: 'This informs Hotjar whether your visit is included in their sample set.'
       managing_cookies:
         title: 'How to manage your cookies'
         subtitle: 'Most web browsers allow you to control cookies through browser settings.'
         find_out: "Find out how to %{link}."
         find_out_link: "manage and delete cookies"
         opt_out: "You can %{link}."
-        opt_out_link: "opt out of Google Analytics cookies"
+        opt_out_link: "opt out of %{service} cookies"
