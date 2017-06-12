@@ -26,23 +26,23 @@ module ActionDispatch
 
       def build_root_and_current_routes(parent_route_name, route_name)
         scope "/#{route_name}", as: route_name do
-          get '/',        to: "#{parent_route_name}##{route_name}"
-          get '/current', to: "#{parent_route_name}#current_#{route_name.singularize}"
+          get '/',        to: "#{parent_route_name}#index"
+          get '/current', to: "#{parent_route_name}#current"
         end
       end
 
       def build_members_routes(route_name, current: true)
         scope '/members', as: 'members' do
-          get '/', to: "#{route_name}#members"
+          get '/', to: "#{route_name}#index"
 
-          listable("#{route_name}#a_to_z_members", "#{route_name}#members_letters")
+          listable("#{route_name}#a_to_z", "#{route_name}#letters")
 
           # /route_name/:id/members/current
           scope '/current', as: 'current' do
             if current
-              get '/', to: "#{route_name}#current_members"
+              get '/', to: "#{route_name}#current"
 
-              listable("#{route_name}#a_to_z_current_members", "#{route_name}#current_members_letters")
+              listable("#{route_name}#a_to_z_current", "#{route_name}#current_letters")
             end
           end
 

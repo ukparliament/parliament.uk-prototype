@@ -35,51 +35,77 @@ RSpec.describe 'parliaments', type: :routing do
         end
 
         context 'members' do
-          # parliaments#members
-          include_examples 'nested routes with an id', 'parliaments', 'KL2k1BGP', ['members'], 'members'
+          it "GET parliaments/members#index" do
+            expect(get: '/parliaments/KL2k1BGP/members').to route_to(
+              controller:    'parliaments/members',
+              action:        'index',
+              parliament_id: 'KL2k1BGP',
+            )
+          end
 
-          # parliaments#a_to_z_members
-          include_examples 'nested routes with an id', 'parliaments', 'KL2k1BGP', %w(members a-z), 'a_to_z_members'
+          it "GET parliaments/members#a_to_z" do
+            expect(get: '/parliaments/KL2k1BGP/members/a-z').to route_to(
+              controller:    'parliaments/members',
+              action:        'a_to_z',
+              parliament_id: 'KL2k1BGP',
+            )
+          end
 
-          # parliaments#members_letters
-          include_examples 'a_to_z route with an id and letter', 'parliaments', 'KL2k1BGP', %w(members a-z), 'members_letters', 'a'
+          it "GET parliaments/members#letters" do
+            expect(get: '/parliaments/KL2k1BGP/members/a-z/a').to route_to(
+              controller:    'parliaments/members',
+              action:        'letters',
+              parliament_id: 'KL2k1BGP',
+              letter:        'a'
+            )
+          end
         end
 
         context 'parties' do
-          # parliaments#parties
-          include_examples 'nested routes with an id', 'parliaments', 'KL2k1BGP', ['parties'], 'parties'
+          it "GET parliaments/parties#index" do
+            expect(get: '/parliaments/KL2k1BGP/parties').to route_to(
+              controller:    'parliaments/parties',
+              action:        'index',
+              parliament_id: 'KL2k1BGP'
+            )
+          end
 
           context 'party' do
-            # parliaments#party
-            include_examples 'nested routes with multiple ids', 'parliaments', 'KL2k1BGP', ['parties'], 'party', '12341234', ['']
+            # parliaments/parties#show
+            it "GET parliaments/parties#show" do
+              expect(get: '/parliaments/KL2k1BGP/parties/12341234').to route_to(
+                controller:    'parliaments/parties',
+                action:        'show',
+                parliament_id: 'KL2k1BGP',
+                party_id:      '12341234'
+              )
+            end
           end
 
           context 'members' do
-            # parliaments#party_members
-            it "GET parliaments#party_members" do
+            # parliaments/parties/members#index
+            it "GET parliaments/parties/members#index" do
               expect(get: '/parliaments/KL2k1BGP/parties/12341234/members').to route_to(
-                controller:    'parliaments',
-                action:        'party_members',
+                controller:    'parliaments/parties/members',
+                action:        'index',
                 parliament_id: 'KL2k1BGP',
                 party_id:      '12341234'
               )
             end
 
-            # parliaments#a_to_z_party_members
-            it "GET parliaments#a_to_z_party_members" do
+            it "GET parliaments/parties#a_to_z" do
               expect(get: '/parliaments/KL2k1BGP/parties/12341234/members/a-z').to route_to(
-                controller:    'parliaments',
-                action:        'a_to_z_party_members',
+                controller:    'parliaments/parties/members',
+                action:        'a_to_z',
                 parliament_id: 'KL2k1BGP',
                 party_id:      '12341234',
               )
             end
 
-            # parliaments#party_members_letters
-            it "GET parliaments#party_members_letters" do
+            it "GET parliaments/parties#letters" do
               expect(get: '/parliaments/KL2k1BGP/parties/12341234/members/a-z/a').to route_to(
-                controller:    'parliaments',
-                action:        'party_members_letters',
+                controller:    'parliaments/parties/members',
+                action:        'letters',
                 parliament_id: 'KL2k1BGP',
                 party_id:      '12341234',
                 letter:        'a'
@@ -89,62 +115,106 @@ RSpec.describe 'parliaments', type: :routing do
         end
 
         context 'houses' do
-          # parliaments#houses
-          include_examples 'nested routes with an id', 'parliaments', 'KL2k1BGP', ['houses'], 'houses'
+          # parliaments/houses#index
+          it 'GET parliaments/houses#index' do
+            expect(get: '/parliaments/KL2k1BGP/houses').to route_to(
+              controller:    'parliaments/houses',
+              action:        'index',
+              parliament_id: 'KL2k1BGP'
+            )
+          end
 
           context 'house' do
-            # parliaments#house
-            include_examples 'nested routes with multiple ids', 'parliaments', 'KL2k1BGP', ['houses'], 'house', '12341234', ['']
+            # parliaments/houses#show
+            it 'GET parliaments/houses#show' do
+              expect(get: '/parliaments/KL2k1BGP/houses/12341234').to route_to(
+                controller:    'parliaments/houses',
+                action:        'show',
+                parliament_id: 'KL2k1BGP',
+                house_id:      '12341234'
+              )
+            end
           end
 
           context 'members' do
-            # parliaments#house_members
-            include_examples 'nested routes with multiple ids', 'parliaments', 'KL2k1BGP', ['houses'], 'house_members', '12341234', %w(members)
+            it 'GET parliaments/houses/members#house_members' do
+              expect(get: '/parliaments/KL2k1BGP/houses/12341234/members').to route_to(
+                controller:    'parliaments/houses/members',
+                action:        'index',
+                parliament_id: 'KL2k1BGP',
+                house_id:      '12341234'
+              )
+            end
+            it 'GET parliaments/houses/members#a_to_z' do
+              expect(get: '/parliaments/KL2k1BGP/houses/12341234/members/a-z').to route_to(
+                controller:    'parliaments/houses/members',
+                action:        'a_to_z',
+                parliament_id: 'KL2k1BGP',
+                house_id:      '12341234'
+              )
+            end
 
-            # parliaments#a_to_z_house_members
-            include_examples 'nested routes with multiple ids', 'parliaments', 'KL2k1BGP', ['houses'], 'a_to_z_house_members', '12341234', %w(members a-z)
-
-            #parliaments#house_members_letters
-            include_examples 'nested routes with multiple ids and letter', 'parliaments', 'KL2k1BGP', ['houses'], 'house_members_letters', '12341234', %w(members a-z a)
+            it 'GET parliaments/houses/members#letters' do
+              expect(get: '/parliaments/KL2k1BGP/houses/12341234/members/a-z/a').to route_to(
+                controller:    'parliaments/houses/members',
+                action:        'letters',
+                parliament_id: 'KL2k1BGP',
+                house_id:      '12341234',
+                letter:        'a'
+              )
+            end
           end
 
           context 'parties' do
-            # parliaments#house_parties
-            include_examples 'nested routes with multiple ids', 'parliaments', 'KL2k1BGP', ['houses'], 'house_parties', '12341234', ['parties']
+            # parliaments/houses/parties#index
+            it 'GET parliaments/houses/parties#index' do
+              expect(get: '/parliaments/KL2k1BGP/houses/12341234/parties').to route_to(
+                controller:    'parliaments/houses/parties',
+                action:        'index',
+                parliament_id: 'KL2k1BGP',
+                house_id:      '12341234'
+              )
+            end
 
             context 'party' do
-              # parliaments#house_party
-              include_examples 'nested routes with multiple ids', 'parliaments', 'KL2k1BGP', ['parties'], 'party', '12341234', ['']
+              # parliaments/houses/parties#show
+              it 'GET parliaments/houses/parties#show' do
+                expect(get: '/parliaments/12341234/houses/12345678/parties/87654321').to route_to(
+                  controller:    'parliaments/houses/parties',
+                  action:        'show',
+                  parliament_id: '12341234',
+                  house_id:      '12345678',
+                  party_id:      '87654321'
+                )
+              end
             end
 
             context 'members' do
-              # parliaments#house_party_members
-              it 'GET parliaments#house_party_members' do
+              # parliaments/houses/parties/members#index
+              it 'GET parliaments/houses/parties/members#index' do
                 expect(get: '/parliaments/12341234/houses/12345678/parties/87654321/members').to route_to(
-                  controller:    'parliaments',
-                  action:        'house_party_members',
+                  controller:    'parliaments/houses/parties/members',
+                  action:        'index',
                   parliament_id: '12341234',
                   house_id:      '12345678',
                   party_id:      '87654321'
                 )
               end
 
-              # parliaments#a_to_z_house_party_members
-              it 'GET parliaments#a_to_z_house_party_members' do
+              it 'GET parliaments/houses/parties/members#a_to_z' do
                 expect(get: '/parliaments/12341234/houses/12345678/parties/87654321/members/a-z').to route_to(
-                  controller:    'parliaments',
-                  action:        'a_to_z_house_party_members',
+                  controller:    'parliaments/houses/parties/members',
+                  action:        'a_to_z',
                   parliament_id: '12341234',
                   house_id:      '12345678',
                   party_id:      '87654321'
                 )
               end
 
-              #parliaments#house_party_members_letters
-              it 'GET parliaments#house_party_members_letters' do
+              it 'GET parliaments/houses/parties/members#letters' do
                 expect(get: '/parliaments/12341234/houses/12345678/parties/87654321/members/a-z/a').to route_to(
-                  controller:    'parliaments',
-                  action:        'house_party_members_letters',
+                  controller:    'parliaments/houses/parties/members',
+                  action:        'letters',
                   parliament_id: '12341234',
                   house_id:      '12345678',
                   party_id:      '87654321',
@@ -156,20 +226,29 @@ RSpec.describe 'parliaments', type: :routing do
         end
 
         context 'constituencies' do
-          # parliaments#constituencies
-          include_examples 'nested routes with an id', 'parliaments', 'KL2k1BGP', ['constituencies'], 'constituencies'
-
-          # parliaments#a_to_z_constituencies
-          it 'GET parliaments#a_to_z_constituencies' do
+          it 'GET parliaments/constituencies#index' do
+            expect(get: '/parliaments/12345678/constituencies').to route_to(
+              controller:    'parliaments/constituencies',
+              action:        'index',
+              parliament_id: '12345678'
+            )
+          end
+          it 'GET parliaments/constituencies#a_to_z' do
             expect(get: '/parliaments/12345678/constituencies/a-z').to route_to(
-              controller:    'parliaments',
-              action:        'a_to_z_constituencies',
+              controller:    'parliaments/constituencies',
+              action:        'a_to_z',
               parliament_id: '12345678'
             )
           end
 
-          # parliaments#constituencies_letters
-          include_examples 'a_to_z route with an id and letter', 'parliaments', 'KL2k1BGP', %w(constituencies a-z), 'constituencies_letters', 'a'
+          it 'GET parliaments/constituencies#letters' do
+            expect(get: '/parliaments/12345678/constituencies/a-z/a').to route_to(
+              controller:    'parliaments/constituencies',
+              action:        'letters',
+              parliament_id: '12345678',
+              letter:         'a'
+            )
+          end
         end
       end
     end
