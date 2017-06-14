@@ -1,0 +1,12 @@
+%table
+  %tbody
+    %tr
+      %td Subject
+      %td Predicate
+      %td Object
+
+      - @statements.each do |statement|
+        %tr
+          %td= statement[0]
+          %td= statement[1]
+          %td= statement[2]
