@@ -2,7 +2,7 @@
   .highlight--box.highlight--caution__soft
     %p= flash[:error]
 
-= form_tag(path, method: :post) do
+= form_tag(path, method: :post, id: :postcodeSearch) do
   .form-group
     = hidden_field_tag('previous_controller', params[:controller])
     = hidden_field_tag('previous_action', params[:action])
