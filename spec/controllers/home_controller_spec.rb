@@ -14,4 +14,17 @@ RSpec.describe HomeController, vcr: true do
       expect(response).to render_template('index')
     end
   end
+  describe 'GET mps' do
+    before(:each) do
+      get :mps
+    end
+
+    it 'should have a response with http status ok (200)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'should render index page' do
+      expect(response).to render_template('mps')
+    end
+  end
 end

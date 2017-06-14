@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # /
   root 'home#index'
 
+  ### MPs ###
+  # /mps
+  get '/mps', to: 'home#mps'
+
   ### People ###
   # /people (multiple 'people' scope)
   scope '/people', as: 'people' do
