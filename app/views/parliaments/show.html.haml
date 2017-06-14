@@ -1,6 +1,6 @@
 %section.section--primary
   .container
-    %h1= "#{@parliament.date_range(date_format: '%Y')} #{t('parliament')}"
+    %h1= title("#{@parliament.date_range(date_format: '%Y')} #{t('parliament')}")
 
     = link_to("#{t('view_all').capitalize} #{t('parliament_plural')}", parliaments_path)
     /= link_to('Next Parliament', parliament_next_path(@parliament.graph_id)) if @parliament.next_parliament?
