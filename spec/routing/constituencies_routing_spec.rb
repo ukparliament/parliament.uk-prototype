@@ -29,17 +29,34 @@ RSpec.describe 'constituencies', type: :routing do
       # constituencies#show
       include_examples 'nested routes with an id', 'constituencies', 'MtbjxRrE', [], 'show'
 
-      # constituencies#contact_point
-      include_examples 'nested routes with an id', 'constituencies', 'MtbjxRrE', ['contact-point'], 'contact_point'
+      # constituencies#index
+      it 'GET constituencies/contact_points#index' do
+        expect(get: '/constituencies/MtbjxRrE/contact-point').to route_to(
+          controller:         'constituencies/contact_points',
+          action:             'index',
+          constituency_id:    'MtbjxRrE'
+        )
+      end
 
       # constituencies#map
       include_examples 'nested routes with an id', 'constituencies', 'MtbjxRrE', ['map'], 'map'
 
-      # constituencies#members
-      include_examples 'nested routes with an id', 'constituencies', 'MtbjxRrE', ['members'], 'members'
+      it 'GET constituencies/members#index' do
+        expect(get: '/constituencies/MtbjxRrE/members').to route_to(
+          controller:         'constituencies/members',
+          action:             'index',
+          constituency_id:    'MtbjxRrE'
+        )
+      end
 
-      # constituencies#current_member
-      include_examples 'nested routes with an id', 'constituencies', 'MtbjxRrE', %w(members current), 'current_member'
+      it 'GET constituencies/members#current' do
+        expect(get: '/constituencies/MtbjxRrE/members/current').to route_to(
+          controller:         'constituencies/members',
+          action:             'current',
+          constituency_id:    'MtbjxRrE'
+        )
+      end
+
     end
 
     it 'GET constituencies#lookup_by_letters' do

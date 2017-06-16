@@ -93,15 +93,16 @@ en:
     lookup_by_letters:
       title: '%{current_and_former} %{mps_and_lords}'
     members:
-      title: '%{current_and_former} %{mps_and_lords}'
-    a_to_z_members:
-      title: # needs title
-    members_letters:
-      title: '%{current_and_former} %{mps_and_lords}'
-    current_members:
-      title: '%{current} %{mps_and_lords}'
-    current_members_letters:
-      title: '%{current} %{mps_and_lords}'
+      index:
+        title: '%{current_and_former} %{mps_and_lords}'
+      a_to_z:
+        title: # needs title
+      letters:
+        title: '%{current_and_former} %{mps_and_lords}'
+      current:
+        title: '%{current} %{mps_and_lords}'
+      current_letters:
+        title: '%{current} %{mps_and_lords}'
     show:
       mp_for: 'MP for'
       contact: 'contact'
@@ -112,18 +113,22 @@ en:
       correct_mp: '%{name} is the MP for the postcode entered.'
       incorrect_mp: '%{name} is not the MP for the postcode entered.  Your MP is '
     constituencies:
-      title: '%{current_and_former} %{constituency_plural}'
-    current_constituency:
-      title: '%{current} %{constituency}'
+      index:
+        title: '%{current_and_former} %{constituency_plural}'
+      current:
+        title: '%{current} %{constituency}'
     contact_points:
+      index:
     houses:
-      title: '%{current_and_former} %{house_plural}'
-    current_house:
-      title: '%{current} %{house}'
+      index:
+        title: '%{current_and_former} %{house_plural}'
+      current:
+        title: '%{current} %{house}'
     parties:
-      title: '%{current_and_former} %{parties_and_groups}'
-    current_party:
-      title: '%{current} %{party}'
+      index:
+        title: '%{current_and_former} %{parties_and_groups}'
+      current:
+        title: '%{current} %{party}'
   # contact points translations
   contact_points:
     index:
@@ -152,15 +157,17 @@ en:
     show:
       title: # title does not require translation
     members:
-      title: '%{current_and_former} %{mp_plural}'
-    current_member:
-      title:  '%{current} %{mp}'
+      index:
+        title: '%{current_and_former} %{mp_plural}'
+      current:
+        title:  '%{current} %{mp}'
     current_letters:
       title: '%{current} %{constituency_plural}'
     map:
       title: # title does not require translation
-    contact_point:
-      title: # title does not require translation
+    contact_points:
+      index:
+        title: # title does not require translation
     shared_translations:
       vacant: 'Vacant'
     constituency:
@@ -185,17 +192,18 @@ en:
       title: # title does not require translation
       party_no_current_members: 'There are no MPs or Lords in this party.'
     members:
-      title: '%{current_and_former} %{member_plural}'
-    a_to_z_members:
-      title: # needs title
-    members_letters:
-      title: '%{current_and_former} %{member_plural}'
-    current_members:
-      title: '%{current} %{member_plural}'
-    a_to_z_current_members:
-      title: # needs title
-    current_members_letters:
-      title: '%{current} %{member_plural}'
+      index:
+        title: '%{current_and_former} %{member_plural}'
+      a_to_z:
+        title: # needs title
+      letters:
+        title: '%{current_and_former} %{member_plural}'
+      current:
+        title: '%{current} %{member_plural}'
+      a_to_z_current:
+        title: # needs title
+      current_letters:
+        title: '%{current} %{member_plural}'
   # houses translations
   houses:
     index:
@@ -206,36 +214,39 @@ en:
       title: # title does not require translation
       area_they_represent: 'by the area they represent'
     members:
-      title: '%{current_and_former} %{member_type}'
-    a_to_z_members:
-      title: # needs title
-    members_letters:
-      title: '%{current_and_former} %{member_type}'
-    current_members:
-      title: '%{current} %{member_type}'
-    a_to_z_current_members:
-      title: # needs title
-    current_members_letters:
-      title: '%{current} %{member_type}'
+      index:
+        title: '%{current_and_former} %{member_type}'
+      a_to_z:
+        title: # needs title
+      letters:
+        title: '%{current_and_former} %{member_type}'
+      current:
+        title: '%{current} %{member_type}'
+      a_to_z_current:
+        title: # needs title
+      current_letters:
+        title: '%{current} %{member_type}'
     parties:
-      title: '%{current_and_former} %{parties_and_groups}'
-    current_parties:
-      title: '%{current} %{parties_and_groups}'
-    party:
-      title: # title does not require translation
-      house_no_current_party_members: 'There are currently no members of this party in this House.'
-    party_members:
-      title: '%{current_and_former} %{member_type}'
-    a_to_z_party_members:
-      title: # needs title
-    party_members_letters:
-      title: '%{current_and_former} %{member_type}'
-    current_party_members:
-      title: '%{current} %{member_type}'
-    a_to_z_current_party_members:
-      title: # needs title
-    current_party_members_letters:
-      title: '%{current} %{member_type}'
+      index:
+        title: '%{current_and_former} %{parties_and_groups}'
+      current:
+        title: '%{current} %{parties_and_groups}'
+      show:
+        title: # title does not require translation
+        house_no_current_party_members: 'There are currently no members of this party in this House.'
+      members:
+        index:
+          title: '%{current_and_former} %{member_type}'
+        a_to_z:
+          title: # needs title
+        letters:
+          title: '%{current_and_former} %{member_type}'
+        current:
+          title: '%{current} %{member_type}'
+        a_to_z_current:
+          title: # needs title
+        current_letters:
+          title: '%{current} %{member_type}'
   # postcodes translations
   postcodes:
     find_mp_constituency: 'Find your MP and constituency'
