@@ -5,4 +5,3 @@
       - @parliaments.each do |parliament|
         %li
           %h2= link_to "#{parliament.date_range(date_format: '%Y')}", parliament_path(parliament.graph_id)
-          %p= "#{t('parliament').capitalize} #{parliament.number}"

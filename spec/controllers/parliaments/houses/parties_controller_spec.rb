@@ -4,7 +4,7 @@ RSpec.describe Parliaments::Houses::PartiesController, vcr: true do
 
     describe 'GET index' do
       before(:each) do
-        get :index, params: { parliament_id: '0FxbTVtr', house_id: 'cqIATgUK' }
+        get :index, params: { parliament_id: '0FxbTVtr', house_id: 'cqIATgUK', member_count: 3 }
       end
 
       it 'should have a response with http status ok (200)' do
@@ -34,8 +34,8 @@ RSpec.describe Parliaments::Houses::PartiesController, vcr: true do
         end
 
         it 'assigns @parties in alphabetical order' do
-          expect(assigns(:parties)[0].name).to eq('partyName - 1')
-          expect(assigns(:parties)[1].name).to eq('partyName - 10')
+          expect(assigns(:parties)[0].name).to eq('partyName - 2')
+          expect(assigns(:parties)[1].name).to eq('partyName - 1')
         end
       end
 

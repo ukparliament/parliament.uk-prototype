@@ -72,6 +72,7 @@ en:
   open_new_window: "website opens in a new window"
   # global a-z navigation translations
   a_to_z:
+    select_letter: 'select a letter'
     aria_label: 'Paged navigation'
   # global time format translations
   time:
