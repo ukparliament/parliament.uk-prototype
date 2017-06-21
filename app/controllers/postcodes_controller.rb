@@ -11,11 +11,16 @@ class PostcodesController < ApplicationController
       response = PostcodeHelper.lookup(@postcode)
 
       @constituency, @person = response.filter('http://id.ukpds.org/schema/ConstituencyGroup', 'http://id.ukpds.org/schema/Person')
+
       @constituency = @constituency.first
+
+      if PostcodeHelper.previous_path == url_for(action: 'mps', controller: 'home') && !@person.empty?
+        redirect_to(person_path(@person.first.graph_id)) && return
+      end
+
     rescue PostcodeHelper::PostcodeError => error
       flash[:error] = error.message
       flash[:postcode] = @postcode
-
       redirect_to(PostcodeHelper.previous_path)
     end
 
