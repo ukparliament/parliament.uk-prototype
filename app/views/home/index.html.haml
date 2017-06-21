@@ -12,7 +12,7 @@
     %h3= t('.members_info.title')
     %ol.list--box
       %li
-        %h4= link_to t('mp_plural'), house_members_current_a_z_letter_path(HousesHelper.commons_id, 'a')
+        %h4= link_to t('mp_plural'), mps_path
         %p= t('.members_info.current_mps')
       %li
         %h4= link_to t('lord_plural'), house_members_current_a_z_letter_path(HousesHelper.lords_id, 'a')
