@@ -15,7 +15,7 @@ module Parliaments
 
         @parliament = @parliament.first
         @house      = @house.first
-        @parties    = @parties.sort_by(:name)
+        @parties    = @parties = @parties.multi_direction_sort({ member_count: :desc, name: :asc })
         @letters    = @letters.map(&:values)
       end
 

@@ -22,7 +22,7 @@
 
 - else
   .highlight--box.highlight--caution__soft
-    %p= t('.former_constituency', current_constituencies_link: link_to(t('.view_current_constituencies'), constituencies_current_path)).html_safe
+    %p= t('.former_constituency', current_constituencies_link: link_to(t('.current_constituencies_link').capitalize, constituencies_current_path)).html_safe
 
 
 - if @seat_incumbencies.size > 0

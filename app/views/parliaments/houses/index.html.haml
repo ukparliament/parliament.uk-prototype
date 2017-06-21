@@ -11,7 +11,4 @@
       %ul.list--box
         %li
           %h2= link_to house.name, parliament_house_path(@parliament.graph_id, house.graph_id)
-          - if HousesHelper.commons?(house)
-            %p= "#{t('houses.index.all_mps_info')}"
-          - else
-            %p= "#{t('houses.index.all_lords_info')}"
+
