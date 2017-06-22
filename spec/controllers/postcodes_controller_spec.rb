@@ -90,6 +90,22 @@ RSpec.describe PostcodesController, vcr: true do
         expect(response).to redirect_to(constituencies_current_path)
       end
     end
+
+    context 'the previous path is /mps and there is a current MP for the postcode given' do
+      before(:each) do
+        PostcodeHelper.previous_path = controller.url_for(action: 'mps', controller: 'home')
+
+        get :show, params: { postcode: 'SW1A 2AA' }
+      end
+
+      it 'should have a response with http status found (302)' do
+        expect(response).to have_http_status(:found)
+      end
+
+      it 'redirects to the MPs page' do
+        expect(response).to redirect_to(person_path('7SRF7yEU'))
+      end
+    end
   end
 
   describe 'POST lookup' do
