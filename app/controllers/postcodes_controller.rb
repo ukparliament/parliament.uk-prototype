@@ -14,10 +14,15 @@ class PostcodesController < ApplicationController
 
       @constituency = @constituency.first
 
-      if PostcodeHelper.previous_path == url_for(action: 'mps', controller: 'home') && !@person.empty?
-        redirect_to(person_path(@person.first.graph_id)) && return
-      end
+      if PostcodeHelper.previous_path == url_for(action: 'mps', controller: 'home')
+        if @person.empty?
+          flash[:error] = "#{I18n.t('error.no_mp')} #{@constituency.name}."
 
+          redirect_to(PostcodeHelper.previous_path) && return
+        else
+          redirect_to(person_path(@person.first.graph_id)) && return
+        end
+      end
     rescue PostcodeHelper::PostcodeError => error
       flash[:error] = error.message
       flash[:postcode] = @postcode

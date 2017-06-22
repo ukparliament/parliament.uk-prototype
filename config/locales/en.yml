@@ -83,6 +83,7 @@ en:
     no_constituency: "we couldn't find the postcode you entered."
     lookup_unavailable: 'postcode check is currently unavailable.'
     postcode_invalid: "we couldn't find the postcode you entered."
+    no_mp: "We couldn't find an MP for that postcode.  Your constituency is"
   # people translations
   people:
     index:
