@@ -6,11 +6,7 @@ class ResourceController < ApplicationController
   end
 
   def show
-    begin
-      @results = parliament_request.resources.get(params: { uri: @resource_uri })
-    rescue Parliament::NoContentResponseError => error
-      raise ActionController::RoutingError, error.message
-    end
+    @results = parliament_request.resources.get(params: { uri: @resource_uri })
 
     types = ResourceHelper.store_types(@results)
     path = ResourceHelper.check_acceptable_object_type(types)
