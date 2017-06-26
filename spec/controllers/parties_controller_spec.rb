@@ -139,7 +139,6 @@ RSpec.describe PartiesController, vcr: true do
         expect(controller.instance_variable_get(:@parties)).to be_empty
       end
     end
-
   end
 
   describe "GET a_to_z" do

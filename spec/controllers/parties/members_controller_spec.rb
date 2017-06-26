@@ -64,7 +64,7 @@ RSpec.describe Parties::MembersController, vcr: true do
 
   describe 'GET letters' do
     before(:each) do
-      get :letters, params: { party_id: 'lk3RZ8EB', letter: 'a' }
+      get :letters, params: { party_id: 'P6LNyUn4', letter: 'a' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -84,7 +84,7 @@ RSpec.describe Parties::MembersController, vcr: true do
 
     it 'assigns @people in alphabetical order' do
       expect(assigns(:people)[0].sort_name).to eq('A5EE13ABE03C4D3A8F1A274F57097B6C - 1')
-      expect(assigns(:people)[1].sort_name).to eq('A5EE13ABE03C4D3A8F1A274F57097B6C - 11')
+      expect(assigns(:people)[1].sort_name).to eq('A5EE13ABE03C4D3A8F1A274F57097B6C - 10')
     end
 
     it 'renders the members_letters template' do
