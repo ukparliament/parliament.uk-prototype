@@ -76,7 +76,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'simplecov', require: false
+  gem 'simplecov', '~> 0.14', require: false
   gem 'webmock'
   gem 'vcr'
 end
