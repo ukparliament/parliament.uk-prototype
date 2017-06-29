@@ -18,6 +18,8 @@ RSpec.describe PostcodesController, vcr: true do
   describe 'GET show' do
     context 'given a valid postcode' do
       before(:each) do
+        PostcodeHelper.previous_path = postcodes_path
+        
         get :show, params: { postcode: 'SW1A 2AA' }
       end
 
