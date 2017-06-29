@@ -112,7 +112,22 @@ RSpec.describe ParliamentsController, vcr: true do
   end
 
   describe 'GET lookup' do
-    it 'is a pending example'
+    before(:each) do
+      get :lookup, params: { source: 'parliamentPeriodNumber', id: '56' }
+    end
+
+    it 'should have a response with http status redirect (302)' do
+      expect(response).to have_http_status(302)
+    end
+
+    it 'assigns @parliament' do
+      expect(assigns(:parliament)).to be_a(Grom::Node)
+      expect(assigns(:parliament).type).to eq('http://id.ukpds.org/schema/ParliamentPeriod')
+    end
+
+    it 'redirects to parliaments/:id' do
+      expect(response).to redirect_to(parliament_path('GEFMX81E'))
+    end
   end
 
   describe 'GET show' do
@@ -217,6 +232,11 @@ RSpec.describe ParliamentsController, vcr: true do
             data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/previous"
           },
           {
+            route: 'lookup',
+            parameters: { source: 'parliamentPeriodNumber', id: '57' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/lookup/parliamentPeriodNumber/57"
+          },
+          {
             route: 'previous_parliament',
             parameters: { parliament_id: '0FxbTVtr' },
             data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/0FxbTVtr/previous"
@@ -259,7 +279,7 @@ RSpec.describe ParliamentsController, vcr: true do
         end
       end
 
-      context '@pariament is not nil' do
+      context '@parliament is not nil' do
         before(:each) do
           headers = { 'Accept' => 'application/rdf+xml' }
           request.headers.merge(headers)
