@@ -171,83 +171,6 @@ RSpec.describe ConstituenciesController, vcr: true do
     end
   end
 
-  describe 'GET contact_point' do
-    before(:each) do
-      get :contact_point, params: { constituency_id: 'MtbjxRrE' }
-    end
-
-    it 'should have a response with a http status ok (200)' do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'assigns @constituency' do
-      expect(assigns(:constituency)).to be_a(Grom::Node)
-      expect(assigns(:constituency).type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
-    end
-
-    it 'renders the contact_point template' do
-      expect(response).to render_template('contact_point')
-    end
-  end
-
-  describe 'GET members' do
-    before(:each) do
-      get :members, params: { constituency_id: 'vTNSMo38' }
-    end
-
-    it 'should have a response with a http status ok (200)' do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'assigns @constituency, @seat_incumbencies and @current_incumbency' do
-      expect(assigns(:constituency)).to be_a(Grom::Node)
-      expect(assigns(:constituency).type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
-
-      assigns(:seat_incumbencies).each do |seat_incumbency|
-        expect(seat_incumbency).to be_a(Grom::Node)
-        expect(seat_incumbency.type).to eq('http://id.ukpds.org/schema/SeatIncumbency')
-      end
-
-      expect(assigns(:current_incumbency)).to be_a(Grom::Node)
-      expect(assigns(:current_incumbency).type).to eq('http://id.ukpds.org/schema/SeatIncumbency')
-      expect(assigns(:current_incumbency).current?).to be(true)
-    end
-
-    it 'assigns @seat_incumbencies in reverse chronological order' do
-      expect(assigns(:seat_incumbencies)[0].start_date).to eq(DateTime.new(2010, 5, 6))
-    end
-
-    it 'assigns @current_incumbency to be the current incumbency' do
-      expect(assigns(:current_incumbency).start_date).to eq(DateTime.new(2015, 5, 7))
-    end
-
-    it 'renders the members template' do
-      expect(response).to render_template('members')
-    end
-  end
-
-  describe 'GET current_member' do
-    before(:each) do
-      get :current_member, params: { constituency_id: 'vTNSMo38' }
-    end
-
-    it 'should have a response with a http status ok (200)' do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'assigns @constituency and @seat_incumbency' do
-      expect(assigns(:constituency)).to be_a(Grom::Node)
-      expect(assigns(:constituency).type).to eq('http://id.ukpds.org/schema/ConstituencyGroup')
-
-      expect(assigns(:seat_incumbency)).to be_a(Grom::Node)
-      expect(assigns(:seat_incumbency).type).to eq('http://id.ukpds.org/schema/SeatIncumbency')
-    end
-
-    it 'renders the current_member template' do
-      expect(response).to render_template('current_member')
-    end
-  end
-
   describe 'GET letters' do
     context 'returns a response' do
       before(:each) do
@@ -410,4 +333,97 @@ RSpec.describe ConstituenciesController, vcr: true do
       end
     end
   end
+
+  describe '#data_check' do
+    context 'an available data format is requested' do
+      METHODS = [
+          {
+            route: 'index',
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies"
+          },
+          {
+            route: 'lookup',
+            parameters: { source: 'mnisId', id: '3274' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/lookup/mnisId/3274"
+          },
+          {
+            route: 'show',
+            parameters: { constituency_id: 'vUPobpVT' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/vUPobpVT"
+          },
+          {
+            route: 'lookup_by_letters',
+            parameters: { letters: 'epping' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/partial/epping"
+          },
+          {
+            route: 'a_to_z_current',
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/current/a_z_letters"
+          },
+          {
+            route: 'current',
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/current"
+          },
+          {
+            route: 'map',
+            parameters: { constituency_id: 'vUPobpVT' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/vUPobpVT"
+          },
+          {
+            route: 'letters',
+            parameters: { letter: 'p' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/p"
+          },
+          {
+            route: 'current_letters',
+            parameters: { letter: 'p' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/current/p"
+          },
+          {
+            route: 'a_to_z',
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/a_z_letters"
+          },
+        ]
+
+      before(:each) do
+        headers = { 'Accept' => 'application/rdf+xml' }
+        request.headers.merge(headers)
+      end
+
+      it 'should have a response with http status redirect (302)' do
+        METHODS.each do |method|
+          if method.include?(:parameters)
+            get method[:route].to_sym, params: method[:parameters]
+          else
+            get method[:route].to_sym
+          end
+          expect(response).to have_http_status(302)
+        end
+      end
+
+      it 'redirects to the data service' do
+        METHODS.each do |method|
+          if method.include?(:parameters)
+            get method[:route].to_sym, params: method[:parameters]
+          else
+            get method[:route].to_sym
+          end
+          expect(response).to redirect_to(method[:data_url])
+        end
+      end
+
+    end
+
+    context 'an unavailable data format is requested' do
+      before(:each) do
+        headers = { 'Accept' => 'application/n-quads' }
+        request.headers.merge(headers)
+      end
+
+      it 'should raise ActionController::UnknownFormat error' do
+        expect{ get :index }.to raise_error(ActionController::UnknownFormat)
+      end
+    end
+  end
+
 end

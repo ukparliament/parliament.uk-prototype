@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # /
   root 'home#index'
 
+  ### MPs ###
+  # /mps
+  get '/mps', to: 'home#mps'
+
   ### People ###
   # /people (multiple 'people' scope)
   scope '/people', as: 'people' do
@@ -14,7 +18,7 @@ Rails.application.routes.draw do
     listable('people#a_to_z', 'people#letters')
 
     # /people/members
-    build_members_routes('people', current: true)
+    build_members_routes('people/members', current: true)
   end
 
   # /people (single 'person' scope)
@@ -24,15 +28,15 @@ Rails.application.routes.draw do
       get '/', to: 'people#show', person_id: id_format_regex
 
       # /people/:person_id/constituencies
-      build_root_and_current_routes('people', 'constituencies')
+      build_root_and_current_routes('people/constituencies', 'constituencies')
 
-      get '/contact-points', to: 'people#contact_points'
+      get '/contact-points', to: 'people/contact_points#index'
 
       # /people/:person_id/houses
-      build_root_and_current_routes('people', 'houses')
+      build_root_and_current_routes('people/houses', 'houses')
 
       # /people/:person_id/parties
-      build_root_and_current_routes('people', 'parties')
+      build_root_and_current_routes('people/parties', 'parties')
     end
 
     # Allow lookups - but ensure they are SECOND in the routes list after /people/:person_id
@@ -53,7 +57,7 @@ Rails.application.routes.draw do
       get '/', to: 'parties#show', party_id: id_format_regex
 
       # /parties/:party_id/members
-      build_members_routes('parties', current: true)
+      build_members_routes('parties/members', current: true)
     end
 
     # Allow lookups - but ensure they are SECOND in the routes list after /parties/:party_id
@@ -94,11 +98,11 @@ Rails.application.routes.draw do
     # /constituencies/:constituency_id
     scope '/:constituency_id' do
       get '/', to: 'constituencies#show', constituency_id: id_format_regex
-      get '/contact-point', to: 'constituencies#contact_point'
+      get '/contact-point', to: 'constituencies/contact_points#index'
       get '/map', to: 'constituencies#map'
 
       # /constituencies/:constituency_id/members
-      build_root_and_current_routes('constituencies', 'members')
+      build_root_and_current_routes('constituencies/members', 'members')
     end
 
     # Allow lookups - but ensure they are SECOND in the routes list after /constituencies/:constituency_id
@@ -132,28 +136,28 @@ Rails.application.routes.draw do
       get '/', to: 'houses#show', house_id: id_format_regex
 
       # /houses/:house_id/members
-      build_members_routes('houses', current: true)
+      build_members_routes('houses/members', current: true)
 
       # /houses/:house_id/parties
       scope '/parties', as: 'parties' do
-        get '/', to: 'houses#parties'
-        get '/current', to: 'houses#current_parties'
+        get '/', to: 'houses/parties#index'
+        get '/current', to: 'houses/parties#current'
 
         # /houses/:house_id/parties/:party_id
         scope '/:party_id', as: 'party' do
-          get '/', to: 'houses#party'
+          get '/', to: 'houses/parties#show'
 
           # /houses/:house_id/parties/:party_id/members
           scope '/members', as: 'members' do
-            get '/', to: 'houses#party_members'
+            get '/', to: 'houses/parties/members#index'
 
-            listable('houses#a_to_z_party_members', 'houses#party_members_letters')
+            listable('houses/parties/members#a_to_z', 'houses/parties/members#letters')
 
             # /houses/:house_id/parties/:party_id/members/current
             scope '/current', as: 'current' do
-              get '/', to: 'houses#current_party_members'
+              get '/', to: 'houses/parties/members#current'
 
-              listable('houses#a_to_z_current_party_members', 'houses#current_party_members_letters')
+              listable('houses/parties/members#a_to_z_current', 'houses/parties/members#current_letters')
             end
           end
         end
@@ -184,40 +188,40 @@ Rails.application.routes.draw do
       # /parliaments/:parliament_id/previous
       get '/previous', to: 'parliaments#previous_parliament'
 
-      build_members_routes('parliaments', current: false)
+      build_members_routes('parliaments/members', current: false)
 
       scope '/houses', as: 'houses' do
         # /parliaments/:parliament_id/houses
-        get '/', to: 'parliaments#houses'
+        get '/', to: 'parliaments/houses#index'
       end
 
       scope '/houses', as: 'house' do
         scope ':house_id' do
           # /parliaments/:parliament_id/houses/:house_id
-          get '/', to: 'parliaments#house', house_id: id_format_regex
+          get '/', to: 'parliaments/houses#show', house_id: id_format_regex
 
           scope '/members', as: 'members' do
             # /parliaments/:parliament_id/houses/:house_id/members
-            get '/', to: 'parliaments#house_members'
+            get '/', to: 'parliaments/houses/members#index'
 
-            listable('parliaments#a_to_z_house_members', 'parliaments#house_members_letters')
+            listable('parliaments/houses/members#a_to_z', 'parliaments/houses/members#letters')
           end
 
           scope '/parties', as: 'parties' do
             # /parliaments/:parliament_id/houses/:house_id/parties
-            get '/', to: 'parliaments#house_parties'
+            get '/', to: 'parliaments/houses/parties#index'
           end
 
           scope '/parties', as: 'party' do
             scope ':party_id' do
               # /parliaments/:parliament_id/houses/:house_id/parties/:party_id
-              get '/', to: 'parliaments#house_party', party_id: id_format_regex
+              get '/', to: 'parliaments/houses/parties#show', party_id: id_format_regex
 
               scope '/members', as: 'members' do
                 # /parliaments/:parliament_id/houses/:house_id/parties/:party_id/members
-                get '/', to: 'parliaments#house_party_members'
+                get '/', to: 'parliaments/houses/parties/members#index'
 
-                listable('parliaments#a_to_z_house_party_members', 'parliaments#house_party_members_letters')
+                listable('parliaments/houses/parties/members#a_to_z', 'parliaments/houses/parties/members#letters')
               end
             end
           end
@@ -226,29 +230,37 @@ Rails.application.routes.draw do
 
       scope '/parties', as: 'parties' do
         # parliaments/:parliament_id/parties
-        get '/', to: 'parliaments#parties'
+        get '/', to: 'parliaments/parties#index'
       end
 
       scope '/parties', as: 'party' do
         scope '/:party_id' do
           # /parliaments/:parliament_id/parties/:party_id
-          get '/', to: 'parliaments#party', party_id: id_format_regex
+          get '/', to: 'parliaments/parties#show', party_id: id_format_regex
 
           scope '/members', as: 'members' do
             # /parliaments/:parliament_id/parties/:party_id/members
-            get '/', to: 'parliaments#party_members'
+            get '/', to: 'parliaments/parties/members#index'
 
-            listable('parliaments#a_to_z_party_members', 'parliaments#party_members_letters')
+            listable('parliaments/parties/members#a_to_z', 'parliaments/parties/members#letters')
           end
         end
       end
 
       scope '/constituencies', as: 'constituencies' do
         # parliaments/:parliament_id/constituencies
-        get '/', to: 'parliaments#constituencies'
+        get '/', to: 'parliaments/constituencies#index'
 
-        listable('parliaments#a_to_z_constituencies', 'parliaments#constituencies_letters')
+        listable('parliaments/constituencies#a_to_z', 'parliaments/constituencies#letters')
       end
+    end
+  end
+  ## Resource
+  # /resource/
+  scope '/resource', as: 'resource' do
+    get '/', to: 'resource#index'
+    scope '/:resource_id' do
+      get '/', to: 'resource#show', resource_id: id_format_regex
     end
   end
 

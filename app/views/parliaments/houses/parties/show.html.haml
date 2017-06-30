@@ -1,0 +1,12 @@
+- title("#{@party.name} - #{@parliament.date_range(date_format: '%Y')} #{t('parliament')}")
+%section.section--primary
+  .container
+    %h1
+      %span= @party.name
+      = link_to "#{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
+
+%section#content
+  .container
+    %ul.list--box
+      %li
+        %h2= link_to "#{t('mp_plural')}", parliament_house_party_members_path(@parliament.graph_id, @house.graph_id, @party.graph_id)

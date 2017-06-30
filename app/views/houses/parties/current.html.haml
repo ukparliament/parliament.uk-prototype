@@ -1,0 +1,35 @@
+- title("#{@house.name} - #{t('current').capitalize} #{t('parties_and_groups')}")
+
+#content.section--primary
+  .container
+
+    %h1= "#{t('current').capitalize} #{HousesHelper.commons?(@house) ? t('party_plural') : t('parties_and_groups')}"
+
+%section
+  .container
+
+    %ul.list--tab
+      - if HousesHelper.commons?(@house)
+        %li.active
+          = t('commons')
+      - else
+        %li
+          = link_to(t('commons'),house_parties_current_path(HousesHelper.commons_id))
+      - if HousesHelper.lords?(@house)
+        %li.active
+          = t('lords')
+      - else
+        %li
+          = link_to(t('lords'),house_parties_current_path(HousesHelper.lords_id))
+
+    - if HousesHelper.commons?(@house)
+      - if FlagHelper.dissolution?
+        = render partial: 'shared/dissolution_message'
+      - elsif FlagHelper.election?
+        = render partial: 'shared/election_message'
+    - if HousesHelper.commons?(@house)
+      - if FlagHelper.post_election?
+        = render partial: 'shared/election_message'
+
+    %ol.list--box
+      = render partial: 'houses/parties/party', collection: @parties

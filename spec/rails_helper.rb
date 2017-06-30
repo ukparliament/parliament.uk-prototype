@@ -126,3 +126,7 @@ RSpec.configure do |config|
     allow(Pugin::BANDIERA_CLIENT).to receive(:get_features_for_group).and_return({})
   end
 end
+
+def session
+  last_request.env['rack.session']
+end
