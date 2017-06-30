@@ -8,5 +8,13 @@ RSpec.describe 'home', type: :routing do
         action:     'index'
       )
     end
+
+    it 'GET home#mps' do
+      expect(get: '/mps').to route_to(
+        controller: 'home',
+        action:     'mps'
+      )
+    end
+
   end
 end

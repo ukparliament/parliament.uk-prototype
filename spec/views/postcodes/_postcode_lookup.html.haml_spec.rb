@@ -17,7 +17,7 @@ RSpec.describe 'postcodes/_postcode_lookup', vcr: true do
 
   context 'postcode form' do
     it 'will render form to path' do
-      expect(rendered).to match(/form action="\/people\/7TX8ySd4\"/)
+      expect(rendered).to match(/form id="\postcodeSearch\" action="\/people\/7TX8ySd4\"/)
     end
   end
 

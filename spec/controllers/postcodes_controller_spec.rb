@@ -92,6 +92,40 @@ RSpec.describe PostcodesController, vcr: true do
     end
   end
 
+  describe 'Previous path' do
+    context 'the previous path is mps' do
+      before(:each) do
+        PostcodeHelper.previous_path = controller.url_for(action: 'mps', controller: 'home')
+
+        get :show, params: { postcode: 'SW1A 2AA' }
+      end
+
+      context 'there is a current MP' do
+        it 'should have a response with http status found (302)' do
+          expect(response).to have_http_status(:found)
+        end
+
+        it 'redirects to the MPs page' do
+          expect(response).to redirect_to(person_path('7SRF7yEU'))
+        end
+      end
+
+      context 'there is no current MP' do
+        it 'assigns flash[:error]' do
+          expect(flash[:error]).to eq("We couldn't find an MP for that postcode.  Your constituency is constituencyGroupName - 1.")
+        end
+
+        it 'should have a response with http status found (302)' do
+          expect(response).to have_http_status(:found)
+        end
+
+        it 'redirects to the previous page' do
+          expect(response).to redirect_to(mps_path)
+        end
+      end
+    end
+  end
+
   describe 'POST lookup' do
     context 'given a valid postcode' do
       before(:each) do
@@ -117,4 +151,40 @@ RSpec.describe PostcodesController, vcr: true do
       end
     end
   end
+
+  describe '#data_check' do
+    context 'an available data format is requested' do
+      before(:each) do
+        headers = { 'Accept' => 'application/rdf+xml' }
+        request.headers.merge(headers)
+        get :show, params: { postcode: 'SW1A2AA' }
+      end
+
+      it 'should have a response with http status redirect (302)' do
+        expect(response).to have_http_status(302)
+      end
+
+      it 'redirects to the data service' do
+        expect(response).to redirect_to("#{ENV['PARLIAMENT_BASE_URL']}/constituencies/postcode_lookup/SW1A2AA")
+      end
+    end
+
+    context 'no data available' do
+      before(:each) do
+        headers = { 'Accept' => 'application/rdf+xml' }
+        request.headers.merge(headers)
+      end
+
+      it 'GET index should raise an error' do
+        expect{get :index}.to raise_error(StandardError, 'Data URL does not exist')
+        expect(response).not_to have_http_status(302)
+      end
+
+      it 'GET lookup should raise an error' do
+        expect{get :lookup, params: { postcode: 'SW1A 2AA', previous_controller: 'postcodes', previous_action: 'index' }}.to raise_error(StandardError, 'Data URL does not exist')
+        expect(response).not_to have_http_status(302)
+      end
+    end
+  end
+
 end

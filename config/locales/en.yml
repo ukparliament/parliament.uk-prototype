@@ -72,6 +72,7 @@ en:
   open_new_window: "website opens in a new window"
   # global a-z navigation translations
   a_to_z:
+    select_letter: 'select a letter'
     aria_label: 'Paged navigation'
   # global time format translations
   time:
@@ -82,6 +83,7 @@ en:
     no_constituency: "we couldn't find the postcode you entered."
     lookup_unavailable: 'postcode check is currently unavailable.'
     postcode_invalid: "we couldn't find the postcode you entered."
+    no_mp: "We couldn't find an MP for that postcode.  Your constituency is"
   # people translations
   people:
     index:
@@ -93,15 +95,16 @@ en:
     lookup_by_letters:
       title: '%{current_and_former} %{mps_and_lords}'
     members:
-      title: '%{current_and_former} %{mps_and_lords}'
-    a_to_z_members:
-      title: # needs title
-    members_letters:
-      title: '%{current_and_former} %{mps_and_lords}'
-    current_members:
-      title: '%{current} %{mps_and_lords}'
-    current_members_letters:
-      title: '%{current} %{mps_and_lords}'
+      index:
+        title: '%{current_and_former} %{mps_and_lords}'
+      a_to_z:
+        title: # needs title
+      letters:
+        title: '%{current_and_former} %{mps_and_lords}'
+      current:
+        title: '%{current} %{mps_and_lords}'
+      current_letters:
+        title: '%{current} %{mps_and_lords}'
     show:
       mp_for: 'MP for'
       contact: 'contact'
@@ -112,18 +115,22 @@ en:
       correct_mp: '%{name} is the MP for the postcode entered.'
       incorrect_mp: '%{name} is not the MP for the postcode entered.  Your MP is '
     constituencies:
-      title: '%{current_and_former} %{constituency_plural}'
-    current_constituency:
-      title: '%{current} %{constituency}'
+      index:
+        title: '%{current_and_former} %{constituency_plural}'
+      current:
+        title: '%{current} %{constituency}'
     contact_points:
+      index:
     houses:
-      title: '%{current_and_former} %{house_plural}'
-    current_house:
-      title: '%{current} %{house}'
+      index:
+        title: '%{current_and_former} %{house_plural}'
+      current:
+        title: '%{current} %{house}'
     parties:
-      title: '%{current_and_former} %{parties_and_groups}'
-    current_party:
-      title: '%{current} %{party}'
+      index:
+        title: '%{current_and_former} %{parties_and_groups}'
+      current:
+        title: '%{current} %{party}'
   # contact points translations
   contact_points:
     index:
@@ -152,15 +159,17 @@ en:
     show:
       title: # title does not require translation
     members:
-      title: '%{current_and_former} %{mp_plural}'
-    current_member:
-      title:  '%{current} %{mp}'
+      index:
+        title: '%{current_and_former} %{mp_plural}'
+      current:
+        title:  '%{current} %{mp}'
     current_letters:
       title: '%{current} %{constituency_plural}'
     map:
       title: # title does not require translation
-    contact_point:
-      title: # title does not require translation
+    contact_points:
+      index:
+        title: # title does not require translation
     shared_translations:
       vacant: 'Vacant'
     constituency:
@@ -169,6 +178,8 @@ en:
       incorrect_constituency: 'this is not your constituency.'
       constituency_for_postcode: 'is the constituency for'
       check_constituency: 'check if this is your constituency'
+      former_constituency: 'This is a former constituency. %{current_constituencies_link}.'
+      current_constituencies_link: 'view current constituencies'
   # parties translations
   parties:
     index:
@@ -185,17 +196,18 @@ en:
       title: # title does not require translation
       party_no_current_members: 'There are no MPs or Lords in this party.'
     members:
-      title: '%{current_and_former} %{member_plural}'
-    a_to_z_members:
-      title: # needs title
-    members_letters:
-      title: '%{current_and_former} %{member_plural}'
-    current_members:
-      title: '%{current} %{member_plural}'
-    a_to_z_current_members:
-      title: # needs title
-    current_members_letters:
-      title: '%{current} %{member_plural}'
+      index:
+        title: '%{current_and_former} %{member_plural}'
+      a_to_z:
+        title: # needs title
+      letters:
+        title: '%{current_and_former} %{member_plural}'
+      current:
+        title: '%{current} %{member_plural}'
+      a_to_z_current:
+        title: # needs title
+      current_letters:
+        title: '%{current} %{member_plural}'
   # houses translations
   houses:
     index:
@@ -206,36 +218,39 @@ en:
       title: # title does not require translation
       area_they_represent: 'by the area they represent'
     members:
-      title: '%{current_and_former} %{member_type}'
-    a_to_z_members:
-      title: # needs title
-    members_letters:
-      title: '%{current_and_former} %{member_type}'
-    current_members:
-      title: '%{current} %{member_type}'
-    a_to_z_current_members:
-      title: # needs title
-    current_members_letters:
-      title: '%{current} %{member_type}'
+      index:
+        title: '%{current_and_former} %{member_type}'
+      a_to_z:
+        title: # needs title
+      letters:
+        title: '%{current_and_former} %{member_type}'
+      current:
+        title: '%{current} %{member_type}'
+      a_to_z_current:
+        title: # needs title
+      current_letters:
+        title: '%{current} %{member_type}'
     parties:
-      title: '%{current_and_former} %{parties_and_groups}'
-    current_parties:
-      title: '%{current} %{parties_and_groups}'
-    party:
-      title: # title does not require translation
-      house_no_current_party_members: 'There are currently no members of this party in this House.'
-    party_members:
-      title: '%{current_and_former} %{member_type}'
-    a_to_z_party_members:
-      title: # needs title
-    party_members_letters:
-      title: '%{current_and_former} %{member_type}'
-    current_party_members:
-      title: '%{current} %{member_type}'
-    a_to_z_current_party_members:
-      title: # needs title
-    current_party_members_letters:
-      title: '%{current} %{member_type}'
+      index:
+        title: '%{current_and_former} %{parties_and_groups}'
+      current:
+        title: '%{current} %{parties_and_groups}'
+      show:
+        title: # title does not require translation
+        house_no_current_party_members: 'There are currently no members of this party in this House.'
+      members:
+        index:
+          title: '%{current_and_former} %{member_type}'
+        a_to_z:
+          title: # needs title
+        letters:
+          title: '%{current_and_former} %{member_type}'
+        current:
+          title: '%{current} %{member_type}'
+        a_to_z_current:
+          title: # needs title
+        current_letters:
+          title: '%{current} %{member_type}'
   # postcodes translations
   postcodes:
     find_mp_constituency: 'Find your MP and constituency'
@@ -243,9 +258,9 @@ en:
       title: 'find your constituency'
     show:
       title: # title does not require translation
-      wrong_postcode: 'wrong postcode?'
-      search_again: 'search again'
+      check_different_postcode: 'Check for a different postcode'
       no_mp: 'There is currently no MP for your constituency.'
+      results_for: 'Results for'
     postcode_lookup:
       title: # title does not require translation
       search_by_postcode: 'Enter your full postcode, for example SW1A 0AA.'
@@ -310,21 +325,36 @@ en:
       latest_members:
         blog: 'Read the %{link}.'
         blog_link: 'MPs and Lords information blog post'
+      search:
+        blog: 'Read the %{link}.'
+        blog_link: 'Search blog post'
       follow_progress:
         title: 'Follow our progress'
         blog: 'Follow all %{link}.'
         blog_link: 'new website developments on our blog'
+    mps:
+      find_mp: 'Find your MP'
+      a_z_surname: 'A - Z by surname'
+      view_list_constituencies: 'View list of constituencies'
+      find_mp_party: 'Find an MP by party.'
+      find_mp_date_range: 'Find a former MP by date range'
+      speaker_link: 'The Speaker'
+      speaker_clarification: '%{speaker_link} is not a member of a party.'
   # meta information translations
   meta:
     index:
       title: 'Meta information'
     cookie_policy:
-      title: 'Cookies'
-      subtitle: 'Cookies on beta.parliament.uk'
+      title: 'Cookies on beta.parliament.uk'
+      subtitle:
+        ga: 'Google Analytics cookies'
+        hj: 'HotJar cookies'
       which_cookies: 'Which cookies do we use?'
       cookie:
         definition: 'Cookies are small files put on your device to let us know how you use our website.'
-        explanation: 'We use Google Analytics cookies to collect information about how you use our services. This helps us meet your needs and improve our website.'
+        explanations:
+          ga: 'We use Google Analytics cookies to collect information about how you use our services. This helps us meet your needs and improve our website.'
+          hj: 'We use HotJar to find out how you use our website to improve your experience.'
         anonymous_statement: 'All the information we collect is anonymous.'
       cookie_table:
         meta:
@@ -332,15 +362,24 @@ en:
           purpose: 'Purpose'
           expires: 'Expires'
           expiration:
-            minutes: 'After %{time} minutes.'
-            years: 'After %{time} years.'
+            minutes:
+              one: 'After 1 minute.'
+              other: 'After %{count} minutes.'
+            years:
+              one: 'After 1 year.'
+              other: 'After %{count} years.'
         explanations:
           ga: 'This helps us know how many people have visited beta.parliament.uk by telling us if you’ve visited before.'
           gat: 'This helps us know how long you spend on a page.'
+          hjdonepolls: 'This ensures a poll will not reappear once you have completed it.'
+          hjminimizedpolls: 'This ensures a poll remains minimised when you move through our site.'
+          hjdonetesterswidgets: 'This ensures a form does not reappear once you have completed it.'
+          hjminimizedtesterswidgets: 'This ensures a form remains minimised when you move through our site.'
+          hjincludedinsample: 'This informs Hotjar whether your visit is included in their sample set.'
       managing_cookies:
         title: 'How to manage your cookies'
         subtitle: 'Most web browsers allow you to control cookies through browser settings.'
         find_out: "Find out how to %{link}."
         find_out_link: "manage and delete cookies"
         opt_out: "You can %{link}."
-        opt_out_link: "opt out of Google Analytics cookies"
+        opt_out_link: "opt out of %{service} cookies"

@@ -1,0 +1,9 @@
+- title("#{t('mps_and_lords')} - #{@parliament.date_range(date_format: '%Y')} #{t('parliament')} #{t('parliaments.a_to_z')}")
+.section--primary
+  .container
+    %h1
+      %span= "#{t('mps_and_lords')}"
+      = link_to "#{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
+      %span= "#{t('parliaments.a_to_z')} - #{t('a_to_z.select_letter')}"
+
+    = render partial: 'pugin/components/navigation-letter', locals: { route_symbol: :parliament_members_a_z_letter_path, route_args: [@parliament.graph_id] }

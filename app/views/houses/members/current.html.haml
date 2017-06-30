@@ -1,0 +1,20 @@
+- title("#{ @house.name } - #{ t( '.title', current: t('current').capitalize, member_type: @current_person_type ) }")
+
+.section--primary
+  .container
+
+    %h1= "#{t('current').capitalize} #{@current_person_type}"
+
+    = render partial: 'pugin/components/navigation-letter', locals: { route_symbol: :house_members_current_a_z_letter_path, route_args: [@house.graph_id]}
+
+    - if HousesHelper.commons?(@house)
+      - if FlagHelper.dissolution?
+        = render partial: 'shared/dissolution_message'
+      - elsif FlagHelper.election?
+        = render partial: 'shared/election_message'
+
+- unless @letters.empty?
+
+  %section#content
+    .container
+      = render partial: "pugin/elements/list", locals: {item_type: "people", data: @people}

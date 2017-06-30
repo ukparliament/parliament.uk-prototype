@@ -1,0 +1,13 @@
+- title("#{t('constituency_plural').capitalize} - #{@parliament.date_range(date_format: '%Y')} #{t('parliament')} #{t('parliaments.a_to_z')} #{t('parliaments.showing_results')} '#{params[:letter].capitalize}'")
+.section--primary
+  .container
+    %h1
+      %span= t('constituency_plural').capitalize
+      = link_to "#{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
+      %span= "#{t('parliaments.a_to_z')} #{t('parliaments.showing_results')} '#{params[:letter].capitalize}'"
+
+    = render partial: 'pugin/components/navigation-letter', locals: { route_symbol: :parliament_constituencies_a_z_letter_path, route_args: [@parliament.graph_id] }
+
+%section#content
+  .container
+    = render partial: "pugin/elements/list", locals: {item_type: "constituencies", data: @constituencies}
