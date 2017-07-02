@@ -39,22 +39,24 @@ class ApplicationController < ActionController::Base
   end
 
   def data_url
-    raise StandardError, 'Must provide valid data'
+    self.class::ROUTE_MAP[params[:action].to_sym] || raise(StandardError, "You must provide a ROUTE_MAP proc for #{params[:controller]}##{params[:action]}")
+  end
+
+  def build_request
+    @request = data_url.call(params)
   end
 
   def data_check
-    # check format to see if it can be rendered
+    # Check format to see if it is available from the data API
     return unless DATA_FORMATS.include?(request.formats.first)
 
-    # find corresponding data url
+    # Find the current controller/action's API url
     @data_url = data_url
-    # redirect
-    if !@data_url.nil?
-      # if so, set headers
-      response.headers['Accept'] = request.formats.first
-      redirect_to(@data_url.call(params).query_url) && return
-    else
-      raise StandardError, 'Data URL does not exist'
-    end
+
+    # Catch potential nil values
+    raise StandardError, 'Data URL does not exist' if @data_url.nil?
+
+    response.headers['Accept'] = request.formats.first
+    redirect_to(@data_url.call(params).query_url) && return
   end
 end

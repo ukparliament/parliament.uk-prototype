@@ -7,23 +7,11 @@ Metrics/AbcSize:
 Style/Documentation:
   Enabled: false
 
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   Enabled: false
 
 Style/BracesAroundHashParameters:
   Enabled: false
-
-Style/IndentHash:
-  EnforcedStyle: consistent
-
-Style/AlignHash:
-  Severity: fatal
-  Enabled: true
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle: table
-
-Style/AlignParameters:
-  EnforcedStyle: with_fixed_indentation
 
 Style/StringLiterals:
   EnforcedStyle: single_quotes
@@ -36,20 +24,32 @@ Style/CollectionMethods:
     detect: 'find'
     find_all: 'select'
 
-Style/DotPosition:
-  EnforcedStyle: leading
-
 Style/DoubleNegation:
   Enabled: false
 
-Style/SpaceAroundOperators:
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+Layout/AlignHash:
+  Severity: fatal
+  Enabled: true
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/DotPosition:
+  EnforcedStyle: leading
+
+Layout/SpaceAroundOperators:
   # When true, allows most uses of extra spacing if the intent is to align
   # with an operator on the previous or next line, not counting empty lines
   # or comment lines.
   AllowForAlignment: true
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
 
 AllCops:
   Exclude:
