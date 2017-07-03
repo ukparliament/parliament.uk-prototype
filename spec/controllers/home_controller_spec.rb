@@ -48,17 +48,6 @@ RSpec.describe HomeController, vcr: true do
   end
 
   describe '#data_check' do
-    context 'no data available' do
-      before(:each) do
-        headers = { 'Accept' => 'application/rdf+xml' }
-        request.headers.merge(headers)
-      end
-
-      it 'GET index should raise an error' do
-        expect{get :index}.to raise_error(StandardError, 'Data URL does not exist')
-      end
-    end
-
     context 'data available' do
       before(:each) do
         headers = { 'Accept' => 'application/rdf+xml' }

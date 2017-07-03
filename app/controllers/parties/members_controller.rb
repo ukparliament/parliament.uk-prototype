@@ -1,10 +1,19 @@
 module Parties
   class MembersController < ApplicationController
-    before_action :data_check
+    before_action :data_check, :build_request
+
+    ROUTE_MAP = {
+      index:           proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members },
+      current:         proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members.current },
+      letters:         proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members(params[:letter]) },
+      current_letters: proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members.current(params[:letter]) },
+      a_to_z:          proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members.a_z_letters },
+      a_to_z_current:  proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members.current.a_z_letters }
+    }.freeze
 
     def index
       @party, @people, @letters = RequestHelper.filter_response_data(
-        ROUTE_MAP[:index].call(params),
+        @request,
         'http://id.ukpds.org/schema/Party',
         'http://id.ukpds.org/schema/Person',
         ::Grom::Node::BLANK
@@ -17,7 +26,7 @@ module Parties
 
     def current
       @party, @people, @letters = RequestHelper.filter_response_data(
-        ROUTE_MAP[:current].call(params),
+        @request,
         'http://id.ukpds.org/schema/Party',
         'http://id.ukpds.org/schema/Person',
         ::Grom::Node::BLANK
@@ -30,7 +39,7 @@ module Parties
 
     def letters
       @party, @people, @letters = RequestHelper.filter_response_data(
-        ROUTE_MAP[:letters].call(params),
+        @request,
         'http://id.ukpds.org/schema/Party',
         'http://id.ukpds.org/schema/Person',
         ::Grom::Node::BLANK
@@ -43,7 +52,7 @@ module Parties
 
     def current_letters
       @party, @people, @letters = RequestHelper.filter_response_data(
-        ROUTE_MAP[:current_letters].call(params),
+        @request,
         'http://id.ukpds.org/schema/Party',
         'http://id.ukpds.org/schema/Person',
         ::Grom::Node::BLANK
@@ -56,27 +65,12 @@ module Parties
 
     def a_to_z
       @party_id = params[:party_id]
-      @letters = RequestHelper.process_available_letters(ROUTE_MAP[:a_to_z].call(params))
+      @letters = RequestHelper.process_available_letters(@request)
     end
 
     def a_to_z_current
       @party_id = params[:party_id]
-      @letters = RequestHelper.process_available_letters(ROUTE_MAP[:a_to_z_current].call(params))
-    end
-
-    private
-
-    ROUTE_MAP = {
-      index:           proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members },
-      current:         proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members.current },
-      letters:         proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members(params[:letter]) },
-      current_letters: proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members.current(params[:letter]) },
-      a_to_z:          proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members.a_z_letters },
-      a_to_z_current:  proc { |params| ParliamentHelper.parliament_request.parties(params[:party_id]).members.current.a_z_letters }
-    }.freeze
-
-    def data_url
-      ROUTE_MAP[params[:action].to_sym]
+      @letters = RequestHelper.process_available_letters(@request)
     end
   end
 end

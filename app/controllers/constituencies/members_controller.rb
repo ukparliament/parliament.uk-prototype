@@ -1,10 +1,15 @@
 module Constituencies
   class MembersController < ApplicationController
-    before_action :data_check
+    before_action :data_check, :build_request
+
+    ROUTE_MAP = {
+      index:   proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]).members },
+      current: proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]).members.current }
+    }.freeze
 
     def index
       @constituency, @seat_incumbencies = RequestHelper.filter_response_data(
-        ROUTE_MAP[:index].call(params),
+        @request,
         'http://id.ukpds.org/schema/ConstituencyGroup',
         'http://id.ukpds.org/schema/SeatIncumbency'
       )
@@ -18,27 +23,15 @@ module Constituencies
     # @controller_action_param :constituency_id [String] 8 character identifier that identifies constituency in graph database.
     # @return [Grom::Node] object with type 'http://id.ukpds.org/schema/ConstituencyGroup'.
     # @return [Grom::Node] object with type 'http://id.ukpds.org/schema/SeatIncumbency'.
-
     def current
       @constituency, @seat_incumbency = RequestHelper.filter_response_data(
-        ROUTE_MAP[:current].call(params),
+        @request,
         'http://id.ukpds.org/schema/ConstituencyGroup',
         'http://id.ukpds.org/schema/SeatIncumbency'
       )
 
       @constituency = @constituency.first
       @seat_incumbency = @seat_incumbency.first
-    end
-
-    private
-
-    ROUTE_MAP = {
-      index:   proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]).members },
-      current: proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]).members.current }
-    }.freeze
-
-    def data_url
-      ROUTE_MAP[params[:action].to_sym]
     end
   end
 end

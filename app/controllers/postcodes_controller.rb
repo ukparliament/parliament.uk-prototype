@@ -2,7 +2,11 @@
 require 'sanitize'
 
 class PostcodesController < ApplicationController
-  before_action :data_check
+  before_action :data_check, :build_request, only: :show
+
+  ROUTE_MAP = {
+    show: proc { |params| ParliamentHelper.parliament_request.constituencies.postcode_lookup(params[:postcode]) }
+  }.freeze
 
   def index; end
 
@@ -42,24 +46,10 @@ class PostcodesController < ApplicationController
     previous_path = url_for(controller: previous_controller, action: previous_action)
     PostcodeHelper.previous_path = previous_path
 
-    if raw_postcode.gsub(/\s+/, '').empty?
-      flash[:error] = I18n.t('error.postcode_invalid').capitalize
-
-      redirect_to(PostcodeHelper.previous_path) && return
-    end
+    return redirect_to PostcodeHelper.previous_path, flash: { error: I18n.t('error.postcode_invalid').capitalize } if raw_postcode.gsub(/\s+/, '').empty?
 
     hyphenated_postcode = PostcodeHelper.hyphenate(raw_postcode)
 
     redirect_to postcode_path(hyphenated_postcode)
-  end
-
-  private
-
-  ROUTE_MAP = {
-    show: proc { |params| ParliamentHelper.parliament_request.constituencies.postcode_lookup(params[:postcode]) }
-  }.freeze
-
-  def data_url
-    ROUTE_MAP[params[:action].to_sym]
   end
 end
