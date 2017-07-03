@@ -37,8 +37,7 @@ module ActionDispatch
 
           listable("#{route_name}#a_to_z", "#{route_name}#letters")
 
-          # /route_name/:id/members/current
-          scope '/current', as: 'current' do
+          scope '/current', as: 'current' do # /route_name/:id/members/current
             if current
               get '/', to: "#{route_name}#current"
 

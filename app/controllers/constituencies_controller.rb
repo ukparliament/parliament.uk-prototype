@@ -1,12 +1,24 @@
 class ConstituenciesController < ApplicationController
+  before_action :data_check, :build_request, except: :postcode_lookup
+
+  ROUTE_MAP = {
+    index:             proc { ParliamentHelper.parliament_request.constituencies },
+    show:              proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]) },
+    lookup:            proc { |params| ParliamentHelper.parliament_request.constituencies.lookup(params[:source], params[:id]) },
+    lookup_by_letters: proc { |params| ParliamentHelper.parliament_request.constituencies.partial(params[:letters]) },
+    a_to_z_current:    proc { ParliamentHelper.parliament_request.constituencies.current.a_z_letters },
+    current:           proc { ParliamentHelper.parliament_request.constituencies.current },
+    map:               proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]) },
+    letters:           proc { |params| ParliamentHelper.parliament_request.constituencies(params[:letter]) },
+    current_letters:   proc { |params| ParliamentHelper.parliament_request.constituencies.current(params[:letter]) },
+    a_to_z:            proc { ParliamentHelper.parliament_request.constituencies.a_z_letters }
+  }.freeze
+
   # Renders a list of all constituencies with current incumbents and sorted in ascending order by name from a GET request. Shown with an a - z partial view.
   # @return [Array] Grom::Nodes of type 'http://id.ukpds.org/schema/ConstituencyGroup'.
-
-  before_action :data_check
-
   def index
     @constituencies, @letters = RequestHelper.filter_response_data(
-      ROUTE_MAP[:index].call,
+      @request,
       'http://id.ukpds.org/schema/ConstituencyGroup',
       ::Grom::Node::BLANK
     )
@@ -18,12 +30,11 @@ class ConstituenciesController < ApplicationController
   # Renders a single constituency given a constituency id.
   # @controller_action_param :constituency_id [String] 8 character identifier that identifies constituency in graph database.
   # @return [Grom::Node] object with type 'http://id.ukpds.org/schema/ConstituencyGroup'.
-
   def show
     @postcode = flash[:postcode]
 
     @constituency, @seat_incumbencies = RequestHelper.filter_response_data(
-      ROUTE_MAP[:show].call(params),
+      @request,
       'http://id.ukpds.org/schema/ConstituencyGroup',
       'http://id.ukpds.org/schema/SeatIncumbency'
     )
@@ -50,9 +61,8 @@ class ConstituenciesController < ApplicationController
   # Redirects to a single constituency given an external source and an id that identifies this constituency in that source.
   # @controller_action_param :source [String] external source.
   # @controller_action_param :id [String] external id which identifies a constituency.
-
   def lookup
-    @constituency = ROUTE_MAP[:lookup].call(params).get.first
+    @constituency = @request.get.first
 
     redirect_to constituency_path(@constituency.graph_id)
   end
@@ -60,7 +70,6 @@ class ConstituenciesController < ApplicationController
   # Post method which accepts form parameters from postcode lookup and redirects to constituency_path.
   # @controller_action_param :postcode [String] postcode entered into postcode lookup form.
   # @controller_action_param :constituency_id [String] 8 character identifier that identifies constituency in graph database.
-
   def postcode_lookup
     flash[:postcode] = params[:postcode]
 
@@ -69,10 +78,9 @@ class ConstituenciesController < ApplicationController
 
   # Renders a list of all constituencies with current incumbents and sorted in ascending order by name from a GET request. Shown with an a - z partial view.
   # @return [Array] Grom::Nodes of type 'http://id.ukpds.org/schema/ConstituencyGroup'.
-
   def current
     @constituencies, @letters = RequestHelper.filter_response_data(
-      ROUTE_MAP[:current].call,
+      @request,
       'http://id.ukpds.org/schema/ConstituencyGroup',
       ::Grom::Node::BLANK
     )
@@ -84,10 +92,9 @@ class ConstituenciesController < ApplicationController
   # Renders a constituency that has a constituency area object on map view given a constituency id.
   # @controller_action_param :constituency_id [String] 8 character identifier that identifies constituency in graph database.
   # @return [Grom::Node] object with type 'http://id.ukpds.org/schema/ConstituencyGroup' which holds a geo polygon.
-
   def map
     @constituency = RequestHelper.filter_response_data(
-      ROUTE_MAP[:map].call(params),
+      @request,
       'http://id.ukpds.org/schema/ConstituencyGroup'
     ).first
   end
@@ -100,10 +107,9 @@ class ConstituenciesController < ApplicationController
   # Renders a list of constituencies that begin with a particular letter given the letter. Shown with an a - z partial view.
   # @controller_action_param :letter [String] single letter that is case insensitive.
   # @return [Array] Grom::Nodes of type 'http://id.ukpds.org/schema/ConstituencyGroup'.
-
   def letters
     @constituencies, @letters = RequestHelper.filter_response_data(
-      ROUTE_MAP[:letters].call(params),
+      @request,
       'http://id.ukpds.org/schema/ConstituencyGroup',
       ::Grom::Node::BLANK
     )
@@ -115,10 +121,9 @@ class ConstituenciesController < ApplicationController
   # Renders a list of current constituencies that begin with a particular letter given the letter. Shown with an a - z partial view.
   # @controller_action_param :letter [String] single letter that is case insensitive.
   # @return [Array] Grom::Nodes of type 'http://id.ukpds.org/schema/ConstituencyGroup'.
-
   def current_letters
     @constituencies, @letters = RequestHelper.filter_response_data(
-      ROUTE_MAP[:current_letters].call(params),
+      @request,
       'http://id.ukpds.org/schema/ConstituencyGroup',
       ::Grom::Node::BLANK
     )
@@ -129,24 +134,21 @@ class ConstituenciesController < ApplicationController
 
   # Renders a list of letters taken from first letter of all constituencies. Shown with an a - z partial view.
   # @return [Array] letters representing all constituencies.
-
   def a_to_z
-    @letters = RequestHelper.process_available_letters(ROUTE_MAP[:a_to_z].call)
+    @letters = RequestHelper.process_available_letters(@request)
   end
 
   # Renders a list of letters taken from first letter of all current constituencies. Shown with an a - z partial view.
   # @return [Array] letters representing all current constituencies.
-
   def a_to_z_current
-    @letters = RequestHelper.process_available_letters(ROUTE_MAP[:a_to_z_current].call)
+    @letters = RequestHelper.process_available_letters(@request)
   end
 
   # Look up to find a constituency given a string.  Redirects to either a single constituency or list of constituencies.
   # @controller_action_param :letters [String] case insensitive string to lookup.
-
   def lookup_by_letters
     @constituencies, @letters = RequestHelper.filter_response_data(
-      ROUTE_MAP[:lookup_by_letters].call(params),
+      @request,
       'http://id.ukpds.org/schema/ConstituencyGroup',
       ::Grom::Node::BLANK
     )
@@ -158,24 +160,5 @@ class ConstituenciesController < ApplicationController
 
     @constituencies = @constituencies.sort_by(:name)
     @letters = @letters.map(&:value)
-  end
-
-  private
-
-  ROUTE_MAP = {
-    index:             proc { ParliamentHelper.parliament_request.constituencies },
-    show:              proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]) },
-    lookup:            proc { |params| ParliamentHelper.parliament_request.constituencies.lookup(params[:source], params[:id]) },
-    lookup_by_letters: proc { |params| ParliamentHelper.parliament_request.constituencies.partial(params[:letters]) },
-    a_to_z_current:    proc { ParliamentHelper.parliament_request.constituencies.current.a_z_letters },
-    current:           proc { ParliamentHelper.parliament_request.constituencies.current },
-    map:               proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]) },
-    letters:           proc { |params| ParliamentHelper.parliament_request.constituencies(params[:letter]) },
-    current_letters:   proc { |params| ParliamentHelper.parliament_request.constituencies.current(params[:letter]) },
-    a_to_z:            proc { ParliamentHelper.parliament_request.constituencies.a_z_letters }
-  }.freeze
-
-  def data_url
-    ROUTE_MAP[params[:action].to_sym]
   end
 end

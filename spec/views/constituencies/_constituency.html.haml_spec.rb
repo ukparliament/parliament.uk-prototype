@@ -152,7 +152,7 @@ RSpec.describe 'constituencies/_constituency', vcr: true do
     it 'will list constituency' do
       expect(rendered).to match(/Constituency/)
       expect(rendered).to match("from #{(Time.zone.now - 1.month).strftime('%-e %b %Y')}")
-      expect(rendered).to match("to #{(Time.zone.now - 1.day).strftime('%-e %b %Y')}")
+      expect(rendered).to match("to #{(Time.now - 1.day).strftime('%-e %b %Y')}")
     end
   end
 
