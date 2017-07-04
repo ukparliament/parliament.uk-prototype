@@ -90,13 +90,40 @@ class ConstituenciesController < ApplicationController
   end
 
   # Renders a constituency that has a constituency area object on map view given a constituency id.
+  # Will respond with GeoJSON data using the geosparql-to-geojson gem if JSON is requested.
   # @controller_action_param :constituency_id [String] 8 character identifier that identifies constituency in graph database.
   # @return [Grom::Node] object with type 'http://id.ukpds.org/schema/ConstituencyGroup' which holds a geo polygon.
+  # @return [GeosparqlToGeojson::GeoJson] object containing GeoJSON data if JSON is requested.
   def map
-    @constituency = RequestHelper.filter_response_data(
-      @request,
-      'http://id.ukpds.org/schema/ConstituencyGroup'
-    ).first
+    respond_to do |format|
+      format.html do
+        @constituency = RequestHelper.filter_response_data(
+          @request,
+          'http://id.ukpds.org/schema/ConstituencyGroup'
+        ).first
+      end
+
+      format.json do
+        @constituency = RequestHelper.filter_response_data(
+          ParliamentHelper.parliament_request.constituencies(params[:constituency_id]).map,
+          'http://id.ukpds.org/schema/ConstituencyGroup'
+        ).first
+
+        latitude, longitude = [@constituency.area.latitude, @constituency.area.longitude].map { |value| value.is_a?(Array) ? value.first : value }.map(&:to_f)
+
+        @constituency_response = "#{@constituency.area.constituencyAreaExtent} Point(#{longitude} #{latitude})"
+
+        render json: GeosparqlToGeojson.convert_to_geojson(
+          geosparql_values:     @constituency_response,
+          geosparql_properties: {
+            name:       @constituency.name,
+            start_date: @constituency.start_date,
+            end_date:   @constituency.end_date
+          },
+          reverse:              false
+        ).geojson
+      end
+    end
   end
 
   # Renders a list of seat incumbents in reverse chronological start date order, given a constituency id.
