@@ -109,12 +109,8 @@ class ConstituenciesController < ApplicationController
           'http://id.ukpds.org/schema/ConstituencyGroup'
         ).first
 
-        latitude, longitude = [@constituency.area.latitude, @constituency.area.longitude].map { |value| value.is_a?(Array) ? value.first : value }.map(&:to_f)
-
-        @constituency_response = "#{@constituency.area.constituencyAreaExtent} Point(#{longitude} #{latitude})"
-
         render json: GeosparqlToGeojson.convert_to_geojson(
-          geosparql_values:     @constituency_response,
+          geosparql_values:     @constituency.area.polygon,
           geosparql_properties: {
             name:       @constituency.name,
             start_date: @constituency.start_date,
