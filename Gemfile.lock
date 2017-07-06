@@ -42,7 +42,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     airbrake (6.1.2)
       airbrake-ruby (~> 2.2, >= 2.2.5)
-    airbrake-ruby (2.2.7)
+    airbrake-ruby (2.3.0)
     arel (8.0.0)
     ast (2.3.0)
     bandiera-client (3.0.4)
@@ -77,7 +77,7 @@ GEM
     erubi (1.6.1)
     foreman (0.84.0)
       thor (~> 0.19.1)
-    geosparql_to_geojson (0.1.0)
+    geosparql_to_geojson (0.1.2)
       json-schema (~> 2.8)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -132,7 +132,7 @@ GEM
     parallel (1.11.2)
     parallel_tests (2.14.1)
       parallel
-    parliament-grom-decorators (0.2.1)
+    parliament-grom-decorators (0.2.3)
     parliament-ntriple (0.1.3)
       grom (~> 0.3.9)
     parliament-ruby (0.7.8)
@@ -144,7 +144,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    pugin (0.8.5)
+    pugin (0.8.6.pre)
     puma (3.9.1)
     rack (2.0.3)
     rack-rewrite (1.5.1)
@@ -294,7 +294,7 @@ DEPENDENCIES
   parliament-ntriple (~> 0.1)
   parliament-ruby (~> 0.7)
   pry
-  pugin (~> 0.8)
+  pugin (~> 0.8.6.pre)
   puma
   rack-rewrite
   rack-timeout

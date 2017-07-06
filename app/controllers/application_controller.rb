@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   # Controller helper methods available from Pugin::Helpers::ControllerHelpers
   #
   # Used to turn Pugin Features on and off at a controller level
-  before_action :reset_bandiera_features, :enable_top_navigation, :enable_status_banner
+  before_action :reset_bandiera_features, :enable_top_navigation, :enable_status_banner, :reset_alternates
 
   # Rescues from a Parliament::ClientError and raises an ActionController::RoutingError
   rescue_from Parliament::ClientError do |error|
@@ -44,6 +44,14 @@ class ApplicationController < ActionController::Base
 
   def build_request
     @request = data_url.call(params)
+
+    alternates = []
+
+    DATA_FORMATS.each do |format|
+      alternates << { type: format, href: @request.query_url }
+    end
+
+    Pugin.alternates = alternates
   end
 
   def data_check
@@ -58,5 +66,9 @@ class ApplicationController < ActionController::Base
 
     response.headers['Accept'] = request.formats.first
     redirect_to(@data_url.call(params).query_url) && return
+  end
+
+  def reset_alternates
+    Pugin.alternates = []
   end
 end
