@@ -54,10 +54,20 @@ CONTAINER_PORT = 3000
 # Host port used for mapping when running our Docker image.
 HOST_PORT = 80
 
+# Github variables
+GITHUB_API=https://api.github.com
+ORG=ukparliament
+REPO=parliament.uk-prototype
+LATEST_REL=$(GITHUB_API)/repos/$(ORG)/$(REPO)/releases
+REL_TAG=$(shell curl -s $(LATEST_REL) | jq -r '.[0].tag_name')
+
 ##
 # MAKE TASKS
 #   Tasks used locally and within our build pipelines to build, test and run our Docker image.
 ##
+
+checkout_to_release:
+	git checkout -b release $(REL_TAG)
 
 build: # Using the variables defined above, run `docker build`, tagging the image and passing in the required arguments.
 	docker build -t $(IMAGE):$(VERSION) -t $(IMAGE):latest \
