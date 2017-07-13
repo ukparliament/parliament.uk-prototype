@@ -37,8 +37,6 @@ Rails.application.routes.draw do
 
       # /people/:person_id/parties
       build_root_and_current_routes('people/parties', 'parties')
-
-      get '/media/:media_id', to: 'people/media#show'
     end
 
     # Allow lookups - but ensure they are SECOND in the routes list after /people/:person_id
@@ -257,6 +255,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
   ## Resource
   # /resource/
   scope '/resource', as: 'resource' do
@@ -271,5 +270,14 @@ Rails.application.routes.draw do
   scope '/meta', as: 'meta' do
     get '/', to: 'meta#index'
     get '/cookie-policy', to: 'meta#cookie_policy'
+  end
+
+  ## Media
+  # /media/
+  scope '/media', as: 'media' do
+    get '/', to: 'media#index'
+    scope '/:medium_id' do
+      get '/', to: 'media#show', medium_id: id_format_regex
+    end
   end
 end
