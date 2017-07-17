@@ -113,14 +113,16 @@ class ConstituenciesController < ApplicationController
           'http://id.ukpds.org/schema/ConstituencyGroup'
         ).first
 
+        raise ActionController::RoutingError, 'Not Found' unless @constituency.current?
+
         render json: GeosparqlToGeojson.convert_to_geojson(
-          geosparql_values:     @constituency.area.polygon,
+          geosparql_values: @constituency.area.polygon,
           geosparql_properties: {
             name:       @constituency.name,
             start_date: @constituency.start_date,
             end_date:   @constituency.end_date
           },
-          reverse:              false
+          reverse: false
         ).geojson
       end
     end
