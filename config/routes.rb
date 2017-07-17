@@ -255,6 +255,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
   ## Resource
   # /resource/
   scope '/resource', as: 'resource' do
@@ -269,5 +270,14 @@ Rails.application.routes.draw do
   scope '/meta', as: 'meta' do
     get '/', to: 'meta#index'
     get '/cookie-policy', to: 'meta#cookie_policy'
+  end
+
+  ## Media
+  # /media/
+  scope '/media', as: 'media' do
+    get '/', to: 'media#index'
+    scope '/:medium_id' do
+      get '/', to: 'media#show', medium_id: id_format_regex
+    end
   end
 end
