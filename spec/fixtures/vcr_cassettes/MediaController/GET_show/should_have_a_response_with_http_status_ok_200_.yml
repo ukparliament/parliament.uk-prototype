@@ -39,8 +39,8 @@ http_interactions:
         <http://id.ukpds.org/7TX8ySd4> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 1" .
         <http://id.ukpds.org/7TX8ySd4> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 1" .
         <http://id.ukpds.org/7TX8ySd4> <http://example.com/D79B0BAC513C4A9A87C9D5AFF1FC632F> "D79B0BAC513C4A9A87C9D5AFF1FC632F - 1" .
-        <http://id.ukpds.org/7TX8ySd4> <http://id.ukpds.org/schema/personHasImage> <http://id.ukpds.org/12345678> .
-        <http://id.ukpds.org/12345678> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Image> .
+        <http://id.ukpds.org/7TX8ySd4> <http://id.ukpds.org/schema/memberHasMemberImage> <http://id.ukpds.org/12345678> .
+        <http://id.ukpds.org/12345678> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/MemberImage> .
     http_version:
   recorded_at: Thu, 06 Jul 2017 10:31:40 GMT
 - request:

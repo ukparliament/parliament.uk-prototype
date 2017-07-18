@@ -12,7 +12,7 @@ class MediaController < ApplicationController
   def show
     @image = RequestHelper.filter_response_data(
       @request,
-      'http://id.ukpds.org/schema/Image'
+      'http://id.ukpds.org/schema/MemberImage'
     )
 
     @image = @image.first
