@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/parliaments/0FxbTVtr/next
+    uri: http://localhost:3030/next_parliament_by_id?parliament_id=YN9DxpsC
     body:
       encoding: US-ASCII
       string: ''
@@ -18,22 +18,30 @@ http_interactions:
       - "<AUTH_TOKEN>"
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
-      Content-Type:
-      - application/n-triples
-      Content-Disposition:
-      - inline; filename="index"
-      Last-Modified:
-      - Wed, 31 May 2017 11:18:14 GMT
-      X-Content-Type-Options:
-      - nosniff
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
       Content-Length:
       - '0'
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
+      Date:
+      - Thu, 03 Aug 2017 08:26:44 GMT
     body:
-      encoding:
-      string:
+      encoding: UTF-8
+      string: ''
     http_version: 
-  recorded_at: Fri, 02 Jun 2017 13:58:17 GMT
+  recorded_at: Thu, 03 Aug 2017 08:30:18 GMT
 recorded_with: VCR 3.0.3

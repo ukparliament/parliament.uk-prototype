@@ -13,7 +13,7 @@ module PostcodeHelper
     postcode = clean_input(raw_input)
 
     begin
-      ParliamentHelper.parliament_request.constituencies.postcode_lookup(postcode).get
+      ParliamentHelper.parliament_request.constituency_lookup_by_postcode.get(params: { postcode: postcode })
     rescue Parliament::ClientError
       raise(PostcodeError, I18n.t('error.no_constituency').capitalize)
     rescue Parliament::ServerError

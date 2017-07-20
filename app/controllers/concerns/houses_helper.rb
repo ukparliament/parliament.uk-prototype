@@ -69,7 +69,7 @@ module HousesHelper
 
   def self.set_ids
     return if @commons_id && @lords_id
-    houses = ParliamentHelper.parliament_request.houses.get.filter('http://id.ukpds.org/schema/House').sort_by(:name)
+    houses = ParliamentHelper.parliament_request.house_index.get.filter('http://id.ukpds.org/schema/House').sort_by(:name)
 
     @commons_id = houses.first.graph_id
     @lords_id = houses.last.graph_id

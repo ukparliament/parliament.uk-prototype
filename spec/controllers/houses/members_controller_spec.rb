@@ -5,7 +5,7 @@ RSpec.describe Houses::MembersController, vcr: true do
   describe "GET index" do
     context 'when the house of commons' do
       before(:each) do
-        get :index, params: { house_id: 'cqIATgUK' }
+        get :index, params: { house_id: 'Kz7ncmrt' }
       end
 
       it 'should have a response with http status ok (200)' do
@@ -36,7 +36,7 @@ RSpec.describe Houses::MembersController, vcr: true do
 
     context 'when the house of lords' do
       before(:each) do
-        get :index, params: { house_id: 'mG2ur5TF' }
+        get :index, params: { house_id: 'MvLURLV5' }
       end
 
       it 'assigns @current_person_type correctly' do
@@ -47,7 +47,7 @@ RSpec.describe Houses::MembersController, vcr: true do
 
   describe "GET current" do
     before(:each) do
-      get :current, params: { house_id: 'mG2ur5TF' }
+      get :current, params: { house_id: 'Kz7ncmrt' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -77,7 +77,7 @@ RSpec.describe Houses::MembersController, vcr: true do
 
   describe "GET letters" do
     before(:each) do
-      get :letters, params: { house_id: 'cqIATgUK', letter: 'a' }
+      get :letters, params: { house_id: 'Kz7ncmrt', letter: 'a' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -107,7 +107,7 @@ RSpec.describe Houses::MembersController, vcr: true do
 
   describe "GET current_letters" do
     before(:each) do
-      get :current_letters, params: { house_id: 'mG2ur5TF', letter: 'a' }
+      get :current_letters, params: { house_id: 'Kz7ncmrt', letter: 'a' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -137,7 +137,7 @@ RSpec.describe Houses::MembersController, vcr: true do
 
   describe "GET a_to_z" do
     before(:each) do
-      get :a_to_z, params: { house_id: 'KL2k1BGP' }
+      get :a_to_z, params: { house_id: 'Kz7ncmrt' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -155,7 +155,7 @@ RSpec.describe Houses::MembersController, vcr: true do
 
   describe "GET a_to_z_current" do
     before(:each) do
-      get :a_to_z_current, params: { house_id: 'KL2k1BGP' }
+      get :a_to_z_current, params: { house_id: 'Kz7ncmrt' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -176,33 +176,33 @@ RSpec.describe Houses::MembersController, vcr: true do
       methods = [
           {
             route: 'index',
-            parameters: { house_id: 'cqIATgUK' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/members"
+            parameters: { house_id: 'Kz7ncmrt' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_members?house_id=Kz7ncmrt"
           },
           {
             route: 'a_to_z_current',
-            parameters: { house_id: 'cqIATgUK' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/members/current/a_z_letters"
+            parameters: { house_id: 'Kz7ncmrt' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_current_members_a_to_z?house_id=Kz7ncmrt"
           },
           {
             route: 'current',
-            parameters: { house_id: 'cqIATgUK' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/members/current"
+            parameters: { house_id: 'Kz7ncmrt' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_current_members?house_id=Kz7ncmrt"
           },
           {
             route: 'letters',
-            parameters: { house_id: 'cqIATgUK', letter: 'p' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/members/p"
+            parameters: { house_id: 'Kz7ncmrt', letter: 'p' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_members_by_initial?house_id=Kz7ncmrt&initial=p"
           },
           {
             route: 'current_letters',
-            parameters: { house_id: 'cqIATgUK', letter: 'p' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/members/current/p"
+            parameters: { house_id: 'Kz7ncmrt', letter: 'p' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_current_members_by_initial?house_id=Kz7ncmrt&initial=p"
           },
           {
             route: 'a_to_z',
-            parameters: { house_id: 'cqIATgUK' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/members/a_z_letters"
+            parameters: { house_id: 'Kz7ncmrt' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_members_a_to_z?house_id=Kz7ncmrt"
           },
         ]
 

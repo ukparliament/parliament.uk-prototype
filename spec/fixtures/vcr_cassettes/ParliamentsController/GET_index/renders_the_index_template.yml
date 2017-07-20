@@ -2,270 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/parliaments
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      - application/n-triples
-      User-Agent:
-      - Ruby
-      Ocp-Apim-Subscription-Key:
-      - "<AUTH_TOKEN>"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/n-triples
-      Content-Disposition:
-      - inline; filename="index"
-      Last-Modified:
-      - Wed, 31 May 2017 11:18:14 GMT
-      X-Content-Type-Options:
-      - nosniff
-      Content-Length:
-      - '30916'
-    body:
-      encoding: UTF-8
-      string: |
-        <http://id.ukpds.org/aHgjgIdC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/aHgjgIdC> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1801-01-22"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/aHgjgIdC> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1802-06-29"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/aHgjgIdC> <http://id.ukpds.org/schema/parliamentPeriodNumber> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/vHMbRpE4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/vHMbRpE4> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1802-11-16"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/vHMbRpE4> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1806-10-24"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/vHMbRpE4> <http://id.ukpds.org/schema/parliamentPeriodNumber> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/pN9avD8O> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/pN9avD8O> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1806-12-15"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/pN9avD8O> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1807-04-29"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/pN9avD8O> <http://id.ukpds.org/schema/parliamentPeriodNumber> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/vG5hh37J> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/vG5hh37J> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1807-06-22"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/vG5hh37J> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1812-09-29"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/vG5hh37J> <http://id.ukpds.org/schema/parliamentPeriodNumber> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/IBE5ZZx0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/IBE5ZZx0> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1812-11-24"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/IBE5ZZx0> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1818-06-10"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/IBE5ZZx0> <http://id.ukpds.org/schema/parliamentPeriodNumber> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/kVbHF9HS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/kVbHF9HS> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1819-01-14"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/kVbHF9HS> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1820-02-29"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/kVbHF9HS> <http://id.ukpds.org/schema/parliamentPeriodNumber> "6"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/41Pe28Ev> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/41Pe28Ev> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1820-04-21"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/41Pe28Ev> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1826-06-02"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/41Pe28Ev> <http://id.ukpds.org/schema/parliamentPeriodNumber> "7"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/0VBZw5bc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/0VBZw5bc> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1826-11-14"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/0VBZw5bc> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1830-07-24"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/0VBZw5bc> <http://id.ukpds.org/schema/parliamentPeriodNumber> "8"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/ltiRMK13> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/ltiRMK13> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1830-10-26"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/ltiRMK13> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1831-04-23"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/ltiRMK13> <http://id.ukpds.org/schema/parliamentPeriodNumber> "9"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/eaiBo14l> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/eaiBo14l> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1831-06-14"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/eaiBo14l> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1832-12-03"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/eaiBo14l> <http://id.ukpds.org/schema/parliamentPeriodNumber> "10"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/C78u4IAw> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/C78u4IAw> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1833-01-29"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/C78u4IAw> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1834-12-29"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/C78u4IAw> <http://id.ukpds.org/schema/parliamentPeriodNumber> "11"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/uvvTb2Rf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/uvvTb2Rf> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1835-02-19"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/uvvTb2Rf> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1837-07-17"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/uvvTb2Rf> <http://id.ukpds.org/schema/parliamentPeriodNumber> "12"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/0K4dA3My> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/0K4dA3My> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1837-11-15"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/0K4dA3My> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1841-06-23"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/0K4dA3My> <http://id.ukpds.org/schema/parliamentPeriodNumber> "13"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/bgWJeDx3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/bgWJeDx3> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1841-08-19"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/bgWJeDx3> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1847-07-23"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/bgWJeDx3> <http://id.ukpds.org/schema/parliamentPeriodNumber> "14"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/wOGkel37> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/wOGkel37> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1847-11-18"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/wOGkel37> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1852-07-01"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/wOGkel37> <http://id.ukpds.org/schema/parliamentPeriodNumber> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/d012jwr4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/d012jwr4> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1852-11-04"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/d012jwr4> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1857-03-21"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/d012jwr4> <http://id.ukpds.org/schema/parliamentPeriodNumber> "16"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/GKIC0ykh> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/GKIC0ykh> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1857-04-30"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/GKIC0ykh> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1859-04-23"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/GKIC0ykh> <http://id.ukpds.org/schema/parliamentPeriodNumber> "17"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/tEwLOmKo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/tEwLOmKo> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1859-05-31"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/tEwLOmKo> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1865-07-06"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/tEwLOmKo> <http://id.ukpds.org/schema/parliamentPeriodNumber> "18"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/gbH6J5rn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/gbH6J5rn> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1866-02-01"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/gbH6J5rn> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1868-11-11"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/gbH6J5rn> <http://id.ukpds.org/schema/parliamentPeriodNumber> "19"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/yIBNGcMQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/yIBNGcMQ> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1868-12-10"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/yIBNGcMQ> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1874-01-26"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/yIBNGcMQ> <http://id.ukpds.org/schema/parliamentPeriodNumber> "20"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/OYf5z4c8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/OYf5z4c8> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1874-03-05"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/OYf5z4c8> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1880-03-24"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/OYf5z4c8> <http://id.ukpds.org/schema/parliamentPeriodNumber> "21"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/7BwNowVY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/7BwNowVY> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1880-04-29"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/7BwNowVY> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1885-11-18"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/7BwNowVY> <http://id.ukpds.org/schema/parliamentPeriodNumber> "22"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/lOBMv17m> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/lOBMv17m> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1886-01-12"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/lOBMv17m> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1886-06-26"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/lOBMv17m> <http://id.ukpds.org/schema/parliamentPeriodNumber> "23"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/ZrXU1Vjs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/ZrXU1Vjs> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1886-08-05"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/ZrXU1Vjs> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1892-06-28"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/ZrXU1Vjs> <http://id.ukpds.org/schema/parliamentPeriodNumber> "24"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/JTtEbp68> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/JTtEbp68> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1892-08-04"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/JTtEbp68> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1895-07-08"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/JTtEbp68> <http://id.ukpds.org/schema/parliamentPeriodNumber> "25"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/qjeufcMx> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/qjeufcMx> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1895-08-12"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/qjeufcMx> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1900-09-17"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/qjeufcMx> <http://id.ukpds.org/schema/parliamentPeriodNumber> "26"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/1k0hFc0k> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/1k0hFc0k> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1900-12-03"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/1k0hFc0k> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1906-01-08"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/1k0hFc0k> <http://id.ukpds.org/schema/parliamentPeriodNumber> "27"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/72r1CJly> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/72r1CJly> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1906-02-13"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/72r1CJly> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1910-01-10"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/72r1CJly> <http://id.ukpds.org/schema/parliamentPeriodNumber> "28"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/BD0pwF3z> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/BD0pwF3z> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1910-02-15"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/BD0pwF3z> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1910-11-28"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/BD0pwF3z> <http://id.ukpds.org/schema/parliamentPeriodNumber> "29"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/D5A2Ss3G> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/D5A2Ss3G> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1911-01-31"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/D5A2Ss3G> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1918-11-25"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/D5A2Ss3G> <http://id.ukpds.org/schema/parliamentPeriodNumber> "30"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/muKLfIWP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/muKLfIWP> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1919-02-04"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/muKLfIWP> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1922-10-26"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/muKLfIWP> <http://id.ukpds.org/schema/parliamentPeriodNumber> "31"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/dHhkCff1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/dHhkCff1> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1922-11-20"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/dHhkCff1> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1923-11-16"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/dHhkCff1> <http://id.ukpds.org/schema/parliamentPeriodNumber> "32"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/aBrvCkNM> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/aBrvCkNM> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1924-01-08"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/aBrvCkNM> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1924-10-09"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/aBrvCkNM> <http://id.ukpds.org/schema/parliamentPeriodNumber> "33"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/AuRQVcuW> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/AuRQVcuW> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1924-12-02"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/AuRQVcuW> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1929-05-10"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/AuRQVcuW> <http://id.ukpds.org/schema/parliamentPeriodNumber> "34"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/ahQfUM2y> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/ahQfUM2y> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1929-06-25"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/ahQfUM2y> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1931-10-07"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/ahQfUM2y> <http://id.ukpds.org/schema/parliamentPeriodNumber> "35"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/3awoWOX3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/3awoWOX3> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1931-11-03"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/3awoWOX3> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1935-10-25"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/3awoWOX3> <http://id.ukpds.org/schema/parliamentPeriodNumber> "36"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/pe7JZsK4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/pe7JZsK4> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1935-11-26"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/pe7JZsK4> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1945-06-15"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/pe7JZsK4> <http://id.ukpds.org/schema/parliamentPeriodNumber> "37"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/N6jxcIS5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/N6jxcIS5> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1945-08-01"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/N6jxcIS5> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1950-02-03"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/N6jxcIS5> <http://id.ukpds.org/schema/parliamentPeriodNumber> "38"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/G2GJsHKy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/G2GJsHKy> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1950-03-01"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/G2GJsHKy> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1951-10-05"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/G2GJsHKy> <http://id.ukpds.org/schema/parliamentPeriodNumber> "39"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/UeB3F3P2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/UeB3F3P2> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1951-10-31"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/UeB3F3P2> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1955-05-06"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/UeB3F3P2> <http://id.ukpds.org/schema/parliamentPeriodNumber> "40"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/dCho327J> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/dCho327J> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1955-06-07"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/dCho327J> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1959-09-18"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/dCho327J> <http://id.ukpds.org/schema/parliamentPeriodNumber> "41"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/FTayVVOZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/FTayVVOZ> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1959-10-20"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/FTayVVOZ> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1964-09-25"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/FTayVVOZ> <http://id.ukpds.org/schema/parliamentPeriodNumber> "42"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/UouFmU3n> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/UouFmU3n> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1964-10-27"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/UouFmU3n> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1966-03-10"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/UouFmU3n> <http://id.ukpds.org/schema/parliamentPeriodNumber> "43"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/WjTuyabJ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/WjTuyabJ> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1966-04-18"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/WjTuyabJ> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1970-05-29"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/WjTuyabJ> <http://id.ukpds.org/schema/parliamentPeriodNumber> "44"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/QWcZKpcs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/QWcZKpcs> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1970-06-29"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/QWcZKpcs> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1974-02-08"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/QWcZKpcs> <http://id.ukpds.org/schema/parliamentPeriodNumber> "45"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/qlFlrLv2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/qlFlrLv2> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1974-03-06"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/qlFlrLv2> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1974-09-20"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/qlFlrLv2> <http://id.ukpds.org/schema/parliamentPeriodNumber> "46"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/ZSFE38ec> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/ZSFE38ec> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1974-10-22"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/ZSFE38ec> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1979-04-07"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/ZSFE38ec> <http://id.ukpds.org/schema/parliamentPeriodNumber> "47"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/mF58SGRO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/mF58SGRO> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1979-05-09"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/mF58SGRO> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1983-05-13"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/mF58SGRO> <http://id.ukpds.org/schema/parliamentPeriodNumber> "48"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/ELDYf2fC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/ELDYf2fC> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1983-06-15"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/ELDYf2fC> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1987-05-18"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/ELDYf2fC> <http://id.ukpds.org/schema/parliamentPeriodNumber> "49"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/EJBZOglz> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/EJBZOglz> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1987-06-17"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/EJBZOglz> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1992-03-16"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/EJBZOglz> <http://id.ukpds.org/schema/parliamentPeriodNumber> "50"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/a0uXuEf8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/a0uXuEf8> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1992-04-27"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/a0uXuEf8> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "1997-04-08"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/a0uXuEf8> <http://id.ukpds.org/schema/parliamentPeriodNumber> "51"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/V3W1Zodh> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/V3W1Zodh> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "1997-05-07"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/V3W1Zodh> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "2001-05-14"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/V3W1Zodh> <http://id.ukpds.org/schema/parliamentPeriodNumber> "52"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/LjoaWqs4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/LjoaWqs4> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "2001-06-13"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/LjoaWqs4> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "2005-04-11"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/LjoaWqs4> <http://id.ukpds.org/schema/parliamentPeriodNumber> "53"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/koRjOCOr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/koRjOCOr> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "2005-05-11"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/koRjOCOr> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "2010-04-12"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/koRjOCOr> <http://id.ukpds.org/schema/parliamentPeriodNumber> "54"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/Du6iH79e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/Du6iH79e> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "2010-05-18"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/Du6iH79e> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "2015-03-30"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/Du6iH79e> <http://id.ukpds.org/schema/parliamentPeriodNumber> "55"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/GEFMX81E> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/GEFMX81E> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "2015-05-18"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/GEFMX81E> <http://id.ukpds.org/schema/parliamentPeriodEndDate> "2017-05-03"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/GEFMX81E> <http://id.ukpds.org/schema/parliamentPeriodNumber> "56"^^<http://www.w3.org/2001/XMLSchema#integer> .
-        <http://id.ukpds.org/0FxbTVtr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/ParliamentPeriod> .
-        <http://id.ukpds.org/0FxbTVtr> <http://id.ukpds.org/schema/parliamentPeriodStartDate> "2017-06-13"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <http://id.ukpds.org/0FxbTVtr> <http://id.ukpds.org/schema/parliamentPeriodNumber> "57"^^<http://www.w3.org/2001/XMLSchema#integer> .
-    http_version: 
-  recorded_at: Fri, 02 Jun 2017 14:16:55 GMT
-- request:
-    method: get
-    uri: http://localhost:3030/houses
+    uri: http://localhost:3030/parliament_index
     body:
       encoding: US-ASCII
       string: ''
@@ -285,7 +22,393 @@ http_interactions:
       message: OK
     headers:
       Cache-Control:
-      - no-store, must-revalidate, no-cache
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '31143'
+      Content-Type:
+      - application/n-triples
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
+      Date:
+      - Tue, 01 Aug 2017 15:20:46 GMT
+    body:
+      encoding: UTF-8
+      string: "<http://id.ukpds.org/QXymPJgT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/QXymPJgT>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1801-01-22\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/QXymPJgT> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1802-06-29\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/QXymPJgT>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"1\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/xggoHFA1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/xggoHFA1>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1802-11-16\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/xggoHFA1> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1806-10-24\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/xggoHFA1>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"2\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/aqInUXxI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/aqInUXxI>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1806-12-15\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/aqInUXxI> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1807-04-29\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/aqInUXxI>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"3\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/fRZShYhg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/fRZShYhg>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1807-06-22\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/fRZShYhg> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1812-09-29\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/fRZShYhg>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"4\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/zUICqTuf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/zUICqTuf>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1812-11-24\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/zUICqTuf> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1818-06-10\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/zUICqTuf>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"5\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/H33kZLi7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/H33kZLi7>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1819-01-14\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/H33kZLi7> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1820-02-29\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/H33kZLi7>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"6\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/atqJHFHk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/atqJHFHk>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1820-04-21\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/atqJHFHk> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1826-06-02\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/atqJHFHk>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"7\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/i5CqTvqa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/i5CqTvqa>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1826-11-14\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/i5CqTvqa> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1830-07-24\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/i5CqTvqa>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"8\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/hJ2HF5tY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/hJ2HF5tY>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1830-10-26\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/hJ2HF5tY> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1831-04-23\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/hJ2HF5tY>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"9\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/Yg4kmw1f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/Yg4kmw1f>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1831-06-14\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/Yg4kmw1f> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1832-12-03\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/Yg4kmw1f>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"10\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/urjLIFqR> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/urjLIFqR>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1833-01-29\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/urjLIFqR> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1834-12-29\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/urjLIFqR>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"11\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/RlbItrvg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/RlbItrvg>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1835-02-19\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/RlbItrvg> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1837-07-17\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/RlbItrvg>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"12\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/eivqhg52> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/eivqhg52>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1837-11-15\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/eivqhg52> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1841-06-23\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/eivqhg52>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"13\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/DkKefBgC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/DkKefBgC>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1841-08-19\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/DkKefBgC> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1847-07-23\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/DkKefBgC>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"14\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/9HRzFZwP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/9HRzFZwP>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1847-11-18\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/9HRzFZwP> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1852-07-01\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/9HRzFZwP>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"15\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/xLHrOxJQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/xLHrOxJQ>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1852-11-04\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/xLHrOxJQ> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1857-03-21\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/xLHrOxJQ>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"16\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/IUgaj5ie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/IUgaj5ie>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1857-04-30\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/IUgaj5ie> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1859-04-23\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/IUgaj5ie>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"17\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/trDdSfky> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/trDdSfky>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1859-05-31\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/trDdSfky> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1865-07-06\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/trDdSfky>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"18\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/2RYQyrFb> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/2RYQyrFb>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1866-02-01\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/2RYQyrFb> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1868-11-11\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/2RYQyrFb>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"19\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/cln5JaO0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/cln5JaO0>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1868-12-10\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/cln5JaO0> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1874-01-26\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/cln5JaO0>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"20\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/Ut1yJzxD> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/Ut1yJzxD>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1874-03-05\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/Ut1yJzxD> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1880-03-24\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/Ut1yJzxD>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"21\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/Cyp6D6Yn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/Cyp6D6Yn>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1880-04-29\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/Cyp6D6Yn> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1885-11-18\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/Cyp6D6Yn>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"22\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/yWtyTucW> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/yWtyTucW>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1886-01-12\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/yWtyTucW> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1886-06-26\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/yWtyTucW>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"23\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/oHXpGg3v> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/oHXpGg3v>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1886-08-05\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/oHXpGg3v> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1892-06-28\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/oHXpGg3v>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"24\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/UC1shPuE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/UC1shPuE>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1892-08-04\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/UC1shPuE> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1895-07-08\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/UC1shPuE>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"25\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/cGK1QtxK> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/cGK1QtxK>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1895-08-12\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/cGK1QtxK> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1900-09-17\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/cGK1QtxK>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"26\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/3Hx6ZdQg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/3Hx6ZdQg>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1900-12-03\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/3Hx6ZdQg> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1906-01-08\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/3Hx6ZdQg>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"27\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/9v8Rczdc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/9v8Rczdc>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1906-02-13\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/9v8Rczdc> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1910-01-10\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/9v8Rczdc>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"28\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/t3fWlIfm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/t3fWlIfm>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1910-02-15\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/t3fWlIfm> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1910-11-28\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/t3fWlIfm>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"29\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/ARUlPlUG> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/ARUlPlUG>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1911-01-31\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/ARUlPlUG> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1918-11-25\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/ARUlPlUG>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"30\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/Z5VbS3DJ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/Z5VbS3DJ>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1919-02-04\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/Z5VbS3DJ> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1922-10-26\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/Z5VbS3DJ>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"31\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/ddstSLpt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/ddstSLpt>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1922-11-20\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/ddstSLpt> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1923-11-16\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/ddstSLpt>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"32\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/TtEcmEFp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/TtEcmEFp>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1924-01-08\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/TtEcmEFp> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1924-10-09\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/TtEcmEFp>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"33\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/C5d7eprV> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/C5d7eprV>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1924-12-02\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/C5d7eprV> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1929-05-10\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/C5d7eprV>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"34\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/1u2J5WyX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/1u2J5WyX>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1929-06-25\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/1u2J5WyX> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1931-10-07\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/1u2J5WyX>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"35\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/6QZg0OgR> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/6QZg0OgR>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1931-11-03\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/6QZg0OgR> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1935-10-25\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/6QZg0OgR>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"36\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/0HmISxrr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/0HmISxrr>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1935-11-26\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/0HmISxrr> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1945-06-15\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/0HmISxrr>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"37\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/p32t4A32> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/p32t4A32>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1945-08-01\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/p32t4A32> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1950-02-03\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/p32t4A32>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"38\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/zaonbAzj> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/zaonbAzj>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1950-03-01\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/zaonbAzj> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1951-10-05\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/zaonbAzj>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"39\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/fZAiUl9C> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/fZAiUl9C>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1951-10-31\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/fZAiUl9C> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1955-05-06\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/fZAiUl9C>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"40\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/aEaLJrAf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/aEaLJrAf>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1955-06-07\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/aEaLJrAf> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1959-09-18\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/aEaLJrAf>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"41\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/sZmj0Ql0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/sZmj0Ql0>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1959-10-20\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/sZmj0Ql0> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1964-09-25\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/sZmj0Ql0>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"42\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/tz5l8mAW> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/tz5l8mAW>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1964-10-27\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/tz5l8mAW> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1966-03-10\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/tz5l8mAW>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"43\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/46dgPmuF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/46dgPmuF>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1966-04-18\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/46dgPmuF> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1970-05-29\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/46dgPmuF>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"44\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/ayIXXaJ3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/ayIXXaJ3>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1970-06-29\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/ayIXXaJ3> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1974-02-08\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/ayIXXaJ3>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"45\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/yV0tbtHW> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/yV0tbtHW>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1974-03-06\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/yV0tbtHW> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1974-09-20\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/yV0tbtHW>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"46\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/FDyJaDC3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/FDyJaDC3>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1974-10-22\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/FDyJaDC3> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1979-04-07\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/FDyJaDC3>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"47\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/cgdbBrLe> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/cgdbBrLe>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1979-05-09\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/cgdbBrLe> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1983-05-13\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/cgdbBrLe>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"48\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/VgyW9H6f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/VgyW9H6f>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1983-06-15\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/VgyW9H6f> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1987-05-18\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/VgyW9H6f>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"49\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/ZVylatp0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/ZVylatp0>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1987-06-17\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/ZVylatp0> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1992-03-16\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/ZVylatp0>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"50\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/t5SJD95c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/t5SJD95c>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1992-04-27\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/t5SJD95c> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"1997-04-08\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/t5SJD95c>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"51\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/A8Nb3LST> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/A8Nb3LST>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"1997-05-07\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/A8Nb3LST> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"2001-05-14\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/A8Nb3LST>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"52\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/ntK3duuD> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/ntK3duuD>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"2001-06-13\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/ntK3duuD> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"2005-04-11\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/ntK3duuD>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"53\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/Lr7LZwQn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/Lr7LZwQn>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"2005-05-11\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/Lr7LZwQn> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"2010-04-12\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/Lr7LZwQn>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"54\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/fHx6P1lb> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/fHx6P1lb>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"2010-05-18\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/fHx6P1lb> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"2015-03-30\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/fHx6P1lb>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"55\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/ExyBZkI7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/ExyBZkI7>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"2015-05-18\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/ExyBZkI7> <http://id.ukpds.org/schema/parliamentPeriodEndDate>
+        \"2017-05-03\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/ExyBZkI7>
+        <http://id.ukpds.org/schema/parliamentPeriodNumber> \"56\"^^<http://www.w3.org/2001/XMLSchema#integer>
+        .\r\n<http://id.ukpds.org/YN9DxpsC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ParliamentPeriod> .\r\n<http://id.ukpds.org/YN9DxpsC>
+        <http://id.ukpds.org/schema/parliamentPeriodStartDate> \"2017-06-13\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/YN9DxpsC> <http://id.ukpds.org/schema/parliamentPeriodNumber>
+        \"57\"^^<http://www.w3.org/2001/XMLSchema#integer> .\r\n"
+    http_version: 
+  recorded_at: Tue, 01 Aug 2017 15:24:16 GMT
+- request:
+    method: get
+    uri: http://localhost:3030/house_index
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/n-triples
+      User-Agent:
+      - Ruby
+      Ocp-Apim-Subscription-Key:
+      - "<AUTH_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
       Pragma:
       - no-cache
       Content-Length:
@@ -293,22 +416,24 @@ http_interactions:
       Content-Type:
       - application/n-triples
       Expires:
-      - Fri, 19 May 2017 14:06:21 GMT
-      Set-Cookie:
-      - ARRAffinity=a597504d04a4bb873c98faa2436077bc03bc8fb1fd56c877805eb305ea4ce58e;Path=/;Domain=20170412115159fixedquery.azurewebsites.net
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
       Date:
-      - Fri, 19 May 2017 14:06:21 GMT
+      - Tue, 01 Aug 2017 15:20:45 GMT
     body:
       encoding: UTF-8
-      string: "<http://id.ukpds.org/cqIATgUK> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/cqIATgUK> <http://id.ukpds.org/schema/houseName>
-        \"houseName - 1\" .\r\n<http://id.ukpds.org/mG2ur5TF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/mG2ur5TF> <http://id.ukpds.org/schema/houseName>
-        \"houseName - 1\" .\r\n"
-    http_version:
-  recorded_at: Fri, 19 May 2017 14:07:58 GMT
+      string: "<http://id.ukpds.org/Kz7ncmrt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/Kz7ncmrt> <http://id.ukpds.org/schema/houseName>
+        \"houseName - 1\" .\r\n<http://id.ukpds.org/MvLURLV5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/MvLURLV5> <http://id.ukpds.org/schema/houseName>
+        \"houseName - 2\" .\r\n"
+    http_version: 
+  recorded_at: Tue, 01 Aug 2017 15:24:16 GMT
 recorded_with: VCR 3.0.3

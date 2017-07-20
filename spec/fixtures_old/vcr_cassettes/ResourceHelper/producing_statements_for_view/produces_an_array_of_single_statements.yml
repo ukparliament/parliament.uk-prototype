@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/resources?uri=http://id.ukpds.org/sYpq0s7D
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/n-triples
+      User-Agent:
+      - Ruby
+      Ocp-Apim-Subscription-Key:
+      - "<AUTH_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate, no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1878'
+      Content-Type:
+      - application/n-triples
+      Expires:
+      - Wed, 07 Jun 2017 12:10:07 GMT
+      Set-Cookie:
+      - ARRAffinity=84da135d793d1a6b30cd9dc12f2e362e46368d998b5277708a22eabe7aaf7896;Path=/;Domain=20170412115159fixedquery.azurewebsites.net
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Wed, 07 Jun 2017 12:10:07 GMT
+    body:
+      encoding: UTF-8
+      string: "<http://id.ukpds.org/sYpq0s7D> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://www.w3.org/2000/01/rdf-schema#Resource> .\r\n<http://id.ukpds.org/sYpq0s7D>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/TemporalThing>
+        .\r\n<http://id.ukpds.org/sYpq0s7D> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://www.w3.org/2002/07/owl#Thing> .\r\n<http://id.ukpds.org/sYpq0s7D>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/PastThing>
+        .\r\n<http://id.ukpds.org/sYpq0s7D> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/SeatIncumbency> .\r\n<http://id.ukpds.org/sYpq0s7D>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Incumbency>
+        .\r\n<http://id.ukpds.org/sYpq0s7D> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/PastIncumbency> .\r\n<http://id.ukpds.org/sYpq0s7D>
+        <http://id.ukpds.org/schema/seatIncumbencyHasHouseSeat> <http://id.ukpds.org/85aHfEsh>
+        .\r\n<http://id.ukpds.org/sYpq0s7D> <http://id.ukpds.org/schema/incumbencyHasMember>
+        <http://id.ukpds.org/btIASFP9> .\r\n<http://id.ukpds.org/sYpq0s7D> <http://id.ukpds.org/schema/incumbencyStartDate>
+        \"1997-05-01\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/sYpq0s7D>
+        <http://id.ukpds.org/schema/startDate> \"1997-05-01\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/sYpq0s7D> <http://id.ukpds.org/schema/endDate> \"2001-06-07\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/sYpq0s7D> <http://id.ukpds.org/schema/incumbencyEndDate>
+        \"2001-06-07\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/85aHfEsh>
+        <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency> <http://id.ukpds.org/sYpq0s7D>
+        .\r\n<http://id.ukpds.org/btIASFP9> <http://id.ukpds.org/schema/memberHasIncumbency>
+        <http://id.ukpds.org/sYpq0s7D> .\r\n"
+    http_version: 
+  recorded_at: Wed, 07 Jun 2017 12:10:56 GMT
+recorded_with: VCR 3.0.3

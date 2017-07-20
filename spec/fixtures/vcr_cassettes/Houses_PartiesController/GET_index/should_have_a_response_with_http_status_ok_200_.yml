@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/houses/KL2k1BGP/parties
+    uri: http://localhost:3030/house_parties?house_id=Kz7ncmrt
     body:
       encoding: US-ASCII
       string: ''
@@ -26,147 +26,99 @@ http_interactions:
       Pragma:
       - no-cache
       Content-Length:
-      - '7697'
+      - '7486'
       Content-Type:
       - application/n-triples
       Expires:
       - "-1"
-      Set-Cookie:
-      - ARRAffinity=5869ab2b19db54ab1fc3138b40cd744a8060aae3ae1797c06555ae8e3eaaec5d;Path=/;Domain=20170418155059fixedquery.azurewebsites.net
+      Server:
+      - Microsoft-IIS/8.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
-      Date:
-      - Fri, 21 Apr 2017 09:48:00 GMT
-    body:
-      encoding: UTF-8
-      string: "<http://id.ukpds.org/KL2k1BGP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/KL2k1BGP> <http://id.ukpds.org/schema/houseName>
-        \"houseName - 1\" .\r\n<http://id.ukpds.org/P6LNyUn4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/P6LNyUn4> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 1\" .\r\n<http://id.ukpds.org/jF43Jxoc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/jF43Jxoc> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 2\" .\r\n<http://id.ukpds.org/aB3uRf7k> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/aB3uRf7k> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 3\" .\r\n<http://id.ukpds.org/EP4KNfma> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/EP4KNfma> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 4\" .\r\n<http://id.ukpds.org/abWIE9p3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/abWIE9p3> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 5\" .\r\n<http://id.ukpds.org/o5VwKikA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/o5VwKikA> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 6\" .\r\n<http://id.ukpds.org/Co31sAZT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/Co31sAZT> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 7\" .\r\n<http://id.ukpds.org/Ssj1h4Ch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/Ssj1h4Ch> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 8\" .\r\n<http://id.ukpds.org/MJMKb8Pr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/MJMKb8Pr> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 9\" .\r\n<http://id.ukpds.org/uE44sEFO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/uE44sEFO> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 10\" .\r\n<http://id.ukpds.org/bDLXdVbr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/bDLXdVbr> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 11\" .\r\n<http://id.ukpds.org/jJvPwJoT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/jJvPwJoT> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 12\" .\r\n<http://id.ukpds.org/iwc6o2RP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/iwc6o2RP> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 13\" .\r\n<http://id.ukpds.org/10sPKVoN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/10sPKVoN> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 14\" .\r\n<http://id.ukpds.org/SoSOkukk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/SoSOkukk> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 15\" .\r\n<http://id.ukpds.org/j0mfZwXL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/j0mfZwXL> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 16\" .\r\n<http://id.ukpds.org/d6gstao0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/d6gstao0> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 17\" .\r\n<http://id.ukpds.org/YlRDV8g8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/YlRDV8g8> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 18\" .\r\n<http://id.ukpds.org/ZgvOEXfV> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/ZgvOEXfV> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 19\" .\r\n<http://id.ukpds.org/ImFYnsc6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/ImFYnsc6> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 20\" .\r\n<http://id.ukpds.org/FNEtUeZm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/FNEtUeZm> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 21\" .\r\n<http://id.ukpds.org/yol5lE7M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/yol5lE7M> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 22\" .\r\n<http://id.ukpds.org/P8bV58IS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/P8bV58IS> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 23\" .\r\n<http://id.ukpds.org/aIT3RBNo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/aIT3RBNo> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 24\" .\r\n<http://id.ukpds.org/PLrvKZqa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/PLrvKZqa> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 25\" .\r\n<http://id.ukpds.org/WZ07Cbmf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/WZ07Cbmf> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 26\" .\r\n<http://id.ukpds.org/vllbAQm2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/vllbAQm2> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 27\" .\r\n<http://id.ukpds.org/8FwFtoWn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/8FwFtoWn> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 28\" .\r\n<http://id.ukpds.org/pPvA9vKP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/pPvA9vKP> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 29\" .\r\n<http://id.ukpds.org/QjOs5afO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/QjOs5afO> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 30\" .\r\n<http://id.ukpds.org/SHEz6GUd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/SHEz6GUd> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 31\" .\r\n<http://id.ukpds.org/Dit41UlB> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/Dit41UlB> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 32\" .\r\n<http://id.ukpds.org/GKYz9je3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/GKYz9je3> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 33\" .\r\n<http://id.ukpds.org/IFGVGMaA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/IFGVGMaA> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 34\" .\r\n<http://id.ukpds.org/fVf4H3bS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/fVf4H3bS> <http://id.ukpds.org/schema/partyName>
-        \"partyName - 35\" .\r\n"
-    http_version: 
-  recorded_at: Fri, 21 Apr 2017 09:48:56 GMT
-- request:
-    method: get
-    uri: http://localhost:3030/houses
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      - application/n-triples
-      User-Agent:
-      - Ruby
-      Ocp-Apim-Subscription-Key:
-      - "<AUTH_TOKEN>"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - no-cache
-      Pragma:
-      - no-cache
-      Content-Length:
-      - '420'
-      Content-Type:
-      - application/n-triples
-      Expires:
-      - "-1"
       Set-Cookie:
-      - ARRAffinity=5869ab2b19db54ab1fc3138b40cd744a8060aae3ae1797c06555ae8e3eaaec5d;Path=/;Domain=20170418155059fixedquery.azurewebsites.net
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
       Date:
-      - Fri, 21 Apr 2017 09:48:00 GMT
+      - Tue, 01 Aug 2017 14:28:13 GMT
     body:
       encoding: UTF-8
-      string: "<http://id.ukpds.org/KL2k1BGP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/KL2k1BGP> <http://id.ukpds.org/schema/houseName>
-        \"houseName - 1\" .\r\n<http://id.ukpds.org/m1EgVTLj> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/m1EgVTLj> <http://id.ukpds.org/schema/houseName>
-        \"houseName - 1\" .\r\n"
+      string: "<http://id.ukpds.org/Kz7ncmrt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/Kz7ncmrt> <http://id.ukpds.org/schema/houseName>
+        \"houseName - 1\" .\r\n<http://id.ukpds.org/891w1b1k> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/891w1b1k> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 9\" .\r\n<http://id.ukpds.org/AJgeHzL2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/AJgeHzL2> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 1\" .\r\n<http://id.ukpds.org/6zqf0pPb> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/6zqf0pPb> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 3\" .\r\n<http://id.ukpds.org/ODXnALpk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/ODXnALpk> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 10\" .\r\n<http://id.ukpds.org/wr7o2DYo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/wr7o2DYo> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 5\" .\r\n<http://id.ukpds.org/3cPi3GPW> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/3cPi3GPW> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 6\" .\r\n<http://id.ukpds.org/OvQrKi8Q> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/OvQrKi8Q> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 7\" .\r\n<http://id.ukpds.org/oQPASljv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/oQPASljv> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 8\" .\r\n<http://id.ukpds.org/aHG1WJDM> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/aHG1WJDM> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 3\" .\r\n<http://id.ukpds.org/eQT7OtCg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/eQT7OtCg> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 10\" .\r\n<http://id.ukpds.org/PTqFnU5d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/PTqFnU5d> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 2\" .\r\n<http://id.ukpds.org/sh0csIGS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/sh0csIGS> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 4\" .\r\n<http://id.ukpds.org/msCC3sDK> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/msCC3sDK> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 7\" .\r\n<http://id.ukpds.org/PxdeRudC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/PxdeRudC> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 14\" .\r\n<http://id.ukpds.org/pkw2yLEp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/pkw2yLEp> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 15\" .\r\n<http://id.ukpds.org/C4HUPS8r> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/C4HUPS8r> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 16\" .\r\n<http://id.ukpds.org/Bw0PzrQH> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/Bw0PzrQH> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 5\" .\r\n<http://id.ukpds.org/pHhMpFlN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/pHhMpFlN> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 18\" .\r\n<http://id.ukpds.org/T3yueALa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/T3yueALa> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 19\" .\r\n<http://id.ukpds.org/xFJ0YtdA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/xFJ0YtdA> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 20\" .\r\n<http://id.ukpds.org/SgZ3LoQZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/SgZ3LoQZ> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 21\" .\r\n<http://id.ukpds.org/WVn9YmfD> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/WVn9YmfD> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 22\" .\r\n<http://id.ukpds.org/3HnskdIl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/3HnskdIl> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 23\" .\r\n<http://id.ukpds.org/2bw60AOg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/2bw60AOg> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 24\" .\r\n<http://id.ukpds.org/uokUfbsX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/uokUfbsX> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 6\" .\r\n<http://id.ukpds.org/2HkaDLpq> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/2HkaDLpq> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 26\" .\r\n<http://id.ukpds.org/K50q4OgY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/K50q4OgY> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 27\" .\r\n<http://id.ukpds.org/nSB33tyM> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/nSB33tyM> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 8\" .\r\n<http://id.ukpds.org/1w1opWOa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/1w1opWOa> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 29\" .\r\n<http://id.ukpds.org/ZLEhuH0q> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/ZLEhuH0q> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 30\" .\r\n<http://id.ukpds.org/uf4dEI5r> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/uf4dEI5r> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 31\" .\r\n<http://id.ukpds.org/pprcfXTj> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/pprcfXTj> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 32\" .\r\n<http://id.ukpds.org/Ni7YTh7w> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/Ni7YTh7w> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 33\" .\r\n<http://id.ukpds.org/oCC7oSIT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/oCC7oSIT> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 34\" .\r\n"
     http_version: 
-  recorded_at: Fri, 21 Apr 2017 09:48:56 GMT
+  recorded_at: Tue, 01 Aug 2017 14:31:44 GMT
 - request:
     method: get
-    uri: http://localhost:3030/houses
+    uri: http://localhost:3030/house_index
     body:
       encoding: US-ASCII
       string: ''
@@ -195,53 +147,23 @@ http_interactions:
       - application/n-triples
       Expires:
       - "-1"
-      Set-Cookie:
-      - ARRAffinity=5869ab2b19db54ab1fc3138b40cd744a8060aae3ae1797c06555ae8e3eaaec5d;Path=/;Domain=20170418155059fixedquery.azurewebsites.net
+      Server:
+      - Microsoft-IIS/8.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
       Date:
-      - Thu, 20 Apr 2017 12:33:05 GMT
+      - Tue, 01 Aug 2017 14:28:14 GMT
     body:
       encoding: UTF-8
-      string: "<http://id.ukpds.org/KL2k1BGP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/KL2k1BGP> <http://id.ukpds.org/schema/houseName>
-        \"houseName - 1\" .\r\n<http://id.ukpds.org/m1EgVTLj> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/m1EgVTLj> <http://id.ukpds.org/schema/houseName>
-        \"houseName - 1\" .\r\n"
+      string: "<http://id.ukpds.org/Kz7ncmrt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/Kz7ncmrt> <http://id.ukpds.org/schema/houseName>
+        \"houseName - 1\" .\r\n<http://id.ukpds.org/MvLURLV5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/MvLURLV5> <http://id.ukpds.org/schema/houseName>
+        \"houseName - 2\" .\r\n"
     http_version: 
-  recorded_at: Thu, 20 Apr 2017 12:33:08 GMT
-- request:
-    method: get
-    uri: http://localhost:5000/api/v2/groups/parliament/features/show-dissolution
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Bandiera Ruby Client / 3.0.4
-      Host:
-      - bandiera:5000
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      X-Content-Type-Options:
-      - nosniff
-      Content-Length:
-      - '82'
-    body:
-      encoding: UTF-8
-      string: '{"response":false,"warning":"This group does not exist in the Bandiera
-        database."}'
-    http_version: 
-  recorded_at: Mon, 08 May 2017 10:47:53 GMT
+  recorded_at: Tue, 01 Aug 2017 14:31:44 GMT
 recorded_with: VCR 3.0.3

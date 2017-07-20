@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe People::ContactPointsController, vcr: true do
   describe "GET index" do
     before(:each) do
-      get :index, params: { person_id: '7TX8ySd4' }
+      get :index, params: { person_id: '7KNGxTli' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -29,7 +29,7 @@ RSpec.describe People::ContactPointsController, vcr: true do
       before(:each) do
         headers = { 'Accept' => 'application/rdf+xml' }
         request.headers.merge(headers)
-        get :index, params: { person_id: '7TX8ySd4' }
+        get :index, params: { person_id: '7KNGxTli' }
       end
 
       it 'should have a response with http status redirect (302)' do
@@ -37,7 +37,7 @@ RSpec.describe People::ContactPointsController, vcr: true do
       end
 
       it 'redirects to the data service' do
-        expect(response).to redirect_to("#{ENV['PARLIAMENT_BASE_URL']}/people/7TX8ySd4/contact_points")
+        expect(response).to redirect_to("#{ENV['PARLIAMENT_BASE_URL']}/person_contact_points?person_id=7KNGxTli")
       end
     end
   end
