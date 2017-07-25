@@ -188,6 +188,12 @@ RSpec.describe ConstituenciesController, vcr: true do
       it 'renders the map template' do
         expect(response).to render_template('map')
       end
+
+      context 'constituency is not current' do
+        it 'will respond with ActionController::RoutingError' do
+          expect{ get :map, params: { constituency_id: 'aiUxQX1U' } }.to raise_error(ActionController::RoutingError)
+        end
+      end
     end
   end
 

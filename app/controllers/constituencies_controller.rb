@@ -33,10 +33,11 @@ class ConstituenciesController < ApplicationController
   def show
     @postcode = flash[:postcode]
 
-    @constituency, @seat_incumbencies = RequestHelper.filter_response_data(
+    @constituency, @seat_incumbencies, @party = RequestHelper.filter_response_data(
       @request,
       'http://id.ukpds.org/schema/ConstituencyGroup',
-      'http://id.ukpds.org/schema/SeatIncumbency'
+      'http://id.ukpds.org/schema/SeatIncumbency',
+      'http://id.ukpds.org/schema/Party'
     )
     # Instance variable for single MP pages
     @single_mp = true
@@ -46,6 +47,8 @@ class ConstituenciesController < ApplicationController
     @current_incumbency = @seat_incumbencies.shift if !@seat_incumbencies.empty? && @seat_incumbencies.first.current?
 
     @json_location = constituency_map_path(@constituency.graph_id, format: 'json')
+
+    @party = @party.first
 
     return if @postcode.nil?
 
@@ -113,14 +116,16 @@ class ConstituenciesController < ApplicationController
           'http://id.ukpds.org/schema/ConstituencyGroup'
         ).first
 
+        raise ActionController::RoutingError, 'Not Found' unless @constituency.current?
+
         render json: GeosparqlToGeojson.convert_to_geojson(
-          geosparql_values:     @constituency.area.polygon,
+          geosparql_values: @constituency.area.polygon,
           geosparql_properties: {
             name:       @constituency.name,
             start_date: @constituency.start_date,
             end_date:   @constituency.end_date
           },
-          reverse:              false
+          reverse: false
         ).geojson
       end
     end
