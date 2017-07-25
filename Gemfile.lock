@@ -129,7 +129,7 @@ GEM
       mini_portile2 (~> 2.2.0)
     nokogumbo (1.4.13)
       nokogiri
-    parallel (1.11.2)
+    parallel (1.12.0)
     parallel_tests (2.14.2)
       parallel
     parliament-grom-decorators (0.2.7)
@@ -144,7 +144,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    pugin (0.8.9)
+    pugin (0.9.0)
     puma (3.9.1)
     rack (2.0.3)
     rack-rewrite (1.5.1)
@@ -246,7 +246,7 @@ GEM
     temple (0.8.0)
     thor (0.19.4)
     thread_safe (0.3.6)
-    tilt (2.0.7)
+    tilt (2.0.8)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
@@ -294,7 +294,7 @@ DEPENDENCIES
   parliament-ntriple (~> 0.1)
   parliament-ruby (~> 0.7)
   pry
-  pugin (~> 0.8)
+  pugin (~> 0.9)
   puma
   rack-rewrite
   rack-timeout
