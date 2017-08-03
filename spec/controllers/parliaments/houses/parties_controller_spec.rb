@@ -4,7 +4,7 @@ RSpec.describe Parliaments::Houses::PartiesController, vcr: true do
 
     describe 'GET index' do
       before(:each) do
-        get :index, params: { parliament_id: '0FxbTVtr', house_id: 'cqIATgUK', member_count: 3 }
+        get :index, params: { parliament_id: 'fHx6P1lb', house_id: 'Kz7ncmrt', member_count: 3 }
       end
 
       it 'should have a response with http status ok (200)' do
@@ -48,13 +48,13 @@ RSpec.describe Parliaments::Houses::PartiesController, vcr: true do
       context '@party is nil' do
         # updated VCR cassette in order to set @party to nil
         it 'should raise ActionController::RoutingError' do
-          expect{get :show, params: { parliament_id: '0FxbTVtr', house_id: 'cqIATgUK', party_id: 'P6LNyUn4' }}.to raise_error(ActionController::RoutingError)
+          expect{get :show, params: { parliament_id: 'fHx6P1lb', house_id: 'Kz7ncmrt', party_id: '891w1b1k' }}.to raise_error(ActionController::RoutingError)
         end
       end
 
       context '@party is not nil' do
         before(:each) do
-          get :show, params: { parliament_id: '0FxbTVtr', house_id: 'cqIATgUK', party_id: 'P6LNyUn4' }
+          get :show, params: { parliament_id: 'fHx6P1lb', house_id: 'Kz7ncmrt', party_id: '891w1b1k' }
         end
 
         it 'should have a response with http status ok (200)' do
@@ -93,13 +93,13 @@ RSpec.describe Parliaments::Houses::PartiesController, vcr: true do
         methods = [
             {
               route: 'index',
-              parameters: { parliament_id: '0FxbTVtr', house_id: 'cqIATgUK' },
-              data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/0FxbTVtr/houses/cqIATgUK/parties"
+              parameters: { parliament_id: 'fHx6P1lb', house_id: 'Kz7ncmrt' },
+              data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliament_house_parties?parliament_id=fHx6P1lb&house_id=Kz7ncmrt"
             },
             {
               route: 'show',
-              parameters: { parliament_id: '0FxbTVtr', house_id: 'cqIATgUK', party_id: 'P6LNyUn4' },
-              data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/0FxbTVtr/houses/cqIATgUK/parties/P6LNyUn4"
+              parameters: { parliament_id: 'fHx6P1lb', house_id: 'Kz7ncmrt', party_id: '891w1b1k' },
+              data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliament_house_party?parliament_id=fHx6P1lb&house_id=Kz7ncmrt&party_id=891w1b1k"
             }
           ]
 

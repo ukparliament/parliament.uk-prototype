@@ -4,7 +4,7 @@ RSpec.describe Houses::PartiesController, vcr: true do
 
   describe "GET index" do
     before(:each) do
-      get :index, params: { house_id: 'KL2k1BGP' }
+      get :index, params: { house_id: 'Kz7ncmrt' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -33,7 +33,7 @@ RSpec.describe Houses::PartiesController, vcr: true do
 
   describe "GET current" do
     before(:each) do
-      get :current, params: { house_id: 'm1EgVTLj' }
+      get :current, params: { house_id: 'Kz7ncmrt' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -50,12 +50,12 @@ RSpec.describe Houses::PartiesController, vcr: true do
     end
 
     it 'assigns @parties in member_count, then name order' do
-      expect(assigns(:parties)[0].name).to eq('partyName - 3')
-      expect(assigns(:parties)[1].name).to eq('partyName - 6')
-      expect(assigns(:parties)[8].name).to eq('partyName - 10')
-      expect(assigns(:parties)[8].member_count).to eq(2)
-      expect(assigns(:parties)[9].name).to eq('partyName - 11')
-      expect(assigns(:parties)[9].member_count).to eq(2)
+      expect(assigns(:parties)[0].name).to eq('partyName - 1')
+      expect(assigns(:parties)[1].name).to eq('partyName - 9')
+      expect(assigns(:parties)[8].name).to eq('partyName - 6')
+      expect(assigns(:parties)[8].member_count).to eq(1)
+      expect(assigns(:parties)[9].name).to eq('partyName - 8')
+      expect(assigns(:parties)[9].member_count).to eq(1)
     end
 
     it 'renders the current_parties template' do
@@ -66,7 +66,7 @@ RSpec.describe Houses::PartiesController, vcr: true do
   describe "GET show" do
     context 'both house and party have a valid id' do
       before(:each) do
-        get :show, params: { house_id: 'KL2k1BGP', party_id: 'P6LNyUn4' }
+        get :show, params: { house_id: 'Kz7ncmrt', party_id: '891w1b1k' }
       end
 
       it 'should have a response with http status ok (200)' do
@@ -87,8 +87,8 @@ RSpec.describe Houses::PartiesController, vcr: true do
 
     context 'party id is invalid' do
       it 'raises an error if @party is nil' do
-        house_id = 'KL2k1BGP'
-        party_id = 'P6LNyUn5'
+        house_id = 'Kz7ncmrt'
+        party_id = 'zzzzzzzz'
 
         expect{ get :show, params: { house_id: house_id, party_id: party_id } }.to raise_error(ActionController::RoutingError, 'Invalid party id')
       end
@@ -101,18 +101,18 @@ RSpec.describe Houses::PartiesController, vcr: true do
       methods = [
           {
             route: 'index',
-            parameters: { house_id: 'cqIATgUK' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/parties"
+            parameters: { house_id: 'Kz7ncmrt' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_parties?house_id=Kz7ncmrt"
           },
           {
             route: 'current',
-            parameters: { house_id: 'cqIATgUK' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/parties/current"
+            parameters: { house_id: 'Kz7ncmrt' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_current_parties?house_id=Kz7ncmrt"
           },
           {
             route: 'show',
-            parameters: { house_id: 'cqIATgUK', party_id: 'P6LNyUn4' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/parties/P6LNyUn4"
+            parameters: { house_id: 'Kz7ncmrt', party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_party_by_id?house_id=Kz7ncmrt&party_id=891w1b1k"
           }
         ]
 

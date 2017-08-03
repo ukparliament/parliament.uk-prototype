@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   before_action :data_check, :build_request, only: :mps
 
   ROUTE_MAP = {
-    mps: proc { ParliamentHelper.parliament_request.people.mps }
+    mps: proc { ParliamentHelper.parliament_request.person_mps }
   }.freeze
 
   def index; end

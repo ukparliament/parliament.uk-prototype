@@ -56,7 +56,7 @@ RSpec.describe HomeController, vcr: true do
       end
 
       it 'GET mps should have a response with http status redirect (302)' do
-        expect(response).to redirect_to("#{ENV['PARLIAMENT_BASE_URL']}/people/mps")
+        expect(response).to redirect_to("#{ENV['PARLIAMENT_BASE_URL']}/person_mps")
       end
 
       it 'GET mps redirects to the data service' do

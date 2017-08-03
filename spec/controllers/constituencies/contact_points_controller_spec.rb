@@ -4,7 +4,7 @@ RSpec.describe Constituencies::ContactPointsController, vcr: true do
 
   describe 'GET index' do
     before(:each) do
-      get :index, params: { constituency_id: 'MtbjxRrE' }
+      get :index, params: { constituency_id: 'dwtSdieB' }
     end
 
     it 'should have a response with a http status ok (200)' do
@@ -26,8 +26,8 @@ RSpec.describe Constituencies::ContactPointsController, vcr: true do
       methods = [
           {
             route: 'index',
-            parameters: { constituency_id: 'vUPobpVT' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/vUPobpVT/contact_point"
+            parameters: { constituency_id: 'dwtSdieB' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_contact_point?constituency_id=dwtSdieB"
           }
         ]
 

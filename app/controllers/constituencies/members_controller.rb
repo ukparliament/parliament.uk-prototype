@@ -3,8 +3,8 @@ module Constituencies
     before_action :data_check, :build_request
 
     ROUTE_MAP = {
-      index:   proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]).members },
-      current: proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]).members.current }
+      index:   proc { |params| ParliamentHelper.parliament_request.constituency_members.set_url_params({ constituency_id: params[:constituency_id] }) },
+      current: proc { |params| ParliamentHelper.parliament_request.constituency_current_member.set_url_params({ constituency_id: params[:constituency_id] }) }
     }.freeze
 
     def index

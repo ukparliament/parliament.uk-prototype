@@ -3,8 +3,8 @@ module People
     before_action :data_check, :build_request
 
     ROUTE_MAP = {
-      index:   proc { |params| ParliamentHelper.parliament_request.people(params[:person_id]).houses },
-      current: proc { |params| ParliamentHelper.parliament_request.people(params[:person_id]).houses.current }
+      index:   proc { |params| ParliamentHelper.parliament_request.person_houses.set_url_params({ person_id: params[:person_id] }) },
+      current: proc { |params| ParliamentHelper.parliament_request.person_current_house.set_url_params({ person_id: params[:person_id] }) }
     }.freeze
 
     def index

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe People::MediaController, vcr: true do
   describe "GET show" do
     before(:each) do
-      get :show, params: { medium_id: '12345678' }
+      get :show, params: { medium_id: 'qnsCGpnw' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -25,7 +25,7 @@ RSpec.describe People::MediaController, vcr: true do
       before(:each) do
         headers = { 'Accept' => 'application/rdf+xml' }
         request.headers.merge(headers)
-        get :show, params: { medium_id: '12345678' }
+        get :show, params: { medium_id: 'qnsCGpnw' }
       end
 
       it 'should have a response with http status redirect (302)' do
@@ -33,7 +33,7 @@ RSpec.describe People::MediaController, vcr: true do
       end
 
       it 'redirects to the data service' do
-        expect(response).to redirect_to("#{ENV['PARLIAMENT_BASE_URL']}/media/12345678")
+        expect(response).to redirect_to("#{ENV['PARLIAMENT_BASE_URL']}/image_by_id?image_id=qnsCGpnw")
       end
     end
   end

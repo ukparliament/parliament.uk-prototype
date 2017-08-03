@@ -3,9 +3,9 @@ module Parliaments
     before_action :data_check, :build_request
 
     ROUTE_MAP = {
-      index:   proc { |params| ParliamentHelper.parliament_request.parliaments(params[:parliament_id]).constituencies },
-      a_to_z:  proc { |params| ParliamentHelper.parliament_request.parliaments(params[:parliament_id]).constituencies },
-      letters: proc { |params| ParliamentHelper.parliament_request.parliaments(params[:parliament_id]).constituencies(params[:letter]) }
+      index:   proc { |params| ParliamentHelper.parliament_request.parliament_constituencies.set_url_params({ parliament_id: params[:parliament_id] }) },
+      a_to_z:  proc { |params| ParliamentHelper.parliament_request.parliament_constituencies.set_url_params({ parliament_id: params[:parliament_id] }) },
+      letters: proc { |params| ParliamentHelper.parliament_request.parliament_constituencies_by_initial.set_url_params({ parliament_id: params[:parliament_id], initial: params[:letter] }) }
     }.freeze
 
     def index

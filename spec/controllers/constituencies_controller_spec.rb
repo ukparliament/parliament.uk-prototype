@@ -32,7 +32,7 @@ RSpec.describe ConstituenciesController, vcr: true do
 
   describe 'GET lookup' do
     before(:each) do
-      get :lookup, params: { source: 'mnisId', id: '3274' }
+      get :lookup, params: { source: 'onsCode', id: 'E14000699' }
     end
 
     it 'should have a response with http status redirect (302)' do
@@ -45,13 +45,13 @@ RSpec.describe ConstituenciesController, vcr: true do
     end
 
     it 'redirects to constituencies/:id' do
-      expect(response).to redirect_to(constituency_path('beRgFrSo'))
+      expect(response).to redirect_to(constituency_path('6ptkUjxb'))
     end
   end
 
   describe 'GET show' do
     before(:each) do
-      get :show, params: { constituency_id: 'vUPobpVT' }
+      get :show, params: { constituency_id: 'xeQCZvTU' }
     end
 
     it 'should have a response with a http status ok (200)' do
@@ -73,12 +73,12 @@ RSpec.describe ConstituenciesController, vcr: true do
     end
 
     it 'assigns @seat_incumbencies in reverse chronological order' do
-      expect(assigns(:seat_incumbencies)[0].start_date).to eq(DateTime.new(2010, 5, 6))
-      expect(assigns(:seat_incumbencies)[1].start_date).to eq(DateTime.new(2005, 5, 5))
+      expect(assigns(:seat_incumbencies)[0].start_date).to eq(DateTime.new(2015, 5, 7))
+      expect(assigns(:seat_incumbencies)[1].start_date).to eq(DateTime.new(2010, 5, 6))
     end
 
     it 'assigns @current_incumbency to be the current incumbency' do
-      expect(assigns(:current_incumbency).start_date).to eq(DateTime.new(2015, 5, 7))
+      expect(assigns(:current_incumbency).start_date).to eq(DateTime.new(2017, 6, 8))
     end
 
     it 'renders the show template' do
@@ -87,7 +87,7 @@ RSpec.describe ConstituenciesController, vcr: true do
 
     context 'given a valid postcode' do
       before(:each) do
-        get :show, params: { constituency_id: 'vUPobpVT' }, flash: { postcode: 'E2 0JA' }
+        get :show, params: { constituency_id: 'xeQCZvTU' }, flash: { postcode: 'E2 0JA' }
       end
 
       it 'assigns @postcode, @postcode_constituency' do
@@ -100,7 +100,7 @@ RSpec.describe ConstituenciesController, vcr: true do
 
     context 'given an invalid postcode' do
       before(:each) do
-        get :show, params: { constituency_id: 'vUPobpVT' }, flash: { postcode: 'apple' }
+        get :show, params: { constituency_id: 'xeQCZvTU' }, flash: { postcode: 'apple' }
       end
 
       it 'assigns @postcode and flash[:error]' do
@@ -112,7 +112,7 @@ RSpec.describe ConstituenciesController, vcr: true do
 
   describe "POST postcode_lookup" do
     before(:each) do
-      post :postcode_lookup, params: { constituency_id: 'vUPobpVT', postcode: 'E2 0JA' }
+      post :postcode_lookup, params: { constituency_id: 'xeQCZvTU', postcode: 'E2 0JA' }
     end
 
     it 'assigns flash[:postcode]' do
@@ -120,7 +120,7 @@ RSpec.describe ConstituenciesController, vcr: true do
     end
 
     it 'redirects to people/:id' do
-      expect(response).to redirect_to(constituency_path('vUPobpVT'))
+      expect(response).to redirect_to(constituency_path('xeQCZvTU'))
     end
   end
 
@@ -154,7 +154,7 @@ RSpec.describe ConstituenciesController, vcr: true do
 
   describe 'GET map' do
     before(:each) do
-      get :map, params: { constituency_id: 'vUPobpVT' }
+      get :map, params: { constituency_id: 'dwtSdieB' }
     end
 
     it 'should have a response with a http status ok (200)' do
@@ -347,7 +347,7 @@ RSpec.describe ConstituenciesController, vcr: true do
 
     context 'it returns a single result' do
       before(:each) do
-        get :lookup_by_letters, params: { letters: 'arfon' }
+        get :lookup_by_letters, params: { letters: 'hove' }
       end
 
       it 'should have a response with http status redirect (302)' do
@@ -355,7 +355,7 @@ RSpec.describe ConstituenciesController, vcr: true do
       end
 
       it 'redirects to constituencies/:id' do
-        expect(response).to redirect_to(constituency_path('HWhM7sev'))
+        expect(response).to redirect_to(constituency_path('JGl1V427'))
       end
     end
   end
@@ -365,44 +365,44 @@ RSpec.describe ConstituenciesController, vcr: true do
       METHODS = [
           {
             route: 'index',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_index"
           },
           {
             route: 'lookup',
             parameters: { source: 'mnisId', id: '3274' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/lookup/mnisId/3274"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_lookup?property=mnisId&value=3274"
           },
           {
             route: 'show',
             parameters: { constituency_id: 'vUPobpVT' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/vUPobpVT"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_by_id?constituency_id=vUPobpVT"
           },
           {
             route: 'lookup_by_letters',
             parameters: { letters: 'epping' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/partial/epping"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_by_substring?substring=epping"
           },
           {
             route: 'a_to_z_current',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/current/a_z_letters"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_current_a_to_z"
           },
           {
             route: 'current',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/current"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_current"
           },
           {
             route: 'letters',
             parameters: { letter: 'p' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/p"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_by_initial?initial=p"
           },
           {
             route: 'current_letters',
             parameters: { letter: 'p' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/current/p"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_current_by_initial?initial=p"
           },
           {
             route: 'a_to_z',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/a_z_letters"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_a_to_z"
           },
         ]
 

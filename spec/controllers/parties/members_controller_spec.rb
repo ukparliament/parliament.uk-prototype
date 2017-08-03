@@ -4,7 +4,7 @@ RSpec.describe Parties::MembersController, vcr: true do
 
   describe 'GET index' do
     before(:each) do
-      get :index, params: { party_id: 'lk3RZ8EB' }
+      get :index, params: { party_id: '891w1b1k' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -34,7 +34,7 @@ RSpec.describe Parties::MembersController, vcr: true do
 
   describe 'GET current' do
     before(:each) do
-      get :current, params: { party_id: 'lk3RZ8EB' }
+      get :current, params: { party_id: '891w1b1k' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -64,7 +64,7 @@ RSpec.describe Parties::MembersController, vcr: true do
 
   describe 'GET letters' do
     before(:each) do
-      get :letters, params: { party_id: 'P6LNyUn4', letter: 'a' }
+      get :letters, params: { party_id: '891w1b1k', letter: 'f' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -94,7 +94,7 @@ RSpec.describe Parties::MembersController, vcr: true do
 
   describe 'GET current_letters' do
     before(:each) do
-      get :current_letters, params: { party_id: 'lk3RZ8EB', letter: 'c' }
+      get :current_letters, params: { party_id: '891w1b1k', letter: 'f' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -124,7 +124,7 @@ RSpec.describe Parties::MembersController, vcr: true do
 
   describe "GET a_to_z" do
     before(:each) do
-      get :a_to_z, params: { party_id: 'P6LNyUn4' }
+      get :a_to_z, params: { party_id: '891w1b1k' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -142,7 +142,7 @@ RSpec.describe Parties::MembersController, vcr: true do
 
   describe "GET a_to_z_current" do
     before(:each) do
-      get :a_to_z_current, params: { party_id: 'P6LNyUn4' }
+      get :a_to_z_current, params: { party_id: '891w1b1k' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -170,33 +170,33 @@ RSpec.describe Parties::MembersController, vcr: true do
       methods = [
           {
             route: 'index',
-            parameters: { party_id: 'jF43Jxoc' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parties/jF43Jxoc/members"
+            parameters: { party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/party_members?party_id=891w1b1k"
           },
           {
             route: 'current',
-            parameters: { party_id: 'jF43Jxoc' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parties/jF43Jxoc/members/current"
+            parameters: { party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/party_current_members?party_id=891w1b1k"
           },
           {
             route: 'letters',
-            parameters: { party_id: 'jF43Jxoc', letter: 'c' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parties/jF43Jxoc/members/c"
+            parameters: { party_id: '891w1b1k', letter: 'f' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/party_members_by_initial?party_id=891w1b1k&initial=f"
           },
           {
             route: 'current_letters',
-            parameters: { party_id: 'jF43Jxoc', letter: 'c' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parties/jF43Jxoc/members/current/c"
+            parameters: { party_id: '891w1b1k', letter: 'f' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/party_current_members_by_initial?party_id=891w1b1k&initial=f"
           },
           {
             route: 'a_to_z',
-            parameters: { party_id: 'jF43Jxoc' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parties/jF43Jxoc/members/a_z_letters"
+            parameters: { party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/party_members_a_to_z?party_id=891w1b1k"
           },
           {
             route: 'a_to_z_current',
-            parameters: { party_id: 'jF43Jxoc' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parties/jF43Jxoc/members/current/a_z_letters"
+            parameters: { party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/party_current_members_a_to_z?party_id=891w1b1k"
           }
         ]
 

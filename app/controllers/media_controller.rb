@@ -2,7 +2,7 @@ class MediaController < ApplicationController
   before_action :data_check, :build_request
 
   ROUTE_MAP = {
-    show: proc {|params| ParliamentHelper.parliament_request.media(params[:medium_id])}
+    show: proc {|params| ParliamentHelper.parliament_request.image_by_id.set_url_params({ image_id: params[:medium_id] })}
   }.freeze
 
   def index

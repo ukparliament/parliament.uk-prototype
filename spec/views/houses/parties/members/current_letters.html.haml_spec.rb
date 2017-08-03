@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe 'houses/parties/members/current_letters', vcr: true do
   before do
     allow(FlagHelper).to receive(:dissolution?).and_return(true)
-    assign(:house, double(:house, name: 'Test House', graph_id: 'KL2k1BGP'))
+    assign(:house, double(:house, name: 'Test House', graph_id: 'Kz7ncmrt'))
     assign(:people, [])
-    assign(:party, double(:party, name: 'Conservative', graph_id: 'jF43Jxoc'))
+    assign(:party, double(:party, name: 'Conservative', graph_id: '891w1b1k'))
     assign(:current_person_type, 'MPs')
     assign(:other_person_type, 'Lords')
-    assign(:other_house_id, 'KL2k1BGP')
-    assign(:house_id, 'KL2k1BGP')
-    assign(:party_id, 'pPvA9vKP')
+    assign(:other_house_id, 'MvLURLV5')
+    assign(:house_id, 'Kz7ncmrt')
+    assign(:party_id, '891w1b1k')
     assign(:letters, 'A')
     controller.params = { letter: 'a' }
 

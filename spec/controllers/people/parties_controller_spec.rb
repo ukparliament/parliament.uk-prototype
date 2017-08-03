@@ -4,7 +4,7 @@ RSpec.describe People::PartiesController, vcr: true do
 
   describe "GET index" do
     before(:each) do
-      get :index, params: { person_id: '7TX8ySd4' }
+      get :index, params: { person_id: '7KNGxTli' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -22,8 +22,8 @@ RSpec.describe People::PartiesController, vcr: true do
     end
 
     it 'assigns @party_memberships in reverse chronological order' do
-      expect(assigns(:party_memberships)[0].start_date).to eq(DateTime.new(2015, 5, 7))
-      expect(assigns(:party_memberships)[1].start_date).to eq(DateTime.new(1987, 6, 11))
+      expect(assigns(:party_memberships)[0].start_date).to eq(DateTime.new(2017, 6, 8))
+      expect(assigns(:party_memberships)[1].start_date).to eq(DateTime.new(2015, 5, 7))
     end
 
     it 'renders the parties template' do
@@ -33,7 +33,7 @@ RSpec.describe People::PartiesController, vcr: true do
 
   describe "GET current" do
     before(:each) do
-      get :current, params: { person_id: '7TX8ySd4' }
+      get :current, params: { person_id: '7KNGxTli' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -57,13 +57,13 @@ RSpec.describe People::PartiesController, vcr: true do
       methods = [
           {
             route: 'index',
-            parameters: { person_id: '7TX8ySd4' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/7TX8ySd4/parties"
+            parameters: { person_id: '7KNGxTli' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/person_parties?person_id=7KNGxTli"
           },
           {
             route: 'current',
-            parameters: { person_id: '7TX8ySd4' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/7TX8ySd4/parties/current"
+            parameters: { person_id: '7KNGxTli' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/person_current_party?person_id=7KNGxTli"
           }
         ]
 

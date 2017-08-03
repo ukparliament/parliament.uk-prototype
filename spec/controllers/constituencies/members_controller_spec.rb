@@ -4,7 +4,7 @@ RSpec.describe Constituencies::MembersController, vcr: true do
 
   describe 'GET index' do
     before(:each) do
-      get :index, params: { constituency_id: 'vTNSMo38' }
+      get :index, params: { constituency_id: 'MiTIE0wv' }
     end
 
     it 'should have a response with a http status ok (200)' do
@@ -26,11 +26,11 @@ RSpec.describe Constituencies::MembersController, vcr: true do
     end
 
     it 'assigns @seat_incumbencies in reverse chronological order' do
-      expect(assigns(:seat_incumbencies)[0].start_date).to eq(DateTime.new(2010, 5, 6))
+      expect(assigns(:seat_incumbencies)[0].start_date).to eq(DateTime.new(2015, 5, 7))
     end
 
     it 'assigns @current_incumbency to be the current incumbency' do
-      expect(assigns(:current_incumbency).start_date).to eq(DateTime.new(2015, 5, 7))
+      expect(assigns(:current_incumbency).start_date).to eq(DateTime.new(2017, 6, 8))
     end
 
     it 'renders the members template' do
@@ -40,7 +40,7 @@ RSpec.describe Constituencies::MembersController, vcr: true do
 
   describe 'GET current' do
     before(:each) do
-      get :current, params: { constituency_id: 'vTNSMo38' }
+      get :current, params: { constituency_id: 'MiTIE0wv' }
     end
 
     it 'should have a response with a http status ok (200)' do
@@ -66,12 +66,12 @@ RSpec.describe Constituencies::MembersController, vcr: true do
           {
             route: 'index',
             parameters: { constituency_id: 'vUPobpVT' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/vUPobpVT/members"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_members?constituency_id=vUPobpVT"
           },
           {
             route: 'current',
             parameters: { constituency_id: 'vUPobpVT' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/vUPobpVT/members/current"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/constituency_current_member?constituency_id=vUPobpVT"
           }
         ]
 
