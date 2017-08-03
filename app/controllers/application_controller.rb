@@ -58,7 +58,11 @@ class ApplicationController < ActionController::Base
     raise StandardError, 'Data URL does not exist' if @data_url.nil?
 
     response.headers['Accept'] = request.formats.first
-    redirect_to(@data_url.call(params).query_url) && return
+
+    redirect_url = @data_url.call(params).query_url
+
+    redirect_url = redirect_url + '.' + request.path_parameters[:format] if request.path_parameters[:format] == 'json' || request.path_parameters[:format] == 'xml'
+    redirect_to(redirect_url) && return
   end
 
   # Get the data URL for our current controller and action OR raise a StandardError

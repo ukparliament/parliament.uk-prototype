@@ -112,7 +112,7 @@ class ConstituenciesController < ApplicationController
 
       format.json do
         @constituency = RequestHelper.filter_response_data(
-          ParliamentHelper.parliament_request.constituencies(params[:constituency_id]).map,
+          ParliamentHelper.parliament_request.constituency_map.set_url_params({ constituency_id: params[:constituency_id] }),
           'http://id.ukpds.org/schema/ConstituencyGroup'
         ).first
 
