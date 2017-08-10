@@ -20,4 +20,4 @@
             - if postal_address.full_address.present?
               %dt= "#{t('contact_points.address').capitalize}:"
               %dd= "#{postal_address.full_address}"
-        %p= link_to "#{t('contact_points.add_address_book').capitalize}", contact_point_path(contact_point.graph_id), target: '_blank'
+        %p= link_to "#{t('contact_points.add_address_book').capitalize}", contact_point_path(contact_point.graph_id)

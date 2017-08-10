@@ -71,6 +71,6 @@
   .container
     %h2= t('.managing_cookies.title')
     %p= t('.managing_cookies.subtitle')
-    %p= t('.managing_cookies.find_out', link: link_to(t('.managing_cookies.find_out_link'), 'http://www.aboutcookies.org/', target: '_blank')).html_safe
-    %p= t('.managing_cookies.opt_out', link: link_to(t('.managing_cookies.opt_out_link', service: 'Google Analytics'), 'https://tools.google.com/dlpage/gaoptout', target: '_blank')).html_safe
-    %p= t('.managing_cookies.opt_out', link: link_to(t('.managing_cookies.opt_out_link', service: 'HotJar'), 'https://www.hotjar.com/opt-out', target: '_blank')).html_safe
+    %p= t('.managing_cookies.find_out', link: link_to(t('.managing_cookies.find_out_link'), 'http://www.aboutcookies.org/')).html_safe
+    %p= t('.managing_cookies.opt_out', link: link_to(t('.managing_cookies.opt_out_link', service: 'Google Analytics'), 'https://tools.google.com/dlpage/gaoptout')).html_safe
+    %p= t('.managing_cookies.opt_out', link: link_to(t('.managing_cookies.opt_out_link', service: 'HotJar'), 'https://www.hotjar.com/opt-out')).html_safe
