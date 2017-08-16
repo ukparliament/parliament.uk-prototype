@@ -9,7 +9,7 @@
   .container
 
     - if @party.member_count > 0
-      %ul.list--box
+      %ul.list--block
         %li
           .list--details
             %h2= link_to("#{@party.name} #{@current_person_type}", house_parties_party_members_current_a_z_letter_path(@house.graph_id, @party.graph_id, 'a'))
@@ -20,7 +20,7 @@
       - if HousesHelper.commons?(@house)
         = render partial: 'shared/dissolution_message'
 
-      %ul.list--box
+      %ul.list--block
         %li
           .list--details
             %h2= link_to("#{t('current_and_former').capitalize} #{@party.name} #{@current_person_type}", house_parties_party_members_path(@house.graph_id, @party.graph_id))

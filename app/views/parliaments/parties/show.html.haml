@@ -6,7 +6,7 @@
       = link_to "#{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
 %section#content
   .container
-    %ul.list--box
+    %ul.list--block
       %li
         .list--details
           %h2= link_to "#{t('mp_plural')}", parliament_party_members_path(@parliament.graph_id, @party.graph_id)

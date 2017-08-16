@@ -5,7 +5,7 @@
     %h1= "#{@constituency.name} - #{t('contact_points.index.page-title').capitalize}"
 
     - @constituency.contact_points.each do |contact_point|
-      %ul.list--box
+      %ul.list--block
         %li
           %dl.list--definition
             - if contact_point.email.present?

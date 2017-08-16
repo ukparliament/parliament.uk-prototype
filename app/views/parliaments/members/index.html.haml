@@ -4,7 +4,7 @@
     %h1
       %span= "#{t('mps_and_lords')}"
       = link_to "#{@parliament.date_range(date_format: '%Y')} #{t('parliament')}", parliament_path(@parliament.graph_id)
-    %ol.list--box
+    %ol.list--block
       %li
         .list--details
           %h2= link_to "A-Z", parliament_members_a_z_path(@parliament.graph_id)

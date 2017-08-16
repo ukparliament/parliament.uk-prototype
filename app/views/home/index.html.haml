@@ -1,6 +1,6 @@
 - title 'beta.parliament.uk Home page' # Special case of a title - home page
 
-#content.section--primary.highlight--default
+#content.section--primary.hero
   .container
     %h1= t('.title')
     %p= t('.new_website', link: link_to(t('.new_website_link'), 'https://pds.blog.parliament.uk/2017/02/14/a-new-website-for-parliament-first-public-steps/')).html_safe
@@ -9,7 +9,7 @@
 %section
   .container
     %h2= t('.members_info.title')
-    %ol.list--box
+    %ol.list--block
       %li
         .list--details
           %h3= link_to t('mp_plural'), mps_path
@@ -26,16 +26,16 @@
         .list--details
           %h3= link_to t('parties_and_groups').capitalize, house_parties_current_path(HousesHelper.commons_id)
           %p= t('.members_info.current_parties')
-    .highlight--box.highlight--primary__soft
+    .status--highlight.theme--purple--light
       %p= t('.latest_members.blog', link: link_to(t('.latest_members.blog_link'), 'https://pds.blog.parliament.uk/2017/03/27/uk-parliament-website-public-beta/')).html_safe
 
     %h2= t('search').capitalize
-    %ol.list--box
+    %ol.list--block
       %li
         .list--details
           %h3= link_to t('search').capitalize, '/search'
           %p= t('find_results')
-    .highlight--box.highlight--primary__soft
+    .status--highlight.theme--purple--light
       %p= t('.search.blog', link: link_to(t('.search.blog_link'), 'https://pds.blog.parliament.uk/2017/06/14/improving-the-search-function-on-parliament-uk/')).html_safe
 
 %section

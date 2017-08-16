@@ -13,7 +13,7 @@
         = render partial: 'shared/dissolution_message'
 
       - elsif @current_incumbency
-        %ol.list--box
+        %ol.list--block
           %li.image__item
             - if Pugin::Feature::Bandiera.show_list_images?
               %figure
@@ -31,14 +31,14 @@
         = render partial: 'shared/election_message'
 
       - else @current_incumbency.nil?
-        .highlight--box.highlight--caution__soft
+        .status--highlight.theme--caution
           %p
             = t('no_content.empty_list.no_mp')
 
 - else
   .section
     .container
-      .highlight--box.highlight--caution__soft
+      .status--highlight.theme--caution
         %p= t('.former_constituency', current_constituencies_link: link_to(t('.current_constituencies_link').capitalize, constituencies_current_path)).html_safe
 
 - if @seat_incumbencies.size > 0
