@@ -28,7 +28,7 @@
       .block--border__bottom
         %h2= t('party_plural').capitalize
         %p= t('.find_mp_party')
-        %ul.list--inline__box
+        %ul.list--block__inline
           - @parties.each do |party|
             - unless party.name == "Speaker" # Exclude speaker from list
               %li

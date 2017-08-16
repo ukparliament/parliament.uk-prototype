@@ -25,7 +25,7 @@ gem 'geosparql_to_geojson', '~> 0.1'
 gem 'bandiera-client'
 
 # Pugin is the front-end component library used by Parliament
-gem 'pugin', '~> 1.0'
+gem 'pugin', '1.0.1.pre'
 
 # HAML is used for front-end template rendering
 gem 'haml', '~> 5.0'
