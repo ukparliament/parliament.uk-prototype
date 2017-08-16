@@ -39,7 +39,7 @@
       "url": "https://devci.parliament.uk/constituencies/current/a-z/a",
       "referenceUrl": "https://beta.parliament.uk/constituencies/current/a-z/a",
       "selectors": [
-        ".highlight--box",
+        ".status--highlight",
         ".highlight--status"
       ]
     }

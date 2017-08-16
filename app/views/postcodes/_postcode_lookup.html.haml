@@ -1,8 +1,8 @@
 - if flash[:error]
-  .highlight--box.highlight--caution__soft
+  .status--highlight.theme--caution
     %p= flash[:error]
 
-= form_tag(path, method: :post, id: :postcodeSearch) do
+= form_tag(path, method: :post) do
   .form-group
     = hidden_field_tag('previous_controller', params[:controller])
     = hidden_field_tag('previous_action', params[:action])
@@ -11,9 +11,11 @@
     = label_tag 'input', t('.search_by_postcode')
     = text_field_tag(:postcode, @postcode, value: flash[:postcode], maxlength: 8, pattern:'[0-9a-zA-Z ]{5,}', id:'input')
     - button_text = @person.nil? && @constituency.nil? ? "Find" : "Check"
-    %button{:id => 'btn_loading', :class => 'btn--alternative', :value => button_text, :type => 'submit'}
-      %span{:class => 'btn--loading__text'}= button_text
-      %span{:class => 'btn--loading__icon'}
-        %object{:data => 'https://s3-eu-west-1.amazonaws.com/web1devci.pugin-website/1.4.4/icons/loading.svg', :type => 'image/svg+xml'}
+    %button.btn--primary#btn_loading{ :value => button_text, :type => 'submit' }
+      %span.btn--loading__text= button_text
+      %span.btn--loading__icon
+        %figure
+          %svg{ :height => "24", :viewbox => "0 0 128 128", :width => "24", :xmlns => "http://www.w3.org/2000/svg" }
+            %path{ :d => "M109.25 55.5h-36l12-12a29.54 29.54 0 0 0-49.53 12H18.75A46.04 46.04 0 0 1 96.9 31.84l12.35-12.34v36zm-90.5 17h36l-12 12a29.54 29.54 0 0 0 49.53-12h16.97A46.04 46.04 0 0 1 31.1 96.16L18.74 108.5v-36z" }
 
 %p= t('.do_not_know_postcode', link: link_to(t('.do_not_know_postcode_link'), 'http://www.royalmail.com/find-a-postcode')).html_safe

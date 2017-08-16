@@ -9,7 +9,7 @@
       - if FlagHelper.post_election?
         = render partial: 'shared/election_message'
       - else
-        .highlight--box.highlight--caution__soft
+        .status--highlight.theme--caution
           %p
             = t('no_content.empty_list.no_mp')
     - else

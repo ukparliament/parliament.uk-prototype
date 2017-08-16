@@ -1,7 +1,7 @@
 - if @constituencies.empty?
   = render partial: 'shared/empty_list', locals: { title: nil, description: t('no_content.empty_list.constituencies.description', letter: params[:letter].upcase)}
 - else
-  %ul.list--box
+  %ul.list--block
     - @constituencies.each do |constituency|
       %li
         .list--details

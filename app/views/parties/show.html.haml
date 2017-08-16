@@ -5,7 +5,7 @@
 - if @party.current?
   %section
     .container
-      %ul.list--box
+      %ul.list--block
         %li
           .list--details
             %h2= link_to("#{t('current').capitalize} #{t('member_plural')}", party_members_current_path(@party.graph_id))
@@ -14,9 +14,9 @@
 - else
   %section
     .container
-      .highlight--box.highlight--primary
+      .status--highlight.theme--purple
         %p= t('.party_no_current_members')
-      %ul.list--box
+      %ul.list--block
         %li
           .list--details
             %h2= link_to("#{t('view_all').capitalize} #{t('former')} #{@party.name} #{t('member_plural')}", party_members_path(@party.graph_id))

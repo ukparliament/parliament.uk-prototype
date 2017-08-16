@@ -22,5 +22,5 @@
         %li
           = link_to(t('lords'),house_parties_path(HousesHelper.lords_id))
 
-    %ol.list--box
+    %ol.list--block
       = render partial: 'houses/parties/party', collection: @parties

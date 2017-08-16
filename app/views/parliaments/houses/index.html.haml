@@ -8,7 +8,7 @@
 %section#content
   .container
     - @houses.each do |house|
-      %ul.list--box
+      %ul.list--block
         %li
           .list--details
             %h2= link_to house.name, parliament_house_path(@parliament.graph_id, house.graph_id)

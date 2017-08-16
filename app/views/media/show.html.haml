@@ -19,7 +19,7 @@
         = link_to(t('.download_jpeg').capitalize + ' ' + t('.download_res_original'), "#{ENV['IMAGE_SERVICE_URL']}/#{@image.graph_id}.jpeg?download=true", class: 'btn--primary')
 
       - else
-        .highlight--box.highlight--caution__soft
+        .status--highlight.theme--caution
           %p= t('.no_portrait')
 
 

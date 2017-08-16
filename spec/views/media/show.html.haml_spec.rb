@@ -38,7 +38,7 @@ RSpec.describe 'media/show', vcr: false do
       end
 
       it 'will not render an image' do
-        expect(rendered).to match(/highlight--box/)
+        expect(rendered).to match(/status--highlight/)
       end
     end
 
