@@ -144,7 +144,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    pugin (0.9.0)
+    pugin (1.0.1)
     puma (3.9.1)
     rack (2.0.3)
     rack-rewrite (1.5.1)
@@ -294,7 +294,7 @@ DEPENDENCIES
   parliament-ntriple (~> 0.1)
   parliament-ruby (= 0.8.0)
   pry
-  pugin (~> 0.9)
+  pugin (~> 1.0)
   puma
   rack-rewrite
   rack-timeout
