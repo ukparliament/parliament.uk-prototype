@@ -10,7 +10,7 @@ gem 'json-ld', '~> 2.1'
 gem 'vcard', '~> 0.2'
 
 # Parliament Ruby is a wrapper for the internal Parliament data API
- gem 'parliament-ruby', '~> 0.7'
+gem 'parliament-ruby', '0.8.0'
 
 # Parliament NTriple processes N-triple data
 gem 'parliament-ntriple', '~> 0.1', require: false
@@ -25,7 +25,7 @@ gem 'geosparql_to_geojson', '~> 0.1'
 gem 'bandiera-client'
 
 # Pugin is the front-end component library used by Parliament
-gem 'pugin', '~> 0.9'
+gem 'pugin', '1.0.1.pre'
 
 # HAML is used for front-end template rendering
 gem 'haml', '~> 5.0'

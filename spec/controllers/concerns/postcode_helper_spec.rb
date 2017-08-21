@@ -10,7 +10,7 @@ RSpec.describe PostcodeHelper, vcr: true do
       result = PostcodeHelper.lookup('E20JA')
 
       expect(result).to be_a(Parliament::Response::NTripleResponse)
-      expect(result.nodes.first.constituencyGroupName).to eq('Bethnal Green and Bow')
+      expect(result.nodes.first.constituencyGroupName).to eq('constituencyGroupName - 481')
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.describe PostcodeHelper, vcr: true do
       result = PostcodeHelper.lookup(' E2  0JA ')
 
       expect(result).to be_a(Parliament::Response::NTripleResponse)
-      expect(result.nodes.first.constituencyGroupName).to eq('Bethnal Green and Bow')
+      expect(result.nodes.first.constituencyGroupName).to eq('constituencyGroupName - 481')
     end
   end
 
@@ -37,7 +37,7 @@ RSpec.describe PostcodeHelper, vcr: true do
 
   context 'given the endpoint is down' do
     it 'raises a PostcodeHelper::PostcodeError' do
-      stub_request(:get, "#{ENV['PARLIAMENT_BASE_URL']}/constituencies/postcode_lookup/E20JA").
+      stub_request(:get, "#{ENV['PARLIAMENT_BASE_URL']}/constituency_lookup_by_postcode?postcode=E20JA").
         to_return(status: [500, 'Internal Server Error'])
 
       expect{ PostcodeHelper.lookup('E2 0JA') }.to raise_error(PostcodeHelper::PostcodeError, 'Postcode check is currently unavailable.')

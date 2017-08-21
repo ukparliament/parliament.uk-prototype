@@ -61,7 +61,7 @@ RSpec.describe People::MembersController, vcr: true do
   describe 'GET letters' do
     context 'there is a response' do
       before(:each) do
-        get :letters, params: { letter: 't' }
+        get :letters, params: { letter: 'y' }
       end
 
       it 'should have a response with http status ok (200)' do
@@ -78,8 +78,8 @@ RSpec.describe People::MembersController, vcr: true do
       end
 
       it 'assigns @people in alphabetical order' do
-        expect(assigns(:people)[0].given_name).to eq('personGivenName - 1')
-        expect(assigns(:people)[1].given_name).to eq('personGivenName - 10')
+        expect(assigns(:people)[0].given_name).to eq('personGivenName - 11')
+        expect(assigns(:people)[1].given_name).to eq('personGivenName - 12')
       end
 
       it 'renders the members_letters template' do
@@ -105,7 +105,7 @@ RSpec.describe People::MembersController, vcr: true do
   describe "GET current_letters" do
     context 'there is a response' do
       before(:each) do
-        get :current_letters, params: { letter: 't' }
+        get :current_letters, params: { letter: 'z' }
       end
 
       it 'should have a response with http status ok (200)' do
@@ -123,7 +123,7 @@ RSpec.describe People::MembersController, vcr: true do
 
       it 'assigns @people in alphabetical order' do
         expect(assigns(:people)[0].given_name).to eq('personGivenName - 1')
-        expect(assigns(:people)[1].given_name).to eq('personGivenName - 10')
+        expect(assigns(:people)[1].given_name).to eq('personGivenName - 2')
       end
 
       it 'renders the current_members_letters template' do
@@ -187,29 +187,29 @@ RSpec.describe People::MembersController, vcr: true do
       methods = [
           {
             route: 'index',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/members"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/member_index"
           },
           {
             route: 'current',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/members/current"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/member_current"
           },
           {
             route: 'letters',
-            parameters: { letter: 'l' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/members/l"
+            parameters: { letter: 'y' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/member_by_initial?initial=y"
           },
           {
             route: 'current_letters',
-            parameters: { letter: 'l' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/members/current/l"
+            parameters: { letter: 'z' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/member_current_by_initial?initial=z"
           },
           {
             route: 'a_to_z',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/members/a_z_letters"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/member_a_to_z"
           },
           {
             route: 'a_to_z_current',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/members/current/a_z_letters"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/member_current_a_to_z"
           }
         ]
 

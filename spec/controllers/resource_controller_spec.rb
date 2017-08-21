@@ -11,7 +11,7 @@ RSpec.describe ResourceController, vcr: true do
   describe 'GET grom nodes' do
     context 'successfully' do
       before(:each) do
-        get :show, params: { resource_id: 'xP2kB45W' }
+        get :show, params: { resource_id: '7KNGxTli' }
       end
 
       it 'assigns @results if grom nodes can be found' do
@@ -31,17 +31,17 @@ RSpec.describe ResourceController, vcr: true do
   describe 'Handling response' do
     context 'when a route exits' do
       before(:each) do
-        get :show, params: { resource_id: 'xP2kB45W' }
+        get :show, params: { resource_id: '7KNGxTli' }
       end
 
       it 'redirects to correct path' do
-        expect(response).to redirect_to(person_path('xP2kB45W'))
+        expect(response).to redirect_to(person_path('7KNGxTli'))
       end
     end
 
     context 'when no route exists' do
       before(:each) do
-        get :show, params: { resource_id: 'sYpq0s7D' }
+        get :show, params: { resource_id: '64uCZ0wV' }
       end
 
       it 'renders the show template' do

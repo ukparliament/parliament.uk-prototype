@@ -19,8 +19,8 @@ RSpec.describe PostcodesController, vcr: true do
     context 'given a valid postcode' do
       before(:each) do
         PostcodeHelper.previous_path = postcodes_path
-        
-        get :show, params: { postcode: 'SW1A 2AA' }
+
+        get :show, params: { postcode: 'SW1P 3JA' }
       end
 
       it 'should have a response with http status ok (200)' do
@@ -28,7 +28,7 @@ RSpec.describe PostcodesController, vcr: true do
       end
 
       it 'assigns @postcode and @constituency' do
-        expect(assigns(:postcode)).to eq('SW1A 2AA')
+        expect(assigns(:postcode)).to eq('SW1P 3JA')
         expect(assigns(:constituency).name).to eq('constituencyGroupName - 1')
       end
 
@@ -99,7 +99,7 @@ RSpec.describe PostcodesController, vcr: true do
       before(:each) do
         PostcodeHelper.previous_path = controller.url_for(action: 'mps', controller: 'home')
 
-        get :show, params: { postcode: 'SW1A 2AA' }
+        get :show, params: { postcode: 'SW1P 3JA' }
       end
 
       context 'there is a current MP' do
@@ -108,7 +108,7 @@ RSpec.describe PostcodesController, vcr: true do
         end
 
         it 'redirects to the MPs page' do
-          expect(response).to redirect_to(person_path('7SRF7yEU'))
+          expect(response).to redirect_to(person_path('03gdr3Yo'))
         end
       end
 
@@ -167,7 +167,7 @@ RSpec.describe PostcodesController, vcr: true do
       end
 
       it 'redirects to the data service' do
-        expect(response).to redirect_to("#{ENV['PARLIAMENT_BASE_URL']}/constituencies/postcode_lookup/SW1A2AA")
+        expect(response).to redirect_to("#{ENV['PARLIAMENT_BASE_URL']}/constituency_lookup_by_postcode?postcode=SW1A2AA")
       end
     end
   end

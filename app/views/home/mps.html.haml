@@ -18,7 +18,7 @@
           %h2= t('.find_mp')
           = render partial: 'postcodes/postcode_lookup', locals: { path: postcodes_lookup_path }
           = link_to t('.view_list_constituencies'), constituencies_current_a_z_letter_path('a')
-        %ol.list--box
+        %ol.list--block
           %li
             .list--details
               %h2= link_to t('.a_z_surname'), house_members_current_a_z_letter_path(HousesHelper.commons_id, 'a')
@@ -28,7 +28,7 @@
       .block--border__bottom
         %h2= t('party_plural').capitalize
         %p= t('.find_mp_party')
-        %ul.list--inline__box
+        %ul.list--block__inline
           - @parties.each do |party|
             - unless party.name == "Speaker" # Exclude speaker from list
               %li
@@ -42,10 +42,10 @@
     .block--border__bottom
       %h2= "#{t('former').capitalize} #{t('mp_plural')}"
       %p= t('.find_mp_date_range')
-      %ul.list--box
+      %ul.list--block
         - @parliaments.each do |parliament|
           %li
             .list--details
-              %h3= link_to "#{parliament.date_range(date_format: '%Y')} #{t('parliament').capitalize}", parliament_members_a_z_letter_path(parliament.graph_id, 'a')
+              %h3= link_to "#{parliament.date_range(date_format: '%Y')} #{t('parliament').capitalize}",  parliament_house_members_a_z_letter_path(parliament.graph_id, HousesHelper.commons_id, 'a')
         %li
           %h3= link_to "#{t('view_all').capitalize} #{t('parliament_plural').capitalize}", parliaments_path

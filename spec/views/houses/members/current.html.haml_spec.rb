@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe 'houses/members/current', vcr: true do
   before do
     allow(FlagHelper).to receive(:dissolution?).and_return(true)
-    assign(:house, double(:house, name: 'House of Commons', graph_id: 'KL2k1BGP'))
+    assign(:house, double(:house, name: 'House of Commons', graph_id: 'Kz7ncmrt'))
     assign(:people, [])
     assign(:current_person_type, 'MPs')
     assign(:other_person_type, 'Lords')
-    assign(:other_house_id, 'm1EgVTLj')
-    assign(:house_id, 'KL2k1BGP')
-    assign(:party_id, 'jF43Jxoc')
+    assign(:other_house_id, 'MvLURLV5')
+    assign(:house_id, 'Kz7ncmrt')
+    assign(:party_id, '891w1b1k')
     assign(:letters, 'A')
     controller.params = { letter: 'a' }
 

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/parties/x
+    uri: http://localhost:3030/party_by_initial?initial=x
     body:
       encoding: US-ASCII
       string: ''
@@ -22,7 +22,7 @@ http_interactions:
       message: OK
     headers:
       Cache-Control:
-      - no-store, must-revalidate, no-cache
+      - no-cache
       Pragma:
       - no-cache
       Content-Length:
@@ -30,94 +30,34 @@ http_interactions:
       Content-Type:
       - application/n-triples
       Expires:
-      - Fri, 19 May 2017 12:30:38 GMT
-      Set-Cookie:
-      - ARRAffinity=a597504d04a4bb873c98faa2436077bc03bc8fb1fd56c877805eb305ea4ce58e;Path=/;Domain=20170412115159fixedquery.azurewebsites.net
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
       Date:
-      - Fri, 19 May 2017 12:30:38 GMT
+      - Wed, 02 Aug 2017 10:16:06 GMT
     body:
       encoding: UTF-8
-      string: "_:node2336536 <http://id.ukpds.org/schema/value> \"A\" .\r\n_:node2336537
-        <http://id.ukpds.org/schema/value> \"L\" .\r\n_:node2336538 <http://id.ukpds.org/schema/value>
-        \"B\" .\r\n_:node2336539 <http://id.ukpds.org/schema/value> \"D\" .\r\n_:node2336540
-        <http://id.ukpds.org/schema/value> \"I\" .\r\n_:node2336541 <http://id.ukpds.org/schema/value>
-        \"V\" .\r\n_:node2336542 <http://id.ukpds.org/schema/value> \"S\" .\r\n_:node2336543
-        <http://id.ukpds.org/schema/value> \"P\" .\r\n_:node2336544 <http://id.ukpds.org/schema/value>
-        \"N\" .\r\n_:node2336545 <http://id.ukpds.org/schema/value> \"C\" .\r\n_:node2336546
-        <http://id.ukpds.org/schema/value> \"O\" .\r\n_:node2336547 <http://id.ukpds.org/schema/value>
-        \"U\" .\r\n_:node2336548 <http://id.ukpds.org/schema/value> \"R\" .\r\n_:node2336549
-        <http://id.ukpds.org/schema/value> \"G\" .\r\n"
+      string: "_:node1080882 <http://id.ukpds.org/schema/value> \"P\" .\r\n_:node1080883
+        <http://id.ukpds.org/schema/value> \"I\" .\r\n_:node1080884 <http://id.ukpds.org/schema/value>
+        \"B\" .\r\n_:node1080885 <http://id.ukpds.org/schema/value> \"S\" .\r\n_:node1080886
+        <http://id.ukpds.org/schema/value> \"O\" .\r\n_:node1080887 <http://id.ukpds.org/schema/value>
+        \"C\" .\r\n_:node1080888 <http://id.ukpds.org/schema/value> \"U\" .\r\n_:node1080889
+        <http://id.ukpds.org/schema/value> \"G\" .\r\n_:node1080890 <http://id.ukpds.org/schema/value>
+        \"N\" .\r\n_:node1080891 <http://id.ukpds.org/schema/value> \"L\" .\r\n_:node1080892
+        <http://id.ukpds.org/schema/value> \"V\" .\r\n_:node1080893 <http://id.ukpds.org/schema/value>
+        \"R\" .\r\n_:node1080894 <http://id.ukpds.org/schema/value> \"D\" .\r\n_:node1080895
+        <http://id.ukpds.org/schema/value> \"A\" .\r\n"
     http_version: 
-  recorded_at: Fri, 19 May 2017 12:32:16 GMT
+  recorded_at: Wed, 02 Aug 2017 10:19:42 GMT
 - request:
     method: get
-    uri: http://localhost:5000/api/v2/groups/parliament/features/show-dissolution
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Bandiera Ruby Client / 3.0.4
-      Host:
-      - ec2-54-154-199-50.eu-west-1.compute.amazonaws.com
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      X-Content-Type-Options:
-      - nosniff
-      Content-Length:
-      - '17'
-    body:
-      encoding: UTF-8
-      string: '{"response":true}'
-    http_version: 
-  recorded_at: Fri, 19 May 2017 12:32:16 GMT
-- request:
-    method: get
-    uri: http://localhost:5000/api/v2/groups/parliament/features/show-register
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Bandiera Ruby Client / 3.0.4
-      Host:
-      - ec2-54-154-199-50.eu-west-1.compute.amazonaws.com
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      X-Content-Type-Options:
-      - nosniff
-      Content-Length:
-      - '17'
-    body:
-      encoding: UTF-8
-      string: '{"response":true}'
-    http_version: 
-  recorded_at: Fri, 19 May 2017 12:32:16 GMT
-- request:
-    method: get
-    uri: http://localhost:3030/houses
+    uri: http://localhost:3030/house_index
     body:
       encoding: US-ASCII
       string: ''
@@ -137,7 +77,7 @@ http_interactions:
       message: OK
     headers:
       Cache-Control:
-      - no-store, must-revalidate, no-cache
+      - no-cache
       Pragma:
       - no-cache
       Content-Length:
@@ -145,22 +85,24 @@ http_interactions:
       Content-Type:
       - application/n-triples
       Expires:
-      - Fri, 02 Jun 2017 10:44:25 GMT
-      Set-Cookie:
-      - ARRAffinity=b33f2cf26cbb655976ea24d5d2dea6f44e1f8349a0c5eef4404e4762da5fe1ce;Path=/;Domain=20170412115159fixedquery.azurewebsites.net
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
       Date:
-      - Fri, 02 Jun 2017 10:44:25 GMT
+      - Wed, 02 Aug 2017 10:16:06 GMT
     body:
       encoding: UTF-8
-      string: "<http://id.ukpds.org/cqIATgUK> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/cqIATgUK> <http://id.ukpds.org/schema/houseName>
-        \"houseName - 1\" .\r\n<http://id.ukpds.org/mG2ur5TF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/mG2ur5TF> <http://id.ukpds.org/schema/houseName>
+      string: "<http://id.ukpds.org/Kz7ncmrt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/Kz7ncmrt> <http://id.ukpds.org/schema/houseName>
+        \"houseName - 1\" .\r\n<http://id.ukpds.org/MvLURLV5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/MvLURLV5> <http://id.ukpds.org/schema/houseName>
         \"houseName - 2\" .\r\n"
     http_version: 
-  recorded_at: Fri, 02 Jun 2017 10:44:27 GMT
+  recorded_at: Wed, 02 Aug 2017 10:19:42 GMT
 recorded_with: VCR 3.0.3

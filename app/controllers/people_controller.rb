@@ -2,12 +2,12 @@ class PeopleController < ApplicationController
   before_action :data_check, :build_request, except: :postcode_lookup
 
   ROUTE_MAP = {
-    index:             proc { ParliamentHelper.parliament_request.people },
-    show:              proc { |params| ParliamentHelper.parliament_request.people(params[:person_id]) },
-    lookup:            proc { |params| ParliamentHelper.parliament_request.people.lookup(params[:source], params[:id]) },
-    letters:           proc { |params| ParliamentHelper.parliament_request.people(params[:letter]) },
-    a_to_z:            proc { ParliamentHelper.parliament_request.people.a_z_letters },
-    lookup_by_letters: proc { |params| ParliamentHelper.parliament_request.people.partial(params[:letters]) }
+    index:             proc { ParliamentHelper.parliament_request.person_index },
+    show:              proc { |params| ParliamentHelper.parliament_request.person_by_id.set_url_params({ person_id: params[:person_id] }) },
+    lookup:            proc { |params| ParliamentHelper.parliament_request.person_lookup.set_url_params({ property: params[:source], value: params[:id] }) },
+    letters:           proc { |params| ParliamentHelper.parliament_request.person_by_initial.set_url_params({ initial: params[:letter] }) },
+    a_to_z:            proc { ParliamentHelper.parliament_request.person_a_to_z },
+    lookup_by_letters: proc { |params| ParliamentHelper.parliament_request.person_by_substring.set_url_params({ substring: params[:letters] }) }
   }.freeze
 
   def index

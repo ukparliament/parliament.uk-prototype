@@ -2,14 +2,14 @@ class ParliamentsController < ApplicationController
   before_action :data_check, :build_request
 
   ROUTE_MAP = {
-    index:               proc { ParliamentHelper.parliament_request.parliaments },
-    show:                proc { |params| ParliamentHelper.parliament_request.parliaments(params[:parliament_id]) },
-    current:             proc { ParliamentHelper.parliament_request.parliaments.current },
-    next:                proc { ParliamentHelper.parliament_request.parliaments.next },
-    previous:            proc { ParliamentHelper.parliament_request.parliaments.previous },
-    lookup:              proc { |params| ParliamentHelper.parliament_request.parliaments.lookup(params[:source], params[:id]) },
-    next_parliament:     proc { |params| ParliamentHelper.parliament_request.parliaments(params[:parliament_id]).next },
-    previous_parliament: proc { |params| ParliamentHelper.parliament_request.parliaments(params[:parliament_id]).previous }
+    index:               proc { ParliamentHelper.parliament_request.parliament_index },
+    show:                proc { |params| ParliamentHelper.parliament_request.parliament_by_id.set_url_params({ parliament_id: params[:parliament_id] }) },
+    current:             proc { ParliamentHelper.parliament_request.parliament_current },
+    next:                proc { ParliamentHelper.parliament_request.parliament_next },
+    previous:            proc { ParliamentHelper.parliament_request.parliament_previous },
+    lookup:              proc { |params| ParliamentHelper.parliament_request.parliament_lookup.set_url_params({ property: params[:source], value: params[:id] }) },
+    next_parliament:     proc { |params| ParliamentHelper.parliament_request.next_parliament_by_id.set_url_params({ parliament_id: params[:parliament_id] }) },
+    previous_parliament: proc { |params| ParliamentHelper.parliament_request.previous_parliament_by_id.set_url_params({ parliament_id: params[:parliament_id] }) }
   }.freeze
 
   def index

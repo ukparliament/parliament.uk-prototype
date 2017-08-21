@@ -19,8 +19,8 @@ RSpec.describe HousesController, vcr: true do
     end
 
     it 'assigns @houses in alphabetical order' do
-      expect(assigns(:houses)[0].name).to eq('House of Commons')
-      expect(assigns(:houses)[1].name).to eq('House of Lords')
+      expect(assigns(:houses)[0].name).to eq('houseName - 1')
+      expect(assigns(:houses)[1].name).to eq('houseName - 2')
     end
 
     it 'renders the index template' do
@@ -30,7 +30,7 @@ RSpec.describe HousesController, vcr: true do
 
   describe 'GET lookup' do
     before(:each) do
-      get :lookup, params: { source: 'mnisId', id: '1' }
+      get :lookup, params: { source: 'name', id: 'House of Lords' }
     end
 
     it 'should have a response with http status redirect (302)' do
@@ -43,13 +43,13 @@ RSpec.describe HousesController, vcr: true do
     end
 
     it 'redirects to houses/:id' do
-      expect(response).to redirect_to(house_path('KL2k1BGP'))
+      expect(response).to redirect_to(house_path('MvLURLV5'))
     end
   end
 
   describe "GET show" do
     before(:each) do
-      get :show, params: { house_id: 'KL2k1BGP' }
+      get :show, params: { house_id: 'Kz7ncmrt' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -91,7 +91,7 @@ RSpec.describe HousesController, vcr: true do
       end
 
       it 'redirects to houses/:id' do
-        expect(response).to redirect_to(house_path('cqIATgUK'))
+        expect(response).to redirect_to(house_path('Kz7ncmrt'))
       end
     end
   end
@@ -101,22 +101,22 @@ RSpec.describe HousesController, vcr: true do
       methods = [
           {
             route: 'index',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_index"
           },
           {
             route: 'lookup',
-            parameters: { source: 'mnisId', id: '1' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/lookup/mnisId/1"
+            parameters: { source: 'name', id: 'House of Lords' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_lookup?property=name&value=House+of+Lords"
           },
           {
             route: 'show',
-            parameters: { house_id: 'cqIATgUK' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK"
+            parameters: { house_id: 'Kz7ncmrt' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_by_id?house_id=Kz7ncmrt"
           },
           {
             route: 'lookup_by_letters',
             parameters: { letters: 'labour' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/partial/labour"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_by_substring?substring=labour"
           }
         ]
 

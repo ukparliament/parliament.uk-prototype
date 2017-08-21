@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/media/12345678
+    uri: http://localhost:3030/image_by_id?image_id=qnsCGpnw
     body:
       encoding: US-ASCII
       string: ''
@@ -21,31 +21,43 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '752'
       Content-Type:
       - application/n-triples
-      Content-Disposition:
-      - inline; filename="index"
-      Last-Modified:
-      - Thu, 06 Jul 2017 10:09:35 GMT
-      X-Content-Type-Options:
-      - nosniff
-      Content-Length:
-      - '736'
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
+      Date:
+      - Wed, 02 Aug 2017 10:20:21 GMT
     body:
       encoding: UTF-8
-      string: |
-        <http://id.ukpds.org/7TX8ySd4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person> .
-        <http://id.ukpds.org/7TX8ySd4> <http://id.ukpds.org/schema/personGivenName> "personGivenName - 1" .
-        <http://id.ukpds.org/7TX8ySd4> <http://id.ukpds.org/schema/personFamilyName> "personFamilyName - 1" .
-        <http://id.ukpds.org/7TX8ySd4> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF> "F31CBD81AD8343898B49DC65743F0BDF - 1" .
-        <http://id.ukpds.org/7TX8ySd4> <http://example.com/D79B0BAC513C4A9A87C9D5AFF1FC632F> "D79B0BAC513C4A9A87C9D5AFF1FC632F - 1" .
-        <http://id.ukpds.org/7TX8ySd4> <http://id.ukpds.org/schema/memberHasMemberImage> <http://id.ukpds.org/12345678> .
-        <http://id.ukpds.org/12345678> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/MemberImage> .
-    http_version:
-  recorded_at: Thu, 06 Jul 2017 10:31:40 GMT
+      string: "<http://id.ukpds.org/qnsCGpnw> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/MemberImage> .\r\n<http://id.ukpds.org/qnsCGpnw>
+        <http://id.ukpds.org/schema/memberImageHasMember> <http://id.ukpds.org/9GUN7QNU>
+        .\r\n<http://id.ukpds.org/9GUN7QNU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Person> .\r\n<http://id.ukpds.org/9GUN7QNU> <http://id.ukpds.org/schema/personGivenName>
+        \"personGivenName - 432\" .\r\n<http://id.ukpds.org/9GUN7QNU> <http://id.ukpds.org/schema/personFamilyName>
+        \"personFamilyName - 432\" .\r\n<http://id.ukpds.org/9GUN7QNU> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF>
+        \"F31CBD81AD8343898B49DC65743F0BDF - 432\" .\r\n<http://id.ukpds.org/9GUN7QNU>
+        <http://example.com/A5EE13ABE03C4D3A8F1A274F57097B6C> \"A5EE13ABE03C4D3A8F1A274F57097B6C
+        - 769\" .\r\n"
+    http_version: 
+  recorded_at: Wed, 02 Aug 2017 10:23:54 GMT
 - request:
     method: get
-    uri: http://localhost:3030/houses
+    uri: http://localhost:3030/house_index
     body:
       encoding: US-ASCII
       string: ''
@@ -64,23 +76,33 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '420'
       Content-Type:
       - application/n-triples
-      Content-Disposition:
-      - inline; filename="index"
-      Last-Modified:
-      - Tue, 02 May 2017 14:10:26 GMT
-      X-Content-Type-Options:
-      - nosniff
-      Content-Length:
-      - '416'
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
+      Date:
+      - Wed, 02 Aug 2017 10:20:20 GMT
     body:
       encoding: UTF-8
-      string: |
-        <http://id.ukpds.org/KL2k1BGP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
-        <http://id.ukpds.org/KL2k1BGP> <http://id.ukpds.org/schema/houseName> "houseName - 1" .
-        <http://id.ukpds.org/m1EgVTLj> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/House> .
-        <http://id.ukpds.org/m1EgVTLj> <http://id.ukpds.org/schema/houseName> "houseName - 2" .
-    http_version:
-  recorded_at: Thu, 06 Jul 2017 10:31:41 GMT
+      string: "<http://id.ukpds.org/Kz7ncmrt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/Kz7ncmrt> <http://id.ukpds.org/schema/houseName>
+        \"houseName - 1\" .\r\n<http://id.ukpds.org/MvLURLV5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/MvLURLV5> <http://id.ukpds.org/schema/houseName>
+        \"houseName - 2\" .\r\n"
+    http_version: 
+  recorded_at: Wed, 02 Aug 2017 10:23:55 GMT
 recorded_with: VCR 3.0.3

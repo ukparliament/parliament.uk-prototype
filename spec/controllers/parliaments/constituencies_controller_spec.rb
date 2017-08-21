@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Parliaments::ConstituenciesController, vcr: true do
   describe 'GET index' do
     before(:each) do
-      get :index, params: { parliament_id: '0FxbTVtr' }
+      get :index, params: { parliament_id: 'fHx6P1lb' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -33,7 +33,7 @@ RSpec.describe Parliaments::ConstituenciesController, vcr: true do
 
   describe 'GET a_to_z' do
     before(:each) do
-      get :a_to_z, params: { parliament_id: '0FxbTVtr' }
+      get :a_to_z, params: { parliament_id: 'fHx6P1lb' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -63,7 +63,7 @@ RSpec.describe Parliaments::ConstituenciesController, vcr: true do
 
   describe 'GET letters' do
     before(:each) do
-      get :letters, params: { parliament_id: '0FxbTVtr', letter: 'a' }
+      get :letters, params: { parliament_id: 'fHx6P1lb', letter: 'd' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -92,18 +92,18 @@ RSpec.describe Parliaments::ConstituenciesController, vcr: true do
       methods = [
           {
             route: 'index',
-            parameters: { parliament_id: '0FxbTVtr' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/0FxbTVtr/constituencies"
+            parameters: { parliament_id: 'fHx6P1lb' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliament_constituencies?parliament_id=fHx6P1lb"
           },
           {
             route: 'a_to_z',
-            parameters: { parliament_id: '0FxbTVtr' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/0FxbTVtr/constituencies"
+            parameters: { parliament_id: 'fHx6P1lb' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliament_constituencies?parliament_id=fHx6P1lb"
           },
           {
             route: 'letters',
-            parameters: { parliament_id: '0FxbTVtr', letter: 'a' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/0FxbTVtr/constituencies/a"
+            parameters: { parliament_id: 'fHx6P1lb', letter: 'a' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliament_constituencies_by_initial?parliament_id=fHx6P1lb&initial=a"
           }
         ]
 

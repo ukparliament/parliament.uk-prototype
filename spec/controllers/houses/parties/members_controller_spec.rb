@@ -4,7 +4,7 @@ RSpec.describe Houses::Parties::MembersController, vcr: true do
 
   describe "GET index" do
     before(:each) do
-      get :index, params: { house_id: 'cqIATgUK', party_id: 'YuP8Vh7a' }
+      get :index, params: { house_id: 'Kz7ncmrt', party_id: '891w1b1k' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -36,7 +36,7 @@ RSpec.describe Houses::Parties::MembersController, vcr: true do
 
   describe "GET letters" do
     before(:each) do
-      get :letters, params: { house_id: 'cqIATgUK', party_id: 'YuP8Vh7a', letter: 't' }
+      get :letters, params: { house_id: 'Kz7ncmrt', party_id: '891w1b1k', letter: 't' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -58,7 +58,7 @@ RSpec.describe Houses::Parties::MembersController, vcr: true do
 
     it 'assigns @people in alphabetical order' do
       expect(assigns(:people)[0].sort_name).to eq('A5EE13ABE03C4D3A8F1A274F57097B6C - 1')
-      expect(assigns(:people)[1].sort_name).to eq('A5EE13ABE03C4D3A8F1A274F57097B6C - 2')
+      expect(assigns(:people)[1].sort_name).to eq('A5EE13ABE03C4D3A8F1A274F57097B6C - 10')
     end
 
     it 'renders the party_members_letters template' do
@@ -68,7 +68,7 @@ RSpec.describe Houses::Parties::MembersController, vcr: true do
 
   describe "GET current" do
     before(:each) do
-      get :current, params: { house_id: 'mG2ur5TF', party_id: 'YuP8Vh7a' }
+      get :current, params: { house_id: 'Kz7ncmrt', party_id: '891w1b1k' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -100,7 +100,7 @@ RSpec.describe Houses::Parties::MembersController, vcr: true do
 
   describe "GET current_letters" do
     before(:each) do
-      get :current_letters, params: { house_id: 'mG2ur5TF', party_id: 'YuP8Vh7a', letter: 't' }
+      get :current_letters, params: { house_id: 'Kz7ncmrt', party_id: '891w1b1k', letter: 't' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -132,7 +132,7 @@ RSpec.describe Houses::Parties::MembersController, vcr: true do
 
   describe "GET a_to_z" do
     before(:each) do
-      get :a_to_z, params: { house_id: 'KL2k1BGP', party_id: 'P6LNyUn4' }
+      get :a_to_z, params: { house_id: 'Kz7ncmrt', party_id: '891w1b1k' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -150,7 +150,7 @@ RSpec.describe Houses::Parties::MembersController, vcr: true do
 
   describe "GET a_to_z_current" do
     before(:each) do
-      get :a_to_z_current, params: { house_id: 'KL2k1BGP', party_id: 'P6LNyUn4' }
+      get :a_to_z_current, params: { house_id: 'Kz7ncmrt', party_id: '891w1b1k' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -171,33 +171,33 @@ RSpec.describe Houses::Parties::MembersController, vcr: true do
       methods = [
           {
             route: 'index',
-            parameters: { house_id: 'cqIATgUK', party_id: 'P6LNyUn4' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/parties/P6LNyUn4/members"
+            parameters: { house_id: 'Kz7ncmrt', party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_party_members?house_id=Kz7ncmrt&party_id=891w1b1k"
           },
           {
             route: 'a_to_z_current',
-            parameters: { house_id: 'cqIATgUK', party_id: 'P6LNyUn4' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/parties/P6LNyUn4/members/current/a_z_letters"
+            parameters: { house_id: 'Kz7ncmrt', party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_party_current_members_a_to_z?house_id=Kz7ncmrt&party_id=891w1b1k"
           },
           {
             route: 'current',
-            parameters: { house_id: 'cqIATgUK', party_id: 'P6LNyUn4' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/parties/P6LNyUn4/members/current"
+            parameters: { house_id: 'Kz7ncmrt', party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_party_current_members?house_id=Kz7ncmrt&party_id=891w1b1k"
           },
           {
             route: 'letters',
-            parameters: { house_id: 'cqIATgUK', party_id: 'P6LNyUn4', letter: 't' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/parties/P6LNyUn4/members/t"
+            parameters: { house_id: 'Kz7ncmrt', party_id: '891w1b1k', letter: 't' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_party_members_by_initial?house_id=Kz7ncmrt&party_id=891w1b1k&initial=t"
           },
           {
             route: 'current_letters',
-            parameters: { house_id: 'cqIATgUK', party_id: 'P6LNyUn4', letter: 't' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/parties/P6LNyUn4/members/current/t"
+            parameters: { house_id: 'Kz7ncmrt', party_id: '891w1b1k', letter: 't' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_party_current_members_by_initial?house_id=Kz7ncmrt&party_id=891w1b1k&initial=t"
           },
           {
             route: 'a_to_z',
-            parameters: { house_id: 'cqIATgUK', party_id: 'P6LNyUn4' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/houses/cqIATgUK/parties/P6LNyUn4/members/a_z_letters"
+            parameters: { house_id: 'Kz7ncmrt', party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/house_party_members_a_to_z?house_id=Kz7ncmrt&party_id=891w1b1k"
           },
         ]
 

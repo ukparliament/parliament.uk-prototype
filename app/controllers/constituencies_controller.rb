@@ -2,16 +2,16 @@ class ConstituenciesController < ApplicationController
   before_action :data_check, :build_request, except: :postcode_lookup
 
   ROUTE_MAP = {
-    index:             proc { ParliamentHelper.parliament_request.constituencies },
-    show:              proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]) },
-    lookup:            proc { |params| ParliamentHelper.parliament_request.constituencies.lookup(params[:source], params[:id]) },
-    lookup_by_letters: proc { |params| ParliamentHelper.parliament_request.constituencies.partial(params[:letters]) },
-    a_to_z_current:    proc { ParliamentHelper.parliament_request.constituencies.current.a_z_letters },
-    current:           proc { ParliamentHelper.parliament_request.constituencies.current },
-    map:               proc { |params| ParliamentHelper.parliament_request.constituencies(params[:constituency_id]) },
-    letters:           proc { |params| ParliamentHelper.parliament_request.constituencies(params[:letter]) },
-    current_letters:   proc { |params| ParliamentHelper.parliament_request.constituencies.current(params[:letter]) },
-    a_to_z:            proc { ParliamentHelper.parliament_request.constituencies.a_z_letters }
+    index:             proc { ParliamentHelper.parliament_request.constituency_index },
+    show:              proc { |params| ParliamentHelper.parliament_request.constituency_by_id.set_url_params({ constituency_id: params[:constituency_id] }) },
+    lookup:            proc { |params| ParliamentHelper.parliament_request.constituency_lookup.set_url_params({ property: params[:source], value: params[:id] }) },
+    lookup_by_letters: proc { |params| ParliamentHelper.parliament_request.constituency_by_substring.set_url_params({ substring: params[:letters] }) },
+    a_to_z_current:    proc { ParliamentHelper.parliament_request.constituency_current_a_to_z },
+    current:           proc { ParliamentHelper.parliament_request.constituency_current },
+    map:               proc { |params| ParliamentHelper.parliament_request.constituency_map.set_url_params({ constituency_id: params[:constituency_id] }) },
+    letters:           proc { |params| ParliamentHelper.parliament_request.constituency_by_initial.set_url_params({ initial: params[:letter] }) },
+    current_letters:   proc { |params| ParliamentHelper.parliament_request.constituency_current_by_initial.set_url_params({ initial: params[:letter] }) },
+    a_to_z:            proc { ParliamentHelper.parliament_request.constituency_a_to_z }
   }.freeze
 
   # Renders a list of all constituencies with current incumbents and sorted in ascending order by name from a GET request. Shown with an a - z partial view.
@@ -112,7 +112,7 @@ class ConstituenciesController < ApplicationController
 
       format.json do
         @constituency = RequestHelper.filter_response_data(
-          ParliamentHelper.parliament_request.constituencies(params[:constituency_id]).map,
+          ParliamentHelper.parliament_request.constituency_map.set_url_params({ constituency_id: params[:constituency_id] }),
           'http://id.ukpds.org/schema/ConstituencyGroup'
         ).first
 

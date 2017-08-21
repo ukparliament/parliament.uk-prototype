@@ -42,7 +42,7 @@ VCR.configure do |config|
 
   # Dynamically filter n-triple data
   config.before_record do |interaction|
-    should_ignore = ['_:node', '^^<http://www.w3.org/2001/XMLSchema#date>', '^^<http://www.w3.org/2001/XMLSchema#integer>']
+    should_ignore = ['_:node', '^^<http://www.w3.org/2001/XMLSchema#date>', '^^<http://www.w3.org/2001/XMLSchema#dateTime>', '^^<http://www.w3.org/2001/XMLSchema#integer>']
 
     # Check if content type header exists and if it includes application/n-triples
     if interaction.response.headers['Content-Type'] && interaction.response.headers['Content-Type'].include?('application/n-triples')

@@ -2,8 +2,8 @@ class ContactPointsController < ApplicationController
   before_action :data_check, :build_request
 
   ROUTE_MAP = {
-    index: proc { ParliamentHelper.parliament_request.contact_points },
-    show:  proc { |params| ParliamentHelper.parliament_request.contact_points(params[:contact_point_id]) }
+    index: proc { ParliamentHelper.parliament_request.contact_point_index },
+    show:  proc { |params| ParliamentHelper.parliament_request.contact_point_by_id.set_url_params({ contact_point_id: params[:contact_point_id] }) }
   }.freeze
 
   def index

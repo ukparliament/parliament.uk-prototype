@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/constituencies/vUPobpVT
+    uri: http://localhost:3030/constituency_by_id?constituency_id=xeQCZvTU
     body:
       encoding: US-ASCII
       string: ''
@@ -26,137 +26,76 @@ http_interactions:
       Pragma:
       - no-cache
       Content-Length:
-      - '35598'
+      - '4370'
       Content-Type:
       - application/n-triples
       Expires:
       - "-1"
-      Set-Cookie:
-      - ARRAffinity=5869ab2b19db54ab1fc3138b40cd744a8060aae3ae1797c06555ae8e3eaaec5d;Path=/;Domain=20170418155059fixedquery.azurewebsites.net
+      Server:
+      - Microsoft-IIS/8.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
       Date:
-      - Thu, 20 Apr 2017 15:23:27 GMT
+      - Wed, 02 Aug 2017 09:23:36 GMT
     body:
       encoding: UTF-8
-      string: "<http://id.ukpds.org/vUPobpVT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/ConstituencyGroup> .\r\n<http://id.ukpds.org/vUPobpVT>
-        <http://id.ukpds.org/schema/constituencyGroupStartDate> \"2005-04-05\"^^<http://www.w3.org/2001/XMLSchema#date>
-        .\r\n<http://id.ukpds.org/vUPobpVT> <http://id.ukpds.org/schema/constituencyGroupName>
-        \"constituencyGroupName - 1\" .\r\n<http://id.ukpds.org/vUPobpVT> <http://id.ukpds.org/schema/constituencyGroupOnsCode>
-        \"constituencyGroupOnsCode - 1\" .\r\n<http://id.ukpds.org/vUPobpVT> <http://id.ukpds.org/schema/constituencyGroupHasConstituencyArea>
-        <http://id.ukpds.org/xkvMZT7t> .\r\n<http://id.ukpds.org/xkvMZT7t> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/ConstituencyArea> .\r\n<http://id.ukpds.org/xkvMZT7t>
-        <http://id.ukpds.org/schema/constituencyAreaLatitude> \"constituencyAreaLatitude
-        - 1\"^^<http://www.w3.org/2001/XMLSchema#decimal> .\r\n<http://id.ukpds.org/xkvMZT7t>
-        <http://id.ukpds.org/schema/constituencyAreaLongitude> \"constituencyAreaLongitude
-        - 1\"^^<http://www.w3.org/2001/XMLSchema#decimal> .\r\n<http://id.ukpds.org/xkvMZT7t>
-        <http://id.ukpds.org/schema/constituencyAreaExtent> \"constituencyAreaExtent
-        - 1\"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .\r\n<http://id.ukpds.org/vUPobpVT>
-        <http://id.ukpds.org/schema/constituencyGroupHasHouseSeat> <http://id.ukpds.org/g484XG5F>
-        .\r\n<http://id.ukpds.org/g484XG5F> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/HouseSeat> .\r\n<http://id.ukpds.org/g484XG5F>
-        <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency> <http://id.ukpds.org/YOdbl0G0>
-        .\r\n<http://id.ukpds.org/YOdbl0G0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/SeatIncumbency> .\r\n<http://id.ukpds.org/YOdbl0G0>
-        <http://id.ukpds.org/schema/incumbencyHasMember> <http://id.ukpds.org/tDzpbTmd>
-        .\r\n<http://id.ukpds.org/YOdbl0G0> <http://id.ukpds.org/schema/incumbencyStartDate>
-        \"2015-05-07\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/tDzpbTmd>
-        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/Person>
-        .\r\n<http://id.ukpds.org/tDzpbTmd> <http://id.ukpds.org/schema/personGivenName>
-        \"personGivenName - 1\" .\r\n<http://id.ukpds.org/tDzpbTmd> <http://id.ukpds.org/schema/personFamilyName>
-        \"personFamilyName - 1\" .\r\n<http://id.ukpds.org/tDzpbTmd> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF>
-        \"F31CBD81AD8343898B49DC65743F0BDF - 1\" .\r\n<http://id.ukpds.org/g484XG5F>
-        <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency> <http://id.ukpds.org/HMmjTc59>
-        .\r\n<http://id.ukpds.org/HMmjTc59> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/SeatIncumbency> .\r\n<http://id.ukpds.org/HMmjTc59>
-        <http://id.ukpds.org/schema/incumbencyHasMember> <http://id.ukpds.org/ZxEsuntt>
-        .\r\n<http://id.ukpds.org/HMmjTc59> <http://id.ukpds.org/schema/incumbencyEndDate>
-        \"2010-05-06\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/HMmjTc59>
-        <http://id.ukpds.org/schema/incumbencyStartDate> \"2005-05-05\"^^<http://www.w3.org/2001/XMLSchema#date>
-        .\r\n<http://id.ukpds.org/ZxEsuntt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/Person> .\r\n<http://id.ukpds.org/ZxEsuntt> <http://id.ukpds.org/schema/personGivenName>
-        \"personGivenName - 2\" .\r\n<http://id.ukpds.org/ZxEsuntt> <http://id.ukpds.org/schema/personFamilyName>
-        \"personFamilyName - 2\" .\r\n<http://id.ukpds.org/ZxEsuntt> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF>
-        \"F31CBD81AD8343898B49DC65743F0BDF - 2\" .\r\n<http://id.ukpds.org/g484XG5F>
-        <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency> <http://id.ukpds.org/mGAt1Udy>
-        .\r\n<http://id.ukpds.org/mGAt1Udy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/SeatIncumbency> .\r\n<http://id.ukpds.org/mGAt1Udy>
-        <http://id.ukpds.org/schema/incumbencyHasMember> <http://id.ukpds.org/ZxEsuntt>
-        .\r\n<http://id.ukpds.org/mGAt1Udy> <http://id.ukpds.org/schema/incumbencyEndDate>
-        \"2015-03-30\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/mGAt1Udy>
+      string: "<http://id.ukpds.org/xeQCZvTU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/ConstituencyGroup> .\r\n<http://id.ukpds.org/xeQCZvTU>
+        <http://id.ukpds.org/schema/constituencyGroupStartDate> \"2010-05-06\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/xeQCZvTU> <http://id.ukpds.org/schema/constituencyGroupName>
+        \"constituencyGroupName - 481\" .\r\n<http://id.ukpds.org/xeQCZvTU> <http://id.ukpds.org/schema/constituencyGroupOnsCode>
+        \"constituencyGroupOnsCode - 1\" .\r\n<http://id.ukpds.org/xeQCZvTU> <http://id.ukpds.org/schema/constituencyGroupHasHouseSeat>
+        <http://id.ukpds.org/craglpru> .\r\n<http://id.ukpds.org/craglpru> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/HouseSeat> .\r\n<http://id.ukpds.org/craglpru>
+        <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency> <http://id.ukpds.org/v5cp5QOQ>
+        .\r\n<http://id.ukpds.org/v5cp5QOQ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/SeatIncumbency> .\r\n<http://id.ukpds.org/v5cp5QOQ>
+        <http://id.ukpds.org/schema/incumbencyHasMember> <http://id.ukpds.org/FRtq40fr>
+        .\r\n<http://id.ukpds.org/v5cp5QOQ> <http://id.ukpds.org/schema/incumbencyEndDate>
+        \"2015-03-30\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/v5cp5QOQ>
         <http://id.ukpds.org/schema/incumbencyStartDate> \"2010-05-06\"^^<http://www.w3.org/2001/XMLSchema#date>
-        .\r\n"
+        .\r\n<http://id.ukpds.org/FRtq40fr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Person> .\r\n<http://id.ukpds.org/FRtq40fr> <http://id.ukpds.org/schema/personGivenName>
+        \"personGivenName - 481\" .\r\n<http://id.ukpds.org/FRtq40fr> <http://id.ukpds.org/schema/memberHasMemberImage>
+        <http://id.ukpds.org/tBnbaUGL> .\r\n<http://id.ukpds.org/FRtq40fr> <http://example.com/F31CBD81AD8343898B49DC65743F0BDF>
+        \"F31CBD81AD8343898B49DC65743F0BDF - 481\" .\r\n<http://id.ukpds.org/FRtq40fr>
+        <http://id.ukpds.org/schema/partyMemberHasPartyMembership> <http://id.ukpds.org/KBKmK70h>
+        .\r\n<http://id.ukpds.org/tBnbaUGL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/MemberImage> .\r\n<http://id.ukpds.org/KBKmK70h>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.ukpds.org/schema/PartyMembership>
+        .\r\n<http://id.ukpds.org/KBKmK70h> <http://id.ukpds.org/schema/partyMembershipHasParty>
+        <http://id.ukpds.org/891w1b1k> .\r\n<http://id.ukpds.org/891w1b1k> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/Party> .\r\n<http://id.ukpds.org/891w1b1k> <http://id.ukpds.org/schema/partyName>
+        \"partyName - 1\" .\r\n<http://id.ukpds.org/FRtq40fr> <http://id.ukpds.org/schema/partyMemberHasPartyMembership>
+        <http://id.ukpds.org/REC9JvaA> .\r\n<http://id.ukpds.org/REC9JvaA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/PartyMembership> .\r\n<http://id.ukpds.org/REC9JvaA>
+        <http://id.ukpds.org/schema/partyMembershipHasParty> <http://id.ukpds.org/891w1b1k>
+        .\r\n<http://id.ukpds.org/FRtq40fr> <http://id.ukpds.org/schema/partyMemberHasPartyMembership>
+        <http://id.ukpds.org/GBHPPW3w> .\r\n<http://id.ukpds.org/GBHPPW3w> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/PartyMembership> .\r\n<http://id.ukpds.org/GBHPPW3w>
+        <http://id.ukpds.org/schema/partyMembershipHasParty> <http://id.ukpds.org/891w1b1k>
+        .\r\n<http://id.ukpds.org/craglpru> <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency>
+        <http://id.ukpds.org/EjNDlw6E> .\r\n<http://id.ukpds.org/EjNDlw6E> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/SeatIncumbency> .\r\n<http://id.ukpds.org/EjNDlw6E>
+        <http://id.ukpds.org/schema/incumbencyHasMember> <http://id.ukpds.org/FRtq40fr>
+        .\r\n<http://id.ukpds.org/EjNDlw6E> <http://id.ukpds.org/schema/incumbencyEndDate>
+        \"2017-05-03\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<http://id.ukpds.org/EjNDlw6E>
+        <http://id.ukpds.org/schema/incumbencyStartDate> \"2015-05-07\"^^<http://www.w3.org/2001/XMLSchema#date>
+        .\r\n<http://id.ukpds.org/craglpru> <http://id.ukpds.org/schema/houseSeatHasSeatIncumbency>
+        <http://id.ukpds.org/lb50tcD4> .\r\n<http://id.ukpds.org/lb50tcD4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/SeatIncumbency> .\r\n<http://id.ukpds.org/lb50tcD4>
+        <http://id.ukpds.org/schema/incumbencyHasMember> <http://id.ukpds.org/FRtq40fr>
+        .\r\n<http://id.ukpds.org/lb50tcD4> <http://id.ukpds.org/schema/incumbencyStartDate>
+        \"2017-06-08\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n"
     http_version: 
-  recorded_at: Thu, 20 Apr 2017 15:24:21 GMT
+  recorded_at: Wed, 02 Aug 2017 09:27:11 GMT
 - request:
     method: get
-    uri: http://localhost:5000/api/v2/groups/parliament/features/show-dissolution
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Bandiera Ruby Client / 3.0.4
-      Host:
-      - bandiera:5000
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      X-Content-Type-Options:
-      - nosniff
-      Content-Length:
-      - '17'
-    body:
-      encoding: UTF-8
-      string: '{"response":true}'
-    http_version: 
-  recorded_at: Mon, 08 May 2017 13:13:08 GMT
-- request:
-    method: get
-    uri: http://localhost:5000/api/v2/groups/parliament/features/show-register
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Bandiera Ruby Client / 3.0.4
-      Host:
-      - bandiera:5000
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      X-Content-Type-Options:
-      - nosniff
-      Content-Length:
-      - '84'
-    body:
-      encoding: UTF-8
-      string: '{"response":false,"warning":"This feature does not exist in the Bandiera
-        database."}'
-    http_version: 
-  recorded_at: Mon, 08 May 2017 13:13:08 GMT
-- request:
-    method: get
-    uri: http://localhost:3030/houses
+    uri: http://localhost:3030/house_index
     body:
       encoding: US-ASCII
       string: ''
@@ -176,7 +115,7 @@ http_interactions:
       message: OK
     headers:
       Cache-Control:
-      - no-store, must-revalidate, no-cache
+      - no-cache
       Pragma:
       - no-cache
       Content-Length:
@@ -184,22 +123,24 @@ http_interactions:
       Content-Type:
       - application/n-triples
       Expires:
-      - Fri, 02 Jun 2017 10:42:35 GMT
-      Set-Cookie:
-      - ARRAffinity=b33f2cf26cbb655976ea24d5d2dea6f44e1f8349a0c5eef4404e4762da5fe1ce;Path=/;Domain=20170412115159fixedquery.azurewebsites.net
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
       Date:
-      - Fri, 02 Jun 2017 10:42:35 GMT
+      - Wed, 02 Aug 2017 09:23:37 GMT
     body:
       encoding: UTF-8
-      string: "<http://id.ukpds.org/cqIATgUK> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/cqIATgUK> <http://id.ukpds.org/schema/houseName>
-        \"houseName - 1\" .\r\n<http://id.ukpds.org/mG2ur5TF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/mG2ur5TF> <http://id.ukpds.org/schema/houseName>
+      string: "<http://id.ukpds.org/Kz7ncmrt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/Kz7ncmrt> <http://id.ukpds.org/schema/houseName>
+        \"houseName - 1\" .\r\n<http://id.ukpds.org/MvLURLV5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        <http://id.ukpds.org/schema/House> .\r\n<http://id.ukpds.org/MvLURLV5> <http://id.ukpds.org/schema/houseName>
         \"houseName - 2\" .\r\n"
     http_version: 
-  recorded_at: Fri, 02 Jun 2017 10:42:37 GMT
+  recorded_at: Wed, 02 Aug 2017 09:27:11 GMT
 recorded_with: VCR 3.0.3

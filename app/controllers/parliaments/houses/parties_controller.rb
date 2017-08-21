@@ -4,8 +4,8 @@ module Parliaments
       before_action :data_check, :build_request
 
       ROUTE_MAP = {
-        index: proc { |params| ParliamentHelper.parliament_request.parliaments(params[:parliament_id]).houses(params[:house_id]).parties },
-        show:  proc { |params| ParliamentHelper.parliament_request.parliaments(params[:parliament_id]).houses(params[:house_id]).parties(params[:party_id]) }
+        index: proc { |params| ParliamentHelper.parliament_request.parliament_house_parties.set_url_params({ parliament_id: params[:parliament_id], house_id: params[:house_id] }) },
+        show:  proc { |params| ParliamentHelper.parliament_request.parliament_house_party.set_url_params({ parliament_id: params[:parliament_id], house_id: params[:house_id], party_id: params[:party_id] }) }
       }.freeze
 
       def index

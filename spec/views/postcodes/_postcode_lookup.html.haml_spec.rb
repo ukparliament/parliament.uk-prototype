@@ -17,14 +17,13 @@ RSpec.describe 'postcodes/_postcode_lookup', vcr: true do
 
   context 'postcode form' do
     it 'will render form to path' do
-      expect(rendered).to match(/form id="\postcodeSearch\" action="\/people\/7TX8ySd4\"/)
+      expect(rendered).to match(/form action="\/people\/7TX8ySd4\"/)
     end
   end
 
   context 'links' do
     it 'will render link to Royal Mail' do
       expect(rendered).to have_link('Royal Mail postcode finder', href: 'http://www.royalmail.com/find-a-postcode')
-      expect(rendered).to match(/title="website opens in a new window"/)
     end
   end
 end

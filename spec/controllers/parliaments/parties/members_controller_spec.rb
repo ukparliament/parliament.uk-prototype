@@ -4,7 +4,7 @@ RSpec.describe Parliaments::Parties::MembersController, vcr: true do
 
   describe 'GET index' do
     before(:each) do
-      get :index, params: { parliament_id: '0FxbTVtr', party_id: 'P6LNyUn4' }
+      get :index, params: { parliament_id: 'fHx6P1lb', party_id: '891w1b1k' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -35,7 +35,7 @@ RSpec.describe Parliaments::Parties::MembersController, vcr: true do
 
       it 'assigns @people in alphabetical order' do
         expect(assigns(:people)[0].given_name).to eq('personGivenName - 1')
-        expect(assigns(:people)[1].given_name).to eq('personGivenName - 2')
+        expect(assigns(:people)[1].given_name).to eq('personGivenName - 10')
       end
     end
 
@@ -46,7 +46,7 @@ RSpec.describe Parliaments::Parties::MembersController, vcr: true do
 
   describe 'GET a_to_z' do
     before(:each) do
-      get :a_to_z, params: { parliament_id: '0FxbTVtr', party_id: 'P6LNyUn4' }
+      get :a_to_z, params: { parliament_id: 'fHx6P1lb', party_id: '891w1b1k' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -80,7 +80,7 @@ RSpec.describe Parliaments::Parties::MembersController, vcr: true do
 
   describe 'GET letters' do
     before(:each) do
-      get :letters, params: { parliament_id: 'GEFMX81E', party_id: 'lk3RZ8EB', letter: 'a' }
+      get :letters, params: { parliament_id: 'fHx6P1lb', party_id: '891w1b1k', letter: 'd' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -117,18 +117,18 @@ RSpec.describe Parliaments::Parties::MembersController, vcr: true do
       methods = [
           {
             route: 'index',
-            parameters: { parliament_id: 'GEFMX81E', party_id: 'lk3RZ8EB' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/GEFMX81E/parties/lk3RZ8EB/members"
+            parameters: { parliament_id: 'fHx6P1lb', party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliament_party_members?parliament_id=fHx6P1lb&party_id=891w1b1k"
           },
           {
             route: 'a_to_z',
-            parameters: { parliament_id: 'GEFMX81E', party_id: 'lk3RZ8EB' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/GEFMX81E/parties/lk3RZ8EB/members"
+            parameters: { parliament_id: 'fHx6P1lb', party_id: '891w1b1k' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliament_party_members?parliament_id=fHx6P1lb&party_id=891w1b1k"
           },
           {
             route: 'letters',
-            parameters: { parliament_id: 'GEFMX81E', party_id: 'lk3RZ8EB', letter: 'a' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliaments/GEFMX81E/parties/lk3RZ8EB/members/a"
+            parameters: { parliament_id: 'fHx6P1lb', party_id: '891w1b1k', letter: 'd' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/parliament_party_members_by_initial?parliament_id=fHx6P1lb&party_id=891w1b1k&initial=d"
           }
         ]
 

@@ -45,14 +45,14 @@ RSpec.describe ResourceHelper, vcr: true do
   context 'producing statements for view' do
 
     before(:each) do
-      resource_uri = "http://id.ukpds.org/sYpq0s7D"
-      @results = ParliamentHelper.parliament_request.resources.get(params: { uri: resource_uri })
+      resource_uri = "http://id.ukpds.org/7KNGxTli"
+      @results = ParliamentHelper.parliament_request.resource_by_id.get(params: { uri: resource_uri })
     end
 
     it 'produces an array of single statements' do
       expect(ResourceHelper.produce_statements(@results)).to be_a(Array)
       expect(ResourceHelper.produce_statements(@results)[0]).to be_a(Array)
-      expect(ResourceHelper.produce_statements(@results).count).to eq(15)
+      expect(ResourceHelper.produce_statements(@results).count).to eq(57)
     end
 
   end
@@ -60,13 +60,13 @@ RSpec.describe ResourceHelper, vcr: true do
   context 'produces an array of types' do
 
     before(:each) do
-      resource_uri = "http://id.ukpds.org/sYpq0s7D"
-      @results = ParliamentHelper.parliament_request.resources.get(params: { uri: resource_uri })
+      resource_uri = "http://id.ukpds.org/7KNGxTli"
+      @results = ParliamentHelper.parliament_request.resource_by_id.get(params: { uri: resource_uri })
     end
 
     it 'produces an array of types' do
       expect(ResourceHelper.store_types(@results)).to be_a(Array)
-      expect(ResourceHelper.store_types(@results)).to include(:Incumbency)
+      expect(ResourceHelper.store_types(@results)).to include(:Person)
     end
   end
 

@@ -23,7 +23,7 @@ RSpec.describe PeopleController, vcr: true do
 
   describe 'GET lookup' do
     before(:each) do
-      get :lookup, params: { source: 'mnisId', id: '3898' }
+      get :lookup, params: { source: 'mnisId', id: '3299' }
     end
 
     it 'should have a response with http status redirect (302)' do
@@ -36,13 +36,13 @@ RSpec.describe PeopleController, vcr: true do
     end
 
     it 'redirects to people/:id' do
-      expect(response).to redirect_to(person_path('xKrfpZSp'))
+      expect(response).to redirect_to(person_path('toes2sa2'))
     end
   end
 
   describe "GET show" do
     before(:each) do
-      get :show, params: { person_id: '7TX8ySd4' }
+      get :show, params: { person_id: '7KNGxTli' }
     end
 
     it 'should have a response with http status ok (200)' do
@@ -81,7 +81,7 @@ RSpec.describe PeopleController, vcr: true do
 
     context 'given a valid postcode' do
       before(:each) do
-        get :show, params: { person_id: '7TX8ySd4' }, flash: { postcode: 'E2 0JA' }
+        get :show, params: { person_id: '7KNGxTli' }, flash: { postcode: 'E2 0JA' }
       end
 
       it 'assigns @postcode, @postcode_constituency' do
@@ -94,7 +94,7 @@ RSpec.describe PeopleController, vcr: true do
 
     context 'given an invalid postcode' do
       before(:each) do
-        get :show, params: { person_id: '7TX8ySd4' }, flash: { postcode: 'apple' }
+        get :show, params: { person_id: '7KNGxTli' }, flash: { postcode: 'apple' }
       end
 
       it 'assigns @postcode and flash[:error]' do
@@ -106,7 +106,7 @@ RSpec.describe PeopleController, vcr: true do
 
   describe "POST postcode_lookup" do
     before(:each) do
-      post :postcode_lookup, params: { person_id: '7TX8ySd4', postcode: 'E2 0JA' }
+      post :postcode_lookup, params: { person_id: '7KNGxTli', postcode: 'E2 0JA' }
     end
 
     it 'assigns flash[:postcode]' do
@@ -114,7 +114,7 @@ RSpec.describe PeopleController, vcr: true do
     end
 
     it 'redirects to people/:id' do
-      expect(response).to redirect_to(person_path('7TX8ySd4'))
+      expect(response).to redirect_to(person_path('7KNGxTli'))
     end
   end
 
@@ -214,7 +214,7 @@ RSpec.describe PeopleController, vcr: true do
       end
 
       it 'redirects to people/:id' do
-        expect(response).to redirect_to(person_path('SmopkDY2'))
+        expect(response).to redirect_to(person_path('PjRtyVbi'))
       end
     end
   end
@@ -231,31 +231,31 @@ RSpec.describe PeopleController, vcr: true do
       methods = [
           {
             route: 'index',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/person_index"
           },
           {
             route: 'show',
-            parameters: { person_id: '7TX8ySd4' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/7TX8ySd4"
+            parameters: { person_id: 'toes2sa2' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/person_by_id?person_id=toes2sa2"
           },
           {
             route: 'lookup',
-            parameters: { source: 'mnisId', id: '3898' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/lookup/mnisId/3898"
+            parameters: { source: 'mnisId', id: '3299' },
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/person_lookup?property=mnisId&value=3299"
           },
           {
             route: 'letters',
             parameters: { letter: 'l' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/l"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/person_by_initial?initial=l"
           },
           {
             route: 'a_to_z',
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/a_z_letters"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/person_a_to_z"
           },
           {
             route: 'lookup_by_letters',
             parameters: { letters: 'creasy' },
-            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/people/partial/creasy"
+            data_url: "#{ENV['PARLIAMENT_BASE_URL']}/person_by_substring?substring=creasy"
           }
         ]
 

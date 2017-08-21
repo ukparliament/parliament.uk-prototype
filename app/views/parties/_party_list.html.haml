@@ -1,7 +1,7 @@
 -if @parties.empty?
   = render partial: 'shared/empty_list', locals: {title: nil, description: t('no_content.empty_list.parties.description', letter: params[:letter].upcase)}
 -else
-  %ul.list--box
+  %ul.list--block
     - @parties.each do |party|
       %li
         .list--details

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/parties/12345678/members
+    uri: http://localhost:3030/party_members?party_id=12345678
     body:
       encoding: US-ASCII
       string: ''
@@ -22,24 +22,28 @@ http_interactions:
       message: OK
     headers:
       Cache-Control:
-      - no-store, must-revalidate, no-cache
+      - no-cache
       Pragma:
       - no-cache
       Content-Length:
       - '0'
+      Content-Type:
+      - application/n-triples
       Expires:
-      - Tue, 13 Jun 2017 14:57:45 GMT
-      Set-Cookie:
-      - ARRAffinity=84da135d793d1a6b30cd9dc12f2e362e46368d998b5277708a22eabe7aaf7896;Path=/;Domain=20170412115159fixedquery.azurewebsites.net
+      - "-1"
+      Server:
+      - Microsoft-IIS/8.0
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
+      Set-Cookie:
+      - ARRAffinity=805c2491375cb99688705ea9b53fd3699437dea86054c9e040cc24406d1ad374;Path=/;HttpOnly;Domain=paramsrobust.azurewebsites.net
       Date:
-      - Tue, 13 Jun 2017 14:57:45 GMT
+      - Wed, 02 Aug 2017 09:53:49 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 13 Jun 2017 14:58:51 GMT
+  recorded_at: Wed, 02 Aug 2017 09:57:22 GMT
 recorded_with: VCR 3.0.3

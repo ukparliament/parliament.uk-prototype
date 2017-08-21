@@ -5,13 +5,13 @@ RSpec.describe 'houses/members/current_letters', vcr: true do
   describe 'no dissolution' do
     before :each do
       allow(FlagHelper).to receive(:dissolution?).and_return(true)
-      assign(:house, double(:house, name: 'House of Commons', graph_id: 'cqIATgUK'))
+      assign(:house, double(:house, name: 'House of Commons', graph_id: 'Kz7ncmrt'))
       assign(:people, [])
       assign(:current_person_type, 'MPs')
       assign(:other_person_type, 'Lords')
-      assign(:other_house_id, 'm1EgVTLj')
-      assign(:house_id, 'cqIATgUK')
-      assign(:party_id, 'jF43Jxoc')
+      assign(:other_house_id, 'MvLURLV5')
+      assign(:house_id, 'Kz7ncmrt')
+      assign(:party_id, '891w1b1k')
       assign(:letters, 'A')
       controller.params = { letter: 'a' }
 
@@ -48,13 +48,13 @@ RSpec.describe 'houses/members/current_letters', vcr: true do
   describe 'dissolution messaging' do
     before :each do
       allow(FlagHelper).to receive(:dissolution?).and_return(false)
-      assign(:house, double(:house, name: 'House of Commons', graph_id: 'cqIATgUK'))
+      assign(:house, double(:house, name: 'House of Commons', graph_id: 'Kz7ncmrt'))
       assign(:people, [])
       assign(:current_person_type, 'MPs')
       assign(:other_person_type, 'Lords')
-      assign(:other_house_id, 'm1EgVTLj')
-      assign(:house_id, 'cqIATgUK')
-      assign(:party_id, 'jF43Jxoc')
+      assign(:other_house_id, 'MvLURLV5')
+      assign(:house_id, 'Kz7ncmrt')
+      assign(:party_id, '891w1b1k')
       assign(:letters, 'A')
       controller.params = { letter: 'a' }
 
