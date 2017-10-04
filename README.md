@@ -1,4 +1,16 @@
 # Parliament.uk prototype
+
+> *Note*: parliament-prototype has been depreciated. This served as an initial incarnation of the new Parliament Beta website (https://beta.parliament.uk/).
+> 
+> This application has been split into three seperate applications, plus a number of gems:
+> * https://github.com/ukparliament/parliament.uk-utilities
+> * https://github.com/ukparliament/parliament.uk-lists
+> * https://github.com/ukparliament/parliament.uk-things
+>
+> Also see the below for additional helper repos
+> * https://github.com/ukparliament/parliament.uk-routing
+> * https://github.com/ukparliament/parliament-utils
+
 [Parliament.uk Prototype][parliament.uk-prototype] is a [Rails][rails] application designed to be the beginnings of a new [parliament.uk][parliament] website and API.
 
 [![Build][shield-build]][info-build] [![Gemnasium][shield-dependencies]][info-dependencies] [![License][shield-license]][info-license]
