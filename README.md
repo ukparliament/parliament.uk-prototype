@@ -2,7 +2,7 @@
 
 > *Note*: parliament-prototype has been depreciated. This served as an initial incarnation of the new Parliament Beta website (https://beta.parliament.uk/).
 > 
-> This application has been split into three seperate applications, plus a number of gems:
+> This application has been split into three separate applications, plus a number of gems to bring it closer to our digital principles (https://pds.blog.parliament.uk/2017/08/16/a-technology-strategy-for-parliament/):
 > * https://github.com/ukparliament/parliament.uk-utilities
 > * https://github.com/ukparliament/parliament.uk-lists
 > * https://github.com/ukparliament/parliament.uk-things
